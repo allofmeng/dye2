@@ -8,9 +8,16 @@
   "permissions": ["log", "api", "emit", "pluginStorage"],
   "settings": {},
   "api": [
-    { "id": "beans", "type": "http", "data": {} },
-    { "id": "grinders", "type": "http", "data": {} },
-    { "id": "bean-picker", "type": "http", "data": {} },
-    { "id": "grinder-picker", "type": "http", "data": {} }
+    { "id": "dashboard",      "type": "http", "data": {} },
+    { "id": "grinders",       "type": "http", "data": {} },
+    { "id": "grinder-picker", "type": "http", "data": {} },
+    { "id": "bean-picker",    "type": "http", "data": {} },
+    { "id": "roasters",       "type": "http", "data": {} },
+    { "id": "add-bean",       "type": "http", "data": {} },
+    { "id": "profile-picker", "type": "http", "data": {} },
+    { "id": "edit-shot",      "type": "http", "data": {} },
+    { "id": "auto-favs",      "type": "http", "data": {} },
+    { "id": "auto-fav-edit",  "type": "http", "data": {} },
+    { "id": "recipe-edit",    "type": "http", "data": {} }
   ]
 }

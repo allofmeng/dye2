@@ -10,7 +10,7 @@ export default defineConfig({
       formats: ["iife"],
       fileName: () => "plugin.js",
     },
-    outDir: resolve(__dirname, "../../assets/plugins/dye2.reaplugin"),
+    outDir: resolve(__dirname, "../dye2.reaplugin"),
     emptyOutDir: false,
     minify: false,
     rollupOptions: {
@@ -25,10 +25,7 @@ export default defineConfig({
     {
       name: "copy-manifest",
       closeBundle() {
-        const outDir = resolve(
-          __dirname,
-          "../../assets/plugins/dye2.reaplugin"
-        );
+        const outDir = resolve(__dirname, "../dye2.reaplugin");
         mkdirSync(outDir, { recursive: true });
         copyFileSync(
           resolve(__dirname, "manifest.json"),

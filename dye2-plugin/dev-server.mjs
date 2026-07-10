@@ -23,7 +23,7 @@ import vm from "node:vm";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PLUGIN_PATH = resolve(
   __dirname,
-  "../../assets/plugins/dye2.reaplugin/plugin.js"
+  "../dye2.reaplugin/plugin.js"
 );
 
 const PORT = parseInt(process.env.PORT || "4444", 10);
