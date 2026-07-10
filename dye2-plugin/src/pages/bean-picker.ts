@@ -1,0 +1,346 @@
+import { devPageShell } from "../utils/dev-shell";
+import { devApiScript } from "../utils/dev-api";
+
+const styles = `
+  .dye-sort-btn {
+    width: 100%;
+    padding: 12px 0;
+    border: 2px solid var(--mimoja-blue);
+    border-radius: 9999px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    text-align: center;
+    color: var(--mimoja-blue);
+    background: transparent;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .dye-sort-btn.dye-sort-active {
+    background: var(--mimoja-blue);
+    color: #fff;
+    border-color: var(--mimoja-blue);
+  }
+
+  .dye-card {
+    width: 100%;
+    min-height: 80px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 14px 18px;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    background: var(--box-color);
+    border: 1px solid var(--profile-button-outline-color);
+    color: var(--text-primary);
+    transition: background 0.15s, color 0.15s;
+    user-select: none;
+    gap: 8px;
+  }
+  .dye-card:hover { opacity: 0.85; }
+  .dye-card.dye-card-selected {
+    background: var(--mimoja-blue);
+    border-color: var(--mimoja-blue);
+    color: #fff;
+  }
+  .dye-card-add {
+    border: 2px solid var(--mimoja-blue);
+    color: var(--mimoja-blue);
+    font-size: 22px;
+    font-weight: 700;
+    gap: 8px;
+    background: var(--box-color);
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+  }
+  .dye-card-add svg { stroke: var(--mimoja-blue); }
+
+  .dye-card-name  { font-size: 22px; font-weight: 600; line-height: 1.3; }
+  .dye-card-sub   { font-size: 20px; font-weight: 400; opacity: 0.7; }
+  .dye-card-date  { font-size: 19px; font-weight: 400; opacity: 0.6; margin-top: 4px; }
+  .dye-card.dye-card-selected .dye-card-sub,
+  .dye-card.dye-card-selected .dye-card-date { opacity: 0.85; }
+
+  .dye-confirm-disabled {
+    background: var(--fav-button-wait, #e0e0e0);
+    color: var(--text-primary-disabled, #aaa);
+    cursor: not-allowed;
+  }
+  .dye-confirm-enabled {
+    background: var(--mimoja-blue);
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .dye-search-wrap { position: relative; width: 100%; margin-bottom: 10px; }
+  .dye-search-input {
+    width: 100%; height: 54px; border-radius: 12px; border: none;
+    background: #EDF0F4; padding: 0 46px 0 16px;
+    font-family: 'Inter', sans-serif; font-size: 19px;
+    color: var(--text-primary); outline: none;
+  }
+  .dye-search-input::placeholder { color: var(--text-primary-disabled); }
+  .dye-search-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+
+  #dye-cards-container::-webkit-scrollbar { width: 36px; }
+  #dye-cards-container::-webkit-scrollbar-track { background: transparent; }
+  #dye-cards-container::-webkit-scrollbar-thumb {
+    background: var(--profile-button-outline-color);
+    border-radius: 9999px;
+    border: 12px solid transparent;
+    background-clip: padding-box;
+  }
+`;
+
+const content = `
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-screen h-screen">
+
+  <!-- Top bar -->
+  <div class="flex justify-between items-center px-[38px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[134px] shrink-0">
+    <h1 class="text-[36px] font-bold text-[var(--text-primary)]">Select Beans</h1>
+    <div class="flex items-center gap-[14px]">
+      <button id="dye-cancel-btn" class="flex items-center justify-center h-[60px] px-[30px] rounded-[9999px] font-bold text-[24px] text-[var(--text-primary)] cursor-pointer">
+        CANCEL
+      </button>
+      <button id="dye-confirm-btn" class="flex items-center gap-[10px] justify-center h-[60px] px-[30px] rounded-[9999px] font-bold text-[24px] dye-confirm-disabled" disabled>
+        <span>SELECT ROASTER</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Body: sort rail + grid -->
+  <div class="flex flex-1 overflow-hidden">
+
+    <!-- Sort rail -->
+    <div id="dye-sort-sidebar" class="flex flex-col gap-[18px] items-stretch pt-[28px] px-[20px] shrink-0 w-[180px]">
+      <div class="dye-search-wrap">
+        <input id="dye-search-input" class="dye-search-input" type="text" placeholder="Search" />
+        <svg class="dye-search-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary-disabled)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </div>
+      <button class="dye-sort-btn dye-sort-active" data-sort="recent">Recent</button>
+      <button class="dye-sort-btn" data-sort="oldest">Oldest</button>
+      <button class="dye-sort-btn" data-sort="az">A-Z</button>
+      <button class="dye-sort-btn" data-sort="za">Z-A</button>
+      <button class="dye-sort-btn" data-sort="most-used">Most Used</button>
+      <button class="dye-sort-btn" data-sort="least-used">Least Used</button>
+    </div>
+
+    <!-- Card grid -->
+    <div id="dye-cards-container" class="flex-1 overflow-y-auto pt-[28px] px-[38px] pb-[28px]">
+      <div id="dye-cards-grid" class="grid grid-cols-3 gap-[20px]"></div>
+    </div>
+
+  </div>
+</div>
+`;
+
+const pageScript = `
+let beansCache = [];
+let batchMap = {};
+let searchQuery = '';
+let selectedBeanId = null;
+let fromEditShot = false;
+
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function latestBatch(batches) {
+  const arr = Array.isArray(batches) ? batches : (batches && batches.items ? batches.items : []);
+  if (!arr.length) return null;
+  return arr.slice().sort((a, b) => new Date(b.roastDate || 0) - new Date(a.roastDate || 0))[0];
+}
+
+function beanLine1(bean, batch) {
+  const parts = [bean.name];
+  if (batch && batch.harvestDate) parts.push(batch.harvestDate);
+  if (bean.country) parts.push(bean.country);
+  if (bean.processing) parts.push(bean.processing);
+  if (bean.variety && bean.variety.length) parts.push(bean.variety.join(', '));
+  return parts.filter(Boolean).join(', ');
+}
+
+function beanLine3(batch) {
+  if (!batch || !batch.roastDate) return '';
+  const rd = new Date(batch.roastDate);
+  if (isNaN(rd.getTime())) return '';
+  const dateStr = rd.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+  const days = Math.floor((Date.now() - rd.getTime()) / 86400000);
+  return dateStr + ' (' + days + ' days off-roast)';
+}
+
+function matchesSearch(bean) {
+  if (!searchQuery) return true;
+  const hay = beanLine1(bean, batchMap[bean.id]) + ' ' + (bean.roaster || '');
+  return hay.toLowerCase().includes(searchQuery);
+}
+
+function sortItems(items, sortKey) {
+  const sorted = [...items];
+  switch (sortKey) {
+    case 'recent':  sorted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); break;
+    case 'oldest':  sorted.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)); break;
+    case 'az':      sorted.sort((a, b) => (a.name || '').localeCompare(b.name || '')); break;
+    case 'za':      sorted.sort((a, b) => (b.name || '').localeCompare(a.name || '')); break;
+    default:        sorted.sort((a, b) => (a.name || '').localeCompare(b.name || '')); break;
+  }
+  return sorted;
+}
+
+function setupSortButtons(onSort) {
+  const sidebar = document.getElementById('dye-sort-sidebar');
+  if (!sidebar) return;
+  sidebar.querySelectorAll('.dye-sort-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      sidebar.querySelectorAll('.dye-sort-btn').forEach(b => b.classList.remove('dye-sort-active'));
+      btn.classList.add('dye-sort-active');
+      onSort(btn.dataset.sort);
+    });
+  });
+}
+
+function updateConfirmButton(confirmBtn) {
+  if (!confirmBtn) return;
+  const enabled = !!selectedBeanId;
+  confirmBtn.disabled = !enabled;
+  confirmBtn.classList.toggle('dye-confirm-disabled', !enabled);
+  confirmBtn.classList.toggle('dye-confirm-enabled', enabled);
+  // Only send to the roaster picker when the chosen bean has no roaster yet.
+  const roaster = sessionStorage.getItem('dye_selectedBeanRoaster') || '';
+  const label = confirmBtn.querySelector('span');
+  if (label) label.textContent = (fromEditShot || roaster) ? 'CONFIRM' : 'SELECT ROASTER';
+}
+
+function renderBeanCards(grid, beans, confirmBtn) {
+  grid.innerHTML = '';
+
+  const addCard = document.createElement('div');
+  addCard.className = 'dye-card dye-card-add';
+  addCard.innerHTML = '<span>ADD NEW BEANS +</span><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
+  addCard.addEventListener('click', () => { window.location.href = '/api/v1/plugins/dye2.reaplugin/add-bean'; });
+  grid.appendChild(addCard);
+
+  beans.forEach(bean => {
+    const card = document.createElement('div');
+    card.className = 'dye-card';
+    const batch = batchMap[bean.id];
+    const line3 = beanLine3(batch);
+    card.innerHTML =
+      '<div class="dye-card-name">' + esc(beanLine1(bean, batch) || 'Unnamed') + '</div>' +
+      (bean.roaster ? '<div class="dye-card-sub">' + esc(bean.roaster) + '</div>' : '') +
+      (line3 ? '<div class="dye-card-date">' + esc(line3) + '</div>' : '');
+    if (bean.id === selectedBeanId) card.classList.add('dye-card-selected');
+    card.addEventListener('click', () => {
+      grid.querySelectorAll('.dye-card').forEach(c => c.classList.remove('dye-card-selected'));
+      card.classList.add('dye-card-selected');
+      selectedBeanId = bean.id;
+      sessionStorage.setItem('dye_selectedBeanId', bean.id);
+      sessionStorage.setItem('dye_selectedBeanName', bean.name || '');
+      sessionStorage.setItem('dye_selectedBeanRoaster', bean.roaster || '');
+      sessionStorage.setItem('dye_selectedBatchId', (batch && batch.id) || '');
+      sessionStorage.setItem('dye_selectedRoastDate', (batch && batch.roastDate) || '');
+      updateConfirmButton(confirmBtn);
+    });
+    grid.appendChild(card);
+  });
+}
+
+async function initializeDyeBeans() {
+  const grid = document.getElementById('dye-cards-grid');
+  const cancelBtn = document.getElementById('dye-cancel-btn');
+  const confirmBtn = document.getElementById('dye-confirm-btn');
+  if (!grid) return;
+
+  selectedBeanId = sessionStorage.getItem('dye_selectedBeanId') || null;
+  // ?return=<route> → caller (e.g. recipe-edit) wants the pick handed back via the
+  // dye_selectedBean* keys, not written to the active workflow. Navigate there on confirm.
+  const returnTo = new URLSearchParams(location.search).get('return');
+  let currentSort = 'recent';
+
+  try {
+    const result = await getBeans();
+    beansCache = Array.isArray(result) ? result : (result.items || []);
+  } catch (e) {
+    console.error('Failed to load beans:', e);
+    beansCache = [];
+  }
+
+  function render() {
+    renderBeanCards(grid, sortItems(beansCache.filter(matchesSearch), currentSort), confirmBtn);
+  }
+
+  render();
+  updateConfirmButton(confirmBtn);
+  setupSortButtons((sort) => { currentSort = sort; render(); });
+
+  const searchInput = document.getElementById('dye-search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', () => { searchQuery = searchInput.value.trim().toLowerCase(); render(); });
+  }
+
+  // ponytail: N+1 batch fetch — fine for a bounded picker list; add ?include=latestBatch to /beans if it gets slow.
+  Promise.all(beansCache.map(async (b) => {
+    try { batchMap[b.id] = latestBatch(await getBeanBatches(b.id)); }
+    catch (e) { batchMap[b.id] = null; }
+  })).then(render).catch((e) => console.warn('batch load failed:', e));
+
+  if (cancelBtn) {
+    cancelBtn.addEventListener('click', () => {
+      ['dye_selectedBeanId','dye_selectedBeanName','dye_selectedBeanRoaster','dye_selectedBatchId']
+        .forEach(k => sessionStorage.removeItem(k));
+      window.history.back();
+    });
+  }
+
+  // Came from edit-shot (via goToPicker) → return there with the pick instead of the
+  // normal bean→roaster flow. Selection is already stashed in sessionStorage on card click.
+  fromEditShot = sessionStorage.getItem('dye_editShotReturn') === '1';
+  updateConfirmButton(confirmBtn);
+
+  if (confirmBtn) {
+    confirmBtn.addEventListener('click', async () => {
+      if (!selectedBeanId) return;
+      // Return-target flow (recipe-edit): leave the pick in sessionStorage, hand control back.
+      if (returnTo) { window.location.href = returnTo; return; }
+      const roaster = sessionStorage.getItem('dye_selectedBeanRoaster') || '';
+      // Edit-shot round-trips via its draft; just go back and it folds in the selection.
+      if (fromEditShot) { window.history.back(); return; }
+      // Bean already has a roaster → no roaster step; write the workflow ourselves (roasters.ts
+      // is what normally does this) and return to whatever page opened the picker.
+      if (roaster) {
+        const coffeeName  = sessionStorage.getItem('dye_selectedBeanName') || '';
+        const beanBatchId = sessionStorage.getItem('dye_selectedBatchId') || undefined;
+        try { await updateWorkflow({ context: { coffeeName, coffeeRoaster: roaster, beanBatchId } }); }
+        catch (e) { console.error('Failed to update workflow:', e); }
+        ['dye_selectedBeanId','dye_selectedBeanName','dye_selectedBeanRoaster','dye_selectedBatchId','dye_selectedRoastDate']
+          .forEach(k => sessionStorage.removeItem(k));
+        window.history.back();
+      } else {
+        window.location.href = '/api/v1/plugins/dye2.reaplugin/roasters';
+      }
+    });
+  }
+}
+
+initializeDyeBeans().catch(e => console.error('initializeDyeBeans failed:', e));
+
+// Returning from /add-bean restores this page frozen from bfcache — reload to re-fetch.
+window.addEventListener('pageshow', function(e) { if (e.persisted) window.location.reload(); });
+`;
+
+export function renderBeanPickerPage(request: HttpRequest): HttpResponse {
+  return {
+    requestId: request.requestId,
+    status: 200,
+    headers: { "Content-Type": "text/html; charset=utf-8" },
+    body: devPageShell("Select Beans", content, styles, [devApiScript, pageScript]),
+  };
+}

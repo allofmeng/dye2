@@ -1,0 +1,199 @@
+<div id="scaled-content">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-[1920px] h-[1200px]">
+    <!-- Header -->
+    <div class="flex justify-between items-center px-[37px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[165px]">
+        <h1 class="text-[38px] font-bold text-[var(--text-primary)] no-select">Add New Beans</h1>
+        <div class="flex items-center gap-[16px]">
+            <button id="dye-cancel-btn" class="flex justify-center items-center w-[240px] h-[82px] py-[27px] rounded-[68px] font-bold text-[24px] text-[var(--text-primary)]">
+                CANCEL
+            </button>
+            <button id="dye-confirm-btn" class="bg-[var(--mimoja-blue)] text-white flex items-center justify-center w-[240px] h-[82px] py-[27px] rounded-[68px] font-bold text-[24px]">
+                CONFIRM
+            </button>
+        </div>
+    </div>
+
+    <!-- Form Body -->
+    <div class="flex-1 flex items-center justify-center overflow-y-auto">
+        <div id="dye-add-bean-form" class="flex flex-col gap-[30px] w-[1200px]">
+
+            <!-- Beans Name -->
+            <div class="flex gap-[30px] items-center">
+                <label class="dye-form-label">Beans</label>
+                <div class="dye-form-input-wrap dye-dropdown-wrap">
+                    <input id="dye-bean-name" type="text" class="dye-form-input" placeholder="Enter bean name..." autocomplete="off">
+                    <svg class="dye-form-icon dye-dropdown-toggle" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--profile-button-outline-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    <div id="dye-bean-name-dropdown" class="dye-dropdown-menu"></div>
+                </div>
+            </div>
+
+            <!-- Roaster -->
+            <div class="flex gap-[30px] items-center">
+                <label class="dye-form-label">Roaster</label>
+                <div class="dye-form-input-wrap dye-dropdown-wrap">
+                    <input id="dye-bean-roaster" type="text" class="dye-form-input" placeholder="Enter or select roaster..." autocomplete="off">
+                    <svg class="dye-form-icon dye-dropdown-toggle" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--profile-button-outline-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    <div id="dye-bean-roaster-dropdown" class="dye-dropdown-menu"></div>
+                </div>
+            </div>
+
+            <!-- Roast Date -->
+            <div class="flex gap-[30px] items-center">
+                <label class="dye-form-label">Roast Date</label>
+                <div class="dye-form-input-wrap">
+                    <input id="dye-bean-roast-date" type="date" class="dye-form-input">
+                    <svg class="dye-form-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--profile-button-outline-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+                </div>
+            </div>
+
+            <!-- Bean Notes -->
+            <div class="flex gap-[30px] items-start">
+                <label class="dye-form-label pt-[23px]">Bean Notes</label>
+                <div class="dye-form-input-wrap dye-form-textarea-wrap">
+                    <textarea id="dye-bean-notes" class="dye-form-textarea" placeholder="Enter tasting notes, description..." rows="12"></textarea>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .dye-form-label {
+        width: 135px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        color: var(--mimoja-blue);
+        flex-shrink: 0;
+        line-height: 1.2;
+    }
+
+    .dye-form-input-wrap {
+        flex: 1;
+        border: 2px solid var(--profile-button-outline-color);
+        display: flex;
+        align-items: center;
+        padding: 23px 15px 23px 23px;
+        position: relative;
+    }
+
+    .dye-form-input {
+        flex: 1;
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        color: var(--text-primary);
+        background: transparent;
+        border: none;
+        outline: none;
+        line-height: 1.2;
+        width: 100%;
+    }
+    .dye-form-input::placeholder {
+        color: var(--low-contrast-white);
+    }
+
+    .dye-form-icon {
+        flex-shrink: 0;
+        margin-left: 8px;
+    }
+
+    /* Custom dropdown */
+    .dye-dropdown-wrap {
+        position: relative;
+    }
+
+    .dye-dropdown-toggle {
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+    .dye-dropdown-wrap.dye-dropdown-open .dye-dropdown-toggle {
+        transform: rotate(180deg);
+    }
+
+    .dye-dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: -2px;
+        right: -2px;
+        max-height: 360px;
+        overflow-y: auto;
+        background: var(--profile-button-background-color);
+        border: 2px solid var(--profile-button-outline-color);
+        border-top: none;
+        z-index: 50;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    .dye-dropdown-wrap.dye-dropdown-open .dye-dropdown-menu {
+        display: block;
+    }
+
+    .dye-dropdown-item {
+        padding: 18px 23px;
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        color: var(--text-primary);
+        cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .dye-dropdown-item:hover,
+    .dye-dropdown-item.dye-dropdown-highlight {
+        background: var(--mimoja-blue);
+        color: #fff;
+    }
+    .dye-dropdown-item + .dye-dropdown-item {
+        border-top: 1px solid var(--profile-button-outline-color);
+    }
+
+    .dye-dropdown-empty {
+        padding: 18px 23px;
+        font-family: 'Inter', sans-serif;
+        font-size: 22px;
+        color: var(--low-contrast-white);
+        font-style: italic;
+    }
+
+    /* Scrollbar for dropdown */
+    .dye-dropdown-menu::-webkit-scrollbar {
+        width: 12px;
+    }
+    .dye-dropdown-menu::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .dye-dropdown-menu::-webkit-scrollbar-thumb {
+        background: var(--profile-button-outline-color);
+        border-radius: 6px;
+        border: 3px solid transparent;
+        background-clip: padding-box;
+    }
+
+    .dye-form-textarea-wrap {
+        align-items: flex-start;
+    }
+
+    .dye-form-textarea {
+        flex: 1;
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        color: var(--text-primary);
+        background: transparent;
+        border: none;
+        outline: none;
+        line-height: 1.2;
+        width: 100%;
+        min-height: 479px;
+        resize: vertical;
+    }
+    .dye-form-textarea::placeholder {
+        color: var(--low-contrast-white);
+    }
+</style>
+
+<script src="src/modules/dye.js" type="module" defer></script>
+</div>

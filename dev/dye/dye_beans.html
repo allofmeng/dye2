@@ -1,0 +1,166 @@
+<div id="scaled-content">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-[1920px] h-[1200px]">
+    <!-- Header -->
+    <div class="flex justify-between items-center px-[37px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[165px]">
+        <h1 class="text-[38px] font-bold text-[var(--text-primary)] no-select">Select Beans</h1>
+        <div class="flex items-center gap-[16px]">
+            <button id="dye-cancel-btn" class="flex justify-center items-center w-[240px] h-[82px] py-[27px] rounded-[68px] font-bold text-[24px] text-[var(--text-primary)]">
+                CANCEL
+            </button>
+            <button id="dye-confirm-btn" class="bg-[var(--mimoja-blue)] text-white flex items-center justify-center w-[240px] h-[82px] py-[27px] rounded-[68px] font-bold text-[24px]">
+                CONFIRM
+            </button>
+        </div>
+    </div>
+
+    <!-- Body -->
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Sort Sidebar -->
+        <div id="dye-sort-sidebar" class="flex flex-col gap-[30px] items-start pt-[30px] pl-[37px] pr-[30px] shrink-0">
+            <button class="dye-sort-btn dye-sort-active" data-sort="recent">Recent</button>
+            <button class="dye-sort-btn" data-sort="oldest">Oldest</button>
+            <button class="dye-sort-btn" data-sort="az">A-Z</button>
+            <button class="dye-sort-btn" data-sort="za">Z-A</button>
+            <button class="dye-sort-btn" data-sort="most-used">Most Used</button>
+            <button class="dye-sort-btn" data-sort="least-used">Least Used</button>
+        </div>
+
+        <!-- Cards Grid -->
+        <div id="dye-cards-container" class="flex-1 overflow-y-auto pt-[30px] pr-[37px]">
+            <div id="dye-cards-grid" class="grid grid-cols-3 gap-[30px]">
+                <!-- Cards rendered by JS -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .dye-sort-btn {
+        width: 135px;
+        padding: 14px 0;
+        border: 2px solid var(--mimoja-blue);
+        border-radius: 23px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        font-size: 21px;
+        text-align: center;
+        color: var(--mimoja-blue);
+        background: transparent;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+    .dye-sort-btn.dye-sort-active {
+        background: var(--mimoja-blue);
+        color: #fff;
+    }
+
+    .dye-card {
+        width: 450px;
+        height: 225px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        cursor: pointer;
+        background: var(--box-color);
+        border: 1px solid var(--profile-button-outline-color);
+        color: var(--text-primary);
+        transition: background 0.15s, color 0.15s, border-color 0.15s;
+        user-select: none;
+        overflow: hidden;
+    }
+    .dye-card:hover {
+        opacity: 0.85;
+    }
+    .dye-card.dye-card-selected {
+        background: var(--mimoja-blue);
+        border-color: var(--mimoja-blue);
+        color: #fff;
+    }
+    .dye-card.dye-card-selected .dye-card-divider {
+        border-color: rgba(255,255,255,0.3);
+    }
+
+    .dye-card-name {
+        width: 100%;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 1.2;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+    .dye-card-roaster {
+        width: 100%;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 1.2;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+    .dye-card-divider {
+        width: 100%;
+        border: none;
+        border-top: 1px solid var(--profile-button-outline-color);
+        margin: 0;
+    }
+    .dye-card-date {
+        width: 100%;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 1.2;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .dye-card-add {
+        grid-column: 1 / -1;
+        width: 100%;
+        height: 90px;
+        flex-direction: row;
+        justify-content: center;
+        border-color: var(--mimoja-blue);
+        color: var(--mimoja-blue);
+        font-weight: 700;
+        gap: 8px;
+        background: var(--box-color);
+    }
+    .dye-card-add svg {
+        stroke: var(--mimoja-blue);
+    }
+
+    /* Custom scrollbar */
+    #dye-cards-container::-webkit-scrollbar {
+        width: 45px;
+    }
+    #dye-cards-container::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    #dye-cards-container::-webkit-scrollbar-thumb {
+        background: var(--profile-button-outline-color);
+        border-radius: 53px;
+        border: 14px solid transparent;
+        background-clip: padding-box;
+    }
+</style>
+
+<script src="src/modules/dye.js" type="module" defer></script>
+</div>
