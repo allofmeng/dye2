@@ -90,7 +90,7 @@ const styles = `
 `;
 
 const content = `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-screen h-screen">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
   <div class="flex justify-between items-center px-[37px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[165px]">
     <h1 class="text-[38px] font-bold text-[var(--text-primary)] no-select">Add New Beans</h1>
     <div class="flex items-center gap-[16px]">

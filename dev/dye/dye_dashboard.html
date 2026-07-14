@@ -301,7 +301,38 @@
 
 </div>
 
+<!-- Read Note modal (read-only) -->
+<div id="dye-note-overlay" class="dye-note-overlay">
+    <div class="dye-note-modal">
+        <h2 style="font-size:28px;font-weight:700;color:var(--text-primary);margin-bottom:24px;">Shot Note</h2>
+        <div id="dye-note-body" style="font-size:22px;line-height:1.5;color:var(--text-primary);white-space:pre-wrap;max-height:50vh;overflow-y:auto;margin-bottom:28px;">—</div>
+        <div style="display:flex;justify-content:flex-end;">
+            <button id="dye-note-close" style="padding:0 30px;height:60px;border-radius:9999px;font-family:'Inter',sans-serif;font-size:22px;font-weight:700;color:var(--text-primary);cursor:pointer;">Close</button>
+        </div>
+    </div>
+</div>
+
 <style>
+    .dye-note-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 200;
+        align-items: center;
+        justify-content: center;
+    }
+    .dye-note-overlay.open {
+        display: flex;
+    }
+    .dye-note-modal {
+        background: var(--box-color);
+        border-radius: 24px;
+        padding: 40px 48px;
+        width: 640px;
+        font-family: 'Inter', sans-serif;
+    }
+
     .dye-dash-dropdown {
         display: none;
         position: absolute;

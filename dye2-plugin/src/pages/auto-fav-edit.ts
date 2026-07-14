@@ -170,7 +170,7 @@ function buildContent(): string {
   const defaultOn = new Set(['afe-profile', 'afe-beans', 'afe-grinder', 'afe-grind-setting', 'afe-dose', 'afe-drink']);
 
   return `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex flex-col w-screen h-screen font-['Inter',sans-serif]">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex flex-col font-['Inter',sans-serif]">
 
   <!-- Header bar -->
   <div class="flex items-center justify-between px-[38px] h-[110px] shrink-0 bg-[var(--box-color)] border-b border-[var(--profile-button-outline-color)]">
@@ -549,14 +549,24 @@ function snapshotFromWorkflow(wf) {
 
 async function initAutoFavEdit() {
   setupControls();
+  // Consume the edit id immediately (like dashboard/recipe-edit do): if left set it
+  // would hijack the next "new favourite" open — silently editing (and re-saving) the
+  // old one instead of creating, or, if it was since deleted, breaking renderFav.
   const favId = sessionStorage.getItem('dye_editAutoFavId');
+  sessionStorage.removeItem('dye_editAutoFavId');
+
+  let fav = null;
   if (favId) {
-    try { renderFav(await getAutoFavourite(favId)); }
+    try { fav = await getAutoFavourite(favId); }
     catch (e) { console.warn('Could not load auto-favourite:', e); }
-  } else {
-    try { const wf = await getWorkflow(); renderFav({ snapshot: snapshotFromWorkflow(wf), alwaysOnDashboard: true }); }
-    catch (e) { console.warn('Could not load workflow for new auto-favourite:', e); }
   }
+  // New favourite, or the requested one is gone: seed a fresh one from the workflow so
+  // renderFav always runs (populating defaults + disabling off-row pencils).
+  if (!fav) {
+    try { const wf = await getWorkflow(); fav = { snapshot: snapshotFromWorkflow(wf), alwaysOnDashboard: true }; }
+    catch (e) { console.warn('Could not load workflow for new auto-favourite:', e); fav = { snapshot: {}, alwaysOnDashboard: true }; }
+  }
+  renderFav(fav);
 }
 
 initAutoFavEdit().catch(e => console.error('initAutoFavEdit failed:', e));

@@ -8,6 +8,40 @@ interface DevShellOptions {
   plotly?: boolean;
 }
 
+// Pages are authored at a fixed 1920x1200 design reference (the Figma canvas at 75%,
+// 16:10 like the tablet). A uniform "contain" zoom scales the whole 1920x1200 canvas
+// to fit inside the viewport — using whichever axis is tighter — so proportions stay
+// exact AND the page never scrolls vertically. On a screen whose aspect differs from
+// 16:10 (e.g. a 16:9 monitor) the extra space becomes a thin letterbox margin around
+// the centred canvas, filled by the body background. On the real 16:10 tablet the fit
+// is exact with no letterbox. Zoom is on <html> so fixed-position modals scale too.
+// Roots must NOT carry w-screen/h-screen — this script owns their size.
+const fitScript = `
+(function () {
+  var DESIGN_W = 1920, DESIGN_H = 1200;
+  function fit() {
+    var z = Math.min(window.innerWidth / DESIGN_W, window.innerHeight / DESIGN_H);
+    document.documentElement.style.zoom = z;
+    // Under zoom, CSS space is viewport/z. Size the (flex-centring) body to that in
+    // design px so the extra axis becomes an even letterbox around the fixed canvas;
+    // vw/vh can't express this once zoom is applied, so the script sets it explicitly.
+    document.body.style.width  = (window.innerWidth  / z) + 'px';
+    document.body.style.height = (window.innerHeight / z) + 'px';
+    var root = document.body.firstElementChild;
+    if (root) {
+      root.style.width = DESIGN_W + 'px';
+      root.style.height = DESIGN_H + 'px';
+      // Pin the canvas so the centring flex body can't stretch it — some page roots
+      // carry a flex-grow class that would otherwise fill the width and defeat the
+      // fixed-proportion contain-fit. Keeps every page's letterbox identical.
+      root.style.flex = '0 0 auto';
+    }
+  }
+  fit();
+  window.addEventListener('resize', fit);
+})();
+`;
+
 /** CSS variable fallbacks for dev server (REA host injects real values in production) */
 function cssVarFallbacks(): string {
   return `
@@ -31,18 +65,15 @@ function cssVarFallbacks(): string {
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { width: 100%; height: 100%; }
-    /* Pages are built at the tablet's fixed 1280x800. On the real tablet nothing
-       overflows. On smaller windows (e.g. a Mac browser) let the page scroll
-       instead of clipping unreachable content. */
-    body { width: 100%; min-height: 100%; overflow-x: hidden; overflow-y: auto; }
-    /* When the viewport is shorter/narrower than the design, release the fixed
-       100vh/100vw root so it grows to its content and the body scrolls.
-       Media queries keep the real tablet (>=1280x800) byte-for-byte unchanged. */
-    @media (max-height: 799px) {
-      body > div[class*="h-screen"] { height: auto !important; min-height: 100vh; }
-    }
-    @media (max-width: 1279px) {
-      body > div[class*="w-screen"] { width: auto !important; min-width: 100vw; }
+    /* Pages are authored at the fixed 1920x1200 design reference and contain-fit into
+       the viewport by the fit script — the body never scrolls. Flex centres the design
+       canvas so any leftover space on a non-16:10 screen becomes an even letterbox
+       margin (in the --bgmain-color, so it reads as intentional page chrome). */
+    /* width/height set by the fit script (design px); flex centres the canvas. */
+    body {
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--bgmain-color);
     }
     body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
     button { font-family: inherit; cursor: pointer; background: none; border: none; }
@@ -75,6 +106,7 @@ export function devPageShell(
 </head>
 <body>
   ${content}
+  <script>${fitScript}</script>
   ${scripts.map((s) => `<script>${s}</script>`).join("\n")}
 </body>
 </html>`;

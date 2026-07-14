@@ -12,36 +12,50 @@ const NUM_RECIPES = 5;
 const styles = `
   ${stepperCss()}
   ${presetStripCss()}
+  /* Figma 2396:728: fixed 270x60 pills, stroke #C5CDDA, text #5F7BA8 */
   .re-tab {
-    padding: 14px 28px; border-radius: 23px;
+    width: 270px; height: 60px; border-radius: 15px;
+    display: flex; align-items: center; justify-content: center;
     font-family: 'Inter', sans-serif; font-weight: 600; font-size: 21px;
-    border: 2px solid var(--profile-button-outline-color);
-    background: transparent; color: var(--text-primary-disabled);
-    cursor: pointer; white-space: nowrap;
+    border: 2px solid #C5CDDA;
+    background: var(--box-color); color: #5F7BA8;
+    cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    flex-shrink: 0; padding: 0 10px;
   }
   .re-tab.active { background: var(--mimoja-blue); border-color: var(--mimoja-blue); color: #fff; }
-  .re-label { font-size: 24px; font-weight: 600; color: var(--mimoja-blue); margin-bottom: 8px; }
-  .re-input {
-    width: 100%; border: 1px solid var(--profile-button-outline-color);
-    border-radius: 12px; padding: 0 20px; height: 72px;
-    font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 400;
-    color: var(--text-primary); background: var(--box-color);
-    outline: none; display: flex; align-items: center;
+  .re-label { font-size: 24px; font-weight: 700; color: var(--mimoja-blue); margin-bottom: 8px; }
+  /* Figma 2396:747: label sits inline beside the input, 164px wide */
+  .re-field-label { font-size: 24px; font-weight: 700; color: var(--mimoja-blue); width: 164px; flex-shrink: 0; }
+  /* Figma 2396:749: one bordered box (2px #C9C9C9, square) holding text + edit icon */
+  .re-input-row {
+    display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0;
+    border: 2px solid #C9C9C9; background: var(--box-color);
+    height: 80px; padding: 0 15px 0 22px;
   }
-  input.re-input:focus { border-color: var(--mimoja-blue); }
-  .re-input-row { display: flex; align-items: center; gap: 12px; }
+  .re-input-row:focus-within { border-color: var(--mimoja-blue); }
+  .re-input {
+    flex: 1; min-width: 0; border: none; height: 100%;
+    font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 400;
+    color: var(--text-primary); background: transparent; outline: none;
+  }
   .re-input-pencil { flex-shrink: 0; opacity: 0.55; cursor: pointer; }
   .re-input-pencil:hover { opacity: 1; }
-  .re-chip-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+  /* Figma 2396:757: strict 3-column grid of 60px-tall pills */
+  .re-chip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
   .re-chip {
-    padding: 12px 22px; border-radius: 15px;
-    font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 600;
-    border: 2px solid var(--profile-button-outline-color);
-    background: var(--box-color); color: var(--text-primary);
-    cursor: pointer; white-space: nowrap;
+    height: 60px; border-radius: 15px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 600;
+    border: 2px solid #C5CDDA;
+    background: var(--box-color); color: #5F7BA8;
+    cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    padding: 0 10px;
   }
   .re-chip.active { background: var(--mimoja-blue); border-color: var(--mimoja-blue); color: #fff; }
-  .re-see-all { font-size: 22px; font-weight: 600; color: var(--mimoja-blue); cursor: pointer; padding: 12px 4px; }
+  .re-see-all {
+    height: 60px; display: flex; align-items: center; justify-content: center;
+    font-size: 21px; font-weight: 600; color: var(--mimoja-blue); cursor: pointer;
+  }
   .re-divider { height: 1px; background: var(--profile-button-outline-color); }
   .re-var-block { display: flex; flex-direction: column; gap: 8px; }
   .re-var-label { font-size: 22px; font-weight: 700; color: var(--mimoja-blue); margin-bottom: 2px; }
@@ -50,21 +64,28 @@ const styles = `
   .re-grinder-chip {
     background: none; border: none; padding: 0;
     font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 600;
-    color: var(--text-primary-disabled);
+    color: #B6C3D7;
     cursor: pointer; white-space: nowrap; flex-shrink: 0;
   }
   .re-grinder-chip.active { color: var(--mimoja-blue); font-weight: 700; }
+  /* Figma right column: presets spread across the stepper block width */
+  #re-right .re-var-block [id$="-presets"] { justify-content: space-between; }
   .footer-btn-ghost {
     border: 2px solid var(--mimoja-blue); color: var(--mimoja-blue); border-radius: 23px;
     padding: 0 28px; height: 60px; font-size: 21px; font-weight: 600; cursor: pointer;
     font-family: 'Inter', sans-serif; white-space: nowrap; display: flex; align-items: center; gap: 8px;
+    background: var(--box-color);
   }
+  /* Figma 2386:1884: bordered pill with check | divider | label */
   .re-show-streamline {
     display: flex; align-items: center; gap: 14px;
+    border: 2px solid var(--mimoja-blue); border-radius: 23px;
+    height: 60px; padding: 0 24px 0 16px; background: var(--box-color);
     font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 600;
     color: var(--mimoja-blue); cursor: pointer;
   }
-  .re-show-streamline-icon { flex-shrink: 0; }
+  .re-show-streamline-icon { flex-shrink: 0; display: flex; align-items: center; }
+  .re-show-streamline-sep { width: 2px; height: 36px; background: var(--profile-button-outline-color); flex-shrink: 0; }
   .read-from-dropdown {
     display: none; position: absolute; bottom: calc(100% + 4px); left: 0;
     min-width: 220px; background: var(--box-color);
@@ -97,24 +118,24 @@ function buildContent(): string {
   ).join('');
 
   return `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex flex-col w-screen h-screen font-['Inter',sans-serif]">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex flex-col font-['Inter',sans-serif]">
 
-  <!-- Header: title + recipe tabs -->
-  <div class="flex items-center gap-[28px] px-[38px] h-[110px] shrink-0 bg-[var(--box-color)] border-b border-[var(--profile-button-outline-color)]">
-    <span class="text-[30px] font-bold text-[var(--text-primary)] shrink-0">Edit Recipes</span>
-    <div id="re-tabs" class="flex gap-[12px] overflow-x-auto">
+  <!-- Header: title + recipe tabs on the grey strip (Figma 2386:1874) -->
+  <div class="flex items-center gap-[48px] px-[38px] h-[124px] shrink-0 bg-[var(--bgmain-color)] border-b border-[var(--profile-button-outline-color)]">
+    <span class="text-[30px] font-semibold text-[var(--text-primary)] shrink-0">Edit Recipes</span>
+    <div id="re-tabs" class="flex gap-[15px] overflow-x-auto" style="scrollbar-width:none">
       ${tabs}
     </div>
   </div>
 
-  <!-- Two-column body -->
+  <!-- Two-column body, 50/50 like the Figma columns -->
   <div class="flex flex-1 overflow-hidden">
 
     <!-- LEFT: recipe metadata -->
-    <div id="re-left" class="flex flex-col w-[720px] shrink-0 bg-white border-r border-[var(--profile-button-outline-color)] overflow-y-auto px-[38px] py-[28px] gap-[24px]">
+    <div id="re-left" class="flex flex-col w-1/2 shrink-0 bg-white border-r border-[var(--profile-button-outline-color)] overflow-y-auto px-[38px] py-[28px] gap-[24px]">
 
-      <div>
-        <div class="re-label">Recipe Name</div>
+      <div class="flex items-center gap-[30px]">
+        <span class="re-field-label">Recipe Name</span>
         <div class="re-input-row">
           <input id="re-name-input" class="re-input" type="text" placeholder="Recipe name…" />
           <button class="re-input-pencil" id="re-name-pencil">${pencilSvg}</button>
@@ -124,39 +145,37 @@ function buildContent(): string {
       <div class="re-divider"></div>
 
       <div>
-        <div class="re-label">Assign Bean</div>
+        <div class="re-label" style="margin-bottom:15px">Assign Bean</div>
         <div class="re-chip-grid" id="re-bean-chips"></div>
       </div>
 
       <div class="re-divider"></div>
 
       <div>
-        <div class="re-label">Assign Profile</div>
+        <div class="re-label" style="margin-bottom:15px">Assign Profile</div>
         <div class="re-chip-grid" id="re-profile-chips"></div>
       </div>
 
       <div class="re-divider"></div>
 
-      <div>
-        <div class="re-label">Beverage</div>
+      <div class="flex items-center gap-[30px]">
+        <span class="re-field-label">Beverage</span>
         <div class="re-input-row">
           <input id="re-beverage-input" class="re-input" type="text" placeholder="e.g. Cappucino" />
           <button class="re-input-pencil">${pencilSvg}</button>
         </div>
       </div>
 
-      <div class="re-divider"></div>
-
-      <div class="flex gap-[24px]">
-        <div class="flex-1">
-          <div class="re-label">Barista</div>
+      <div class="flex gap-[68px]">
+        <div class="flex items-center gap-[30px] flex-1 min-w-0">
+          <span class="re-field-label" style="width:auto">Barista</span>
           <div class="re-input-row">
             <input id="re-barista-input" class="re-input" type="text" placeholder="Barista" />
             <button class="re-input-pencil">${pencilSvg}</button>
           </div>
         </div>
-        <div class="flex-1">
-          <div class="re-label">Drinker</div>
+        <div class="flex items-center gap-[30px] flex-1 min-w-0">
+          <span class="re-field-label" style="width:auto">Drinker</span>
           <div class="re-input-row">
             <input id="re-drinker-input" class="re-input" type="text" placeholder="Drinker" />
             <button class="re-input-pencil">${pencilSvg}</button>
@@ -167,7 +186,7 @@ function buildContent(): string {
 
     <!-- RIGHT: Dashboard Variables (2-column, matches Figma) -->
     <div id="re-right" class="flex flex-col flex-1 bg-white overflow-y-auto px-[38px] py-[28px] gap-[24px]">
-      <div class="text-[26px] font-bold text-[var(--text-primary)]">Dashboard Variables</div>
+      <div class="text-[30px] font-bold text-[var(--mimoja-blue)]">Dashboard Variables</div>
 
       <!-- Row: Dose | Drink -->
       <div class="flex gap-[40px]">
@@ -221,30 +240,25 @@ function buildContent(): string {
 
       <div class="re-divider"></div>
 
-      <!-- Grinder chips -->
-      <div>
-        <div class="re-var-label">Grinder</div>
-        <div class="re-grinder-chips" id="re-grinder-chips">
-          <!-- populated by JS -->
-        </div>
+      <!-- Grinder names as plain text tabs (Figma 2396:991 — no label above) -->
+      <div class="re-grinder-chips" id="re-grinder-chips">
+        <!-- populated by JS -->
       </div>
 
-      <!-- Grind + RPM -->
-      <div class="flex items-center gap-[60px]">
-        <div class="re-var-block flex-1">
-          ${stepperHtml('re-grind', 'Grind', '80px')}
-          ${presetStripHtml('re-grind', ['1.5', '1.2', '1.8', '2.0'])}
+      <!-- Grind + RPM (no preset strips in Figma) -->
+      <div class="flex items-center gap-[90px]">
+        <div class="re-var-block">
+          ${stepperHtml('re-grind', 'Grind', '75px')}
         </div>
-        <div class="re-var-block flex-1">
-          ${stepperHtml('re-rpm', 'RPM', '80px')}
-          ${presetStripHtml('re-rpm', ['2', '4', '6', '8'])}
+        <div class="re-var-block">
+          ${stepperHtml('re-rpm', 'RPM', '75px')}
         </div>
       </div>
     </div>
   </div>
 
   <!-- Footer -->
-  <div class="flex items-center px-[38px] h-[90px] shrink-0 bg-[var(--box-color)] border-t border-[var(--profile-button-outline-color)] gap-[18px]">
+  <div class="flex items-center px-[38px] h-[120px] shrink-0 bg-[var(--box-color)] border-t border-[var(--profile-button-outline-color)] gap-[30px]">
     <button id="re-clear-btn" class="footer-btn-ghost">Clear all</button>
     <div class="relative">
       <button id="re-read-from-btn" class="footer-btn-ghost">Read From ${chevUpSvg}</button>
@@ -255,11 +269,12 @@ function buildContent(): string {
     </div>
     <button id="re-show-streamline-btn" class="re-show-streamline">
       <span id="re-show-streamline-icon" class="re-show-streamline-icon">${checkCircleSvg}</span>
+      <span class="re-show-streamline-sep"></span>
       <span>Show on Streamline Dashboard</span>
     </button>
     <div class="flex-1"></div>
-    <button id="re-cancel-btn" class="text-[24px] font-bold text-[var(--text-primary)] px-[30px] h-[62px]">CANCEL</button>
-    <button id="re-save-btn" class="bg-[var(--mimoja-blue)] text-white rounded-[68px] h-[62px] px-[40px] text-[24px] font-bold cursor-pointer">SAVE RECIPE</button>
+    <button id="re-cancel-btn" class="text-[24px] font-bold text-[var(--text-primary)] w-[240px] h-[76px]">CANCEL</button>
+    <button id="re-save-btn" class="bg-[var(--mimoja-blue)] text-white rounded-[68px] h-[76px] w-[300px] text-[24px] font-bold cursor-pointer">SAVE RECIPE</button>
   </div>
 </div>
 `;
@@ -406,18 +421,23 @@ async function readFromWorkflow() {
   };
 }
 
-// Build a recipe-shaped patch from a saved favourite's snapshot.
-async function readFromFavourite() {
-  const favs = await getAutoFavourites().catch(() => []);
-  if (!favs.length) return null;
-  // ponytail: use most-recent favourite; add a favourite picker if users need to choose one
-  const fav = favs.slice().sort((a, b) =>
-    (b.capturedAt || b.createdAt || '').localeCompare(a.capturedAt || a.createdAt || ''))[0];
+// Build a recipe-shaped patch from a chosen favourite's snapshot, loading the WHOLE
+// form (bean + profile included). Deliberately ignores the favourite's copyMask: the
+// user explicitly picked this favourite and confirmed, so "give me everything it has"
+// is least-surprising here (unlike the dashboard's auto-apply, which honours the mask).
+// Bean is matched by coffee name → bean id so the chip highlights; profile carries its
+// own id. brewC/steam/flush/hotWater aren't in a favourite snapshot, so those stay put.
+function favouriteToRecipePatch(fav) {
   const s = fav.snapshot || {};
+  const bean = s.coffeeName ? beans.find(b => b.name === s.coffeeName) : null;
   return {
-    beverage: fav.beverage || '',
-    barista:  s.barista || '',
-    drinker:  s.drinker || '',
+    beverage:     fav.beverage || '',
+    barista:      s.barista || '',
+    drinker:      s.drinker || '',
+    beanId:       bean ? bean.id : null,
+    beanName:     s.coffeeName || null,
+    profileId:    s.profileId || null,
+    profileTitle: s.profileTitle || null,
     dashboardVariables: {
       dose:  s.dose,
       drink: s.drink,
@@ -600,9 +620,11 @@ function setupFooter() {
     applyToCurrentRecipe(await readFromWorkflow());
     rfDrop?.classList.remove('open');
   });
-  document.getElementById('re-read-from-fav')?.addEventListener('click', async () => {
-    applyToCurrentRecipe(await readFromFavourite());
+  // Route to the Auto Favourites picker (select a card + Confirm). On return,
+  // initRecipeEdit reads dye_selectedAutoFavId and loads the whole recipe from it.
+  document.getElementById('re-read-from-fav')?.addEventListener('click', () => {
     rfDrop?.classList.remove('open');
+    goToPicker('/api/v1/plugins/dye2.reaplugin/auto-favs');
   });
 
   document.getElementById('re-name-pencil')?.addEventListener('click', () => {
@@ -701,6 +723,16 @@ async function initRecipeEdit() {
       }
     } catch (e) { console.warn('recipe draft restore failed:', e); }
   }
+  // Returning from the Auto Favourites picker: load the chosen favourite into this recipe.
+  // Applied after the draft restore so it overwrites the in-progress form as intended.
+  const selFavId = sessionStorage.getItem('dye_selectedAutoFavId');
+  if (selFavId) {
+    sessionStorage.removeItem('dye_selectedAutoFavId');
+    try {
+      const fav = await getAutoFavourite(selFavId);
+      if (fav) applyToCurrentRecipe(favouriteToRecipePatch(fav));
+    } catch (e) { console.warn('Could not load selected auto-favourite:', e); }
+  }
   const activeTab = document.querySelectorAll('.re-tab')[currentRecipeIdx];
   if (activeTab) {
     document.querySelectorAll('.re-tab').forEach(b => b.classList.remove('active'));
@@ -711,6 +743,11 @@ async function initRecipeEdit() {
 }
 
 initRecipeEdit().catch(e => console.error('initRecipeEdit failed:', e));
+
+// Returning via history.back() from the favourites picker can restore this page frozen
+// from bfcache, so init (and the apply-selected-favourite step) never re-runs — reload
+// to re-fetch and fold in the pick. Mirrors the dashboard.
+window.addEventListener('pageshow', function(e) { if (e.persisted) window.location.reload(); });
 `;
 
 export function renderRecipeEditPage(request: HttpRequest): HttpResponse {
