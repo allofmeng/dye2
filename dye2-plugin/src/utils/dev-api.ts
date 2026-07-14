@@ -138,12 +138,79 @@ function newId(prefix) {
   return (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : prefix + '-' + Date.now();
 }
 
+/* ── Denormalised fields written for the Streamline dashboard (read-only consumer).
+   Both builders return a ready-to-PUT WorkflowRequest body { context, profile? }.
+   They mirror dashboard.ts applyAutoFavourite/applyRecipe, but build a fresh ctx
+   and RETURN it instead of mutating currentWorkflow. Legacy fields are kept; these
+   are additive and consumers MUST treat them as optional. See KV_CONTRACT.md. */
+function buildFavouriteWorkflow(fav) {
+  const snp = (fav && fav.snapshot) || {};
+  const mask = (fav && fav.copyMask) || {};
+  const on = k => mask[k] !== false;
+  const ctx = {};
+  const wf = { context: ctx };
+  if (on('dose')  && snp.dose  != null) ctx.targetDoseWeight = snp.dose;
+  if (on('drink') && snp.drink != null) ctx.targetYield = snp.drink;
+  if (on('grindSetting')) {
+    if (snp.grindSetting != null) ctx.grinderSetting = String(snp.grindSetting);
+    if (snp.rpm != null) ctx.extras = { ...(ctx.extras || {}), rpm: snp.rpm };
+  }
+  if (on('grinder')) {
+    if (snp.grinderId) ctx.grinderId = snp.grinderId;
+    if (snp.grinderModel) ctx.grinderModel = snp.grinderModel;
+  }
+  if (on('beans')) {
+    if (snp.beanBatchId) ctx.beanBatchId = snp.beanBatchId;
+    if (snp.coffeeName) ctx.coffeeName = snp.coffeeName;
+    if (snp.coffeeRoaster) ctx.coffeeRoaster = snp.coffeeRoaster;
+  }
+  if (on('roastDate') && snp.roastDate) ctx.roastDate = snp.roastDate;
+  if (on('barista')   && snp.barista)   ctx.baristaName = snp.barista;
+  if (on('drinker')   && snp.drinker)   ctx.drinkerName = snp.drinker;
+  if (on('note')      && snp.note)      ctx.extras = { ...(ctx.extras || {}), note: snp.note };
+  if (on('profile') && (snp.profileId || snp.profileTitle)) {
+    wf.profile = { id: snp.profileId, title: snp.profileTitle };
+  }
+  return wf;
+}
+
+function buildRecipeWorkflow(recipe) {
+  const dv = (recipe && recipe.dashboardVariables) || {};
+  const ctx = {};
+  const wf = { context: ctx };
+  if (dv.dose != null)  ctx.targetDoseWeight = dv.dose;
+  if (dv.drink != null) ctx.targetYield = dv.drink;
+  else if (dv.ratio != null && dv.dose != null) ctx.targetYield = Math.round(dv.dose * dv.ratio * 10) / 10;
+  if (dv.grind != null) ctx.grinderSetting = String(dv.grind);
+  if (dv.rpm != null)   ctx.extras = { ...(ctx.extras || {}), rpm: dv.rpm };
+  if (dv.grinderId) ctx.grinderId = dv.grinderId;
+  if (recipe && recipe.beanName) ctx.coffeeName = recipe.beanName;
+  if (recipe && recipe.barista) ctx.baristaName = recipe.barista;
+  if (recipe && recipe.drinker) ctx.drinkerName = recipe.drinker;
+  if (recipe && (recipe.profileId || recipe.profileTitle)) {
+    wf.profile = { id: recipe.profileId, title: recipe.profileTitle };
+  }
+  return wf;
+}
+
+function favSubtitle(fav) {
+  const snp = (fav && fav.snapshot) || {};
+  return [snp.coffeeRoaster, snp.coffeeName].filter(Boolean).join(' · ') || (fav && fav.beverage) || '';
+}
+
+function recipeSubtitle(r) {
+  return (r && r.beanName) || (r && r.beverage) || '';
+}
+
 // Recipes (R mode)
 async function getRecipes() { return kvGetArray('recipes'); }
 
 async function updateRecipe(id, data) {
   const arr = await kvGetArray('recipes');
-  const item = { ...data, id };
+  const item = { ...data, id, capturedAt: new Date().toISOString() };
+  item.title = item.name || ('Recipe ' + id);
+  item.subtitle = recipeSubtitle(item);
+  item.workflow = buildRecipeWorkflow(item);
   kvUpsert(arr, item);
   await kvSetArray('recipes', arr);
   return item;
@@ -160,6 +227,8 @@ async function getAutoFavourite(id) {
 async function createAutoFavourite(data) {
   const arr = await kvGetArray('autoFavourites');
   const fav = { ...data, id: newId('af'), capturedAt: new Date().toISOString() };
+  fav.subtitle = favSubtitle(fav);
+  fav.workflow = buildFavouriteWorkflow(fav);
   arr.push(fav);
   await kvSetArray('autoFavourites', arr);
   return fav;
@@ -168,6 +237,8 @@ async function createAutoFavourite(data) {
 async function updateAutoFavourite(id, data) {
   const arr = await kvGetArray('autoFavourites');
   const item = { ...data, id };
+  item.subtitle = favSubtitle(item);
+  item.workflow = buildFavouriteWorkflow(item);
   kvUpsert(arr, item);
   await kvSetArray('autoFavourites', arr);
   return item;
