@@ -36,7 +36,7 @@ const styles = `
 `;
 
 const content = `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-screen h-screen">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
   ${pickerHeaderHtml('DYE Auto Favourites', 'CONFIRM')}
   <div class="flex flex-1 overflow-hidden">
     ${sortSidebarHtml()}
@@ -188,6 +188,11 @@ async function initAutoFavs() {
 }
 
 initAutoFavs().catch(e => console.error('initAutoFavs failed:', e));
+
+// Returning via history.back() after saving a favourite can restore this list frozen
+// from bfcache, so init never re-runs and a newly saved favourite is missing — reload
+// to re-fetch. Mirrors the dashboard and recipe-edit pages.
+window.addEventListener('pageshow', function(e) { if (e.persisted) window.location.reload(); });
 `;
 
 export function renderAutoFavsPage(request: HttpRequest): HttpResponse {

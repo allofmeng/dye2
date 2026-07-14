@@ -51,7 +51,7 @@ const styles = `
 `;
 
 const content = `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-screen h-screen">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
 
   <div class="flex justify-between items-center px-[38px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[134px] shrink-0">
     <h1 class="text-[36px] font-bold text-[var(--text-primary)]">Select Profile</h1>

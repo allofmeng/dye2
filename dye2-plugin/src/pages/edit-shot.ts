@@ -82,7 +82,7 @@ function buildContent(): string {
   const chevUpSvg   = lucideIcon('chevron-up',    24, 'var(--mimoja-blue)', 2.5);
 
   return `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex flex-col w-screen h-screen font-['Inter',sans-serif]">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex flex-col font-['Inter',sans-serif]">
 
   <!-- Header bar -->
   <div class="flex items-center justify-between px-[38px] h-[110px] shrink-0 bg-[var(--box-color)] border-b border-[var(--profile-button-outline-color)]">

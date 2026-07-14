@@ -130,11 +130,11 @@ const styles = `
 `;
 
 function buildContent(): string { return `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-screen h-screen relative font-['Inter',sans-serif]">
+<div id="dye-dash-root" class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col relative font-['Inter',sans-serif]">
   <div class="flex flex-1 overflow-hidden">
 
     <!-- LEFT PANEL: Last Shot Review -->
-    <div class="flex flex-col w-[960px] shrink-0 bg-white border-r border-[var(--profile-button-outline-color)] overflow-hidden">
+    <div class="flex flex-col w-1/2 shrink-0 bg-white border-r border-[var(--profile-button-outline-color)] overflow-hidden">
       <div class="flex flex-col gap-[27px] px-[38px] pt-[32px] pb-[24px] flex-1 overflow-hidden">
 
         <!-- Header row -->
@@ -241,7 +241,7 @@ function buildContent(): string { return `
             <div id="dye-next-date" class="text-[var(--text-primary)] font-normal text-[24px] leading-[1.2]">—</div>
           </div>
           <div class="flex items-center gap-[27px]">
-            <button class="cursor-pointer">
+            <button id="dye-history-btn" class="cursor-pointer">
               <img src="${iconHistory}" width="42" height="42" alt="History" />
             </button>
             <button id="dye-clipboard-btn" class="cursor-pointer">
@@ -428,6 +428,32 @@ let currentStarRating = 0;
 let currentShotNote = '';
 let vizLoggedIn = false;
 let vizUsername = '';
+let lastEditSnapshot = null;
+
+// One-level undo for Next Shot Planning: every edit first saves the state it is
+// replacing, and the history button swaps back to it (press again to re-apply).
+// ponytail: single snapshot, not a stack — add an array if multi-step undo is wanted.
+function snapshotWorkflow() {
+  if (!currentWorkflow) return;
+  lastEditSnapshot = JSON.stringify({ context: currentWorkflow.context || {}, profile: currentWorkflow.profile || null });
+  const btn = document.getElementById('dye-history-btn');
+  if (btn) btn.style.opacity = '';
+}
+
+function setupHistoryRevert() {
+  const btn = document.getElementById('dye-history-btn');
+  if (!btn) return;
+  btn.style.opacity = lastEditSnapshot ? '' : '0.4';
+  btn.addEventListener('click', () => {
+    if (!lastEditSnapshot || !currentWorkflow) return;
+    const prev = JSON.parse(lastEditSnapshot);
+    snapshotWorkflow(); // current state becomes the new snapshot, so history toggles
+    currentWorkflow.context = prev.context;
+    if (prev.profile) currentWorkflow.profile = prev.profile;
+    renderNextShot();
+    updateWorkflow(currentWorkflow).catch(e => console.warn(e));
+  });
+}
 
 function updateVisualizerButtonState() {
   const btn = document.getElementById('dye-visualizer-btn');
@@ -620,6 +646,7 @@ async function renderLastShot() {
     if (beansEl) beansEl.textContent = '—';
     if (grinderEl) grinderEl.textContent = '—';
     if (baristaEl) baristaEl.textContent = '—';
+    currentShotNote = '';
     return;
   }
 
@@ -723,14 +750,12 @@ async function renderLastShot() {
   currentStarRating = rating;
   updateStarDisplay(rating);
 
-  // Read Note reflects the shot's drinker note (annotations.espressoNotes).
-  currentShotNote = (shot.annotations && shot.annotations.espressoNotes) || '';
+  // Read Note reflects the shot's drinker note (annotations.espressoNotes),
+  // falling back to a note attached pre-shot via the workflow (context.extras.note).
+  const wfNote = ctx.extras && ctx.extras.note;
+  currentShotNote = (shot.annotations && shot.annotations.espressoNotes) || wfNote || '';
   const noteBtn = document.getElementById('dye-read-note-btn');
-  if (noteBtn) {
-    const has = !!currentShotNote.trim();
-    noteBtn.style.opacity = has ? '' : '0.4';
-    noteBtn.style.pointerEvents = has ? '' : 'none';
-  }
+  if (noteBtn) noteBtn.style.opacity = currentShotNote.trim() ? '' : '0.4';
 }
 
 function updateStarDisplay(rating) {
@@ -894,6 +919,7 @@ function renderRecipePills(workflow) {
 // Map a recipe's dashboardVariables/metadata into currentWorkflow.context, then re-render.
 // PUT /workflow only accepts context/profile (see setupClipboardPaste), so everything lands in context.
 function applyRecipe(recipe) {
+  snapshotWorkflow();
   const dv = recipe.dashboardVariables || {};
   currentWorkflow = currentWorkflow || {};
   const ctx = { ...(currentWorkflow.context || {}) };
@@ -914,6 +940,7 @@ function applyRecipe(recipe) {
 // (a field with mask === false is skipped; absent mask defaults to on). Mirrors applyRecipe.
 function applyAutoFavourite(fav) {
   if (!fav) return;
+  snapshotWorkflow();
   const snp = fav.snapshot || {};
   const mask = fav.copyMask || {};
   const on = k => mask[k] !== false;
@@ -1018,19 +1045,19 @@ function makeValueEditable(valueId, min, max, formatter, onChange) {
 function setupDoseControls() {
   wireAdjuster('dye-dose-minus', 'dye-dose-plus', 'dye-dose-value', 0.5, 0, null,
     val => val + 'g',
-    val => { if (!currentWorkflow) return; currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.targetDoseWeight = val; updateRatioDisplay(); updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
+    val => { if (!currentWorkflow) return; snapshotWorkflow(); currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.targetDoseWeight = val; updateRatioDisplay(); updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
   );
   wireAdjuster('dye-drink-minus', 'dye-drink-plus', 'dye-drink-value', 1, 0, null,
     val => val + 'g',
-    val => { if (!currentWorkflow) return; currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.targetYield = val; updateRatioDisplay(); updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
+    val => { if (!currentWorkflow) return; snapshotWorkflow(); currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.targetYield = val; updateRatioDisplay(); updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
   );
   wireAdjuster('dye-grind-minus', 'dye-grind-plus', 'dye-grind-value', 0.1, 0, null,
     val => val.toFixed(1),
-    val => { if (!currentWorkflow) return; currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.grinderSetting = String(val); updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
+    val => { if (!currentWorkflow) return; snapshotWorkflow(); currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.grinderSetting = String(val); updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
   );
   wireAdjuster('dye-rpm-minus', 'dye-rpm-plus', 'dye-rpm-value', 1, 1, null,
     val => String(val),
-    val => { if (!currentWorkflow) return; currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.extras = { ...(currentWorkflow.context.extras || {}), rpm: val }; updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
+    val => { if (!currentWorkflow) return; snapshotWorkflow(); currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.extras = { ...(currentWorkflow.context.extras || {}), rpm: val }; updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
   );
 }
 
@@ -1073,6 +1100,7 @@ function setupClipboardPaste() {
   btn.addEventListener('click', () => {
     const shot = shots[currentShotIndex];
     if (!shot) return;
+    snapshotWorkflow();
     const wf = shot.workflow || {};
     const srcCtx = wf.context || {};
     const dd = wf.doseData || {};      // legacy shape, only on old shots
@@ -1120,8 +1148,7 @@ function setupReadNote() {
   const closeBtn = document.getElementById('dye-note-close');
   if (btn && overlay && body) {
     btn.addEventListener('click', () => {
-      if (!currentShotNote.trim()) return;
-      body.textContent = currentShotNote;
+      body.textContent = currentShotNote.trim() || 'No note for this shot.';
       overlay.classList.add('open');
     });
   }
@@ -1140,6 +1167,7 @@ function setupBottomButtons() {
   });
   if (clearBtn) clearBtn.addEventListener('click', () => {
     if (!currentWorkflow) return;
+    snapshotWorkflow();
     currentWorkflow.context = {};
     renderNextShot();
   });
@@ -1202,6 +1230,7 @@ async function initializeDyeDashboard() {
   setupClipboardPaste();
   setupBottomButtons();
   setupReadNote();
+  setupHistoryRevert();
   const pills = document.getElementById('dye-recipe-pills');
   document.getElementById('dye-recipe-prev')?.addEventListener('click', () => pills?.scrollBy({ left: -pills.clientWidth, behavior: 'smooth' }));
   document.getElementById('dye-recipe-next')?.addEventListener('click', () => pills?.scrollBy({ left: pills.clientWidth, behavior: 'smooth' }));

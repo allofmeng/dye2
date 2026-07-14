@@ -13,9 +13,40 @@ var createPlugin = (function() {
 	}
 	//#endregion
 	//#region src/styles/tailwind.generated.css?inline
-	var tailwind_generated_default = "*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:\"\"}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.\\!container{width:100%!important}.container{width:100%}@media (min-width:640px){.\\!container{max-width:640px!important}.container{max-width:640px}}@media (min-width:768px){.\\!container{max-width:768px!important}.container{max-width:768px}}@media (min-width:1024px){.\\!container{max-width:1024px!important}.container{max-width:1024px}}@media (min-width:1280px){.\\!container{max-width:1280px!important}.container{max-width:1280px}}@media (min-width:1536px){.\\!container{max-width:1536px!important}.container{max-width:1536px}}.visible{visibility:visible}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.mb-8{margin-bottom:2rem}.mb-\\[14px\\]{margin-bottom:14px}.ml-auto{margin-left:auto}.mt-16{margin-top:4rem}.mt-8{margin-top:2rem}.mt-\\[4px\\]{margin-top:4px}.mt-\\[6px\\]{margin-top:6px}.mt-auto{margin-top:auto}.block{display:block}.inline{display:inline}.flex{display:flex}.\\!grid{display:grid!important}.grid{display:grid}.hidden{display:none}.h-\\[110px\\]{height:110px}.h-\\[134px\\]{height:134px}.h-\\[165px\\]{height:165px}.h-\\[2px\\]{height:2px}.h-\\[330px\\]{height:330px}.h-\\[40px\\]{height:40px}.h-\\[45px\\]{height:45px}.h-\\[54px\\]{height:54px}.h-\\[60px\\]{height:60px}.h-\\[62px\\]{height:62px}.h-\\[72px\\]{height:72px}.h-\\[82px\\]{height:82px}.h-\\[90px\\]{height:90px}.h-full{height:100%}.h-screen{height:100vh}.max-h-\\[152px\\]{max-height:152px}.w-\\[1200px\\]{width:1200px}.w-\\[150px\\]{width:150px}.w-\\[180px\\]{width:180px}.w-\\[1px\\]{width:1px}.w-\\[240px\\]{width:240px}.w-\\[2px\\]{width:2px}.w-\\[310px\\]{width:310px}.w-\\[60px\\]{width:60px}.w-\\[69px\\]{width:69px}.w-\\[720px\\]{width:720px}.w-\\[72px\\]{width:72px}.w-\\[75px\\]{width:75px}.w-\\[960px\\]{width:960px}.w-full{width:100%}.w-screen{width:100vw}.flex-1{flex:1 1 0%}.flex-shrink{flex-shrink:1}.flex-shrink-0,.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.resize{resize:both}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.flex-nowrap{flex-wrap:nowrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-\\[10px\\]{gap:10px}.gap-\\[12px\\]{gap:12px}.gap-\\[14px\\]{gap:14px}.gap-\\[15px\\]{gap:15px}.gap-\\[16px\\]{gap:16px}.gap-\\[18px\\]{gap:18px}.gap-\\[20px\\]{gap:20px}.gap-\\[22px\\]{gap:22px}.gap-\\[24px\\]{gap:24px}.gap-\\[27px\\]{gap:27px}.gap-\\[28px\\]{gap:28px}.gap-\\[30px\\]{gap:30px}.gap-\\[40px\\]{gap:40px}.gap-\\[45px\\]{gap:45px}.gap-\\[60px\\]{gap:60px}.gap-\\[68px\\]{gap:68px}.gap-\\[8px\\]{gap:8px}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.rounded-\\[12px\\]{border-radius:12px}.rounded-\\[15px\\]{border-radius:15px}.rounded-\\[23px\\]{border-radius:23px}.rounded-\\[68px\\]{border-radius:68px}.rounded-\\[9999px\\]{border-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-\\[var\\(--mimoja-blue\\)\\]{border-color:var(--mimoja-blue)}.border-\\[var\\(--profile-button-outline-color\\)\\]{border-color:var(--profile-button-outline-color)}.bg-\\[\\#EDEDED\\]{--tw-bg-opacity:1;background-color:rgb(237 237 237/var(--tw-bg-opacity,1))}.bg-\\[var\\(--bgmain-color\\)\\]{background-color:var(--bgmain-color)}.bg-\\[var\\(--box-color\\)\\]{background-color:var(--box-color)}.bg-\\[var\\(--mimoja-blue\\)\\]{background-color:var(--mimoja-blue)}.bg-\\[var\\(--profile-button-outline-color\\)\\]{background-color:var(--profile-button-outline-color)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.px-\\[14px\\]{padding-left:14px;padding-right:14px}.px-\\[20px\\]{padding-left:20px;padding-right:20px}.px-\\[24px\\]{padding-left:24px;padding-right:24px}.px-\\[30px\\]{padding-left:30px;padding-right:30px}.px-\\[37px\\]{padding-left:37px;padding-right:37px}.px-\\[38px\\]{padding-left:38px;padding-right:38px}.px-\\[40px\\]{padding-left:40px;padding-right:40px}.px-\\[48px\\]{padding-left:48px;padding-right:48px}.py-\\[27px\\]{padding-top:27px;padding-bottom:27px}.py-\\[28px\\]{padding-top:28px;padding-bottom:28px}.py-\\[32px\\]{padding-top:32px;padding-bottom:32px}.py-\\[36px\\]{padding-top:36px;padding-bottom:36px}.pb-\\[24px\\]{padding-bottom:24px}.pb-\\[28px\\]{padding-bottom:28px}.pb-\\[8px\\]{padding-bottom:8px}.pl-\\[37px\\]{padding-left:37px}.pr-\\[20px\\]{padding-right:20px}.pr-\\[30px\\]{padding-right:30px}.pt-\\[20px\\]{padding-top:20px}.pt-\\[23px\\]{padding-top:23px}.pt-\\[28px\\]{padding-top:28px}.pt-\\[30px\\]{padding-top:30px}.pt-\\[32px\\]{padding-top:32px}.text-center{text-align:center}.font-\\[\\'Inter\\'\\2c sans-serif\\]{font-family:Inter,sans-serif}.text-\\[18px\\]{font-size:18px}.text-\\[21px\\]{font-size:21px}.text-\\[22px\\]{font-size:22px}.text-\\[24px\\]{font-size:24px}.text-\\[26px\\]{font-size:26px}.text-\\[30px\\]{font-size:30px}.text-\\[36px\\]{font-size:36px}.text-\\[38px\\]{font-size:38px}.font-bold{font-weight:700}.font-normal{font-weight:400}.font-semibold{font-weight:600}.italic{font-style:italic}.leading-\\[1\\.2\\]{line-height:1.2}.text-\\[var\\(--mimoja-blue\\)\\]{color:var(--mimoja-blue)}.text-\\[var\\(--text-primary\\)\\]{color:var(--text-primary)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.opacity-40{opacity:.4}.opacity-50{opacity:.5}.outline{outline-style:solid}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}";
+	var tailwind_generated_default = "*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:\"\"}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.\\!container{width:100%!important}.container{width:100%}@media (min-width:640px){.\\!container{max-width:640px!important}.container{max-width:640px}}@media (min-width:768px){.\\!container{max-width:768px!important}.container{max-width:768px}}@media (min-width:1024px){.\\!container{max-width:1024px!important}.container{max-width:1024px}}@media (min-width:1280px){.\\!container{max-width:1280px!important}.container{max-width:1280px}}@media (min-width:1536px){.\\!container{max-width:1536px!important}.container{max-width:1536px}}.visible{visibility:visible}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.mb-8{margin-bottom:2rem}.mb-\\[14px\\]{margin-bottom:14px}.ml-auto{margin-left:auto}.mt-16{margin-top:4rem}.mt-8{margin-top:2rem}.mt-\\[4px\\]{margin-top:4px}.mt-\\[6px\\]{margin-top:6px}.mt-auto{margin-top:auto}.block{display:block}.inline{display:inline}.flex{display:flex}.\\!grid{display:grid!important}.grid{display:grid}.hidden{display:none}.h-\\[110px\\]{height:110px}.h-\\[120px\\]{height:120px}.h-\\[124px\\]{height:124px}.h-\\[134px\\]{height:134px}.h-\\[165px\\]{height:165px}.h-\\[2px\\]{height:2px}.h-\\[330px\\]{height:330px}.h-\\[40px\\]{height:40px}.h-\\[45px\\]{height:45px}.h-\\[54px\\]{height:54px}.h-\\[60px\\]{height:60px}.h-\\[62px\\]{height:62px}.h-\\[72px\\]{height:72px}.h-\\[76px\\]{height:76px}.h-\\[82px\\]{height:82px}.h-\\[90px\\]{height:90px}.h-full{height:100%}.max-h-\\[152px\\]{max-height:152px}.w-1\\/2{width:50%}.w-\\[1200px\\]{width:1200px}.w-\\[150px\\]{width:150px}.w-\\[180px\\]{width:180px}.w-\\[1px\\]{width:1px}.w-\\[240px\\]{width:240px}.w-\\[2px\\]{width:2px}.w-\\[300px\\]{width:300px}.w-\\[310px\\]{width:310px}.w-\\[60px\\]{width:60px}.w-\\[69px\\]{width:69px}.w-\\[720px\\]{width:720px}.w-\\[72px\\]{width:72px}.w-\\[75px\\]{width:75px}.w-\\[960px\\]{width:960px}.w-full{width:100%}.min-w-0{min-width:0}.flex-1{flex:1 1 0%}.flex-shrink{flex-shrink:1}.flex-shrink-0,.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.resize{resize:both}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.flex-nowrap{flex-wrap:nowrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-\\[10px\\]{gap:10px}.gap-\\[12px\\]{gap:12px}.gap-\\[14px\\]{gap:14px}.gap-\\[15px\\]{gap:15px}.gap-\\[16px\\]{gap:16px}.gap-\\[18px\\]{gap:18px}.gap-\\[20px\\]{gap:20px}.gap-\\[22px\\]{gap:22px}.gap-\\[24px\\]{gap:24px}.gap-\\[27px\\]{gap:27px}.gap-\\[28px\\]{gap:28px}.gap-\\[30px\\]{gap:30px}.gap-\\[40px\\]{gap:40px}.gap-\\[45px\\]{gap:45px}.gap-\\[48px\\]{gap:48px}.gap-\\[60px\\]{gap:60px}.gap-\\[68px\\]{gap:68px}.gap-\\[8px\\]{gap:8px}.gap-\\[90px\\]{gap:90px}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.rounded-\\[12px\\]{border-radius:12px}.rounded-\\[15px\\]{border-radius:15px}.rounded-\\[23px\\]{border-radius:23px}.rounded-\\[68px\\]{border-radius:68px}.rounded-\\[9999px\\]{border-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-\\[var\\(--mimoja-blue\\)\\]{border-color:var(--mimoja-blue)}.border-\\[var\\(--profile-button-outline-color\\)\\]{border-color:var(--profile-button-outline-color)}.bg-\\[\\#EDEDED\\]{--tw-bg-opacity:1;background-color:rgb(237 237 237/var(--tw-bg-opacity,1))}.bg-\\[var\\(--bgmain-color\\)\\]{background-color:var(--bgmain-color)}.bg-\\[var\\(--box-color\\)\\]{background-color:var(--box-color)}.bg-\\[var\\(--mimoja-blue\\)\\]{background-color:var(--mimoja-blue)}.bg-\\[var\\(--profile-button-outline-color\\)\\]{background-color:var(--profile-button-outline-color)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.px-\\[14px\\]{padding-left:14px;padding-right:14px}.px-\\[20px\\]{padding-left:20px;padding-right:20px}.px-\\[24px\\]{padding-left:24px;padding-right:24px}.px-\\[30px\\]{padding-left:30px;padding-right:30px}.px-\\[37px\\]{padding-left:37px;padding-right:37px}.px-\\[38px\\]{padding-left:38px;padding-right:38px}.px-\\[40px\\]{padding-left:40px;padding-right:40px}.px-\\[48px\\]{padding-left:48px;padding-right:48px}.py-\\[27px\\]{padding-top:27px;padding-bottom:27px}.py-\\[28px\\]{padding-top:28px;padding-bottom:28px}.py-\\[32px\\]{padding-top:32px;padding-bottom:32px}.py-\\[36px\\]{padding-top:36px;padding-bottom:36px}.pb-\\[24px\\]{padding-bottom:24px}.pb-\\[28px\\]{padding-bottom:28px}.pb-\\[8px\\]{padding-bottom:8px}.pl-\\[37px\\]{padding-left:37px}.pr-\\[20px\\]{padding-right:20px}.pr-\\[30px\\]{padding-right:30px}.pt-\\[20px\\]{padding-top:20px}.pt-\\[23px\\]{padding-top:23px}.pt-\\[28px\\]{padding-top:28px}.pt-\\[30px\\]{padding-top:30px}.pt-\\[32px\\]{padding-top:32px}.text-center{text-align:center}.font-\\[\\'Inter\\'\\2c sans-serif\\]{font-family:Inter,sans-serif}.text-\\[18px\\]{font-size:18px}.text-\\[21px\\]{font-size:21px}.text-\\[22px\\]{font-size:22px}.text-\\[24px\\]{font-size:24px}.text-\\[26px\\]{font-size:26px}.text-\\[30px\\]{font-size:30px}.text-\\[36px\\]{font-size:36px}.text-\\[38px\\]{font-size:38px}.font-bold{font-weight:700}.font-normal{font-weight:400}.font-semibold{font-weight:600}.italic{font-style:italic}.leading-\\[1\\.2\\]{line-height:1.2}.text-\\[var\\(--mimoja-blue\\)\\]{color:var(--mimoja-blue)}.text-\\[var\\(--text-primary\\)\\]{color:var(--text-primary)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.opacity-40{opacity:.4}.opacity-50{opacity:.5}.outline{outline-style:solid}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}";
+	//#endregion
+	//#region \0@oxc-project+runtime@0.124.0/helpers/taggedTemplateLiteral.js
+	function _taggedTemplateLiteral(e, t) {
+		return t || (t = e.slice(0)), Object.freeze(Object.defineProperties(e, { raw: { value: Object.freeze(t) } }));
+	}
 	//#endregion
 	//#region src/utils/dev-shell.ts
+	var _templateObject;
+	var fitScript = `
+(function () {
+  var DESIGN_W = 1920, DESIGN_H = 1200;
+  function fit() {
+    var z = Math.min(window.innerWidth / DESIGN_W, window.innerHeight / DESIGN_H);
+    document.documentElement.style.zoom = z;
+    // Under zoom, CSS space is viewport/z. Size the (flex-centring) body to that in
+    // design px so the extra axis becomes an even letterbox around the fixed canvas;
+    // vw/vh can't express this once zoom is applied, so the script sets it explicitly.
+    document.body.style.width  = (window.innerWidth  / z) + 'px';
+    document.body.style.height = (window.innerHeight / z) + 'px';
+    var root = document.body.firstElementChild;
+    if (root) {
+      root.style.width = DESIGN_W + 'px';
+      root.style.height = DESIGN_H + 'px';
+      // Pin the canvas so the centring flex body can't stretch it — some page roots
+      // carry a flex-grow class that would otherwise fill the width and defeat the
+      // fixed-proportion contain-fit. Keeps every page's letterbox identical.
+      root.style.flex = '0 0 auto';
+    }
+  }
+  fit();
+  window.addEventListener('resize', fit);
+})();
+`;
 	/** CSS variable fallbacks for dev server (REA host injects real values in production) */
 	function cssVarFallbacks() {
 		return `
@@ -39,18 +70,15 @@ var createPlugin = (function() {
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { width: 100%; height: 100%; }
-    /* Pages are built at the tablet's fixed 1280x800. On the real tablet nothing
-       overflows. On smaller windows (e.g. a Mac browser) let the page scroll
-       instead of clipping unreachable content. */
-    body { width: 100%; min-height: 100%; overflow-x: hidden; overflow-y: auto; }
-    /* When the viewport is shorter/narrower than the design, release the fixed
-       100vh/100vw root so it grows to its content and the body scrolls.
-       Media queries keep the real tablet (>=1280x800) byte-for-byte unchanged. */
-    @media (max-height: 799px) {
-      body > div[class*="h-screen"] { height: auto !important; min-height: 100vh; }
-    }
-    @media (max-width: 1279px) {
-      body > div[class*="w-screen"] { width: auto !important; min-width: 100vw; }
+    /* Pages are authored at the fixed 1920x1200 design reference and contain-fit into
+       the viewport by the fit script — the body never scrolls. Flex centres the design
+       canvas so any leftover space on a non-16:10 screen becomes an even letterbox
+       margin (in the --bgmain-color, so it reads as intentional page chrome). */
+    /* width/height set by the fit script (design px); flex centres the canvas. */
+    body {
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--bgmain-color);
     }
     body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
     button { font-family: inherit; cursor: pointer; background: none; border: none; }
@@ -63,22 +91,17 @@ var createPlugin = (function() {
 	* Use this instead of pageShell() for pages ported from dev/.
 	*/
 	function devPageShell(title, content, styles = "", scripts = [], opts = {}) {
-		return html`<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <!-- interactive-widget=overlays-content: on-screen keyboard overlays the page instead of resizing/shrinking it -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=overlays-content" />
-  <title>DYE2 - ${title}</title>
-  ${opts.plotly ? "<script src=\"https://cdn.plot.ly/plotly-3.4.0.min.js\" charset=\"utf-8\"><\/script>" : ""}
-  <style>${tailwind_generated_default}</style>
-  <style>${cssVarFallbacks()}${styles}</style>
-</head>
-<body>
-  ${content}
-  ${scripts.map((s) => `<script>${s}<\/script>`).join("\n")}
-</body>
-</html>`;
+		return html(_templateObject || (_templateObject = _taggedTemplateLiteral([
+			"<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\" />\n  <!-- interactive-widget=overlays-content: on-screen keyboard overlays the page instead of resizing/shrinking it -->\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, interactive-widget=overlays-content\" />\n  <title>DYE2 - ",
+			"</title>\n  ",
+			"\n  <style>",
+			"</style>\n  <style>",
+			"",
+			"</style>\n</head>\n<body>\n  ",
+			"\n  <script>",
+			"<\/script>\n  ",
+			"\n</body>\n</html>"
+		])), title, opts.plotly ? "<script src=\"https://cdn.plot.ly/plotly-3.4.0.min.js\" charset=\"utf-8\"><\/script>" : "", tailwind_generated_default, cssVarFallbacks(), styles, content, fitScript, scripts.map((s) => `<script>${s}<\/script>`).join("\n"));
 	}
 	//#endregion
 	//#region src/utils/dev-api.ts
@@ -426,7 +449,7 @@ async function uploadShotToVisualizer(shotId) {
   .dye-hidden { display: none !important; }
 `;
 	var content$6 = `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-screen h-screen">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
 
   <!-- Top bar -->
   <div class="flex justify-between items-center px-[38px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[134px] shrink-0">
@@ -815,7 +838,7 @@ initializeDyeGrinders().catch(e => console.error('initializeDyeGrinders failed:'
   }
 `;
 	var content$5 = `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-screen h-screen">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
 
   <!-- Top bar -->
   <div class="flex justify-between items-center px-[38px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[134px] shrink-0">
@@ -1191,7 +1214,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
   .dye-hidden { display: none !important; }
 `;
 	var content$4 = `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-screen h-screen">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
 
   <!-- Top bar -->
   <div class="flex justify-between items-center px-[38px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[134px] shrink-0">
@@ -1592,7 +1615,7 @@ initializeDyeGrinders().catch(e => console.error('initializeDyeGrinders failed:'
   }
 `;
 	var content$3 = `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-screen h-screen">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
 
   <div class="flex justify-between items-center px-[38px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[134px] shrink-0">
     <h1 class="text-[36px] font-bold text-[var(--text-primary)]">Select Profile</h1>
@@ -1849,7 +1872,7 @@ initializeDyeProfiles().catch(e => console.error('initializeDyeProfiles failed:'
   }
 `;
 	var content$2 = `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-screen h-screen">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
 
   <!-- Top bar -->
   <div class="flex justify-between items-center px-[38px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[134px] shrink-0">
@@ -2131,7 +2154,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
   .dye-form-textarea::placeholder { color: var(--low-contrast-white); }
 `;
 	var content$1 = `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-screen h-screen">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
   <div class="flex justify-between items-center px-[37px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[165px]">
     <h1 class="text-[38px] font-bold text-[var(--text-primary)] no-select">Add New Beans</h1>
     <div class="flex items-center gap-[16px]">
@@ -2685,11 +2708,11 @@ function plotHistoricalShot(measurements, workflow) {
 `;
 	function buildContent$3() {
 		return `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-screen h-screen relative font-['Inter',sans-serif]">
+<div id="dye-dash-root" class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col relative font-['Inter',sans-serif]">
   <div class="flex flex-1 overflow-hidden">
 
     <!-- LEFT PANEL: Last Shot Review -->
-    <div class="flex flex-col w-[960px] shrink-0 bg-white border-r border-[var(--profile-button-outline-color)] overflow-hidden">
+    <div class="flex flex-col w-1/2 shrink-0 bg-white border-r border-[var(--profile-button-outline-color)] overflow-hidden">
       <div class="flex flex-col gap-[27px] px-[38px] pt-[32px] pb-[24px] flex-1 overflow-hidden">
 
         <!-- Header row -->
@@ -2796,7 +2819,7 @@ function plotHistoricalShot(measurements, workflow) {
             <div id="dye-next-date" class="text-[var(--text-primary)] font-normal text-[24px] leading-[1.2]">—</div>
           </div>
           <div class="flex items-center gap-[27px]">
-            <button class="cursor-pointer">
+            <button id="dye-history-btn" class="cursor-pointer">
               <img src="${iconHistory}" width="42" height="42" alt="History" />
             </button>
             <button id="dye-clipboard-btn" class="cursor-pointer">
@@ -2983,6 +3006,32 @@ let currentStarRating = 0;
 let currentShotNote = '';
 let vizLoggedIn = false;
 let vizUsername = '';
+let lastEditSnapshot = null;
+
+// One-level undo for Next Shot Planning: every edit first saves the state it is
+// replacing, and the history button swaps back to it (press again to re-apply).
+// ponytail: single snapshot, not a stack — add an array if multi-step undo is wanted.
+function snapshotWorkflow() {
+  if (!currentWorkflow) return;
+  lastEditSnapshot = JSON.stringify({ context: currentWorkflow.context || {}, profile: currentWorkflow.profile || null });
+  const btn = document.getElementById('dye-history-btn');
+  if (btn) btn.style.opacity = '';
+}
+
+function setupHistoryRevert() {
+  const btn = document.getElementById('dye-history-btn');
+  if (!btn) return;
+  btn.style.opacity = lastEditSnapshot ? '' : '0.4';
+  btn.addEventListener('click', () => {
+    if (!lastEditSnapshot || !currentWorkflow) return;
+    const prev = JSON.parse(lastEditSnapshot);
+    snapshotWorkflow(); // current state becomes the new snapshot, so history toggles
+    currentWorkflow.context = prev.context;
+    if (prev.profile) currentWorkflow.profile = prev.profile;
+    renderNextShot();
+    updateWorkflow(currentWorkflow).catch(e => console.warn(e));
+  });
+}
 
 function updateVisualizerButtonState() {
   const btn = document.getElementById('dye-visualizer-btn');
@@ -3175,6 +3224,7 @@ async function renderLastShot() {
     if (beansEl) beansEl.textContent = '—';
     if (grinderEl) grinderEl.textContent = '—';
     if (baristaEl) baristaEl.textContent = '—';
+    currentShotNote = '';
     return;
   }
 
@@ -3278,14 +3328,12 @@ async function renderLastShot() {
   currentStarRating = rating;
   updateStarDisplay(rating);
 
-  // Read Note reflects the shot's drinker note (annotations.espressoNotes).
-  currentShotNote = (shot.annotations && shot.annotations.espressoNotes) || '';
+  // Read Note reflects the shot's drinker note (annotations.espressoNotes),
+  // falling back to a note attached pre-shot via the workflow (context.extras.note).
+  const wfNote = ctx.extras && ctx.extras.note;
+  currentShotNote = (shot.annotations && shot.annotations.espressoNotes) || wfNote || '';
   const noteBtn = document.getElementById('dye-read-note-btn');
-  if (noteBtn) {
-    const has = !!currentShotNote.trim();
-    noteBtn.style.opacity = has ? '' : '0.4';
-    noteBtn.style.pointerEvents = has ? '' : 'none';
-  }
+  if (noteBtn) noteBtn.style.opacity = currentShotNote.trim() ? '' : '0.4';
 }
 
 function updateStarDisplay(rating) {
@@ -3449,6 +3497,7 @@ function renderRecipePills(workflow) {
 // Map a recipe's dashboardVariables/metadata into currentWorkflow.context, then re-render.
 // PUT /workflow only accepts context/profile (see setupClipboardPaste), so everything lands in context.
 function applyRecipe(recipe) {
+  snapshotWorkflow();
   const dv = recipe.dashboardVariables || {};
   currentWorkflow = currentWorkflow || {};
   const ctx = { ...(currentWorkflow.context || {}) };
@@ -3469,6 +3518,7 @@ function applyRecipe(recipe) {
 // (a field with mask === false is skipped; absent mask defaults to on). Mirrors applyRecipe.
 function applyAutoFavourite(fav) {
   if (!fav) return;
+  snapshotWorkflow();
   const snp = fav.snapshot || {};
   const mask = fav.copyMask || {};
   const on = k => mask[k] !== false;
@@ -3573,19 +3623,19 @@ function makeValueEditable(valueId, min, max, formatter, onChange) {
 function setupDoseControls() {
   wireAdjuster('dye-dose-minus', 'dye-dose-plus', 'dye-dose-value', 0.5, 0, null,
     val => val + 'g',
-    val => { if (!currentWorkflow) return; currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.targetDoseWeight = val; updateRatioDisplay(); updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
+    val => { if (!currentWorkflow) return; snapshotWorkflow(); currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.targetDoseWeight = val; updateRatioDisplay(); updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
   );
   wireAdjuster('dye-drink-minus', 'dye-drink-plus', 'dye-drink-value', 1, 0, null,
     val => val + 'g',
-    val => { if (!currentWorkflow) return; currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.targetYield = val; updateRatioDisplay(); updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
+    val => { if (!currentWorkflow) return; snapshotWorkflow(); currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.targetYield = val; updateRatioDisplay(); updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
   );
   wireAdjuster('dye-grind-minus', 'dye-grind-plus', 'dye-grind-value', 0.1, 0, null,
     val => val.toFixed(1),
-    val => { if (!currentWorkflow) return; currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.grinderSetting = String(val); updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
+    val => { if (!currentWorkflow) return; snapshotWorkflow(); currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.grinderSetting = String(val); updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
   );
   wireAdjuster('dye-rpm-minus', 'dye-rpm-plus', 'dye-rpm-value', 1, 1, null,
     val => String(val),
-    val => { if (!currentWorkflow) return; currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.extras = { ...(currentWorkflow.context.extras || {}), rpm: val }; updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
+    val => { if (!currentWorkflow) return; snapshotWorkflow(); currentWorkflow.context = currentWorkflow.context || {}; currentWorkflow.context.extras = { ...(currentWorkflow.context.extras || {}), rpm: val }; updateWorkflow(currentWorkflow).catch(e => console.warn(e)); }
   );
 }
 
@@ -3628,6 +3678,7 @@ function setupClipboardPaste() {
   btn.addEventListener('click', () => {
     const shot = shots[currentShotIndex];
     if (!shot) return;
+    snapshotWorkflow();
     const wf = shot.workflow || {};
     const srcCtx = wf.context || {};
     const dd = wf.doseData || {};      // legacy shape, only on old shots
@@ -3675,8 +3726,7 @@ function setupReadNote() {
   const closeBtn = document.getElementById('dye-note-close');
   if (btn && overlay && body) {
     btn.addEventListener('click', () => {
-      if (!currentShotNote.trim()) return;
-      body.textContent = currentShotNote;
+      body.textContent = currentShotNote.trim() || 'No note for this shot.';
       overlay.classList.add('open');
     });
   }
@@ -3695,6 +3745,7 @@ function setupBottomButtons() {
   });
   if (clearBtn) clearBtn.addEventListener('click', () => {
     if (!currentWorkflow) return;
+    snapshotWorkflow();
     currentWorkflow.context = {};
     renderNextShot();
   });
@@ -3757,6 +3808,7 @@ async function initializeDyeDashboard() {
   setupClipboardPaste();
   setupBottomButtons();
   setupReadNote();
+  setupHistoryRevert();
   const pills = document.getElementById('dye-recipe-pills');
   document.getElementById('dye-recipe-prev')?.addEventListener('click', () => pills?.scrollBy({ left: -pills.clientWidth, behavior: 'smooth' }));
   document.getElementById('dye-recipe-next')?.addEventListener('click', () => pills?.scrollBy({ left: pills.clientWidth, behavior: 'smooth' }));
@@ -4114,7 +4166,7 @@ function syncPresetActive(idPrefix, currentVal) {
 		const pencilSvg = lucideIcon("pencil", 26, "var(--text-primary-disabled)", 2);
 		const chevUpSvg = lucideIcon("chevron-up", 24, "var(--mimoja-blue)", 2.5);
 		return `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex flex-col w-screen h-screen font-['Inter',sans-serif]">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex flex-col font-['Inter',sans-serif]">
 
   <!-- Header bar -->
   <div class="flex items-center justify-between px-[38px] h-[110px] shrink-0 bg-[var(--box-color)] border-b border-[var(--profile-button-outline-color)]">
@@ -4805,7 +4857,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
   }
 `;
 	var content = `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col w-screen h-screen">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
   ${pickerHeaderHtml("DYE Auto Favourites", "CONFIRM")}
   <div class="flex flex-1 overflow-hidden">
     ${sortSidebarHtml()}
@@ -4956,6 +5008,11 @@ async function initAutoFavs() {
 }
 
 initAutoFavs().catch(e => console.error('initAutoFavs failed:', e));
+
+// Returning via history.back() after saving a favourite can restore this list frozen
+// from bfcache, so init never re-runs and a newly saved favourite is missing — reload
+// to re-fetch. Mirrors the dashboard and recipe-edit pages.
+window.addEventListener('pageshow', function(e) { if (e.persisted) window.location.reload(); });
 `;
 	function renderAutoFavsPage(request) {
 		return {
@@ -5133,7 +5190,7 @@ initAutoFavs().catch(e => console.error('initAutoFavs failed:', e));
 			"afe-drink"
 		]);
 		return `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex flex-col w-screen h-screen font-['Inter',sans-serif]">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex flex-col font-['Inter',sans-serif]">
 
   <!-- Header bar -->
   <div class="flex items-center justify-between px-[38px] h-[110px] shrink-0 bg-[var(--box-color)] border-b border-[var(--profile-button-outline-color)]">
@@ -5515,14 +5572,24 @@ function snapshotFromWorkflow(wf) {
 
 async function initAutoFavEdit() {
   setupControls();
+  // Consume the edit id immediately (like dashboard/recipe-edit do): if left set it
+  // would hijack the next "new favourite" open — silently editing (and re-saving) the
+  // old one instead of creating, or, if it was since deleted, breaking renderFav.
   const favId = sessionStorage.getItem('dye_editAutoFavId');
+  sessionStorage.removeItem('dye_editAutoFavId');
+
+  let fav = null;
   if (favId) {
-    try { renderFav(await getAutoFavourite(favId)); }
+    try { fav = await getAutoFavourite(favId); }
     catch (e) { console.warn('Could not load auto-favourite:', e); }
-  } else {
-    try { const wf = await getWorkflow(); renderFav({ snapshot: snapshotFromWorkflow(wf), alwaysOnDashboard: true }); }
-    catch (e) { console.warn('Could not load workflow for new auto-favourite:', e); }
   }
+  // New favourite, or the requested one is gone: seed a fresh one from the workflow so
+  // renderFav always runs (populating defaults + disabling off-row pencils).
+  if (!fav) {
+    try { const wf = await getWorkflow(); fav = { snapshot: snapshotFromWorkflow(wf), alwaysOnDashboard: true }; }
+    catch (e) { console.warn('Could not load workflow for new auto-favourite:', e); fav = { snapshot: {}, alwaysOnDashboard: true }; }
+  }
+  renderFav(fav);
 }
 
 initAutoFavEdit().catch(e => console.error('initAutoFavEdit failed:', e));
@@ -5541,36 +5608,50 @@ initAutoFavEdit().catch(e => console.error('initAutoFavEdit failed:', e));
 	var styles = `
   ${stepperCss()}
   ${presetStripCss()}
+  /* Figma 2396:728: fixed 270x60 pills, stroke #C5CDDA, text #5F7BA8 */
   .re-tab {
-    padding: 14px 28px; border-radius: 23px;
+    width: 270px; height: 60px; border-radius: 15px;
+    display: flex; align-items: center; justify-content: center;
     font-family: 'Inter', sans-serif; font-weight: 600; font-size: 21px;
-    border: 2px solid var(--profile-button-outline-color);
-    background: transparent; color: var(--text-primary-disabled);
-    cursor: pointer; white-space: nowrap;
+    border: 2px solid #C5CDDA;
+    background: var(--box-color); color: #5F7BA8;
+    cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    flex-shrink: 0; padding: 0 10px;
   }
   .re-tab.active { background: var(--mimoja-blue); border-color: var(--mimoja-blue); color: #fff; }
-  .re-label { font-size: 24px; font-weight: 600; color: var(--mimoja-blue); margin-bottom: 8px; }
-  .re-input {
-    width: 100%; border: 1px solid var(--profile-button-outline-color);
-    border-radius: 12px; padding: 0 20px; height: 72px;
-    font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 400;
-    color: var(--text-primary); background: var(--box-color);
-    outline: none; display: flex; align-items: center;
+  .re-label { font-size: 24px; font-weight: 700; color: var(--mimoja-blue); margin-bottom: 8px; }
+  /* Figma 2396:747: label sits inline beside the input, 164px wide */
+  .re-field-label { font-size: 24px; font-weight: 700; color: var(--mimoja-blue); width: 164px; flex-shrink: 0; }
+  /* Figma 2396:749: one bordered box (2px #C9C9C9, square) holding text + edit icon */
+  .re-input-row {
+    display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0;
+    border: 2px solid #C9C9C9; background: var(--box-color);
+    height: 80px; padding: 0 15px 0 22px;
   }
-  input.re-input:focus { border-color: var(--mimoja-blue); }
-  .re-input-row { display: flex; align-items: center; gap: 12px; }
+  .re-input-row:focus-within { border-color: var(--mimoja-blue); }
+  .re-input {
+    flex: 1; min-width: 0; border: none; height: 100%;
+    font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 400;
+    color: var(--text-primary); background: transparent; outline: none;
+  }
   .re-input-pencil { flex-shrink: 0; opacity: 0.55; cursor: pointer; }
   .re-input-pencil:hover { opacity: 1; }
-  .re-chip-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+  /* Figma 2396:757: strict 3-column grid of 60px-tall pills */
+  .re-chip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
   .re-chip {
-    padding: 12px 22px; border-radius: 15px;
-    font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 600;
-    border: 2px solid var(--profile-button-outline-color);
-    background: var(--box-color); color: var(--text-primary);
-    cursor: pointer; white-space: nowrap;
+    height: 60px; border-radius: 15px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 600;
+    border: 2px solid #C5CDDA;
+    background: var(--box-color); color: #5F7BA8;
+    cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    padding: 0 10px;
   }
   .re-chip.active { background: var(--mimoja-blue); border-color: var(--mimoja-blue); color: #fff; }
-  .re-see-all { font-size: 22px; font-weight: 600; color: var(--mimoja-blue); cursor: pointer; padding: 12px 4px; }
+  .re-see-all {
+    height: 60px; display: flex; align-items: center; justify-content: center;
+    font-size: 21px; font-weight: 600; color: var(--mimoja-blue); cursor: pointer;
+  }
   .re-divider { height: 1px; background: var(--profile-button-outline-color); }
   .re-var-block { display: flex; flex-direction: column; gap: 8px; }
   .re-var-label { font-size: 22px; font-weight: 700; color: var(--mimoja-blue); margin-bottom: 2px; }
@@ -5579,21 +5660,28 @@ initAutoFavEdit().catch(e => console.error('initAutoFavEdit failed:', e));
   .re-grinder-chip {
     background: none; border: none; padding: 0;
     font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 600;
-    color: var(--text-primary-disabled);
+    color: #B6C3D7;
     cursor: pointer; white-space: nowrap; flex-shrink: 0;
   }
   .re-grinder-chip.active { color: var(--mimoja-blue); font-weight: 700; }
+  /* Figma right column: presets spread across the stepper block width */
+  #re-right .re-var-block [id$="-presets"] { justify-content: space-between; }
   .footer-btn-ghost {
     border: 2px solid var(--mimoja-blue); color: var(--mimoja-blue); border-radius: 23px;
     padding: 0 28px; height: 60px; font-size: 21px; font-weight: 600; cursor: pointer;
     font-family: 'Inter', sans-serif; white-space: nowrap; display: flex; align-items: center; gap: 8px;
+    background: var(--box-color);
   }
+  /* Figma 2386:1884: bordered pill with check | divider | label */
   .re-show-streamline {
     display: flex; align-items: center; gap: 14px;
+    border: 2px solid var(--mimoja-blue); border-radius: 23px;
+    height: 60px; padding: 0 24px 0 16px; background: var(--box-color);
     font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 600;
     color: var(--mimoja-blue); cursor: pointer;
   }
-  .re-show-streamline-icon { flex-shrink: 0; }
+  .re-show-streamline-icon { flex-shrink: 0; display: flex; align-items: center; }
+  .re-show-streamline-sep { width: 2px; height: 36px; background: var(--profile-button-outline-color); flex-shrink: 0; }
   .read-from-dropdown {
     display: none; position: absolute; bottom: calc(100% + 4px); left: 0;
     min-width: 220px; background: var(--box-color);
@@ -5620,24 +5708,24 @@ initAutoFavEdit().catch(e => console.error('initAutoFavEdit failed:', e));
 		const checkCircleSvg = lucideIcon("check-circle", 28, "var(--mimoja-blue)", 2);
 		const pencilSvg = lucideIcon("pencil", 26, "var(--text-primary-disabled)", 2);
 		return `
-<div class="bg-[var(--bgmain-color)] overflow-hidden flex flex-col w-screen h-screen font-['Inter',sans-serif]">
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex flex-col font-['Inter',sans-serif]">
 
-  <!-- Header: title + recipe tabs -->
-  <div class="flex items-center gap-[28px] px-[38px] h-[110px] shrink-0 bg-[var(--box-color)] border-b border-[var(--profile-button-outline-color)]">
-    <span class="text-[30px] font-bold text-[var(--text-primary)] shrink-0">Edit Recipes</span>
-    <div id="re-tabs" class="flex gap-[12px] overflow-x-auto">
+  <!-- Header: title + recipe tabs on the grey strip (Figma 2386:1874) -->
+  <div class="flex items-center gap-[48px] px-[38px] h-[124px] shrink-0 bg-[var(--bgmain-color)] border-b border-[var(--profile-button-outline-color)]">
+    <span class="text-[30px] font-semibold text-[var(--text-primary)] shrink-0">Edit Recipes</span>
+    <div id="re-tabs" class="flex gap-[15px] overflow-x-auto" style="scrollbar-width:none">
       ${Array.from({ length: NUM_RECIPES }, (_, i) => `<button class="re-tab${i === 0 ? " active" : ""}" data-recipe="${i}">Recipe ${i + 1}</button>`).join("")}
     </div>
   </div>
 
-  <!-- Two-column body -->
+  <!-- Two-column body, 50/50 like the Figma columns -->
   <div class="flex flex-1 overflow-hidden">
 
     <!-- LEFT: recipe metadata -->
-    <div id="re-left" class="flex flex-col w-[720px] shrink-0 bg-white border-r border-[var(--profile-button-outline-color)] overflow-y-auto px-[38px] py-[28px] gap-[24px]">
+    <div id="re-left" class="flex flex-col w-1/2 shrink-0 bg-white border-r border-[var(--profile-button-outline-color)] overflow-y-auto px-[38px] py-[28px] gap-[24px]">
 
-      <div>
-        <div class="re-label">Recipe Name</div>
+      <div class="flex items-center gap-[30px]">
+        <span class="re-field-label">Recipe Name</span>
         <div class="re-input-row">
           <input id="re-name-input" class="re-input" type="text" placeholder="Recipe name…" />
           <button class="re-input-pencil" id="re-name-pencil">${pencilSvg}</button>
@@ -5647,39 +5735,37 @@ initAutoFavEdit().catch(e => console.error('initAutoFavEdit failed:', e));
       <div class="re-divider"></div>
 
       <div>
-        <div class="re-label">Assign Bean</div>
+        <div class="re-label" style="margin-bottom:15px">Assign Bean</div>
         <div class="re-chip-grid" id="re-bean-chips"></div>
       </div>
 
       <div class="re-divider"></div>
 
       <div>
-        <div class="re-label">Assign Profile</div>
+        <div class="re-label" style="margin-bottom:15px">Assign Profile</div>
         <div class="re-chip-grid" id="re-profile-chips"></div>
       </div>
 
       <div class="re-divider"></div>
 
-      <div>
-        <div class="re-label">Beverage</div>
+      <div class="flex items-center gap-[30px]">
+        <span class="re-field-label">Beverage</span>
         <div class="re-input-row">
           <input id="re-beverage-input" class="re-input" type="text" placeholder="e.g. Cappucino" />
           <button class="re-input-pencil">${pencilSvg}</button>
         </div>
       </div>
 
-      <div class="re-divider"></div>
-
-      <div class="flex gap-[24px]">
-        <div class="flex-1">
-          <div class="re-label">Barista</div>
+      <div class="flex gap-[68px]">
+        <div class="flex items-center gap-[30px] flex-1 min-w-0">
+          <span class="re-field-label" style="width:auto">Barista</span>
           <div class="re-input-row">
             <input id="re-barista-input" class="re-input" type="text" placeholder="Barista" />
             <button class="re-input-pencil">${pencilSvg}</button>
           </div>
         </div>
-        <div class="flex-1">
-          <div class="re-label">Drinker</div>
+        <div class="flex items-center gap-[30px] flex-1 min-w-0">
+          <span class="re-field-label" style="width:auto">Drinker</span>
           <div class="re-input-row">
             <input id="re-drinker-input" class="re-input" type="text" placeholder="Drinker" />
             <button class="re-input-pencil">${pencilSvg}</button>
@@ -5690,7 +5776,7 @@ initAutoFavEdit().catch(e => console.error('initAutoFavEdit failed:', e));
 
     <!-- RIGHT: Dashboard Variables (2-column, matches Figma) -->
     <div id="re-right" class="flex flex-col flex-1 bg-white overflow-y-auto px-[38px] py-[28px] gap-[24px]">
-      <div class="text-[26px] font-bold text-[var(--text-primary)]">Dashboard Variables</div>
+      <div class="text-[30px] font-bold text-[var(--mimoja-blue)]">Dashboard Variables</div>
 
       <!-- Row: Dose | Drink -->
       <div class="flex gap-[40px]">
@@ -5774,40 +5860,25 @@ initAutoFavEdit().catch(e => console.error('initAutoFavEdit failed:', e));
 
       <div class="re-divider"></div>
 
-      <!-- Grinder chips -->
-      <div>
-        <div class="re-var-label">Grinder</div>
-        <div class="re-grinder-chips" id="re-grinder-chips">
-          <!-- populated by JS -->
-        </div>
+      <!-- Grinder names as plain text tabs (Figma 2396:991 — no label above) -->
+      <div class="re-grinder-chips" id="re-grinder-chips">
+        <!-- populated by JS -->
       </div>
 
-      <!-- Grind + RPM -->
-      <div class="flex items-center gap-[60px]">
-        <div class="re-var-block flex-1">
-          ${stepperHtml("re-grind", "Grind", "80px")}
-          ${presetStripHtml("re-grind", [
-			"1.5",
-			"1.2",
-			"1.8",
-			"2.0"
-		])}
+      <!-- Grind + RPM (no preset strips in Figma) -->
+      <div class="flex items-center gap-[90px]">
+        <div class="re-var-block">
+          ${stepperHtml("re-grind", "Grind", "75px")}
         </div>
-        <div class="re-var-block flex-1">
-          ${stepperHtml("re-rpm", "RPM", "80px")}
-          ${presetStripHtml("re-rpm", [
-			"2",
-			"4",
-			"6",
-			"8"
-		])}
+        <div class="re-var-block">
+          ${stepperHtml("re-rpm", "RPM", "75px")}
         </div>
       </div>
     </div>
   </div>
 
   <!-- Footer -->
-  <div class="flex items-center px-[38px] h-[90px] shrink-0 bg-[var(--box-color)] border-t border-[var(--profile-button-outline-color)] gap-[18px]">
+  <div class="flex items-center px-[38px] h-[120px] shrink-0 bg-[var(--box-color)] border-t border-[var(--profile-button-outline-color)] gap-[30px]">
     <button id="re-clear-btn" class="footer-btn-ghost">Clear all</button>
     <div class="relative">
       <button id="re-read-from-btn" class="footer-btn-ghost">Read From ${chevUpSvg}</button>
@@ -5818,11 +5889,12 @@ initAutoFavEdit().catch(e => console.error('initAutoFavEdit failed:', e));
     </div>
     <button id="re-show-streamline-btn" class="re-show-streamline">
       <span id="re-show-streamline-icon" class="re-show-streamline-icon">${checkCircleSvg}</span>
+      <span class="re-show-streamline-sep"></span>
       <span>Show on Streamline Dashboard</span>
     </button>
     <div class="flex-1"></div>
-    <button id="re-cancel-btn" class="text-[24px] font-bold text-[var(--text-primary)] px-[30px] h-[62px]">CANCEL</button>
-    <button id="re-save-btn" class="bg-[var(--mimoja-blue)] text-white rounded-[68px] h-[62px] px-[40px] text-[24px] font-bold cursor-pointer">SAVE RECIPE</button>
+    <button id="re-cancel-btn" class="text-[24px] font-bold text-[var(--text-primary)] w-[240px] h-[76px]">CANCEL</button>
+    <button id="re-save-btn" class="bg-[var(--mimoja-blue)] text-white rounded-[68px] h-[76px] w-[300px] text-[24px] font-bold cursor-pointer">SAVE RECIPE</button>
   </div>
 </div>
 `;
@@ -5968,18 +6040,23 @@ async function readFromWorkflow() {
   };
 }
 
-// Build a recipe-shaped patch from a saved favourite's snapshot.
-async function readFromFavourite() {
-  const favs = await getAutoFavourites().catch(() => []);
-  if (!favs.length) return null;
-  // ponytail: use most-recent favourite; add a favourite picker if users need to choose one
-  const fav = favs.slice().sort((a, b) =>
-    (b.capturedAt || b.createdAt || '').localeCompare(a.capturedAt || a.createdAt || ''))[0];
+// Build a recipe-shaped patch from a chosen favourite's snapshot, loading the WHOLE
+// form (bean + profile included). Deliberately ignores the favourite's copyMask: the
+// user explicitly picked this favourite and confirmed, so "give me everything it has"
+// is least-surprising here (unlike the dashboard's auto-apply, which honours the mask).
+// Bean is matched by coffee name → bean id so the chip highlights; profile carries its
+// own id. brewC/steam/flush/hotWater aren't in a favourite snapshot, so those stay put.
+function favouriteToRecipePatch(fav) {
   const s = fav.snapshot || {};
+  const bean = s.coffeeName ? beans.find(b => b.name === s.coffeeName) : null;
   return {
-    beverage: fav.beverage || '',
-    barista:  s.barista || '',
-    drinker:  s.drinker || '',
+    beverage:     fav.beverage || '',
+    barista:      s.barista || '',
+    drinker:      s.drinker || '',
+    beanId:       bean ? bean.id : null,
+    beanName:     s.coffeeName || null,
+    profileId:    s.profileId || null,
+    profileTitle: s.profileTitle || null,
     dashboardVariables: {
       dose:  s.dose,
       drink: s.drink,
@@ -6162,9 +6239,11 @@ function setupFooter() {
     applyToCurrentRecipe(await readFromWorkflow());
     rfDrop?.classList.remove('open');
   });
-  document.getElementById('re-read-from-fav')?.addEventListener('click', async () => {
-    applyToCurrentRecipe(await readFromFavourite());
+  // Route to the Auto Favourites picker (select a card + Confirm). On return,
+  // initRecipeEdit reads dye_selectedAutoFavId and loads the whole recipe from it.
+  document.getElementById('re-read-from-fav')?.addEventListener('click', () => {
     rfDrop?.classList.remove('open');
+    goToPicker('/api/v1/plugins/dye2.reaplugin/auto-favs');
   });
 
   document.getElementById('re-name-pencil')?.addEventListener('click', () => {
@@ -6263,6 +6342,16 @@ async function initRecipeEdit() {
       }
     } catch (e) { console.warn('recipe draft restore failed:', e); }
   }
+  // Returning from the Auto Favourites picker: load the chosen favourite into this recipe.
+  // Applied after the draft restore so it overwrites the in-progress form as intended.
+  const selFavId = sessionStorage.getItem('dye_selectedAutoFavId');
+  if (selFavId) {
+    sessionStorage.removeItem('dye_selectedAutoFavId');
+    try {
+      const fav = await getAutoFavourite(selFavId);
+      if (fav) applyToCurrentRecipe(favouriteToRecipePatch(fav));
+    } catch (e) { console.warn('Could not load selected auto-favourite:', e); }
+  }
   const activeTab = document.querySelectorAll('.re-tab')[currentRecipeIdx];
   if (activeTab) {
     document.querySelectorAll('.re-tab').forEach(b => b.classList.remove('active'));
@@ -6273,6 +6362,11 @@ async function initRecipeEdit() {
 }
 
 initRecipeEdit().catch(e => console.error('initRecipeEdit failed:', e));
+
+// Returning via history.back() from the favourites picker can restore this page frozen
+// from bfcache, so init (and the apply-selected-favourite step) never re-runs — reload
+// to re-fetch and fold in the pick. Mirrors the dashboard.
+window.addEventListener('pageshow', function(e) { if (e.persisted) window.location.reload(); });
 `;
 	function renderRecipeEditPage(request) {
 		return {

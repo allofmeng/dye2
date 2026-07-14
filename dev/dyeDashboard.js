@@ -11,6 +11,7 @@ let grinders = [];
 let currentGrinderIndex = 0;
 let currentWorkflow = null;
 let currentStarRating = 0;
+let currentShotNote = '';
 
 // --- Helpers ---
 
@@ -63,6 +64,7 @@ async function renderLastShot() {
         if (beansEl) beansEl.textContent = '—';
         if (grinderEl) grinderEl.textContent = '—';
         if (baristaEl) baristaEl.textContent = '—';
+        currentShotNote = '';
         return;
     }
 
@@ -159,6 +161,27 @@ async function renderLastShot() {
     const rating = (shot.extras && shot.extras.rating) ? parseInt(shot.extras.rating) : 0;
     currentStarRating = rating;
     updateStarDisplay(rating);
+
+    // Read Note: drinker note (annotations.espressoNotes), else pre-shot workflow note.
+    const wfNote = ctx.extras && ctx.extras.note;
+    currentShotNote = (shot.annotations && shot.annotations.espressoNotes) || wfNote || '';
+    const noteBtn = document.getElementById('dye-read-note-btn');
+    if (noteBtn) noteBtn.style.opacity = currentShotNote.trim() ? '' : '0.4';
+}
+
+function setupReadNote() {
+    const btn = document.getElementById('dye-read-note-btn');
+    const overlay = document.getElementById('dye-note-overlay');
+    const body = document.getElementById('dye-note-body');
+    const closeBtn = document.getElementById('dye-note-close');
+    if (btn && overlay && body) {
+        btn.addEventListener('click', () => {
+            body.textContent = currentShotNote.trim() || 'No note for this shot.';
+            overlay.classList.add('open');
+        });
+    }
+    closeBtn?.addEventListener('click', () => overlay?.classList.remove('open'));
+    overlay?.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('open'); });
 }
 
 function updateStarDisplay(rating) {
@@ -606,6 +629,7 @@ export async function initializeDyeDashboard() {
     // Wire up interactivity
     setupShotNavigation();
     setupStarRating();
+    setupReadNote();
     setupEditShotDropdown();
     setupDyeSettingsDropdown();
     setupVisualizerDropdown();
