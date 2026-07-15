@@ -1728,9 +1728,10 @@ function esc(s) {
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-function profileName(p) { return p.title || p.name || 'Untitled Profile'; }
-function profileSub(p)  { return p.author || p.beverage_type || p.type || ''; }
-function profileMeta(p) { return p.notes || p.description || ''; }
+// The bridge nests profile fields under p.profile; keep flat fallbacks for safety.
+function profileName(p) { const pr = (p && p.profile) || {}; return pr.title || p.title || p.name || 'Untitled Profile'; }
+function profileSub(p)  { const pr = (p && p.profile) || {}; return pr.author || pr.beverage_type || p.author || p.beverage_type || p.type || ''; }
+function profileMeta(p) { const pr = (p && p.profile) || {}; return pr.notes || p.notes || p.description || ''; }
 
 function matchesSearch(p) {
   if (!searchQuery) return true;
