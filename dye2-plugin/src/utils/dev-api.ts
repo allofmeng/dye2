@@ -236,7 +236,8 @@ async function createAutoFavourite(data) {
 
 async function updateAutoFavourite(id, data) {
   const arr = await kvGetArray('autoFavourites');
-  const item = { ...data, id };
+  const existing = arr.find(x => x && x.id === id);
+  const item = { ...data, id, capturedAt: data.capturedAt ?? (existing && existing.capturedAt) ?? new Date().toISOString() };
   item.subtitle = favSubtitle(item);
   item.workflow = buildFavouriteWorkflow(item);
   kvUpsert(arr, item);
