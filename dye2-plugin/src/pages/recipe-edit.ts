@@ -42,15 +42,16 @@ const styles = `
   .re-input-pencil:hover { opacity: 1; }
   /* Name-lookup dropdown for Beverage / Barista / Drinker (previously entered values) */
   .re-combo { position: relative; flex: 1; min-width: 0; }
+  /* Matches the auto-fav-edit combo dropdown style (1px outline, 12px radius, soft shadow). */
   .re-combo-drop {
-    display: none; position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 50;
-    background: var(--box-color); border: 2px solid var(--mimoja-blue); border-radius: 10px;
-    max-height: 320px; overflow-y: auto; box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    display: none; position: absolute; top: calc(100% + 4px); left: 0; right: 0;
+    z-index: 40; max-height: 300px; overflow-y: auto;
+    background: var(--box-color); border: 1px solid var(--profile-button-outline-color);
+    border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   }
   .re-combo-drop.open { display: block; }
   .re-combo-opt {
-    padding: 14px 18px; font-family: 'Inter', sans-serif; font-size: 22px;
-    color: var(--text-primary); cursor: pointer;
+    padding: 14px 18px; font-size: 22px; color: var(--text-primary); cursor: pointer;
     border-bottom: 1px solid var(--profile-button-outline-color);
   }
   .re-combo-opt:last-child { border-bottom: none; }
