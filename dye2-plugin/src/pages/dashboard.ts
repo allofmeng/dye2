@@ -933,6 +933,23 @@ function applyRecipe(recipe) {
   if (recipe.barista) ctx.baristaName = recipe.barista;
   if (recipe.drinker) ctx.drinkerName = recipe.drinker;
   currentWorkflow.context = ctx;
+  // Steam / hot-water / flush: override only the recipe's fields on the live sub-objects
+  // (which already carry the required targetTemperature/flow). Guarded so we never send a partial.
+  if (currentWorkflow.steamSettings && (dv.steamTimeS != null || dv.steamFlowMls != null)) {
+    const ss = { ...currentWorkflow.steamSettings };
+    if (dv.steamMode === 'time' && dv.steamTimeS != null)  ss.duration = dv.steamTimeS;
+    if (dv.steamMode === 'flow' && dv.steamFlowMls != null) ss.flow = dv.steamFlowMls;
+    currentWorkflow.steamSettings = ss;
+  }
+  if (currentWorkflow.hotWaterData && (dv.hotWaterMl != null || dv.hotWaterTempC != null)) {
+    const hw = { ...currentWorkflow.hotWaterData };
+    if (dv.hotWaterMode === 'vol'  && dv.hotWaterMl != null)    hw.volume = dv.hotWaterMl;
+    if (dv.hotWaterMode === 'temp' && dv.hotWaterTempC != null) hw.targetTemperature = dv.hotWaterTempC;
+    currentWorkflow.hotWaterData = hw;
+  }
+  if (currentWorkflow.rinseData && dv.flushS != null) {
+    currentWorkflow.rinseData = { ...currentWorkflow.rinseData, duration: dv.flushS };
+  }
   renderNextShot();
 }
 

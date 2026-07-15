@@ -76,6 +76,19 @@ review gaps #2 (recipes) and #3 (auto-favourites). Files: `utils/dev-api.ts`,
 `pages/recipe-edit.ts`, `pages/auto-fav-edit.ts`. Note: bridge returns 200 (not 404) for
 a missing key → `kvGetArray` falls back via `Array.isArray(val) ? val : []`.
 
+**Update (denormalized apply payload — supersedes most of B4).** Each fav/recipe now also
+embeds a **ready-to-PUT `workflow`** (`{ context, profile? }`, favourite honours `copyMask`),
+plus `subtitle` / recipe `title` / `capturedAt`. Contract: `dye2-plugin/KV_CONTRACT.md`.
+Consequence: Phase B no longer reimplements the B4 `context`/`profile` mapping — it PUTs
+`item.workflow` as-is. The **one exception is recipe steam / hot-water / flush**: those
+`WorkflowRequest` sub-objects require `targetTemperature`/`flow` a recipe doesn't capture,
+so they are **not** in `workflow` and must be applied by merging `dashboardVariables` onto
+the **live** workflow (GET → override recipe fields → PUT). DYE2's own
+`dashboard.ts applyRecipe` now does this merge; Streamline must mirror it. `brewC` has no
+workflow target (profile-level) — display only. **Delete CRUD** (`deleteAutoFavourite`/
+`deleteRecipe`) is intentionally not built yet — no UI delete affordance exists; add both
+when a delete button lands.
+
 
 Goal: make the existing auto-fav UI persist to the KV store instead of the missing
 REST endpoints. **No UI changes** — `auto-favs.ts` / `auto-fav-edit.ts` already call
@@ -193,12 +206,13 @@ Profile is the one heavy field: prefer reusing Streamline's existing profile-loa
 path (it already applies profiles to the workflow) keyed by `profileId`, rather than
 re-PUTting a full profile object.
 
-**R mode (recipe apply).** `recipe.dashboardVariables` (see `Recipe` shape in
-`DYE2_REDESIGN_PLAN.md §4`) maps similarly: `dose→targetDoseWeight`,
-`drink/ratio→targetYield`, `grind→grinderSetting`, `grinderId→grinderId`,
-`brewC/steam/flush/hotWater→` the matching `steamSettings`/`hotWaterData`/`rinseData`
-on the workflow, and `beanId`/`profileId` as in the table. A recipe has no `copyMask` —
-apply all populated fields.
+**R mode (recipe apply).** ⚠️ Superseded by the Phase A update above + `KV_CONTRACT.md`.
+Preferred path: PUT `recipe.workflow` (covers `dose→targetDoseWeight`,
+`drink→targetYield`, `grind→grinderSetting`, `grinderId`, barista/drinker, profile), then
+for steam/hot-water/flush do the **live merge** (GET workflow → override
+`steamSettings.duration/flow`, `hotWaterData.volume/targetTemperature`, `rinseData.duration`
+from `dashboardVariables` → PUT). Copy the exact mapping from `dashboard.ts applyRecipe`.
+`brewC` is display-only (profile-level, no workflow target). A recipe has no `copyMask`.
 
 ### B5. Refresh after apply
 Streamline holds workflow values in its own controls. After the PUT, re-pull the

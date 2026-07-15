@@ -41,6 +41,33 @@ No transformation needed. `PUT /api/v1/workflow` accepts
 `{ context, profile?, steamSettings?, hotWaterData?, rinseData? }`; the stored
 `workflow` only ever sets `context` and optionally `profile`.
 
+### Recipes: steam / hot-water / flush need a live merge (not in `workflow`)
+
+The embedded `workflow` deliberately **omits** `steamSettings` / `hotWaterData` /
+`rinseData`. Those schemas require `targetTemperature` + `flow` (and hot-water
+`volume`), which a recipe does not capture — so a complete, valid object can't be
+built at save time. A recipe only stores partial intent in `dashboardVariables`
+(`steamMode`/`steamTimeS`/`steamFlowMls`, `hotWaterMode`/`hotWaterMl`/`hotWaterTempC`,
+`flushS`).
+
+To apply these, **merge onto the live workflow** rather than blind-PUTting a partial:
+
+```
+GET /api/v1/workflow                     // has complete steamSettings/hotWaterData/rinseData
+override only the recipe's fields:
+  steam  time → steamSettings.duration = steamTimeS
+  steam  flow → steamSettings.flow     = steamFlowMls
+  hw     vol  → hotWaterData.volume    = hotWaterMl
+  hw     temp → hotWaterData.targetTemperature = hotWaterTempC
+  flush       → rinseData.duration     = flushS
+PUT /api/v1/workflow  with the merged object
+```
+
+Only override when the base sub-object exists (it carries the required fields).
+`brewC` has no workflow target (brew temperature lives on the profile) — display only.
+DYE2's own dashboard (`dashboard.ts applyRecipe`) does exactly this merge; Streamline
+should mirror it. `context`/`profile` from `workflow` still apply as a plain PUT.
+
 ## Optional fields — MUST fall back
 
 `workflow`, `subtitle`, and (on recipes) `title` / `capturedAt` are present **only
