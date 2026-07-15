@@ -646,6 +646,7 @@ function wirePresetButtons(container) {
       if (valueEl) valueEl.textContent = btn.dataset.preset;
       container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b.dataset.preset === btn.dataset.preset));
     });
+    attachPresetLongPress(btn);   // long-press copies the current value into this preset
   });
 }
 function applyMode(cls) {

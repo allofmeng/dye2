@@ -4194,6 +4194,28 @@ function setupSegmentControls() {
 }
 `;
 	var presetStripScript = `
+// Long-press a preset to COPY the current stepper value into that preset chip.
+function attachPresetLongPress(btn) {
+  let longFired = false, timer = null;
+  const clear = () => { if (timer) { clearTimeout(timer); timer = null; } };
+  btn.addEventListener('pointerdown', () => {
+    longFired = false; clear();
+    timer = setTimeout(() => {
+      timer = null;
+      const valueEl = document.getElementById(btn.dataset.for + '-value');
+      const v = valueEl ? valueEl.textContent : '';
+      if (!v || v === '—') return;
+      longFired = true;
+      btn.dataset.preset = v;
+      btn.textContent = v;
+      const container = document.getElementById(btn.dataset.for + '-presets');
+      if (container) container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b === btn));
+    }, 500);
+  });
+  ['pointerup','pointerleave','pointercancel'].forEach(ev => btn.addEventListener(ev, clear));
+  // Swallow the click that follows a long-press so it doesn't also write the preset back onto the value.
+  btn.addEventListener('click', (e) => { if (longFired) { e.stopImmediatePropagation(); e.preventDefault(); longFired = false; } }, true);
+}
 function setupPresetStrips() {
   document.querySelectorAll('.dye-preset').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -4206,6 +4228,7 @@ function setupPresetStrips() {
         container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b.dataset.preset === val));
       }
     });
+    attachPresetLongPress(btn);
   });
 }
 function syncPresetActive(idPrefix, currentVal) {
@@ -6390,6 +6413,7 @@ function wirePresetButtons(container) {
       if (valueEl) valueEl.textContent = btn.dataset.preset;
       container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b.dataset.preset === btn.dataset.preset));
     });
+    attachPresetLongPress(btn);   // long-press copies the current value into this preset
   });
 }
 function applyMode(cls) {
