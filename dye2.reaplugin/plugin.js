@@ -4100,8 +4100,9 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
   .dye-preset.dye-preset-active { color: var(--mimoja-blue); font-weight: 700; }
   `;
 	}
-	function presetStripHtml(idPrefix, presets) {
-		return `<div id="${idPrefix}-presets" class="flex items-center gap-[30px] mt-[6px]">${presets.map((p) => `<button class="dye-preset" data-preset="${p}" data-for="${idPrefix}">${p}</button>`).join("")}</div>`;
+	function presetStripHtml(idPrefix, presets, opts = {}) {
+		const attrs = (opts.kind ? ` data-kind="${opts.kind}"` : "") + (opts.basis ? ` data-basis="${opts.basis}"` : "");
+		return `<div id="${idPrefix}-presets" class="flex items-center gap-[30px] mt-[6px]">${presets.map((p) => `<button class="dye-preset" data-preset="${p}" data-for="${idPrefix}"${attrs}>${p}</button>`).join("")}</div>`;
 	}
 	function toggleCss() {
 		return `
@@ -4194,8 +4195,30 @@ function setupSegmentControls() {
 }
 `;
 	var presetStripScript = `
+// Apply a preset chip to its stepper value. Ratio chips ("1:R") compute grams from the basis dose.
+function applyPreset(btn) {
+  const idPrefix = btn.dataset.for;
+  const valueEl = document.getElementById(idPrefix + '-value');
+  if (btn.dataset.kind === 'ratio') {
+    const m = /^1:([0-9.]+)$/.exec(btn.dataset.preset || '');
+    const r = m ? parseFloat(m[1]) : NaN;
+    const basisEl = document.getElementById((btn.dataset.basis || '') + '-value');
+    const dose = basisEl ? parseFloat(basisEl.textContent) : NaN;
+    if (valueEl && !isNaN(r) && !isNaN(dose)) {
+      valueEl.textContent = (Math.round(dose * r * 10) / 10) + 'g';
+      valueEl.dataset.ratio = String(r);
+      const sub = document.getElementById(idPrefix + '-sub');
+      if (sub) sub.textContent = '(1:' + r + ')';
+    }
+  } else if (valueEl) {
+    valueEl.textContent = btn.dataset.preset;
+  }
+  const container = document.getElementById(idPrefix + '-presets');
+  if (container) container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b === btn));
+}
 // Long-press a preset to COPY the current stepper value into that preset chip.
 function attachPresetLongPress(btn) {
+  if (btn.dataset.kind === 'ratio') return;   // ratio chips represent a ratio, not a grams value
   let longFired = false, timer = null;
   const clear = () => { if (timer) { clearTimeout(timer); timer = null; } };
   btn.addEventListener('pointerdown', () => {
@@ -4218,16 +4241,7 @@ function attachPresetLongPress(btn) {
 }
 function setupPresetStrips() {
   document.querySelectorAll('.dye-preset').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const idPrefix = btn.dataset.for;
-      const val = btn.dataset.preset;
-      const valueEl = document.getElementById(idPrefix + '-value');
-      if (valueEl) valueEl.textContent = val;
-      const container = document.getElementById(idPrefix + '-presets');
-      if (container) {
-        container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b.dataset.preset === val));
-      }
-    });
+    btn.addEventListener('click', () => applyPreset(btn));
     attachPresetLongPress(btn);
   });
 }
@@ -5970,7 +5984,10 @@ initAutoFavEdit().catch(e => console.error('initAutoFavEdit failed:', e));
 			"1:2.5",
 			"1:5",
 			"1:15"
-		])}
+		], {
+			kind: "ratio",
+			basis: "re-dose"
+		})}
         </div>
       </div>
 
@@ -6172,6 +6189,8 @@ function renderRecipe(recipe) {
   set('re-dose-value',  dv.dose     != null ? dv.dose + 'g'          : '—');
   set('re-drink-value', dv.drink    != null ? dv.drink + 'g'         : '—');
   set('re-drink-sub',   dv.ratio    != null ? '(1:' + dv.ratio + ')' : '');
+  const drinkValEl = document.getElementById('re-drink-value');
+  if (drinkValEl) { if (dv.ratio != null) drinkValEl.dataset.ratio = String(dv.ratio); else delete drinkValEl.dataset.ratio; }
   set('re-brew-c-value',dv.brewC    != null ? dv.brewC + '°c'        : '—');
   set('re-steam-value', dv.steamTimeS  != null ? dv.steamTimeS + 's' : dv.steamFlowMls != null ? dv.steamFlowMls + 'ml/s' : '—');
   set('re-flush-value', dv.flushS   != null ? dv.flushS + 's'        : '—');
@@ -6341,6 +6360,12 @@ function getCurrentRecipeData() {
   const steamVal  = num('re-steam-value');
   const hwMode    = document.querySelector('.re-hotwater-mode.active')?.dataset.mode || 'vol';
   const hwVal     = num('re-hotwater-value');
+  // Persist the drink ratio only while the yield still equals dose × ratio (i.e. not manually overridden).
+  const doseVal = num('re-dose-value'), drinkVal = num('re-drink-value');
+  const ratioAttr = document.getElementById('re-drink-value')?.dataset.ratio;
+  const ratioNum = ratioAttr ? parseFloat(ratioAttr) : NaN;
+  const ratio = (!isNaN(ratioNum) && doseVal && Math.abs(drinkVal - Math.round(doseVal * ratioNum * 10) / 10) < 0.05)
+    ? ratioNum : undefined;
   return {
     name:      document.getElementById('re-name-input')?.value || '',
     beverage:  document.getElementById('re-beverage-input')?.value || '',
@@ -6354,6 +6379,7 @@ function getCurrentRecipeData() {
     dashboardVariables: {
       dose:    num('re-dose-value'),
       drink:   num('re-drink-value'),
+      ratio,
       brewC:   num('re-brew-c-value') || 93,
       steamMode,
       steamTimeS:   steamMode === 'time' ? steamVal : undefined,
@@ -6408,11 +6434,7 @@ function activeMode(cls) { return document.querySelector('.' + cls + '.active')?
 // Wire preset buttons within one strip (setupPresetStrips only wires what exists at load).
 function wirePresetButtons(container) {
   container.querySelectorAll('.dye-preset').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const valueEl = document.getElementById(btn.dataset.for + '-value');
-      if (valueEl) valueEl.textContent = btn.dataset.preset;
-      container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b.dataset.preset === btn.dataset.preset));
-    });
+    btn.addEventListener('click', () => applyPreset(btn));
     attachPresetLongPress(btn);   // long-press copies the current value into this preset
   });
 }

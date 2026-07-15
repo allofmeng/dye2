@@ -151,9 +151,11 @@ export function presetStripCss(): string {
   `;
 }
 
-export function presetStripHtml(idPrefix: string, presets: string[]): string {
+// opts.kind='ratio' + opts.basis='re-dose' → a "1:R" preset sets the value to (basis dose × R), in grams.
+export function presetStripHtml(idPrefix: string, presets: string[], opts: { kind?: string; basis?: string } = {}): string {
+  const attrs = (opts.kind ? ` data-kind="${opts.kind}"` : '') + (opts.basis ? ` data-basis="${opts.basis}"` : '');
   const items = presets
-    .map(p => `<button class="dye-preset" data-preset="${p}" data-for="${idPrefix}">${p}</button>`)
+    .map(p => `<button class="dye-preset" data-preset="${p}" data-for="${idPrefix}"${attrs}>${p}</button>`)
     .join('');
   return `<div id="${idPrefix}-presets" class="flex items-center gap-[30px] mt-[6px]">${items}</div>`;
 }
@@ -349,8 +351,30 @@ function setupSegmentControls() {
 // ── Script helper: preset strip wiring ───────────────────────────────────────
 
 export const presetStripScript = `
+// Apply a preset chip to its stepper value. Ratio chips ("1:R") compute grams from the basis dose.
+function applyPreset(btn) {
+  const idPrefix = btn.dataset.for;
+  const valueEl = document.getElementById(idPrefix + '-value');
+  if (btn.dataset.kind === 'ratio') {
+    const m = /^1:([0-9.]+)$/.exec(btn.dataset.preset || '');
+    const r = m ? parseFloat(m[1]) : NaN;
+    const basisEl = document.getElementById((btn.dataset.basis || '') + '-value');
+    const dose = basisEl ? parseFloat(basisEl.textContent) : NaN;
+    if (valueEl && !isNaN(r) && !isNaN(dose)) {
+      valueEl.textContent = (Math.round(dose * r * 10) / 10) + 'g';
+      valueEl.dataset.ratio = String(r);
+      const sub = document.getElementById(idPrefix + '-sub');
+      if (sub) sub.textContent = '(1:' + r + ')';
+    }
+  } else if (valueEl) {
+    valueEl.textContent = btn.dataset.preset;
+  }
+  const container = document.getElementById(idPrefix + '-presets');
+  if (container) container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b === btn));
+}
 // Long-press a preset to COPY the current stepper value into that preset chip.
 function attachPresetLongPress(btn) {
+  if (btn.dataset.kind === 'ratio') return;   // ratio chips represent a ratio, not a grams value
   let longFired = false, timer = null;
   const clear = () => { if (timer) { clearTimeout(timer); timer = null; } };
   btn.addEventListener('pointerdown', () => {
@@ -373,16 +397,7 @@ function attachPresetLongPress(btn) {
 }
 function setupPresetStrips() {
   document.querySelectorAll('.dye-preset').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const idPrefix = btn.dataset.for;
-      const val = btn.dataset.preset;
-      const valueEl = document.getElementById(idPrefix + '-value');
-      if (valueEl) valueEl.textContent = val;
-      const container = document.getElementById(idPrefix + '-presets');
-      if (container) {
-        container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b.dataset.preset === val));
-      }
-    });
+    btn.addEventListener('click', () => applyPreset(btn));
     attachPresetLongPress(btn);
   });
 }

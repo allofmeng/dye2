@@ -222,7 +222,7 @@ function buildContent(): string {
         </div>
         <div class="re-var-block flex-1">
           ${stepperHtml('re-drink', 'Drink', '120px', true)}
-          ${presetStripHtml('re-drink', ['1:2.3', '1:2.5', '1:5', '1:15'])}
+          ${presetStripHtml('re-drink', ['1:2.3', '1:2.5', '1:5', '1:15'], { kind: 'ratio', basis: 're-dose' })}
         </div>
       </div>
 
@@ -405,6 +405,8 @@ function renderRecipe(recipe) {
   set('re-dose-value',  dv.dose     != null ? dv.dose + 'g'          : '—');
   set('re-drink-value', dv.drink    != null ? dv.drink + 'g'         : '—');
   set('re-drink-sub',   dv.ratio    != null ? '(1:' + dv.ratio + ')' : '');
+  const drinkValEl = document.getElementById('re-drink-value');
+  if (drinkValEl) { if (dv.ratio != null) drinkValEl.dataset.ratio = String(dv.ratio); else delete drinkValEl.dataset.ratio; }
   set('re-brew-c-value',dv.brewC    != null ? dv.brewC + '°c'        : '—');
   set('re-steam-value', dv.steamTimeS  != null ? dv.steamTimeS + 's' : dv.steamFlowMls != null ? dv.steamFlowMls + 'ml/s' : '—');
   set('re-flush-value', dv.flushS   != null ? dv.flushS + 's'        : '—');
@@ -574,6 +576,12 @@ function getCurrentRecipeData() {
   const steamVal  = num('re-steam-value');
   const hwMode    = document.querySelector('.re-hotwater-mode.active')?.dataset.mode || 'vol';
   const hwVal     = num('re-hotwater-value');
+  // Persist the drink ratio only while the yield still equals dose × ratio (i.e. not manually overridden).
+  const doseVal = num('re-dose-value'), drinkVal = num('re-drink-value');
+  const ratioAttr = document.getElementById('re-drink-value')?.dataset.ratio;
+  const ratioNum = ratioAttr ? parseFloat(ratioAttr) : NaN;
+  const ratio = (!isNaN(ratioNum) && doseVal && Math.abs(drinkVal - Math.round(doseVal * ratioNum * 10) / 10) < 0.05)
+    ? ratioNum : undefined;
   return {
     name:      document.getElementById('re-name-input')?.value || '',
     beverage:  document.getElementById('re-beverage-input')?.value || '',
@@ -587,6 +595,7 @@ function getCurrentRecipeData() {
     dashboardVariables: {
       dose:    num('re-dose-value'),
       drink:   num('re-drink-value'),
+      ratio,
       brewC:   num('re-brew-c-value') || 93,
       steamMode,
       steamTimeS:   steamMode === 'time' ? steamVal : undefined,
@@ -641,11 +650,7 @@ function activeMode(cls) { return document.querySelector('.' + cls + '.active')?
 // Wire preset buttons within one strip (setupPresetStrips only wires what exists at load).
 function wirePresetButtons(container) {
   container.querySelectorAll('.dye-preset').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const valueEl = document.getElementById(btn.dataset.for + '-value');
-      if (valueEl) valueEl.textContent = btn.dataset.preset;
-      container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b.dataset.preset === btn.dataset.preset));
-    });
+    btn.addEventListener('click', () => applyPreset(btn));
     attachPresetLongPress(btn);   // long-press copies the current value into this preset
   });
 }
