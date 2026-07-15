@@ -14,21 +14,39 @@ const styles = `
   }
   .dye-sort-btn.dye-sort-active { background: var(--mimoja-blue); color: #fff; border-color: var(--mimoja-blue); }
 
+  /* Fixed height so every card is the same size regardless of notes length. */
   .dye-card {
-    width: 100%; min-height: 80px; border-radius: 15px;
+    width: 100%; height: 172px; border-radius: 15px;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center; padding: 14px 18px; font-family: 'Inter', sans-serif; cursor: pointer;
     background: var(--box-color); border: 1px solid var(--profile-button-outline-color);
-    color: var(--text-primary); transition: background 0.15s, color 0.15s; user-select: none; gap: 8px;
+    color: var(--text-primary); transition: background 0.15s, color 0.15s; user-select: none; gap: 6px;
+    overflow: hidden;
   }
   .dye-card:hover { opacity: 0.85; }
   .dye-card.dye-card-selected { background: var(--mimoja-blue); border-color: var(--mimoja-blue); color: #fff; }
 
   .dye-card-name  { font-size: 22px; font-weight: 600; line-height: 1.3; }
   .dye-card-sub   { font-size: 18px; font-weight: 400; opacity: 0.7; }
-  .dye-card-date  { font-size: 17px; font-weight: 400; opacity: 0.6; margin-top: 4px; }
+  /* Notes clamp to 2 lines; a "Read more" reveals the rest in a modal so cards stay uniform. */
+  .dye-card-note  { font-size: 17px; font-weight: 400; opacity: 0.6; line-height: 1.3;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .dye-card-readmore { font-size: 16px; font-weight: 600; color: var(--mimoja-blue); cursor: pointer; }
   .dye-card.dye-card-selected .dye-card-sub,
-  .dye-card.dye-card-selected .dye-card-date { opacity: 0.85; }
+  .dye-card.dye-card-selected .dye-card-note { opacity: 0.85; }
+  .dye-card.dye-card-selected .dye-card-readmore { color: #fff; text-decoration: underline; }
+
+  /* Full-note modal */
+  .pp-modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+    display: none; align-items: center; justify-content: center; z-index: 1000; }
+  .pp-modal-backdrop.open { display: flex; }
+  .pp-modal { background: var(--box-color); color: var(--text-primary); border-radius: 18px;
+    max-width: 640px; width: 86%; max-height: 74vh; overflow-y: auto; padding: 30px 34px;
+    font-family: 'Inter', sans-serif; }
+  .pp-modal-title { font-size: 26px; font-weight: 700; margin-bottom: 14px; }
+  .pp-modal-body { font-size: 20px; line-height: 1.5; white-space: pre-wrap; }
+  .pp-modal-close { margin-top: 22px; height: 56px; padding: 0 34px; border: none; border-radius: 9999px;
+    background: var(--mimoja-blue); color: #fff; font-size: 20px; font-weight: 700; cursor: pointer; }
 
   .dye-confirm-disabled { background: var(--fav-button-wait, #e0e0e0); color: var(--text-primary-disabled, #aaa); cursor: not-allowed; }
   .dye-confirm-enabled  { background: var(--mimoja-blue); color: #fff; cursor: pointer; }
@@ -78,6 +96,14 @@ const content = `
 
     <div id="dye-cards-container" class="flex-1 overflow-y-auto pt-[28px] px-[38px] pb-[28px]">
       <div id="dye-cards-grid" class="grid grid-cols-3 gap-[20px]"></div>
+    </div>
+  </div>
+
+  <div id="pp-note-modal" class="pp-modal-backdrop">
+    <div class="pp-modal">
+      <div id="pp-note-title" class="pp-modal-title"></div>
+      <div id="pp-note-body" class="pp-modal-body"></div>
+      <button id="pp-note-close" class="pp-modal-close">Close</button>
     </div>
   </div>
 </div>
@@ -152,7 +178,7 @@ function renderProfileCards(grid, profiles, confirmBtn) {
     card.innerHTML =
       '<div class="dye-card-name">' + esc(profileName(p)) + '</div>' +
       (sub ? '<div class="dye-card-sub">' + esc(sub) + '</div>' : '') +
-      (meta ? '<div class="dye-card-date">' + esc(meta) + '</div>' : '');
+      (meta ? '<div class="dye-card-note">' + esc(meta) + '</div>' : '');
     if (p.id === selectedProfileId) card.classList.add('dye-card-selected');
     card.addEventListener('click', () => {
       grid.querySelectorAll('.dye-card').forEach(c => c.classList.remove('dye-card-selected'));
@@ -163,7 +189,32 @@ function renderProfileCards(grid, profiles, confirmBtn) {
       updateConfirmButton(confirmBtn);
     });
     grid.appendChild(card);
+    // Add "Read more" only when the note is actually clamped, so cards stay uniform height.
+    if (meta) {
+      const noteEl = card.querySelector('.dye-card-note');
+      if (noteEl && noteEl.scrollHeight > noteEl.clientHeight + 2) {
+        const rm = document.createElement('div');
+        rm.className = 'dye-card-readmore';
+        rm.textContent = 'Read more';
+        rm.addEventListener('click', (e) => { e.stopPropagation(); openNoteModal(profileName(p), meta); });
+        card.appendChild(rm);
+      }
+    }
   });
+}
+
+function openNoteModal(title, body) {
+  const m = document.getElementById('pp-note-modal');
+  const t = document.getElementById('pp-note-title');
+  const b = document.getElementById('pp-note-body');
+  if (t) t.textContent = title;
+  if (b) b.textContent = body;
+  if (m) m.classList.add('open');
+}
+function setupNoteModal() {
+  const m = document.getElementById('pp-note-modal');
+  document.getElementById('pp-note-close')?.addEventListener('click', () => m?.classList.remove('open'));
+  m?.addEventListener('click', (e) => { if (e.target === m) m.classList.remove('open'); });
 }
 
 async function initializeDyeProfiles() {
@@ -191,6 +242,7 @@ async function initializeDyeProfiles() {
 
   render();
   updateConfirmButton(confirmBtn);
+  setupNoteModal();
   setupSortButtons((sort) => { currentSort = sort; render(); });
 
   const searchInput = document.getElementById('dye-search-input');

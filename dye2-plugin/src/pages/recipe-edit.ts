@@ -40,6 +40,22 @@ const styles = `
   }
   .re-input-pencil { flex-shrink: 0; opacity: 0.55; cursor: pointer; }
   .re-input-pencil:hover { opacity: 1; }
+  /* Name-lookup dropdown for Beverage / Barista / Drinker (previously entered values) */
+  .re-combo { position: relative; flex: 1; min-width: 0; }
+  .re-combo-drop {
+    display: none; position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 50;
+    background: var(--box-color); border: 2px solid var(--mimoja-blue); border-radius: 10px;
+    max-height: 320px; overflow-y: auto; box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  }
+  .re-combo-drop.open { display: block; }
+  .re-combo-opt {
+    padding: 14px 18px; font-family: 'Inter', sans-serif; font-size: 22px;
+    color: var(--text-primary); cursor: pointer;
+    border-bottom: 1px solid var(--profile-button-outline-color);
+  }
+  .re-combo-opt:last-child { border-bottom: none; }
+  .re-combo-opt:hover { background: var(--bgmain-color); }
+  .re-combo-empty { padding: 14px 18px; font-size: 20px; color: var(--text-primary-disabled); }
   /* Figma 2396:757: strict 3-column grid of 60px-tall pills */
   .re-chip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
   .re-chip {
@@ -160,25 +176,34 @@ function buildContent(): string {
 
       <div class="flex items-center gap-[30px]">
         <span class="re-field-label">Beverage</span>
-        <div class="re-input-row">
-          <input id="re-beverage-input" class="re-input" type="text" placeholder="e.g. Cappucino" />
-          <button class="re-input-pencil">${pencilSvg}</button>
+        <div class="re-combo">
+          <div class="re-input-row">
+            <input id="re-beverage-input" class="re-input" type="text" placeholder="e.g. Cappucino" />
+            <button class="re-input-pencil" id="re-beverage-pencil">${pencilSvg}</button>
+          </div>
+          <div id="re-beverage-drop" class="re-combo-drop"></div>
         </div>
       </div>
 
       <div class="flex gap-[68px]">
         <div class="flex items-center gap-[30px] flex-1 min-w-0">
           <span class="re-field-label" style="width:auto">Barista</span>
-          <div class="re-input-row">
-            <input id="re-barista-input" class="re-input" type="text" placeholder="Barista" />
-            <button class="re-input-pencil">${pencilSvg}</button>
+          <div class="re-combo">
+            <div class="re-input-row">
+              <input id="re-barista-input" class="re-input" type="text" placeholder="Barista" />
+              <button class="re-input-pencil" id="re-barista-pencil">${pencilSvg}</button>
+            </div>
+            <div id="re-barista-drop" class="re-combo-drop"></div>
           </div>
         </div>
         <div class="flex items-center gap-[30px] flex-1 min-w-0">
           <span class="re-field-label" style="width:auto">Drinker</span>
-          <div class="re-input-row">
-            <input id="re-drinker-input" class="re-input" type="text" placeholder="Drinker" />
-            <button class="re-input-pencil">${pencilSvg}</button>
+          <div class="re-combo">
+            <div class="re-input-row">
+              <input id="re-drinker-input" class="re-input" type="text" placeholder="Drinker" />
+              <button class="re-input-pencil" id="re-drinker-pencil">${pencilSvg}</button>
+            </div>
+            <div id="re-drinker-drop" class="re-combo-drop"></div>
           </div>
         </div>
       </div>
@@ -384,6 +409,9 @@ function renderRecipe(recipe) {
   set('re-flush-value', dv.flushS   != null ? dv.flushS + 's'        : '—');
   set('re-hotwater-value', dv.hotWaterMl != null ? dv.hotWaterMl + 'ml' : (dv.hotWaterTempC != null ? dv.hotWaterTempC + '°C' : '—'));
   set('re-hotwater-sub',   dv.hotWaterTempC != null ? dv.hotWaterTempC + '°C' : '');
+  // Point the mode toggles at the recipe's stored mode so units + presets match the value shown.
+  setMode('re-steam-mode',    dv.steamMode    || (dv.steamFlowMls != null ? 'flow' : dv.steamTimeS != null ? 'time' : 'flow'));
+  setMode('re-hotwater-mode', dv.hotWaterMode || (dv.hotWaterTempC != null ? 'temp' : 'vol'));
   set('re-grind-value', dv.grind    != null ? String(dv.grind)       : '—');
   set('re-rpm-value',   dv.rpm      != null ? String(dv.rpm)         : '—');
 
@@ -594,13 +622,108 @@ function goToPicker(route) {
   window.location.href = route;
 }
 
-function setupModeToggle(cls) {
-  document.querySelectorAll('.' + cls).forEach(btn => {
+// Steam/Hot-Water toggles change BOTH the unit shown in the stepper and the preset strip.
+// ponytail: preset values below are sensible DE1 defaults — confirm against Figma if needed.
+const MODE_CFG = {
+  're-steam-mode': {
+    valueId: 're-steam-value',
+    unit:    { time: 's', flow: 'ml/s' },
+    presets: { time: ['29s','15s','31s','28s'], flow: ['0.8ml/s','1ml/s','1.2ml/s','1.5ml/s'] },
+  },
+  're-hotwater-mode': {
+    valueId: 're-hotwater-value',
+    unit:    { vol: 'ml', temp: '°c' },
+    presets: { vol: ['75ml','120ml','180ml','200ml'], temp: ['80°c','85°c','90°c','95°c'] },
+  },
+};
+function activeMode(cls) { return document.querySelector('.' + cls + '.active')?.dataset.mode; }
+// Wire preset buttons within one strip (setupPresetStrips only wires what exists at load).
+function wirePresetButtons(container) {
+  container.querySelectorAll('.dye-preset').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.' + cls).forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      const valueEl = document.getElementById(btn.dataset.for + '-value');
+      if (valueEl) valueEl.textContent = btn.dataset.preset;
+      container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b.dataset.preset === btn.dataset.preset));
     });
   });
+}
+function applyMode(cls) {
+  const cfg = MODE_CFG[cls]; if (!cfg) return;
+  const mode = activeMode(cls);
+  const idPrefix = cfg.valueId.replace('-value', '');
+  const strip = document.getElementById(idPrefix + '-presets');
+  if (strip && cfg.presets[mode]) {
+    strip.innerHTML = cfg.presets[mode]
+      .map(p => '<button class="dye-preset" data-preset="' + p + '" data-for="' + idPrefix + '">' + p + '</button>').join('');
+    wirePresetButtons(strip);
+  }
+  const valEl = document.getElementById(cfg.valueId);
+  if (valEl) {
+    const n = parseFloat(valEl.textContent);
+    valEl.textContent = isNaN(n) ? '—' : n + (cfg.unit[mode] || '');
+    syncPresetActive(idPrefix, valEl.textContent);
+  }
+}
+function setMode(cls, mode) {
+  document.querySelectorAll('.' + cls).forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+  applyMode(cls);
+}
+function setupModeToggle(cls) {
+  document.querySelectorAll('.' + cls).forEach(btn => {
+    btn.addEventListener('click', () => setMode(cls, btn.dataset.mode));
+  });
+  applyMode(cls);   // sync presets + unit to the default-active mode on load
+}
+
+// ── Name lookups: pick from previously entered values ───────────────────────
+async function distinctNames(key) {
+  const shots = await getShots({ limit: 200 }).catch(() => []);
+  const seen = new Set();
+  (Array.isArray(shots) ? shots : (shots.items || [])).forEach(s => {
+    const ctx = (s.workflow && s.workflow.context) || {};
+    const name = ctx[key] || (s.metadata && s.metadata[key === 'baristaName' ? 'barista' : 'drinker']);
+    if (name) seen.add(name);
+  });
+  return [...seen];
+}
+async function distinctBeverages() {
+  const [recipeList, favs] = await Promise.all([getRecipes().catch(() => []), getAutoFavourites().catch(() => [])]);
+  const seen = new Set();
+  (Array.isArray(recipeList) ? recipeList : []).forEach(r => { if (r && r.beverage) seen.add(r.beverage); });
+  (Array.isArray(favs) ? favs : []).forEach(f => { if (f && f.beverage) seen.add(f.beverage); });
+  return [...seen];
+}
+const nameComboCache = {};
+function setupNameCombo(field, loader) {
+  const input = document.getElementById(field + '-input');
+  const drop  = document.getElementById(field + '-drop');
+  const pencil = document.getElementById(field + '-pencil');
+  if (!input || !drop) return;
+  async function options() {
+    if (!nameComboCache[field]) { try { nameComboCache[field] = await loader(); } catch (e) { nameComboCache[field] = []; } }
+    return nameComboCache[field];
+  }
+  async function open() {
+    const opts = await options();
+    const q = (input.value || '').trim().toLowerCase();
+    const list = q ? opts.filter(o => String(o).toLowerCase().includes(q)) : opts;
+    drop.innerHTML = '';
+    if (!list.length) {
+      const e = document.createElement('div'); e.className = 're-combo-empty'; e.textContent = 'No previous entries'; drop.appendChild(e);
+    } else {
+      list.slice(0, 50).forEach(o => {
+        const el = document.createElement('div'); el.className = 're-combo-opt'; el.textContent = o;
+        // mousedown (not click) so the pick lands before the input's blur closes the drop.
+        el.addEventListener('mousedown', (ev) => { ev.preventDefault(); input.value = o; drop.classList.remove('open'); });
+        drop.appendChild(el);
+      });
+    }
+    drop.classList.add('open');
+  }
+  pencil?.addEventListener('click', () => { input.focus(); open(); });
+  input.addEventListener('focus', open);
+  input.addEventListener('input', open);
+  input.addEventListener('blur', () => setTimeout(() => drop.classList.remove('open'), 150));
 }
 
 function setupStreamlineToggle() {
@@ -653,18 +776,22 @@ function setupFooter() {
 
 async function initRecipeEdit() {
   setupTabs();
-  setupModeToggle('re-steam-mode');
-  setupModeToggle('re-hotwater-mode');
   setupStreamlineToggle();
   setupPresetStrips();
+  // After setupPresetStrips so the mode toggle owns/rewires the strips it rebuilds.
+  setupModeToggle('re-steam-mode');
+  setupModeToggle('re-hotwater-mode');
+  setupNameCombo('re-barista',  () => distinctNames('baristaName'));
+  setupNameCombo('re-drinker',  () => distinctNames('drinkerName'));
+  setupNameCombo('re-beverage', distinctBeverages);
   setupFooter();
 
   wireAdjuster('re-dose-minus',  're-dose-plus',  're-dose-value',  0.5, 0, null, v => v + 'g');
   wireAdjuster('re-drink-minus', 're-drink-plus', 're-drink-value', 1,   0, null, v => v + 'g');
   wireAdjuster('re-brew-c-minus','re-brew-c-plus','re-brew-c-value',1, 60, 100,  v => v + '°c');
-  wireAdjuster('re-steam-minus', 're-steam-plus', 're-steam-value', 1,   0, null, v => v + 's');
+  wireAdjuster('re-steam-minus', 're-steam-plus', 're-steam-value', 1,   0, null, v => v + (MODE_CFG['re-steam-mode'].unit[activeMode('re-steam-mode')] || 's'));
   wireAdjuster('re-flush-minus', 're-flush-plus', 're-flush-value', 1,   0, null, v => v + 's');
-  wireAdjuster('re-hotwater-minus','re-hotwater-plus','re-hotwater-value', 5, 0, null, v => v + 'ml');
+  wireAdjuster('re-hotwater-minus','re-hotwater-plus','re-hotwater-value', 5, 0, null, v => v + (MODE_CFG['re-hotwater-mode'].unit[activeMode('re-hotwater-mode')] || 'ml'));
   wireAdjuster('re-grind-minus', 're-grind-plus', 're-grind-value', 0.1, 0, null, v => v.toFixed(1));
   wireAdjuster('re-rpm-minus',   're-rpm-plus',   're-rpm-value',   1,   1, null, v => String(v));
 
