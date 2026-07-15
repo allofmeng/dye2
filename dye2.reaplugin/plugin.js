@@ -3538,7 +3538,9 @@ function renderNextShot() {
 
   const wf = currentWorkflow;
   const ctx = wf.context || {};
-  // Profile name is only shown after the user copies a shot (see setupClipboardPaste); not set here.
+  // Show the selected/active profile title (set by an applied fav/recipe, clipboard, or the live workflow).
+  const profileNameEl = document.getElementById('dye-profile-name');
+  if (profileNameEl) profileNameEl.textContent = (wf.profile && wf.profile.title) || '—';
 
   const doseVal = document.getElementById('dye-dose-value');
   const drinkVal = document.getElementById('dye-drink-value');
