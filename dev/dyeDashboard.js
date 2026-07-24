@@ -445,7 +445,11 @@ function renderRecipePills(workflow) {
         const title = (typeof item === 'string') ? item : (item.title || item.name || `Recipe ${i + 1}`);
         const pill = document.createElement('button');
         pill.className = 'dye-recipe-pill' + (title === activeTitle ? ' active' : '');
-        pill.textContent = title;
+        pill.title = title;
+        const label = document.createElement('span');
+        label.className = 'dye-recipe-pill-label';
+        label.textContent = title;
+        pill.appendChild(label);
         pill.addEventListener('click', () => {
             document.querySelectorAll('.dye-recipe-pill').forEach(p => p.classList.remove('active'));
             pill.classList.add('active');

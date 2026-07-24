@@ -155,7 +155,7 @@
                     <button id="dye-recipe-prev" class="flex items-center justify-center shrink-0 cursor-pointer text-[var(--mimoja-blue)]">
                         <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--mimoja-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
                     </button>
-                    <div id="dye-recipe-pills" class="flex flex-wrap gap-[12px] flex-1 justify-center overflow-hidden max-h-[152px]">
+                    <div id="dye-recipe-pills" class="grid grid-cols-3 grid-rows-[repeat(2,60px)] gap-[12px] flex-1 overflow-hidden">
                         <!-- rendered by JS -->
                     </div>
                     <button id="dye-recipe-next" class="flex items-center justify-center shrink-0 cursor-pointer text-[var(--mimoja-blue)]">
@@ -383,6 +383,7 @@
     }
 
     .dye-recipe-pill {
+        box-sizing: border-box;
         width: 225px;
         height: 60px;
         border-radius: 15px;
@@ -393,15 +394,19 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center;
-        padding: 0 12px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        padding: 0 14px;
         border: 2px solid #C5CDDA;
         background: white;
         color: #5F7BA8;
         transition: background 0.15s, color 0.15s;
+    }
+    .dye-recipe-pill-label {
+        min-width: 0;
+        max-width: 100%;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .dye-recipe-pill.active {
         background: var(--mimoja-blue);

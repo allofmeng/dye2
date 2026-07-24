@@ -44,6 +44,7 @@ const styles = `
   .dye-grinder-tab.active { color: var(--mimoja-blue); }
 
   .dye-recipe-pill {
+    box-sizing: border-box;
     width: 225px;
     height: 60px;
     border-radius: 15px;
@@ -54,17 +55,21 @@ const styles = `
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 0 12px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 0 14px;
     border: 2px solid #C5CDDA;
     background: white;
     color: #5F7BA8;
     transition: background 0.15s, color 0.15s;
   }
   .dye-recipe-pill.active { background: var(--mimoja-blue); border-color: var(--mimoja-blue); color: #fff; }
+  .dye-recipe-pill-label {
+    min-width: 0;
+    max-width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   #dye-grinder-tabs::-webkit-scrollbar { display: none; }
 
@@ -256,7 +261,7 @@ function buildContent(): string { return `
           <button id="dye-recipe-prev" class="flex items-center justify-center shrink-0 cursor-pointer text-[var(--mimoja-blue)]">
             <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--mimoja-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
           </button>
-          <div id="dye-recipe-pills" class="flex flex-nowrap gap-[12px] flex-1 overflow-x-auto max-h-[152px]" style="scrollbar-width:none"></div>
+          <div id="dye-recipe-pills" class="grid grid-flow-col grid-rows-[repeat(2,60px)] auto-cols-[225px] gap-[12px] flex-1 overflow-x-auto" style="scrollbar-width:none"></div>
           <button id="dye-recipe-next" class="flex items-center justify-center shrink-0 cursor-pointer text-[var(--mimoja-blue)]">
             <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--mimoja-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </button>
@@ -908,7 +913,11 @@ function renderRecipePills(workflow) {
     const title = typeof item === 'string' ? item : (item.name || item.title || ('Recipe ' + (i + 1)));
     const pill = document.createElement('button');
     pill.className = 'dye-recipe-pill' + (title === activeTitle ? ' active' : '');
-    pill.textContent = title;
+    pill.title = title;
+    const label = document.createElement('span');
+    label.className = 'dye-recipe-pill-label';
+    label.textContent = title;
+    pill.appendChild(label);
     pill.addEventListener('click', () => {
       document.querySelectorAll('.dye-recipe-pill').forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
@@ -935,6 +944,9 @@ function applyRecipe(recipe) {
   if (recipe.barista) ctx.baristaName = recipe.barista;
   if (recipe.drinker) ctx.drinkerName = recipe.drinker;
   currentWorkflow.context = ctx;
+  if (recipe.profileId || recipe.profileTitle) {
+    currentWorkflow.profile = { id: recipe.profileId, title: recipe.profileTitle };
+  }
   // Steam / hot-water / flush: override only the recipe's fields on the live sub-objects
   // (which already carry the required targetTemperature/flow). Guarded so we never send a partial.
   if (currentWorkflow.steamSettings && (dv.steamTimeS != null || dv.steamFlowMls != null)) {
