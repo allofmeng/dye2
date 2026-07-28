@@ -184,6 +184,32 @@ function setupReadNote() {
     overlay?.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('open'); });
 }
 
+// Attaches a note to the *next* shot's workflow context, read back later via
+// setupReadNote's ctx.extras.note fallback once the shot is recorded.
+function setupAddNote() {
+    const btn = document.getElementById('dye-add-note-btn');
+    const overlay = document.getElementById('dye-add-note-overlay');
+    const input = document.getElementById('dye-add-note-input');
+    const cancelBtn = document.getElementById('dye-add-note-cancel');
+    const saveBtn = document.getElementById('dye-add-note-save');
+    if (btn && overlay && input) {
+        btn.addEventListener('click', () => {
+            input.value = (currentWorkflow && currentWorkflow.context && currentWorkflow.context.extras && currentWorkflow.context.extras.note) || '';
+            overlay.classList.add('open');
+            input.focus();
+        });
+    }
+    saveBtn?.addEventListener('click', () => {
+        if (!currentWorkflow) { overlay?.classList.remove('open'); return; }
+        currentWorkflow.context = currentWorkflow.context || {};
+        currentWorkflow.context.extras = { ...(currentWorkflow.context.extras || {}), note: input.value };
+        updateWorkflow(currentWorkflow).catch(e => console.warn('updateWorkflow failed:', e));
+        overlay?.classList.remove('open');
+    });
+    cancelBtn?.addEventListener('click', () => overlay?.classList.remove('open'));
+    overlay?.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('open'); });
+}
+
 function updateStarDisplay(rating) {
     const stars = document.querySelectorAll('.dye-star');
     stars.forEach(star => {
@@ -634,6 +660,7 @@ export async function initializeDyeDashboard() {
     setupShotNavigation();
     setupStarRating();
     setupReadNote();
+    setupAddNote();
     setupEditShotDropdown();
     setupDyeSettingsDropdown();
     setupVisualizerDropdown();

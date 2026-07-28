@@ -9,33 +9,37 @@ interface DevShellOptions {
 }
 
 // Pages are authored at a fixed 1920x1200 design reference (the Figma canvas at 75%,
-// 16:10 like the tablet). A uniform "contain" zoom scales the whole 1920x1200 canvas
-// to fit inside the viewport — using whichever axis is tighter — so proportions stay
-// exact AND the page never scrolls vertically. On a screen whose aspect differs from
-// 16:10 (e.g. a 16:9 monitor) the extra space becomes a thin letterbox margin around
-// the centred canvas, filled by the body background. On the real 16:10 tablet the fit
-// is exact with no letterbox. Zoom is on <html> so fixed-position modals scale too.
-// Roots must NOT carry w-screen/h-screen — this script owns their size.
+// 16:10 like the tablet). Ported from streamline_project/src/modules/scaling.js:
+// scale x and y independently instead of a uniform min(w,h) zoom, so a non-16:10
+// screen (e.g. an 8" tablet at 1340x800) fills edge-to-edge instead of leaving thick
+// letterbox gutters. The stretch ratio is clamped at 1.15 so round controls don't
+// become visible ellipses on far-off aspects; 16:10 screens are unaffected either way.
+// Transform (not zoom) is applied to <body> itself — a transformed element becomes the
+// containing block for its position:fixed descendants, so modal overlays (which are
+// siblings of the page's root div, both direct children of body) scale correctly too.
 const fitScript = `
 (function () {
   var DESIGN_W = 1920, DESIGN_H = 1200;
+  var MAX_STRETCH = 1.15;
   function fit() {
-    var z = Math.min(window.innerWidth / DESIGN_W, window.innerHeight / DESIGN_H);
-    document.documentElement.style.zoom = z;
-    // Under zoom, CSS space is viewport/z. Size the (flex-centring) body to that in
-    // design px so the extra axis becomes an even letterbox around the fixed canvas;
-    // vw/vh can't express this once zoom is applied, so the script sets it explicitly.
-    document.body.style.width  = (window.innerWidth  / z) + 'px';
-    document.body.style.height = (window.innerHeight / z) + 'px';
-    var root = document.body.firstElementChild;
-    if (root) {
-      root.style.width = DESIGN_W + 'px';
-      root.style.height = DESIGN_H + 'px';
-      // Pin the canvas so the centring flex body can't stretch it — some page roots
-      // carry a flex-grow class that would otherwise fill the width and defeat the
-      // fixed-proportion contain-fit. Keeps every page's letterbox identical.
-      root.style.flex = '0 0 auto';
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var sx = vw / DESIGN_W, sy = vh / DESIGN_H;
+    var stretch = Math.max(sx, sy) / Math.min(sx, sy);
+    if (stretch > MAX_STRETCH) {
+      var k = MAX_STRETCH / stretch;
+      if (sx > sy) { sx *= k; } else { sy *= k; }
     }
+    var offsetX = (vw - DESIGN_W * sx) / 2;
+    var offsetY = (vh - DESIGN_H * sy) / 2;
+    document.body.style.width = DESIGN_W + 'px';
+    document.body.style.height = DESIGN_H + 'px';
+    document.body.style.transformOrigin = 'top left';
+    document.body.style.transform =
+      'translate(' + offsetX + 'px, ' + offsetY + 'px) scale(' + sx + ', ' + sy + ')';
+    // body is no longer a flex container, so its root child (a plain block div) won't
+    // auto-fill body's height on its own the way it auto-fills width — pin it explicitly.
+    var root = document.body.firstElementChild;
+    if (root) { root.style.width = '100%'; root.style.height = '100%'; }
   }
   fit();
   window.addEventListener('resize', fit);
@@ -64,19 +68,25 @@ function cssVarFallbacks(): string {
       --dye-border:      #E5E9EE;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { width: 100%; height: 100%; }
-    /* Pages are authored at the fixed 1920x1200 design reference and contain-fit into
-       the viewport by the fit script — the body never scrolls. Flex centres the design
-       canvas so any leftover space on a non-16:10 screen becomes an even letterbox
-       margin (in the --bgmain-color, so it reads as intentional page chrome). */
-    /* width/height set by the fit script (design px); flex centres the canvas. */
+    /* Pages are authored at the fixed 1920x1200 design reference and fit into the
+       viewport by the fit script, which scales+positions <body> directly (see
+       fitScript) — the page never scrolls. Any leftover space on a non-16:10 screen
+       becomes an even letterbox margin filled by this background, so it reads as
+       intentional page chrome rather than empty space. */
+    html {
+      width: 100%; height: 100%;
+      background: var(--bgmain-color);
+    }
+    /* width/height/transform set by the fit script (design px + computed scale). */
     body {
       overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
       background: var(--bgmain-color);
     }
     body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
-    button { font-family: inherit; cursor: pointer; background: none; border: none; }
+    /* No border:none here — Tailwind preflight already zeroes border-width by
+       default, and this used to win on specificity over button.border-2 etc.,
+       silencing every bordered button (Add Note, Clear, Settings, Visualizer). */
+    button { font-family: inherit; cursor: pointer; background: none; }
     input, textarea, select { font-family: inherit; }
     .no-select { user-select: none; -webkit-user-select: none; }
   `;

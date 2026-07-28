@@ -197,7 +197,7 @@ function buildContent(): string { return `
 
         <div class="h-[2px] bg-[var(--profile-button-outline-color)] shrink-0"></div>
 
-        <div class="flex items-center gap-[18px] shrink-0 pb-[8px] mt-auto">
+        <div class="flex items-center gap-[18px] shrink-0 pb-[8px]">
           <div class="relative">
             <div id="dye-edit-shot-btn" class="flex items-center gap-0 bg-[var(--mimoja-blue)] text-white rounded-[23px] h-[54px] cursor-pointer overflow-hidden">
               <span id="dye-edit-shot-go" class="px-[20px] h-full flex items-center font-semibold text-[21px] whitespace-nowrap">Edit Shot</span>
@@ -306,23 +306,31 @@ function buildContent(): string { return `
 
         <div class="flex flex-col gap-[18px] shrink-0">
           <div id="dye-grinder-tabs" class="flex gap-[27px] overflow-x-auto"></div>
-          <div class="flex items-center gap-[68px]">
-            <div class="flex items-center gap-[18px]">
-              <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">Grind</span>
-              <div class="flex items-center gap-[24px]">
-                <button id="dye-grind-minus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-                <span id="dye-grind-value" class="font-bold text-[26px] text-[var(--text-primary)] w-[72px] text-center">—</span>
-                <button id="dye-grind-plus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="flex items-center gap-[18px]">
+            <button id="dye-grind-rpm-prev" class="flex items-center justify-center shrink-0 cursor-pointer">
+              <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--mimoja-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="flex items-center gap-[68px] flex-1 justify-center">
+              <div class="flex items-center gap-[18px]">
+                <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">Grind</span>
+                <div class="flex items-center gap-[24px]">
+                  <button id="dye-grind-minus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+                  <span id="dye-grind-value" class="font-bold text-[26px] text-[var(--text-primary)] w-[72px] text-center">—</span>
+                  <button id="dye-grind-plus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+                </div>
+              </div>
+              <div class="flex items-center gap-[18px]">
+                <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">RPM</span>
+                <div class="flex items-center gap-[24px]">
+                  <button id="dye-rpm-minus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+                  <span id="dye-rpm-value" class="font-bold text-[26px] text-[var(--text-primary)] w-[72px] text-center">—</span>
+                  <button id="dye-rpm-plus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+                </div>
               </div>
             </div>
-            <div class="flex items-center gap-[18px]">
-              <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">RPM</span>
-              <div class="flex items-center gap-[24px]">
-                <button id="dye-rpm-minus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-                <span id="dye-rpm-value" class="font-bold text-[26px] text-[var(--text-primary)] w-[72px] text-center">—</span>
-                <button id="dye-rpm-plus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-              </div>
-            </div>
+            <button id="dye-grind-rpm-next" class="flex items-center justify-center shrink-0 cursor-pointer">
+              <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--mimoja-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
           </div>
         </div>
 
@@ -345,13 +353,13 @@ function buildContent(): string { return `
               <span class="font-bold text-[24px] text-[var(--mimoja-blue)]">Drinker</span>
               <span id="dye-next-drinker" class="font-normal text-[24px] text-[var(--text-primary)]">—</span>
             </div>
-            <button id="dye-add-note-btn" class="border-2 border-[var(--mimoja-blue)] text-[var(--mimoja-blue)] rounded-[12px] px-[24px] h-[45px] font-semibold text-[21px] cursor-pointer whitespace-nowrap ml-auto">
+            <button id="dye-add-note-btn" class="border-2 border-[var(--mimoja-blue)] text-[var(--mimoja-blue)] rounded-[8px] px-[16px] py-[1px] leading-[1.2] font-semibold text-[24px] cursor-pointer whitespace-nowrap ml-auto">
               Add Note
             </button>
           </div>
         </div>
 
-        <div class="flex-1"></div>
+        <div class="h-[2px] bg-[var(--profile-button-outline-color)] shrink-0"></div>
 
         <div class="flex items-center justify-between shrink-0 pb-[8px]">
           <button id="dye-clear-btn" class="border-2 border-[var(--mimoja-blue)] text-[var(--mimoja-blue)] rounded-[23px] px-[30px] h-[54px] font-semibold text-[21px] cursor-pointer">Clear</button>
@@ -415,6 +423,18 @@ function buildContent(): string { return `
     <div id="dye-note-body" style="font-size:22px;line-height:1.5;color:var(--text-primary);white-space:pre-wrap;max-height:50vh;overflow-y:auto;margin-bottom:28px;">—</div>
     <div class="viz-footer">
       <button id="dye-note-close" class="viz-btn-cancel">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Note modal (editable, for the next shot) -->
+<div id="dye-add-note-overlay" class="viz-overlay">
+  <div class="viz-modal">
+    <h2>Note for Next Shot</h2>
+    <textarea id="dye-add-note-input" class="viz-input" style="height:160px;padding:14px 18px;resize:vertical;"></textarea>
+    <div class="viz-footer" style="margin-top:22px;">
+      <button id="dye-add-note-cancel" class="viz-btn-cancel">Cancel</button>
+      <button id="dye-add-note-save" class="viz-btn-save">Save</button>
     </div>
   </div>
 </div>
@@ -1187,6 +1207,33 @@ function setupReadNote() {
   overlay?.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('open'); });
 }
 
+// Attaches a note to the *next* shot's workflow context, read back later via
+// setupReadNote's ctx.extras.note fallback once the shot is recorded.
+function setupAddNote() {
+  const btn = document.getElementById('dye-add-note-btn');
+  const overlay = document.getElementById('dye-add-note-overlay');
+  const input = document.getElementById('dye-add-note-input');
+  const cancelBtn = document.getElementById('dye-add-note-cancel');
+  const saveBtn = document.getElementById('dye-add-note-save');
+  if (btn && overlay && input) {
+    btn.addEventListener('click', () => {
+      input.value = (currentWorkflow && currentWorkflow.context && currentWorkflow.context.extras && currentWorkflow.context.extras.note) || '';
+      overlay.classList.add('open');
+      input.focus();
+    });
+  }
+  saveBtn?.addEventListener('click', () => {
+    if (!currentWorkflow) { overlay?.classList.remove('open'); return; }
+    snapshotWorkflow();
+    currentWorkflow.context = currentWorkflow.context || {};
+    currentWorkflow.context.extras = { ...(currentWorkflow.context.extras || {}), note: input.value };
+    updateWorkflow(currentWorkflow).catch(e => console.warn(e));
+    overlay?.classList.remove('open');
+  });
+  cancelBtn?.addEventListener('click', () => overlay?.classList.remove('open'));
+  overlay?.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('open'); });
+}
+
 function setupBottomButtons() {
   const cancelBtn = document.getElementById('dye-cancel-btn');
   const doneBtn = document.getElementById('dye-done-btn');
@@ -1261,6 +1308,7 @@ async function initializeDyeDashboard() {
   setupClipboardPaste();
   setupBottomButtons();
   setupReadNote();
+  setupAddNote();
   setupHistoryRevert();
   const pills = document.getElementById('dye-recipe-pills');
   document.getElementById('dye-recipe-prev')?.addEventListener('click', () => pills?.scrollBy({ left: -pills.clientWidth, behavior: 'smooth' }));

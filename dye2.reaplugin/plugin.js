@@ -13,7 +13,7 @@ var createPlugin = (function() {
 	}
 	//#endregion
 	//#region src/styles/tailwind.generated.css?inline
-	var tailwind_generated_default = "*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:\"\"}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.\\!container{width:100%!important}.container{width:100%}@media (min-width:640px){.\\!container{max-width:640px!important}.container{max-width:640px}}@media (min-width:768px){.\\!container{max-width:768px!important}.container{max-width:768px}}@media (min-width:1024px){.\\!container{max-width:1024px!important}.container{max-width:1024px}}@media (min-width:1280px){.\\!container{max-width:1280px!important}.container{max-width:1280px}}@media (min-width:1536px){.\\!container{max-width:1536px!important}.container{max-width:1536px}}.visible{visibility:visible}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.mb-8{margin-bottom:2rem}.mb-\\[14px\\]{margin-bottom:14px}.ml-auto{margin-left:auto}.mt-16{margin-top:4rem}.mt-8{margin-top:2rem}.mt-\\[4px\\]{margin-top:4px}.mt-\\[6px\\]{margin-top:6px}.mt-auto{margin-top:auto}.block{display:block}.inline{display:inline}.flex{display:flex}.\\!grid{display:grid!important}.grid{display:grid}.hidden{display:none}.h-\\[110px\\]{height:110px}.h-\\[120px\\]{height:120px}.h-\\[124px\\]{height:124px}.h-\\[134px\\]{height:134px}.h-\\[165px\\]{height:165px}.h-\\[2px\\]{height:2px}.h-\\[330px\\]{height:330px}.h-\\[40px\\]{height:40px}.h-\\[45px\\]{height:45px}.h-\\[54px\\]{height:54px}.h-\\[60px\\]{height:60px}.h-\\[62px\\]{height:62px}.h-\\[72px\\]{height:72px}.h-\\[76px\\]{height:76px}.h-\\[82px\\]{height:82px}.h-\\[90px\\]{height:90px}.h-full{height:100%}.w-1\\/2{width:50%}.w-\\[1200px\\]{width:1200px}.w-\\[150px\\]{width:150px}.w-\\[180px\\]{width:180px}.w-\\[1px\\]{width:1px}.w-\\[240px\\]{width:240px}.w-\\[2px\\]{width:2px}.w-\\[300px\\]{width:300px}.w-\\[310px\\]{width:310px}.w-\\[60px\\]{width:60px}.w-\\[69px\\]{width:69px}.w-\\[720px\\]{width:720px}.w-\\[72px\\]{width:72px}.w-\\[75px\\]{width:75px}.w-\\[960px\\]{width:960px}.w-full{width:100%}.min-w-0{min-width:0}.flex-1{flex:1 1 0%}.flex-shrink{flex-shrink:1}.flex-shrink-0,.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.resize{resize:both}.auto-cols-\\[225px\\]{grid-auto-columns:225px}.grid-flow-col{grid-auto-flow:column}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-rows-\\[repeat\\(2\\2c 60px\\)\\]{grid-template-rows:repeat(2,60px)}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-\\[10px\\]{gap:10px}.gap-\\[12px\\]{gap:12px}.gap-\\[14px\\]{gap:14px}.gap-\\[15px\\]{gap:15px}.gap-\\[16px\\]{gap:16px}.gap-\\[18px\\]{gap:18px}.gap-\\[20px\\]{gap:20px}.gap-\\[22px\\]{gap:22px}.gap-\\[24px\\]{gap:24px}.gap-\\[27px\\]{gap:27px}.gap-\\[28px\\]{gap:28px}.gap-\\[30px\\]{gap:30px}.gap-\\[40px\\]{gap:40px}.gap-\\[45px\\]{gap:45px}.gap-\\[48px\\]{gap:48px}.gap-\\[60px\\]{gap:60px}.gap-\\[68px\\]{gap:68px}.gap-\\[8px\\]{gap:8px}.gap-\\[90px\\]{gap:90px}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.rounded-\\[12px\\]{border-radius:12px}.rounded-\\[15px\\]{border-radius:15px}.rounded-\\[23px\\]{border-radius:23px}.rounded-\\[68px\\]{border-radius:68px}.rounded-\\[9999px\\]{border-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-\\[var\\(--mimoja-blue\\)\\]{border-color:var(--mimoja-blue)}.border-\\[var\\(--profile-button-outline-color\\)\\]{border-color:var(--profile-button-outline-color)}.bg-\\[\\#EDEDED\\]{--tw-bg-opacity:1;background-color:rgb(237 237 237/var(--tw-bg-opacity,1))}.bg-\\[var\\(--bgmain-color\\)\\]{background-color:var(--bgmain-color)}.bg-\\[var\\(--box-color\\)\\]{background-color:var(--box-color)}.bg-\\[var\\(--mimoja-blue\\)\\]{background-color:var(--mimoja-blue)}.bg-\\[var\\(--profile-button-outline-color\\)\\]{background-color:var(--profile-button-outline-color)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.px-\\[14px\\]{padding-left:14px;padding-right:14px}.px-\\[20px\\]{padding-left:20px;padding-right:20px}.px-\\[24px\\]{padding-left:24px;padding-right:24px}.px-\\[30px\\]{padding-left:30px;padding-right:30px}.px-\\[37px\\]{padding-left:37px;padding-right:37px}.px-\\[38px\\]{padding-left:38px;padding-right:38px}.px-\\[40px\\]{padding-left:40px;padding-right:40px}.px-\\[48px\\]{padding-left:48px;padding-right:48px}.py-\\[27px\\]{padding-top:27px;padding-bottom:27px}.py-\\[28px\\]{padding-top:28px;padding-bottom:28px}.py-\\[32px\\]{padding-top:32px;padding-bottom:32px}.py-\\[36px\\]{padding-top:36px;padding-bottom:36px}.pb-\\[24px\\]{padding-bottom:24px}.pb-\\[28px\\]{padding-bottom:28px}.pb-\\[8px\\]{padding-bottom:8px}.pl-\\[37px\\]{padding-left:37px}.pr-\\[20px\\]{padding-right:20px}.pr-\\[30px\\]{padding-right:30px}.pt-\\[20px\\]{padding-top:20px}.pt-\\[23px\\]{padding-top:23px}.pt-\\[28px\\]{padding-top:28px}.pt-\\[30px\\]{padding-top:30px}.pt-\\[32px\\]{padding-top:32px}.text-center{text-align:center}.font-\\[\\'Inter\\'\\2c sans-serif\\]{font-family:Inter,sans-serif}.text-\\[18px\\]{font-size:18px}.text-\\[21px\\]{font-size:21px}.text-\\[22px\\]{font-size:22px}.text-\\[24px\\]{font-size:24px}.text-\\[26px\\]{font-size:26px}.text-\\[30px\\]{font-size:30px}.text-\\[36px\\]{font-size:36px}.text-\\[38px\\]{font-size:38px}.font-bold{font-weight:700}.font-normal{font-weight:400}.font-semibold{font-weight:600}.italic{font-style:italic}.leading-\\[1\\.2\\]{line-height:1.2}.text-\\[var\\(--mimoja-blue\\)\\]{color:var(--mimoja-blue)}.text-\\[var\\(--text-primary\\)\\]{color:var(--text-primary)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.underline{text-decoration-line:underline}.opacity-40{opacity:.4}.opacity-50{opacity:.5}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline{outline-style:solid}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}";
+	var tailwind_generated_default = "*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:\"\"}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.\\!container{width:100%!important}.container{width:100%}@media (min-width:640px){.\\!container{max-width:640px!important}.container{max-width:640px}}@media (min-width:768px){.\\!container{max-width:768px!important}.container{max-width:768px}}@media (min-width:1024px){.\\!container{max-width:1024px!important}.container{max-width:1024px}}@media (min-width:1280px){.\\!container{max-width:1280px!important}.container{max-width:1280px}}@media (min-width:1536px){.\\!container{max-width:1536px!important}.container{max-width:1536px}}.visible{visibility:visible}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.mb-8{margin-bottom:2rem}.mb-\\[14px\\]{margin-bottom:14px}.ml-auto{margin-left:auto}.mt-16{margin-top:4rem}.mt-8{margin-top:2rem}.mt-\\[4px\\]{margin-top:4px}.mt-\\[6px\\]{margin-top:6px}.block{display:block}.inline{display:inline}.flex{display:flex}.\\!grid{display:grid!important}.grid{display:grid}.hidden{display:none}.h-\\[110px\\]{height:110px}.h-\\[120px\\]{height:120px}.h-\\[124px\\]{height:124px}.h-\\[134px\\]{height:134px}.h-\\[165px\\]{height:165px}.h-\\[2px\\]{height:2px}.h-\\[330px\\]{height:330px}.h-\\[40px\\]{height:40px}.h-\\[54px\\]{height:54px}.h-\\[60px\\]{height:60px}.h-\\[62px\\]{height:62px}.h-\\[72px\\]{height:72px}.h-\\[76px\\]{height:76px}.h-\\[82px\\]{height:82px}.h-\\[90px\\]{height:90px}.h-full{height:100%}.w-1\\/2{width:50%}.w-\\[1200px\\]{width:1200px}.w-\\[150px\\]{width:150px}.w-\\[180px\\]{width:180px}.w-\\[1px\\]{width:1px}.w-\\[240px\\]{width:240px}.w-\\[2px\\]{width:2px}.w-\\[300px\\]{width:300px}.w-\\[310px\\]{width:310px}.w-\\[60px\\]{width:60px}.w-\\[69px\\]{width:69px}.w-\\[720px\\]{width:720px}.w-\\[72px\\]{width:72px}.w-\\[75px\\]{width:75px}.w-\\[960px\\]{width:960px}.w-full{width:100%}.min-w-0{min-width:0}.flex-1{flex:1 1 0%}.flex-shrink{flex-shrink:1}.flex-shrink-0,.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.resize{resize:both}.auto-cols-\\[225px\\]{grid-auto-columns:225px}.grid-flow-col{grid-auto-flow:column}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-rows-\\[repeat\\(2\\2c 60px\\)\\]{grid-template-rows:repeat(2,60px)}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-\\[10px\\]{gap:10px}.gap-\\[12px\\]{gap:12px}.gap-\\[14px\\]{gap:14px}.gap-\\[15px\\]{gap:15px}.gap-\\[16px\\]{gap:16px}.gap-\\[18px\\]{gap:18px}.gap-\\[20px\\]{gap:20px}.gap-\\[22px\\]{gap:22px}.gap-\\[24px\\]{gap:24px}.gap-\\[27px\\]{gap:27px}.gap-\\[28px\\]{gap:28px}.gap-\\[30px\\]{gap:30px}.gap-\\[40px\\]{gap:40px}.gap-\\[45px\\]{gap:45px}.gap-\\[48px\\]{gap:48px}.gap-\\[60px\\]{gap:60px}.gap-\\[68px\\]{gap:68px}.gap-\\[8px\\]{gap:8px}.gap-\\[90px\\]{gap:90px}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.rounded-\\[12px\\]{border-radius:12px}.rounded-\\[15px\\]{border-radius:15px}.rounded-\\[23px\\]{border-radius:23px}.rounded-\\[68px\\]{border-radius:68px}.rounded-\\[8px\\]{border-radius:8px}.rounded-\\[9999px\\]{border-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-\\[var\\(--mimoja-blue\\)\\]{border-color:var(--mimoja-blue)}.border-\\[var\\(--profile-button-outline-color\\)\\]{border-color:var(--profile-button-outline-color)}.bg-\\[\\#EDEDED\\]{--tw-bg-opacity:1;background-color:rgb(237 237 237/var(--tw-bg-opacity,1))}.bg-\\[var\\(--bgmain-color\\)\\]{background-color:var(--bgmain-color)}.bg-\\[var\\(--box-color\\)\\]{background-color:var(--box-color)}.bg-\\[var\\(--mimoja-blue\\)\\]{background-color:var(--mimoja-blue)}.bg-\\[var\\(--profile-button-outline-color\\)\\]{background-color:var(--profile-button-outline-color)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.px-\\[14px\\]{padding-left:14px;padding-right:14px}.px-\\[16px\\]{padding-left:16px;padding-right:16px}.px-\\[20px\\]{padding-left:20px;padding-right:20px}.px-\\[30px\\]{padding-left:30px;padding-right:30px}.px-\\[37px\\]{padding-left:37px;padding-right:37px}.px-\\[38px\\]{padding-left:38px;padding-right:38px}.px-\\[40px\\]{padding-left:40px;padding-right:40px}.px-\\[48px\\]{padding-left:48px;padding-right:48px}.py-\\[1px\\]{padding-top:1px;padding-bottom:1px}.py-\\[27px\\]{padding-top:27px;padding-bottom:27px}.py-\\[28px\\]{padding-top:28px;padding-bottom:28px}.py-\\[32px\\]{padding-top:32px;padding-bottom:32px}.py-\\[36px\\]{padding-top:36px;padding-bottom:36px}.pb-\\[24px\\]{padding-bottom:24px}.pb-\\[28px\\]{padding-bottom:28px}.pb-\\[8px\\]{padding-bottom:8px}.pl-\\[37px\\]{padding-left:37px}.pr-\\[20px\\]{padding-right:20px}.pr-\\[30px\\]{padding-right:30px}.pt-\\[20px\\]{padding-top:20px}.pt-\\[23px\\]{padding-top:23px}.pt-\\[28px\\]{padding-top:28px}.pt-\\[30px\\]{padding-top:30px}.pt-\\[32px\\]{padding-top:32px}.text-center{text-align:center}.font-\\[\\'Inter\\'\\2c sans-serif\\]{font-family:Inter,sans-serif}.text-\\[18px\\]{font-size:18px}.text-\\[21px\\]{font-size:21px}.text-\\[22px\\]{font-size:22px}.text-\\[24px\\]{font-size:24px}.text-\\[26px\\]{font-size:26px}.text-\\[30px\\]{font-size:30px}.text-\\[36px\\]{font-size:36px}.text-\\[38px\\]{font-size:38px}.font-bold{font-weight:700}.font-normal{font-weight:400}.font-semibold{font-weight:600}.italic{font-style:italic}.leading-\\[1\\.2\\]{line-height:1.2}.text-\\[var\\(--mimoja-blue\\)\\]{color:var(--mimoja-blue)}.text-\\[var\\(--text-primary\\)\\]{color:var(--text-primary)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.underline{text-decoration-line:underline}.opacity-40{opacity:.4}.opacity-50{opacity:.5}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline{outline-style:solid}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}";
 	//#endregion
 	//#region \0@oxc-project+runtime@0.124.0/helpers/taggedTemplateLiteral.js
 	function _taggedTemplateLiteral(e, t) {
@@ -25,23 +25,26 @@ var createPlugin = (function() {
 	var fitScript = `
 (function () {
   var DESIGN_W = 1920, DESIGN_H = 1200;
+  var MAX_STRETCH = 1.15;
   function fit() {
-    var z = Math.min(window.innerWidth / DESIGN_W, window.innerHeight / DESIGN_H);
-    document.documentElement.style.zoom = z;
-    // Under zoom, CSS space is viewport/z. Size the (flex-centring) body to that in
-    // design px so the extra axis becomes an even letterbox around the fixed canvas;
-    // vw/vh can't express this once zoom is applied, so the script sets it explicitly.
-    document.body.style.width  = (window.innerWidth  / z) + 'px';
-    document.body.style.height = (window.innerHeight / z) + 'px';
-    var root = document.body.firstElementChild;
-    if (root) {
-      root.style.width = DESIGN_W + 'px';
-      root.style.height = DESIGN_H + 'px';
-      // Pin the canvas so the centring flex body can't stretch it — some page roots
-      // carry a flex-grow class that would otherwise fill the width and defeat the
-      // fixed-proportion contain-fit. Keeps every page's letterbox identical.
-      root.style.flex = '0 0 auto';
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var sx = vw / DESIGN_W, sy = vh / DESIGN_H;
+    var stretch = Math.max(sx, sy) / Math.min(sx, sy);
+    if (stretch > MAX_STRETCH) {
+      var k = MAX_STRETCH / stretch;
+      if (sx > sy) { sx *= k; } else { sy *= k; }
     }
+    var offsetX = (vw - DESIGN_W * sx) / 2;
+    var offsetY = (vh - DESIGN_H * sy) / 2;
+    document.body.style.width = DESIGN_W + 'px';
+    document.body.style.height = DESIGN_H + 'px';
+    document.body.style.transformOrigin = 'top left';
+    document.body.style.transform =
+      'translate(' + offsetX + 'px, ' + offsetY + 'px) scale(' + sx + ', ' + sy + ')';
+    // body is no longer a flex container, so its root child (a plain block div) won't
+    // auto-fill body's height on its own the way it auto-fills width — pin it explicitly.
+    var root = document.body.firstElementChild;
+    if (root) { root.style.width = '100%'; root.style.height = '100%'; }
   }
   fit();
   window.addEventListener('resize', fit);
@@ -69,19 +72,25 @@ var createPlugin = (function() {
       --dye-border:      #E5E9EE;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { width: 100%; height: 100%; }
-    /* Pages are authored at the fixed 1920x1200 design reference and contain-fit into
-       the viewport by the fit script — the body never scrolls. Flex centres the design
-       canvas so any leftover space on a non-16:10 screen becomes an even letterbox
-       margin (in the --bgmain-color, so it reads as intentional page chrome). */
-    /* width/height set by the fit script (design px); flex centres the canvas. */
+    /* Pages are authored at the fixed 1920x1200 design reference and fit into the
+       viewport by the fit script, which scales+positions <body> directly (see
+       fitScript) — the page never scrolls. Any leftover space on a non-16:10 screen
+       becomes an even letterbox margin filled by this background, so it reads as
+       intentional page chrome rather than empty space. */
+    html {
+      width: 100%; height: 100%;
+      background: var(--bgmain-color);
+    }
+    /* width/height/transform set by the fit script (design px + computed scale). */
     body {
       overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
       background: var(--bgmain-color);
     }
     body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
-    button { font-family: inherit; cursor: pointer; background: none; border: none; }
+    /* No border:none here — Tailwind preflight already zeroes border-width by
+       default, and this used to win on specificity over button.border-2 etc.,
+       silencing every bordered button (Add Note, Clear, Settings, Visualizer). */
+    button { font-family: inherit; cursor: pointer; background: none; }
     input, textarea, select { font-family: inherit; }
     .no-select { user-select: none; -webkit-user-select: none; }
   `;
@@ -2900,7 +2909,7 @@ function plotHistoricalShot(measurements, workflow) {
 
         <div class="h-[2px] bg-[var(--profile-button-outline-color)] shrink-0"></div>
 
-        <div class="flex items-center gap-[18px] shrink-0 pb-[8px] mt-auto">
+        <div class="flex items-center gap-[18px] shrink-0 pb-[8px]">
           <div class="relative">
             <div id="dye-edit-shot-btn" class="flex items-center gap-0 bg-[var(--mimoja-blue)] text-white rounded-[23px] h-[54px] cursor-pointer overflow-hidden">
               <span id="dye-edit-shot-go" class="px-[20px] h-full flex items-center font-semibold text-[21px] whitespace-nowrap">Edit Shot</span>
@@ -3009,23 +3018,31 @@ function plotHistoricalShot(measurements, workflow) {
 
         <div class="flex flex-col gap-[18px] shrink-0">
           <div id="dye-grinder-tabs" class="flex gap-[27px] overflow-x-auto"></div>
-          <div class="flex items-center gap-[68px]">
-            <div class="flex items-center gap-[18px]">
-              <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">Grind</span>
-              <div class="flex items-center gap-[24px]">
-                <button id="dye-grind-minus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-                <span id="dye-grind-value" class="font-bold text-[26px] text-[var(--text-primary)] w-[72px] text-center">—</span>
-                <button id="dye-grind-plus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="flex items-center gap-[18px]">
+            <button id="dye-grind-rpm-prev" class="flex items-center justify-center shrink-0 cursor-pointer">
+              <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--mimoja-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="flex items-center gap-[68px] flex-1 justify-center">
+              <div class="flex items-center gap-[18px]">
+                <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">Grind</span>
+                <div class="flex items-center gap-[24px]">
+                  <button id="dye-grind-minus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+                  <span id="dye-grind-value" class="font-bold text-[26px] text-[var(--text-primary)] w-[72px] text-center">—</span>
+                  <button id="dye-grind-plus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+                </div>
+              </div>
+              <div class="flex items-center gap-[18px]">
+                <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">RPM</span>
+                <div class="flex items-center gap-[24px]">
+                  <button id="dye-rpm-minus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+                  <span id="dye-rpm-value" class="font-bold text-[26px] text-[var(--text-primary)] w-[72px] text-center">—</span>
+                  <button id="dye-rpm-plus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+                </div>
               </div>
             </div>
-            <div class="flex items-center gap-[18px]">
-              <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">RPM</span>
-              <div class="flex items-center gap-[24px]">
-                <button id="dye-rpm-minus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-                <span id="dye-rpm-value" class="font-bold text-[26px] text-[var(--text-primary)] w-[72px] text-center">—</span>
-                <button id="dye-rpm-plus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-              </div>
-            </div>
+            <button id="dye-grind-rpm-next" class="flex items-center justify-center shrink-0 cursor-pointer">
+              <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--mimoja-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
           </div>
         </div>
 
@@ -3048,13 +3065,13 @@ function plotHistoricalShot(measurements, workflow) {
               <span class="font-bold text-[24px] text-[var(--mimoja-blue)]">Drinker</span>
               <span id="dye-next-drinker" class="font-normal text-[24px] text-[var(--text-primary)]">—</span>
             </div>
-            <button id="dye-add-note-btn" class="border-2 border-[var(--mimoja-blue)] text-[var(--mimoja-blue)] rounded-[12px] px-[24px] h-[45px] font-semibold text-[21px] cursor-pointer whitespace-nowrap ml-auto">
+            <button id="dye-add-note-btn" class="border-2 border-[var(--mimoja-blue)] text-[var(--mimoja-blue)] rounded-[8px] px-[16px] py-[1px] leading-[1.2] font-semibold text-[24px] cursor-pointer whitespace-nowrap ml-auto">
               Add Note
             </button>
           </div>
         </div>
 
-        <div class="flex-1"></div>
+        <div class="h-[2px] bg-[var(--profile-button-outline-color)] shrink-0"></div>
 
         <div class="flex items-center justify-between shrink-0 pb-[8px]">
           <button id="dye-clear-btn" class="border-2 border-[var(--mimoja-blue)] text-[var(--mimoja-blue)] rounded-[23px] px-[30px] h-[54px] font-semibold text-[21px] cursor-pointer">Clear</button>
@@ -3118,6 +3135,18 @@ function plotHistoricalShot(measurements, workflow) {
     <div id="dye-note-body" style="font-size:22px;line-height:1.5;color:var(--text-primary);white-space:pre-wrap;max-height:50vh;overflow-y:auto;margin-bottom:28px;">—</div>
     <div class="viz-footer">
       <button id="dye-note-close" class="viz-btn-cancel">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Note modal (editable, for the next shot) -->
+<div id="dye-add-note-overlay" class="viz-overlay">
+  <div class="viz-modal">
+    <h2>Note for Next Shot</h2>
+    <textarea id="dye-add-note-input" class="viz-input" style="height:160px;padding:14px 18px;resize:vertical;"></textarea>
+    <div class="viz-footer" style="margin-top:22px;">
+      <button id="dye-add-note-cancel" class="viz-btn-cancel">Cancel</button>
+      <button id="dye-add-note-save" class="viz-btn-save">Save</button>
     </div>
   </div>
 </div>
@@ -3890,6 +3919,33 @@ function setupReadNote() {
   overlay?.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('open'); });
 }
 
+// Attaches a note to the *next* shot's workflow context, read back later via
+// setupReadNote's ctx.extras.note fallback once the shot is recorded.
+function setupAddNote() {
+  const btn = document.getElementById('dye-add-note-btn');
+  const overlay = document.getElementById('dye-add-note-overlay');
+  const input = document.getElementById('dye-add-note-input');
+  const cancelBtn = document.getElementById('dye-add-note-cancel');
+  const saveBtn = document.getElementById('dye-add-note-save');
+  if (btn && overlay && input) {
+    btn.addEventListener('click', () => {
+      input.value = (currentWorkflow && currentWorkflow.context && currentWorkflow.context.extras && currentWorkflow.context.extras.note) || '';
+      overlay.classList.add('open');
+      input.focus();
+    });
+  }
+  saveBtn?.addEventListener('click', () => {
+    if (!currentWorkflow) { overlay?.classList.remove('open'); return; }
+    snapshotWorkflow();
+    currentWorkflow.context = currentWorkflow.context || {};
+    currentWorkflow.context.extras = { ...(currentWorkflow.context.extras || {}), note: input.value };
+    updateWorkflow(currentWorkflow).catch(e => console.warn(e));
+    overlay?.classList.remove('open');
+  });
+  cancelBtn?.addEventListener('click', () => overlay?.classList.remove('open'));
+  overlay?.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('open'); });
+}
+
 function setupBottomButtons() {
   const cancelBtn = document.getElementById('dye-cancel-btn');
   const doneBtn = document.getElementById('dye-done-btn');
@@ -3964,6 +4020,7 @@ async function initializeDyeDashboard() {
   setupClipboardPaste();
   setupBottomButtons();
   setupReadNote();
+  setupAddNote();
   setupHistoryRevert();
   const pills = document.getElementById('dye-recipe-pills');
   document.getElementById('dye-recipe-prev')?.addEventListener('click', () => pills?.scrollBy({ left: -pills.clientWidth, behavior: 'smooth' }));

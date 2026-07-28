@@ -73,7 +73,7 @@
                 <div class="h-[2px] bg-[var(--profile-button-outline-color)] shrink-0"></div>
 
                 <!-- Bottom buttons -->
-                <div class="flex items-center gap-[18px] shrink-0 pb-[8px] mt-auto">
+                <div class="flex items-center gap-[18px] shrink-0 pb-[8px]">
                     <!-- Edit Shot dropdown -->
                     <div class="relative">
                         <button id="dye-edit-shot-btn" class="flex items-center gap-0 bg-[var(--mimoja-blue)] text-white rounded-[23px] h-[54px] cursor-pointer overflow-hidden">
@@ -216,33 +216,41 @@
                     <div id="dye-grinder-tabs" class="flex gap-[27px] overflow-x-auto">
                         <!-- rendered by JS -->
                     </div>
-                    <div class="flex items-center gap-[68px]">
-                        <!-- Grind -->
-                        <div class="flex items-center gap-[18px]">
-                            <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">Grind</span>
-                            <div class="flex items-center gap-[15px]">
-                                <button id="dye-grind-minus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer">
-                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                                </button>
-                                <span id="dye-grind-value" class="font-bold text-[26px] text-[var(--text-primary)] w-[72px] text-center">1.8</span>
-                                <button id="dye-grind-plus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer">
-                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                                </button>
+                    <div class="flex items-center gap-[18px]">
+                        <button id="dye-grind-rpm-prev" class="flex items-center justify-center shrink-0 cursor-pointer">
+                            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--mimoja-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <div class="flex items-center gap-[68px] flex-1 justify-center">
+                            <!-- Grind -->
+                            <div class="flex items-center gap-[18px]">
+                                <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">Grind</span>
+                                <div class="flex items-center gap-[15px]">
+                                    <button id="dye-grind-minus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                    </button>
+                                    <span id="dye-grind-value" class="font-bold text-[26px] text-[var(--text-primary)] w-[72px] text-center">1.8</span>
+                                    <button id="dye-grind-plus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- RPM -->
+                            <div class="flex items-center gap-[18px]">
+                                <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">RPM</span>
+                                <div class="flex items-center gap-[15px]">
+                                    <button id="dye-rpm-minus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                    </button>
+                                    <span id="dye-rpm-value" class="font-bold text-[26px] text-[var(--text-primary)] w-[72px] text-center">6</span>
+                                    <button id="dye-rpm-plus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <!-- RPM -->
-                        <div class="flex items-center gap-[18px]">
-                            <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">RPM</span>
-                            <div class="flex items-center gap-[15px]">
-                                <button id="dye-rpm-minus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer">
-                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                                </button>
-                                <span id="dye-rpm-value" class="font-bold text-[26px] text-[var(--text-primary)] w-[72px] text-center">6</span>
-                                <button id="dye-rpm-plus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer">
-                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                                </button>
-                            </div>
-                        </div>
+                        <button id="dye-grind-rpm-next" class="flex items-center justify-center shrink-0 cursor-pointer">
+                            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--mimoja-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
                     </div>
                 </div>
 
@@ -268,14 +276,13 @@
                             <span class="font-bold text-[24px] text-[var(--mimoja-blue)]">Drinker</span>
                             <span id="dye-next-drinker" class="font-normal text-[24px] text-[var(--text-primary)]">—</span>
                         </div>
-                        <button id="dye-add-note-btn" class="border-2 border-[var(--mimoja-blue)] text-[var(--mimoja-blue)] rounded-[12px] px-[24px] h-[45px] font-semibold text-[21px] cursor-pointer whitespace-nowrap ml-auto">
+                        <button id="dye-add-note-btn" class="border-2 border-[var(--mimoja-blue)] text-[var(--mimoja-blue)] rounded-[8px] px-[16px] py-[1px] leading-[1.2] font-semibold text-[24px] cursor-pointer whitespace-nowrap ml-auto">
                             Add Note
                         </button>
                     </div>
                 </div>
 
-                <!-- Spacer -->
-                <div class="flex-1"></div>
+                <div class="h-[2px] bg-[var(--profile-button-outline-color)] shrink-0"></div>
 
                 <!-- Bottom footer -->
                 <div class="flex items-center justify-between shrink-0 pb-[8px]">
@@ -308,6 +315,18 @@
         <div id="dye-note-body" style="font-size:22px;line-height:1.5;color:var(--text-primary);white-space:pre-wrap;max-height:50vh;overflow-y:auto;margin-bottom:28px;">—</div>
         <div style="display:flex;justify-content:flex-end;">
             <button id="dye-note-close" style="padding:0 30px;height:60px;border-radius:9999px;font-family:'Inter',sans-serif;font-size:22px;font-weight:700;color:var(--text-primary);cursor:pointer;">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Add Note modal (editable, for the next shot) -->
+<div id="dye-add-note-overlay" class="dye-note-overlay">
+    <div class="dye-note-modal">
+        <h2 style="font-size:28px;font-weight:700;color:var(--text-primary);margin-bottom:24px;">Note for Next Shot</h2>
+        <textarea id="dye-add-note-input" style="width:100%;height:160px;padding:14px 18px;border:1px solid var(--profile-button-outline-color);border-radius:12px;font-family:'Inter',sans-serif;font-size:22px;color:var(--text-primary);background:var(--profile-button-background-color);outline:none;resize:vertical;box-sizing:border-box;margin-bottom:22px;"></textarea>
+        <div style="display:flex;justify-content:flex-end;gap:14px;">
+            <button id="dye-add-note-cancel" style="padding:0 30px;height:60px;border-radius:9999px;font-family:'Inter',sans-serif;font-size:22px;font-weight:700;color:var(--text-primary);cursor:pointer;">Cancel</button>
+            <button id="dye-add-note-save" style="padding:0 36px;height:60px;border-radius:9999px;font-family:'Inter',sans-serif;font-size:22px;font-weight:700;background:var(--mimoja-blue);color:#fff;cursor:pointer;">Save</button>
         </div>
     </div>
 </div>
