@@ -1,0 +1,78 @@
+name: Build and Release Plugin
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: dye2-plugin/package-lock.json
+
+      # On tag builds the tag is the single source of truth for the version.
+      # vite.config.ts copies dye2-plugin/manifest.json into the output folder,
+      # so patching it here is enough — the shipped manifest picks it up.
+      - name: Sync manifest version from tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          set -euo pipefail
+          version="${GITHUB_REF_NAME#v}"
+          jq --arg v "$version" '.version = $v' dye2-plugin/manifest.json > manifest.tmp
+          mv manifest.tmp dye2-plugin/manifest.json
+          echo "Synced manifest version to: $version"
+
+      - name: Build
+        run: npm ci && npm run build
+        working-directory: dye2-plugin
+
+      - name: Validate build output
+        run: |
+          set -euo pipefail
+          test -s dye2.reaplugin/plugin.js
+          test -s dye2.reaplugin/manifest.json
+          jq -e '.id == "dye2.reaplugin"' dye2.reaplugin/manifest.json > /dev/null
+          jq -e '.apiVersion and .version' dye2.reaplugin/manifest.json > /dev/null
+          # The bundle must expose createPlugin for flutter_js to call.
+          grep -q 'createPlugin' dye2.reaplugin/plugin.js
+          echo "manifest: $(jq -c '{id,version,apiVersion}' dye2.reaplugin/manifest.json)"
+
+      # plugin.js is committed to the repo as well, so flag when a commit shipped
+      # a stale build. Warning only — the release always uses the fresh build above.
+      - name: Warn if committed build is stale
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if ! git diff --quiet -- dye2.reaplugin/; then
+            echo "::warning::committed dye2.reaplugin/ differs from a clean build — run 'npm run build' in dye2-plugin and commit the result"
+            git diff --stat -- dye2.reaplugin/
+          fi
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dye2.reaplugin
+          path: dye2.reaplugin/
+
+      # Zip keeps the dye2.reaplugin/ folder as the top-level entry, because REA
+      # identifies a plugin by that folder name.
+      - name: Create release archive
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: zip -r "dye2.reaplugin-${GITHUB_REF_NAME}.zip" dye2.reaplugin
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dye2.reaplugin-${{ github.ref_name }}.zip
+          generate_release_notes: true
