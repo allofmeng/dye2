@@ -15,12 +15,13 @@ const styles = `
   /* Figma 2396:728: fixed 270x60 pills, stroke #C5CDDA, text #5F7BA8 */
   .re-tab {
     width: 270px; height: 60px; border-radius: 15px;
-    display: flex; align-items: center; justify-content: center;
+    /* ponytail: block + line-height, not flex — text-overflow:ellipsis only works on a block box */
+    display: block; line-height: 56px; text-align: center;
     font-family: 'Inter', sans-serif; font-weight: 600; font-size: 21px;
     border: 2px solid #C5CDDA;
     background: var(--box-color); color: #5F7BA8;
     cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    flex-shrink: 0; padding: 0 10px;
+    flex-shrink: 0; padding: 0 20px;
   }
   .re-tab.active { background: var(--mimoja-blue); border-color: var(--mimoja-blue); color: #fff; }
   .re-label { font-size: 24px; font-weight: 700; color: var(--mimoja-blue); margin-bottom: 8px; }
@@ -60,13 +61,16 @@ const styles = `
   /* Figma 2396:757: strict 3-column grid of 60px-tall pills */
   .re-chip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
   .re-chip {
-    height: 60px; border-radius: 15px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 600;
+    min-height: 60px; border-radius: 15px;
+    /* Long bean/profile names don't fit 284px on one line, so wrap to two and let the
+       chip grow — the column has vertical slack to spend. -webkit-box + line-clamp
+       centres vertically (box-pack on the vertical main axis) and caps at two lines. */
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-box-pack: center;
+    -webkit-line-clamp: 2; overflow: hidden; text-align: center;
+    font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 600; line-height: 1.2;
     border: 2px solid #C5CDDA;
     background: var(--box-color); color: #5F7BA8;
-    cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    padding: 0 10px;
+    cursor: pointer; padding: 6px 16px;
   }
   .re-chip.active { background: var(--mimoja-blue); border-color: var(--mimoja-blue); color: #fff; }
   .re-see-all {
@@ -74,6 +78,8 @@ const styles = `
     font-size: 21px; font-weight: 600; color: var(--mimoja-blue); cursor: pointer;
   }
   .re-divider { height: 1px; background: var(--profile-button-outline-color); }
+  /* Figma 2396:865/910/962: 2px rule between the two steppers in each variables row */
+  .re-vrule { width: 2px; align-self: stretch; background: var(--profile-button-outline-color); flex-shrink: 0; }
   .re-var-block { display: flex; flex-direction: column; gap: 8px; }
   .re-var-label { font-size: 22px; font-weight: 700; color: var(--mimoja-blue); margin-bottom: 2px; }
   /* Figma: grinder options are plain text (no box) — active bold blue, inactive grey, wide gaps */
@@ -149,7 +155,7 @@ function buildContent(): string {
   <div class="flex flex-1 overflow-hidden">
 
     <!-- LEFT: recipe metadata -->
-    <div id="re-left" class="flex flex-col w-1/2 shrink-0 bg-white border-r border-[var(--profile-button-outline-color)] overflow-y-auto px-[38px] py-[28px] gap-[24px]">
+    <div id="re-left" class="flex flex-col w-1/2 shrink-0 bg-white border-r border-[var(--profile-button-outline-color)] overflow-y-auto px-[38px] py-[28px] gap-[30px]">
 
       <div class="flex items-center gap-[30px]">
         <span class="re-field-label">Recipe Name</span>
@@ -211,15 +217,16 @@ function buildContent(): string {
     </div>
 
     <!-- RIGHT: Dashboard Variables (2-column, matches Figma) -->
-    <div id="re-right" class="flex flex-col flex-1 bg-white overflow-y-auto px-[38px] py-[28px] gap-[24px]">
+    <div id="re-right" class="flex flex-col flex-1 bg-white overflow-y-auto px-[38px] py-[28px] gap-[30px]">
       <div class="text-[30px] font-bold text-[var(--mimoja-blue)]">Dashboard Variables</div>
 
       <!-- Row: Dose | Drink -->
-      <div class="flex gap-[40px]">
+      <div class="flex gap-[45px]">
         <div class="re-var-block flex-1">
           ${stepperHtml('re-dose', 'Dose', '120px')}
           ${presetStripHtml('re-dose', ['20g', '18g', '19g', '15g'])}
         </div>
+        <div class="re-vrule"></div>
         <div class="re-var-block flex-1">
           ${stepperHtml('re-drink', 'Drink', '120px', true)}
           ${presetStripHtml('re-drink', ['1:2.3', '1:2.5', '1:5', '1:15'], { kind: 'ratio', basis: 're-dose' })}
@@ -229,11 +236,12 @@ function buildContent(): string {
       <div class="re-divider"></div>
 
       <!-- Row: Brew °c | Steam (Flow | Time) -->
-      <div class="flex gap-[40px]">
+      <div class="flex gap-[45px]">
         <div class="re-var-block flex-1">
           ${stepperHtml('re-brew-c', 'Brew °c', '120px')}
           ${presetStripHtml('re-brew-c', ['75°c', '80°c', '92°c', '85°c'])}
         </div>
+        <div class="re-vrule"></div>
         <div class="re-var-block flex-1">
           ${stepperHtml('re-steam', 'Steam', '120px', true, `
             <div class="re-mode-toggle">
@@ -248,11 +256,12 @@ function buildContent(): string {
       <div class="re-divider"></div>
 
       <!-- Row: Flush | Hot Water (Temp | Vol) -->
-      <div class="flex gap-[40px]">
+      <div class="flex gap-[45px]">
         <div class="re-var-block flex-1">
           ${stepperHtml('re-flush', 'Flush', '120px')}
           ${presetStripHtml('re-flush', ['5s', '2s', '10s', '15s'])}
         </div>
+        <div class="re-vrule"></div>
         <div class="re-var-block flex-1">
           ${stepperHtml('re-hotwater', 'Hot Water', '120px', true, `
             <div class="re-mode-toggle">
@@ -284,7 +293,8 @@ function buildContent(): string {
   </div>
 
   <!-- Footer -->
-  <div class="flex items-center px-[38px] h-[120px] shrink-0 bg-[var(--box-color)] border-t border-[var(--profile-button-outline-color)] gap-[30px]">
+  <!-- Figma 2386:1876: 201px-tall footer band on the 2560 canvas → 151px here -->
+  <div class="flex items-center px-[38px] h-[150px] shrink-0 bg-[var(--box-color)] border-t border-[var(--profile-button-outline-color)] gap-[30px]">
     <button id="re-clear-btn" class="footer-btn-ghost">Clear all</button>
     <div class="relative">
       <button id="re-read-from-btn" class="footer-btn-ghost">Read From ${chevUpSvg}</button>
@@ -492,11 +502,16 @@ function applyToCurrentRecipe(src) {
   renderRecipe(merged);
 }
 
-// Show the assigned item first (so it is always visible + active), then fill up to the limit.
+// First "limit" items, in list order — positions stay put across re-renders so the highlight
+// lands on the chip the user actually tapped. Only an assigned item that falls outside the
+// visible window gets pulled in (taking the last slot), so it is never invisible.
 function orderedChips(list, selectedId, limit) {
+  const head = list.slice(0, limit);
   const sel = list.find(x => String(x.id) === String(selectedId));
-  const rest = list.filter(x => x !== sel);
-  return (sel ? [sel, ...rest] : rest).slice(0, limit);
+  if (sel && head.indexOf(sel) === -1) {
+    if (head.length < limit) head.push(sel); else head[head.length - 1] = sel;
+  }
+  return head;
 }
 
 function renderChipGrid(containerId, items, isActive, labelOf, onPick, seeAllRoute) {
