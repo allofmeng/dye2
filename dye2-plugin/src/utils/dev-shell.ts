@@ -42,7 +42,26 @@ const fitScript = `
     if (root) { root.style.width = '100%'; root.style.height = '100%'; }
   }
   fit();
-  window.addEventListener('resize', fit);
+
+  // Android's soft keyboard shrinks the viewport height (interactive-widget only lands
+  // on newer WebViews, so we can't rely on it). Refitting then recomputes sy against a
+  // keyboard-sized height and visibly squashes the page mid-edit, so hold the last fit
+  // while a field has focus and re-fit once it blurs. Width changes (rotation) still
+  // apply immediately — the keyboard never changes width.
+  function isEditing() {
+    var a = document.activeElement;
+    if (!a) return false;
+    var t = a.tagName;
+    return t === 'INPUT' || t === 'TEXTAREA' || t === 'SELECT' || a.isContentEditable;
+  }
+  var lastW = window.innerWidth;
+  window.addEventListener('resize', function () {
+    if (window.innerWidth === lastW && isEditing()) return;
+    lastW = window.innerWidth;
+    fit();
+  });
+  // Blur fires before the keyboard finishes animating away; refit after it settles.
+  window.addEventListener('focusout', function () { setTimeout(fit, 250); });
 })();
 `;
 

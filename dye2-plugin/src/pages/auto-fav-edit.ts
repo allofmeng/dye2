@@ -6,8 +6,10 @@ import {
   segmentControlHtml, segmentControlScript,
   stepperCss,
 } from "../utils/shared-components";
+import { datePickerCss, datePickerScript } from "../utils/date-picker";
 
 const styles = `
+  ${datePickerCss()}
   ${stepperCss()}
   ${toggleCss()}
   .afe-header-sub { font-size: 22px; font-weight: 400; color: var(--text-primary); margin-top: 4px; }
@@ -136,7 +138,7 @@ function lookupEditor(id: string, label: string): string {
 function rowFor(id: string, label: string, on: boolean): string {
   const kind = FIELD_KINDS[id];
   if (kind === 'lookup') return rowHtml(id, label, on, lookupEditor(id, label));
-  if (kind === 'date')   return rowHtml(id, label, on, `<input id="${id}-input" class="afe-date-input" type="date" required />`);
+  if (kind === 'date')   return rowHtml(id, label, on, `<input id="${id}-input" class="afe-date-input" type="date" required readonly data-dye-datepicker />`);
   if (kind === 'text')   return rowHtml(id, label, on, `<input id="${id}-input" class="afe-combo-input" type="text" inputmode="decimal" autocomplete="off" placeholder="e.g. 2.5 or 15 clicks" />`);
   if (kind === 'number') return rowHtml(id, label, on, `<input id="${id}-input" class="afe-combo-input" type="text" inputmode="decimal" data-unit="g" autocomplete="off" />`);
   // note
@@ -360,7 +362,10 @@ function beginEdit(id) {
   if (!input) return;
   input.focus();
   if (kind === 'lookup') openMatches(id);
-  else if (kind === 'date') { if (input.showPicker) { try { input.showPicker(); } catch (e) {} } }
+  // Open the themed picker (never showPicker(), which is the OS dialog). Deferred so this
+  // click finishes bubbling first — the document handler would otherwise treat it as an
+  // outside click and close the popup immediately.
+  else if (kind === 'date') setTimeout(() => input.click(), 0);
   else if (kind === 'note') setTimeout(() => input.scrollIntoView({ behavior: 'smooth', block: 'center' }), 80);
   else input.select();
 }
@@ -411,6 +416,20 @@ function initLookup(field, label, id) {
   else if (input) input.value = '';
 }
 
+// Older snapshots stored only the id (no grinderModel/profileTitle), so initLookup falls
+// back to showing the raw uuid. Swap in the real name from the field's lookup source.
+async function resolveLookupLabel(field, id) {
+  if (!id) return;
+  const st = lookupState[field];
+  if (!st || st.label !== String(id)) return;   // already showing a real name
+  const opt = (await loadOptions(field)).find(o => String(o.id) === String(id));
+  if (!opt) return;
+  lookupState[field] = opt;
+  const input = el(field + '-input');
+  if (input) input.value = opt.label;
+  refreshValue(field);
+}
+
 function renderFav(fav) {
   if (!fav) return;
   currentFav = fav;
@@ -427,6 +446,8 @@ function renderFav(fav) {
   initLookup('afe-grinder', snp.grinderModel || snp.grinderId || '', snp.grinderId);
   initLookup('afe-barista', snp.barista || '');
   initLookup('afe-drinker', snp.drinker || '');
+  resolveLookupLabel('afe-grinder', snp.grinderId);
+  resolveLookupLabel('afe-profile', snp.profileId);
 
   const dateInput = el('afe-roast-date-input');
   if (dateInput) { dateInput.value = snp.roastDate ? new Date(snp.roastDate).toISOString().slice(0, 10) : ''; roastDateManual = !!snp.roastDate; }
@@ -577,6 +598,6 @@ export function renderAutoFavEditPage(request: HttpRequest): HttpResponse {
     requestId: request.requestId,
     status: 200,
     headers: { "Content-Type": "text/html; charset=utf-8" },
-    body: devPageShell("Edit Auto Favourite", buildContent(), styles, [devApiScript, pageScript]),
+    body: devPageShell("Edit Auto Favourite", buildContent(), styles, [devApiScript, datePickerScript(), pageScript]),
   };
 }

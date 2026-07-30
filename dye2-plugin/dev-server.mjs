@@ -17,7 +17,7 @@
 import { createServer, request as httpRequest } from "node:http";
 import { readFileSync, watch } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { dirname, resolve } from "node:path";
+import { basename, dirname, resolve } from "node:path";
 import vm from "node:vm";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -59,7 +59,11 @@ let reloadTimer = null;
 
 function watchPlugin() {
   try {
-    watch(PLUGIN_PATH, () => {
+    // Watch the directory, not the file: vite and git replace plugin.js rather than
+    // editing it in place, and a file watch stays bound to the old (deleted) inode —
+    // it goes silent and the server keeps serving the build it loaded at startup.
+    watch(dirname(PLUGIN_PATH), (_event, filename) => {
+      if (filename && filename !== basename(PLUGIN_PATH)) return;
       // Debounce: Vite may write the file in multiple passes
       clearTimeout(reloadTimer);
       reloadTimer = setTimeout(() => {

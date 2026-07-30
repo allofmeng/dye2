@@ -1,7 +1,9 @@
 import { devPageShell } from "../utils/dev-shell";
 import { devApiScript } from "../utils/dev-api";
+import { datePickerCss, datePickerScript } from "../utils/date-picker";
 
 const styles = `
+  ${datePickerCss()}
   .dye-form-label {
     width: 135px;
     font-family: 'Inter', sans-serif;
@@ -123,7 +125,7 @@ const content = `
       <div class="flex gap-[30px] items-center">
         <label class="dye-form-label">Roast Date</label>
         <div class="dye-form-input-wrap">
-          <input id="dye-bean-roast-date" type="date" class="dye-form-input">
+          <input id="dye-bean-roast-date" type="date" class="dye-form-input" readonly data-dye-datepicker>
           <svg class="dye-form-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--profile-button-outline-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
         </div>
       </div>
@@ -265,6 +267,6 @@ export function renderAddBeanPage(request: HttpRequest): HttpResponse {
     requestId: request.requestId,
     status: 200,
     headers: { "Content-Type": "text/html; charset=utf-8" },
-    body: devPageShell("Add New Beans", content, styles, [devApiScript, pageScript]),
+    body: devPageShell("Add New Beans", content, styles, [devApiScript, datePickerScript(), pageScript]),
   };
 }

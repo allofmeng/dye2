@@ -253,6 +253,17 @@ function renderBeanCards(grid, beans, confirmBtn) {
   });
 }
 
+// Going through "+ Add new bean" pushes add-bean onto the history stack (and its save
+// pushes the picker again), so history.back() no longer lands on the caller — it lands on
+// the add-bean form, which is how you get stuck bouncing between the two. Navigate to
+// edit-shot by route instead; initEditShot rehydrates its draft from sessionStorage and
+// folds in the pick, so it does not care how it was reached.
+const EDIT_SHOT_ROUTE = '/api/v1/plugins/dye2.reaplugin/edit-shot';
+function leavePicker() {
+  if (sessionStorage.getItem('dye_editShotReturn') === '1') { window.location.href = EDIT_SHOT_ROUTE; return; }
+  window.history.back();
+}
+
 async function initializeDyeBeans() {
   const grid = document.getElementById('dye-cards-grid');
   const cancelBtn = document.getElementById('dye-cancel-btn');
@@ -296,7 +307,7 @@ async function initializeDyeBeans() {
     cancelBtn.addEventListener('click', () => {
       ['dye_selectedBeanId','dye_selectedBeanName','dye_selectedBeanRoaster','dye_selectedBatchId']
         .forEach(k => sessionStorage.removeItem(k));
-      window.history.back();
+      leavePicker();
     });
   }
 
@@ -311,8 +322,8 @@ async function initializeDyeBeans() {
       // Return-target flow (recipe-edit): leave the pick in sessionStorage, hand control back.
       if (returnTo) { window.location.href = returnTo; return; }
       const roaster = sessionStorage.getItem('dye_selectedBeanRoaster') || '';
-      // Edit-shot round-trips via its draft; just go back and it folds in the selection.
-      if (fromEditShot) { window.history.back(); return; }
+      // Edit-shot round-trips via its draft; hand control back and it folds in the selection.
+      if (fromEditShot) { window.location.href = EDIT_SHOT_ROUTE; return; }
       // Bean already has a roaster → no roaster step; write the workflow ourselves (roasters.ts
       // is what normally does this) and return to whatever page opened the picker.
       if (roaster) {
@@ -322,7 +333,7 @@ async function initializeDyeBeans() {
         catch (e) { console.error('Failed to update workflow:', e); }
         ['dye_selectedBeanId','dye_selectedBeanName','dye_selectedBeanRoaster','dye_selectedBatchId','dye_selectedRoastDate']
           .forEach(k => sessionStorage.removeItem(k));
-        window.history.back();
+        leavePicker();
       } else {
         window.location.href = '/api/v1/plugins/dye2.reaplugin/roasters';
       }

@@ -31,6 +31,8 @@ const styles = `
   .dye-dash-dropdown-item + .dye-dash-dropdown-item { border-top: 1px solid rgba(255,255,255,0.28); }
   .dye-dash-dropdown-item:hover { background: rgba(255,255,255,0.14); }
   .dye-dash-dropdown-item-danger:hover { background: rgba(229,57,53,0.85); }
+  /* No page designed for this yet — show it as unavailable rather than silently inert. */
+  .dye-dash-dropdown-item-disabled { opacity: 0.4; cursor: default; pointer-events: none; }
 
   .dye-grinder-tab {
     font-family: 'Inter', sans-serif;
@@ -206,7 +208,7 @@ function buildContent(): string { return `
             </div>
             <div id="dye-edit-shot-dropdown" class="dye-dash-dropdown">
               <div class="dye-dash-dropdown-item" id="dye-export-shot">Export Shot</div>
-              <div class="dye-dash-dropdown-item" id="dye-view-profile">View Text Profile</div>
+              <div class="dye-dash-dropdown-item dye-dash-dropdown-item-disabled" id="dye-view-profile" aria-disabled="true">View Text Profile</div>
               <div class="dye-dash-dropdown-item dye-dash-dropdown-item-danger" id="dye-delete-shot">Delete Shot</div>
             </div>
           </div>

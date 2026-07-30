@@ -47,7 +47,26 @@ var createPlugin = (function() {
     if (root) { root.style.width = '100%'; root.style.height = '100%'; }
   }
   fit();
-  window.addEventListener('resize', fit);
+
+  // Android's soft keyboard shrinks the viewport height (interactive-widget only lands
+  // on newer WebViews, so we can't rely on it). Refitting then recomputes sy against a
+  // keyboard-sized height and visibly squashes the page mid-edit, so hold the last fit
+  // while a field has focus and re-fit once it blurs. Width changes (rotation) still
+  // apply immediately — the keyboard never changes width.
+  function isEditing() {
+    var a = document.activeElement;
+    if (!a) return false;
+    var t = a.tagName;
+    return t === 'INPUT' || t === 'TEXTAREA' || t === 'SELECT' || a.isContentEditable;
+  }
+  var lastW = window.innerWidth;
+  window.addEventListener('resize', function () {
+    if (window.innerWidth === lastW && isEditing()) return;
+    lastW = window.innerWidth;
+    fit();
+  });
+  // Blur fires before the keyboard finishes animating away; refit after it settles.
+  window.addEventListener('focusout', function () { setTimeout(fit, 250); });
 })();
 `;
 	/** CSS variable fallbacks for dev server (REA host injects real values in production) */
@@ -1072,6 +1091,17 @@ function renderBeanCards(grid, beans, confirmBtn) {
   });
 }
 
+// Going through "+ Add new bean" pushes add-bean onto the history stack (and its save
+// pushes the picker again), so history.back() no longer lands on the caller — it lands on
+// the add-bean form, which is how you get stuck bouncing between the two. Navigate to
+// edit-shot by route instead; initEditShot rehydrates its draft from sessionStorage and
+// folds in the pick, so it does not care how it was reached.
+const EDIT_SHOT_ROUTE = '/api/v1/plugins/dye2.reaplugin/edit-shot';
+function leavePicker() {
+  if (sessionStorage.getItem('dye_editShotReturn') === '1') { window.location.href = EDIT_SHOT_ROUTE; return; }
+  window.history.back();
+}
+
 async function initializeDyeBeans() {
   const grid = document.getElementById('dye-cards-grid');
   const cancelBtn = document.getElementById('dye-cancel-btn');
@@ -1115,7 +1145,7 @@ async function initializeDyeBeans() {
     cancelBtn.addEventListener('click', () => {
       ['dye_selectedBeanId','dye_selectedBeanName','dye_selectedBeanRoaster','dye_selectedBatchId']
         .forEach(k => sessionStorage.removeItem(k));
-      window.history.back();
+      leavePicker();
     });
   }
 
@@ -1130,8 +1160,8 @@ async function initializeDyeBeans() {
       // Return-target flow (recipe-edit): leave the pick in sessionStorage, hand control back.
       if (returnTo) { window.location.href = returnTo; return; }
       const roaster = sessionStorage.getItem('dye_selectedBeanRoaster') || '';
-      // Edit-shot round-trips via its draft; just go back and it folds in the selection.
-      if (fromEditShot) { window.history.back(); return; }
+      // Edit-shot round-trips via its draft; hand control back and it folds in the selection.
+      if (fromEditShot) { window.location.href = EDIT_SHOT_ROUTE; return; }
       // Bean already has a roaster → no roaster step; write the workflow ourselves (roasters.ts
       // is what normally does this) and return to whatever page opened the picker.
       if (roaster) {
@@ -1141,7 +1171,7 @@ async function initializeDyeBeans() {
         catch (e) { console.error('Failed to update workflow:', e); }
         ['dye_selectedBeanId','dye_selectedBeanName','dye_selectedBeanRoaster','dye_selectedBatchId','dye_selectedRoastDate']
           .forEach(k => sessionStorage.removeItem(k));
-        window.history.back();
+        leavePicker();
       } else {
         window.location.href = '/api/v1/plugins/dye2.reaplugin/roasters';
       }
@@ -2199,8 +2229,162 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 		};
 	}
 	//#endregion
+	//#region src/utils/date-picker.ts
+	/**
+	* Themed date picker for the tablet webview.
+	*
+	* Android's native date dialog is OS-styled and ignores the REA colour guide, so fields
+	* opt in with `readonly data-dye-datepicker` — readonly stops the WebView opening the OS
+	* picker, and this script owns the interaction instead. The input stays `type="date"` so
+	* its `.value` is still an ISO `YYYY-MM-DD` string and existing readers keep working; the
+	* popup dispatches `input` + `change` so existing listeners fire as if the user typed.
+	*/
+	function datePickerCss() {
+		return `
+  input[data-dye-datepicker] { cursor: pointer; }
+  /* No native affordance — ours is the only picker. */
+  input[data-dye-datepicker]::-webkit-calendar-picker-indicator { display: none; }
+  .dye-dp {
+    position: absolute; z-index: 200; width: 420px;
+    background: var(--box-color); border: 2px solid var(--mimoja-blue);
+    border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    font-family: 'Inter', sans-serif; padding: 18px; user-select: none;
+  }
+  .dye-dp-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .dye-dp-title { font-size: 24px; font-weight: 700; color: var(--mimoja-blue); }
+  .dye-dp-nav {
+    width: 52px; height: 52px; border-radius: 15px; border: 2px solid #C5CDDA;
+    background: var(--box-color); color: var(--mimoja-blue);
+    font-size: 26px; font-weight: 700; line-height: 48px; text-align: center; cursor: pointer;
+  }
+  .dye-dp-nav:active { background: var(--mimoja-blue); color: #fff; }
+  .dye-dp-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .dye-dp-dow { font-size: 18px; font-weight: 700; color: #959595; text-align: center; padding: 6px 0; }
+  .dye-dp-day {
+    height: 52px; line-height: 48px; text-align: center; border-radius: 12px;
+    font-size: 21px; font-weight: 600; color: var(--text-primary); cursor: pointer;
+    border: 2px solid transparent;
+  }
+  .dye-dp-day:active { background: #EDEDED; }
+  .dye-dp-day.dye-dp-muted { color: #C5CDDA; cursor: default; }
+  .dye-dp-day.dye-dp-today { border-color: #C5CDDA; }
+  .dye-dp-day.dye-dp-sel { background: var(--mimoja-blue); border-color: var(--mimoja-blue); color: #fff; }
+  .dye-dp-foot { display: flex; gap: 12px; margin-top: 16px; }
+  .dye-dp-btn {
+    flex: 1; height: 56px; border-radius: 23px; border: 2px solid var(--mimoja-blue);
+    background: var(--box-color); color: var(--mimoja-blue);
+    font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 600; cursor: pointer;
+  }
+  .dye-dp-btn-primary { background: var(--mimoja-blue); color: #fff; }
+`;
+	}
+	function datePickerScript() {
+		return `
+(function () {
+  var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var DOW = ['Mo','Tu','We','Th','Fr','Sa','Su'];
+  var pop = null, target = null, viewY = 0, viewM = 0;
+
+  function iso(d) {
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+  function parseIso(s) {
+    var m = /^(\\d{4})-(\\d{2})-(\\d{2})$/.exec(s || '');
+    return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null;
+  }
+  // <body> is scaled by the fit script, so it is the containing block for our absolutely
+  // positioned popup and its coordinates are pre-transform. Undo translate+scale to turn
+  // a viewport rect into that local space, otherwise the popup lands off-target.
+  function toLocal(rect) {
+    var t = getComputedStyle(document.body).transform;
+    if (!t || t === 'none') return { x: rect.left + window.scrollX, y: rect.bottom + window.scrollY };
+    var m = new DOMMatrixReadOnly(t);
+    return { x: (rect.left - m.e) / (m.a || 1), y: (rect.bottom - m.f) / (m.d || 1) };
+  }
+
+  function close() {
+    if (pop) { pop.remove(); pop = null; target = null; }
+  }
+
+  function commit(d) {
+    if (!target) return;
+    target.value = d ? iso(d) : '';
+    target.dispatchEvent(new Event('input',  { bubbles: true }));
+    target.dispatchEvent(new Event('change', { bubbles: true }));
+    close();
+  }
+
+  function render() {
+    if (!pop) return;
+    var sel = parseIso(target.value), today = new Date();
+    var first = new Date(viewY, viewM, 1);
+    var lead = (first.getDay() + 6) % 7;              // Monday-first
+    var days = new Date(viewY, viewM + 1, 0).getDate();
+    var cells = '';
+    for (var i = 0; i < lead; i++) cells += '<div class="dye-dp-day dye-dp-muted"></div>';
+    for (var d = 1; d <= days; d++) {
+      var cls = 'dye-dp-day';
+      if (sel && sel.getFullYear() === viewY && sel.getMonth() === viewM && sel.getDate() === d) cls += ' dye-dp-sel';
+      else if (today.getFullYear() === viewY && today.getMonth() === viewM && today.getDate() === d) cls += ' dye-dp-today';
+      cells += '<div class="' + cls + '" data-day="' + d + '">' + d + '</div>';
+    }
+    pop.innerHTML =
+      '<div class="dye-dp-head">' +
+        '<div class="dye-dp-nav" data-nav="-1">&#8249;</div>' +
+        '<div class="dye-dp-title">' + MONTHS[viewM] + ' ' + viewY + '</div>' +
+        '<div class="dye-dp-nav" data-nav="1">&#8250;</div>' +
+      '</div>' +
+      '<div class="dye-dp-grid">' + DOW.map(function (w) { return '<div class="dye-dp-dow">' + w + '</div>'; }).join('') + cells + '</div>' +
+      '<div class="dye-dp-foot">' +
+        '<button type="button" class="dye-dp-btn" data-act="clear">Clear</button>' +
+        '<button type="button" class="dye-dp-btn dye-dp-btn-primary" data-act="today">Today</button>' +
+      '</div>';
+  }
+
+  function open(input) {
+    close();
+    target = input;
+    var d = parseIso(input.value) || new Date();
+    viewY = d.getFullYear(); viewM = d.getMonth();
+    pop = document.createElement('div');
+    pop.className = 'dye-dp';
+    document.body.appendChild(pop);
+    render();
+    var p = toLocal(input.getBoundingClientRect());
+    pop.style.left = Math.max(8, p.x) + 'px';
+    pop.style.top = (p.y + 8) + 'px';
+    // Nudge back inside the design canvas if the field sits near an edge.
+    var over = (p.x + pop.offsetWidth) - 1920;
+    if (over > 0) pop.style.left = Math.max(8, p.x - over - 8) + 'px';
+  }
+
+  document.addEventListener('click', function (e) {
+    var field = e.target.closest ? e.target.closest('input[data-dye-datepicker]') : null;
+    if (field) { e.preventDefault(); if (target === field) { close(); } else { open(field); } return; }
+    if (!pop) return;
+    if (!pop.contains(e.target)) { close(); return; }
+
+    var nav = e.target.closest('.dye-dp-nav');
+    if (nav) {
+      viewM += parseInt(nav.dataset.nav, 10);
+      if (viewM < 0) { viewM = 11; viewY--; } else if (viewM > 11) { viewM = 0; viewY++; }
+      render();
+      return;
+    }
+    var act = e.target.closest('.dye-dp-btn');
+    if (act) { commit(act.dataset.act === 'today' ? new Date() : null); return; }
+    var day = e.target.closest('.dye-dp-day[data-day]');
+    if (day) commit(new Date(viewY, viewM, parseInt(day.dataset.day, 10)));
+  });
+
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();
+`;
+	}
+	//#endregion
 	//#region src/pages/add-bean.ts
 	var styles$5 = `
+  ${datePickerCss()}
   .dye-form-label {
     width: 135px;
     font-family: 'Inter', sans-serif;
@@ -2321,7 +2505,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
       <div class="flex gap-[30px] items-center">
         <label class="dye-form-label">Roast Date</label>
         <div class="dye-form-input-wrap">
-          <input id="dye-bean-roast-date" type="date" class="dye-form-input">
+          <input id="dye-bean-roast-date" type="date" class="dye-form-input" readonly data-dye-datepicker>
           <svg class="dye-form-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--profile-button-outline-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
         </div>
       </div>
@@ -2461,7 +2645,11 @@ initializeDyeAddBean().catch(e => console.error('initializeDyeAddBean failed:', 
 			requestId: request.requestId,
 			status: 200,
 			headers: { "Content-Type": "text/html; charset=utf-8" },
-			body: devPageShell("Add New Beans", content$1, styles$5, [devApiScript, pageScript$5])
+			body: devPageShell("Add New Beans", content$1, styles$5, [
+				devApiScript,
+				datePickerScript(),
+				pageScript$5
+			])
 		};
 	}
 	//#endregion
@@ -2743,6 +2931,8 @@ function plotHistoricalShot(measurements, workflow) {
   .dye-dash-dropdown-item + .dye-dash-dropdown-item { border-top: 1px solid rgba(255,255,255,0.28); }
   .dye-dash-dropdown-item:hover { background: rgba(255,255,255,0.14); }
   .dye-dash-dropdown-item-danger:hover { background: rgba(229,57,53,0.85); }
+  /* No page designed for this yet — show it as unavailable rather than silently inert. */
+  .dye-dash-dropdown-item-disabled { opacity: 0.4; cursor: default; pointer-events: none; }
 
   .dye-grinder-tab {
     font-family: 'Inter', sans-serif;
@@ -2918,7 +3108,7 @@ function plotHistoricalShot(measurements, workflow) {
             </div>
             <div id="dye-edit-shot-dropdown" class="dye-dash-dropdown">
               <div class="dye-dash-dropdown-item" id="dye-export-shot">Export Shot</div>
-              <div class="dye-dash-dropdown-item" id="dye-view-profile">View Text Profile</div>
+              <div class="dye-dash-dropdown-item dye-dash-dropdown-item-disabled" id="dye-view-profile" aria-disabled="true">View Text Profile</div>
               <div class="dye-dash-dropdown-item dye-dash-dropdown-item-danger" id="dye-delete-shot">Delete Shot</div>
             </div>
           </div>
@@ -5275,6 +5465,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 	//#endregion
 	//#region src/pages/auto-fav-edit.ts
 	var styles$1 = `
+  ${datePickerCss()}
   ${stepperCss()}
   ${toggleCss()}
   .afe-header-sub { font-size: 22px; font-weight: 400; color: var(--text-primary); margin-top: 4px; }
@@ -5402,7 +5593,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 	function rowFor(id, label, on) {
 		const kind = FIELD_KINDS[id];
 		if (kind === "lookup") return rowHtml(id, label, on, lookupEditor(id, label));
-		if (kind === "date") return rowHtml(id, label, on, `<input id="${id}-input" class="afe-date-input" type="date" required />`);
+		if (kind === "date") return rowHtml(id, label, on, `<input id="${id}-input" class="afe-date-input" type="date" required readonly data-dye-datepicker />`);
 		if (kind === "text") return rowHtml(id, label, on, `<input id="${id}-input" class="afe-combo-input" type="text" inputmode="decimal" autocomplete="off" placeholder="e.g. 2.5 or 15 clicks" />`);
 		if (kind === "number") return rowHtml(id, label, on, `<input id="${id}-input" class="afe-combo-input" type="text" inputmode="decimal" data-unit="g" autocomplete="off" />`);
 		const pencilSvg = lucideIcon("pencil", 26, "var(--mimoja-blue)", 2);
@@ -5633,7 +5824,10 @@ function beginEdit(id) {
   if (!input) return;
   input.focus();
   if (kind === 'lookup') openMatches(id);
-  else if (kind === 'date') { if (input.showPicker) { try { input.showPicker(); } catch (e) {} } }
+  // Open the themed picker (never showPicker(), which is the OS dialog). Deferred so this
+  // click finishes bubbling first — the document handler would otherwise treat it as an
+  // outside click and close the popup immediately.
+  else if (kind === 'date') setTimeout(() => input.click(), 0);
   else if (kind === 'note') setTimeout(() => input.scrollIntoView({ behavior: 'smooth', block: 'center' }), 80);
   else input.select();
 }
@@ -5684,6 +5878,20 @@ function initLookup(field, label, id) {
   else if (input) input.value = '';
 }
 
+// Older snapshots stored only the id (no grinderModel/profileTitle), so initLookup falls
+// back to showing the raw uuid. Swap in the real name from the field's lookup source.
+async function resolveLookupLabel(field, id) {
+  if (!id) return;
+  const st = lookupState[field];
+  if (!st || st.label !== String(id)) return;   // already showing a real name
+  const opt = (await loadOptions(field)).find(o => String(o.id) === String(id));
+  if (!opt) return;
+  lookupState[field] = opt;
+  const input = el(field + '-input');
+  if (input) input.value = opt.label;
+  refreshValue(field);
+}
+
 function renderFav(fav) {
   if (!fav) return;
   currentFav = fav;
@@ -5700,6 +5908,8 @@ function renderFav(fav) {
   initLookup('afe-grinder', snp.grinderModel || snp.grinderId || '', snp.grinderId);
   initLookup('afe-barista', snp.barista || '');
   initLookup('afe-drinker', snp.drinker || '');
+  resolveLookupLabel('afe-grinder', snp.grinderId);
+  resolveLookupLabel('afe-profile', snp.profileId);
 
   const dateInput = el('afe-roast-date-input');
   if (dateInput) { dateInput.value = snp.roastDate ? new Date(snp.roastDate).toISOString().slice(0, 10) : ''; roastDateManual = !!snp.roastDate; }
@@ -5849,7 +6059,11 @@ initAutoFavEdit().catch(e => console.error('initAutoFavEdit failed:', e));
 			requestId: request.requestId,
 			status: 200,
 			headers: { "Content-Type": "text/html; charset=utf-8" },
-			body: devPageShell("Edit Auto Favourite", buildContent$1(), styles$1, [devApiScript, pageScript$1])
+			body: devPageShell("Edit Auto Favourite", buildContent$1(), styles$1, [
+				devApiScript,
+				datePickerScript(),
+				pageScript$1
+			])
 		};
 	}
 	//#endregion
@@ -6510,6 +6724,15 @@ function setupTabs() {
   });
 }
 
+// Opening a See-All picker mid-edit pushes entries onto the history stack (picker, then
+// this page again on confirm), so history.back() lands on the picker the user just left
+// rather than the dashboard that opened this page. Leave by route instead.
+const DASHBOARD_ROUTE = '/api/v1/plugins/dye2.reaplugin/dashboard';
+function leaveRecipeEdit() {
+  const ret = new URLSearchParams(location.search).get('return');
+  window.location.href = ret || DASHBOARD_ROUTE;
+}
+
 // Persist the in-progress form (full-page nav to the picker would otherwise lose it),
 // then open the picker. initRecipeEdit restores the draft and folds in the pick on return.
 function goToPicker(route) {
@@ -6654,7 +6877,7 @@ function setupFooter() {
     renderRecipe({});
   });
 
-  document.getElementById('re-cancel-btn')?.addEventListener('click', () => window.history.back());
+  document.getElementById('re-cancel-btn')?.addEventListener('click', () => leaveRecipeEdit());
 
   document.getElementById('re-save-btn')?.addEventListener('click', async () => {
     const data = getCurrentRecipeData();
@@ -6663,7 +6886,7 @@ function setupFooter() {
       if (recipe && recipe.id) {
         await updateRecipe(recipe.id, data);
       }
-      window.history.back();
+      leaveRecipeEdit();
     } catch (e) { console.error('Failed to save recipe:', e); }
   });
 }

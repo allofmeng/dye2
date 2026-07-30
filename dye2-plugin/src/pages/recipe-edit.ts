@@ -638,6 +638,15 @@ function setupTabs() {
   });
 }
 
+// Opening a See-All picker mid-edit pushes entries onto the history stack (picker, then
+// this page again on confirm), so history.back() lands on the picker the user just left
+// rather than the dashboard that opened this page. Leave by route instead.
+const DASHBOARD_ROUTE = '/api/v1/plugins/dye2.reaplugin/dashboard';
+function leaveRecipeEdit() {
+  const ret = new URLSearchParams(location.search).get('return');
+  window.location.href = ret || DASHBOARD_ROUTE;
+}
+
 // Persist the in-progress form (full-page nav to the picker would otherwise lose it),
 // then open the picker. initRecipeEdit restores the draft and folds in the pick on return.
 function goToPicker(route) {
@@ -782,7 +791,7 @@ function setupFooter() {
     renderRecipe({});
   });
 
-  document.getElementById('re-cancel-btn')?.addEventListener('click', () => window.history.back());
+  document.getElementById('re-cancel-btn')?.addEventListener('click', () => leaveRecipeEdit());
 
   document.getElementById('re-save-btn')?.addEventListener('click', async () => {
     const data = getCurrentRecipeData();
@@ -791,7 +800,7 @@ function setupFooter() {
       if (recipe && recipe.id) {
         await updateRecipe(recipe.id, data);
       }
-      window.history.back();
+      leaveRecipeEdit();
     } catch (e) { console.error('Failed to save recipe:', e); }
   });
 }
