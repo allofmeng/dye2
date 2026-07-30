@@ -171,7 +171,9 @@ function buildContent(): string { return `
         </div>
 
         <div class="h-[2px] bg-[var(--profile-button-outline-color)] shrink-0"></div>
-        <div id="plotly-chart" class="shrink-0 w-full h-[330px]"></div>
+        <!-- Grows into the column's spare height instead of leaving a void at the bottom;
+             330px stays the floor so a short column still shows a usable curve. -->
+        <div id="plotly-chart" class="flex-1 min-h-[330px] w-full"></div>
         <div class="h-[2px] bg-[var(--profile-button-outline-color)] shrink-0"></div>
 
         <div class="flex flex-col gap-[14px] shrink-0">
@@ -363,7 +365,9 @@ function buildContent(): string { return `
 
         <div class="h-[2px] bg-[var(--profile-button-outline-color)] shrink-0"></div>
 
-        <div class="flex items-center justify-between shrink-0 pb-[8px]">
+        <!-- mt-auto: nothing in this column can grow, so pin the actions to the bottom
+             rather than leaving the leftover height as a void beneath them. -->
+        <div class="flex items-center justify-between shrink-0 pb-[8px] mt-auto">
           <button id="dye-clear-btn" class="border-2 border-[var(--mimoja-blue)] text-[var(--mimoja-blue)] rounded-[23px] px-[30px] h-[54px] font-semibold text-[21px] cursor-pointer">Clear</button>
           <div class="flex items-center gap-[12px]">
             <button id="dye-cancel-btn" class="flex items-center justify-center w-[240px] h-[62px] rounded-[68px] font-bold text-[24px] text-[var(--text-primary)] cursor-pointer">CANCEL</button>

@@ -7,6 +7,7 @@ import { renderProfilePickerPage } from "./pages/profile-picker";
 import { renderRoastersPage } from "./pages/roasters";
 import { renderAddBeanPage } from "./pages/add-bean";
 import { renderDashboardPage } from "./pages/dashboard";
+import { renderPlotlyAsset } from "./utils/plotly-asset";
 import { renderEditShotPage } from "./pages/edit-shot";
 import { renderAutoFavsPage } from "./pages/auto-favs";
 import { renderAutoFavEditPage } from "./pages/auto-fav-edit";
@@ -69,6 +70,10 @@ export default function createPlugin(host: PluginHost): PluginInstance {
 
         case "recipe-edit":
           return renderRecipeEditPage(request);
+
+        // Not a page: the local Plotly bundle for the dashboard chart.
+        case "plotly":
+          return renderPlotlyAsset(request);
 
         default:
           return {

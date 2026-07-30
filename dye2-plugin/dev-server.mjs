@@ -144,7 +144,7 @@ function handlePluginPage(endpoint, req, res) {
 
 // ── HTTP server ─────────────────────────────────────────────────────
 
-const PLUGIN_ROUTES = ["grinders", "bean-picker", "grinder-picker", "profile-picker", "roasters", "add-bean", "dashboard", "edit-shot", "auto-favs", "auto-fav-edit", "recipe-edit"];
+const PLUGIN_ROUTES = ["grinders", "bean-picker", "grinder-picker", "profile-picker", "roasters", "add-bean", "dashboard", "edit-shot", "auto-favs", "auto-fav-edit", "recipe-edit", "plotly"];
 
 const server = createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);

@@ -1,7 +1,7 @@
 /**
  * Browser-side Plotly chart logic for the dashboard page.
  * Exported as a string to be inlined as a <script> block.
- * Requires Plotly loaded via CDN before this script runs.
+ * Requires Plotly, which devPageShell loads from the plugin's own "plotly" route.
  *
  * Design follows streamline_project/src/modules/chart.js:
  * - Single Y-axis [0,10]; temperature scaled ÷10 to overlay
@@ -110,7 +110,7 @@ function chartMakeTracks() {
 }
 
 function initChart() {
-  // Plotly loads via CDN — nothing to eagerly init.
+  // Plotly is loaded by the shell from the plugin's own route — nothing to eagerly init.
 }
 
 function plotHistoricalShot(measurements, workflow) {

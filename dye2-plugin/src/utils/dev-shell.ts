@@ -129,7 +129,10 @@ export function devPageShell(
   <!-- interactive-widget=overlays-content: on-screen keyboard overlays the page instead of resizing/shrinking it -->
   <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=overlays-content" />
   <title>DYE2 - ${title}</title>
-  ${opts.plotly ? '<script src="https://cdn.plot.ly/plotly-3.4.0.min.js" charset="utf-8"></script>' : ""}
+  ${/* Served by our own "plotly" route, never a CDN — the tablet is offline. Deliberately
+        page-relative so it resolves under both runtimes: /api/v1/plugins/dye2.reaplugin/
+        dashboard -> .../plotly on the tablet, and /dashboard -> /plotly on the dev server. */
+    opts.plotly ? '<script src="plotly" charset="utf-8"></script>' : ""}
   <style>${tailwindCss}</style>
   <style>${cssVarFallbacks()}${styles}</style>
 </head>
