@@ -13,7 +13,7 @@ var createPlugin = (function() {
 	}
 	//#endregion
 	//#region src/styles/tailwind.generated.css?inline
-	var tailwind_generated_default = "*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:\"\"}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.\\!container{width:100%!important}.container{width:100%}@media (min-width:640px){.\\!container{max-width:640px!important}.container{max-width:640px}}@media (min-width:768px){.\\!container{max-width:768px!important}.container{max-width:768px}}@media (min-width:1024px){.\\!container{max-width:1024px!important}.container{max-width:1024px}}@media (min-width:1280px){.\\!container{max-width:1280px!important}.container{max-width:1280px}}@media (min-width:1536px){.\\!container{max-width:1536px!important}.container{max-width:1536px}}.visible{visibility:visible}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.mb-8{margin-bottom:2rem}.mb-\\[14px\\]{margin-bottom:14px}.ml-auto{margin-left:auto}.mt-16{margin-top:4rem}.mt-8{margin-top:2rem}.mt-\\[4px\\]{margin-top:4px}.mt-\\[6px\\]{margin-top:6px}.mt-auto{margin-top:auto}.block{display:block}.inline{display:inline}.flex{display:flex}.\\!grid{display:grid!important}.grid{display:grid}.hidden{display:none}.h-\\[110px\\]{height:110px}.h-\\[124px\\]{height:124px}.h-\\[134px\\]{height:134px}.h-\\[150px\\]{height:150px}.h-\\[165px\\]{height:165px}.h-\\[2px\\]{height:2px}.h-\\[40px\\]{height:40px}.h-\\[54px\\]{height:54px}.h-\\[60px\\]{height:60px}.h-\\[62px\\]{height:62px}.h-\\[72px\\]{height:72px}.h-\\[76px\\]{height:76px}.h-\\[82px\\]{height:82px}.h-\\[90px\\]{height:90px}.h-full{height:100%}.min-h-\\[330px\\]{min-height:330px}.w-1\\/2{width:50%}.w-\\[1200px\\]{width:1200px}.w-\\[150px\\]{width:150px}.w-\\[180px\\]{width:180px}.w-\\[1px\\]{width:1px}.w-\\[240px\\]{width:240px}.w-\\[2px\\]{width:2px}.w-\\[300px\\]{width:300px}.w-\\[310px\\]{width:310px}.w-\\[60px\\]{width:60px}.w-\\[69px\\]{width:69px}.w-\\[720px\\]{width:720px}.w-\\[72px\\]{width:72px}.w-\\[75px\\]{width:75px}.w-\\[960px\\]{width:960px}.w-full{width:100%}.min-w-0{min-width:0}.flex-1{flex:1 1 0%}.flex-shrink{flex-shrink:1}.flex-shrink-0,.shrink-0{flex-shrink:0}.flex-grow,.grow{flex-grow:1}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.resize{resize:both}.auto-cols-\\[225px\\]{grid-auto-columns:225px}.grid-flow-col{grid-auto-flow:column}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-rows-\\[repeat\\(2\\2c 60px\\)\\]{grid-template-rows:repeat(2,60px)}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-\\[10px\\]{gap:10px}.gap-\\[12px\\]{gap:12px}.gap-\\[14px\\]{gap:14px}.gap-\\[15px\\]{gap:15px}.gap-\\[16px\\]{gap:16px}.gap-\\[18px\\]{gap:18px}.gap-\\[20px\\]{gap:20px}.gap-\\[22px\\]{gap:22px}.gap-\\[24px\\]{gap:24px}.gap-\\[27px\\]{gap:27px}.gap-\\[28px\\]{gap:28px}.gap-\\[30px\\]{gap:30px}.gap-\\[45px\\]{gap:45px}.gap-\\[48px\\]{gap:48px}.gap-\\[60px\\]{gap:60px}.gap-\\[68px\\]{gap:68px}.gap-\\[8px\\]{gap:8px}.gap-\\[90px\\]{gap:90px}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.rounded-\\[12px\\]{border-radius:12px}.rounded-\\[15px\\]{border-radius:15px}.rounded-\\[23px\\]{border-radius:23px}.rounded-\\[68px\\]{border-radius:68px}.rounded-\\[8px\\]{border-radius:8px}.rounded-\\[9999px\\]{border-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-\\[var\\(--mimoja-blue\\)\\]{border-color:var(--mimoja-blue)}.border-\\[var\\(--profile-button-outline-color\\)\\]{border-color:var(--profile-button-outline-color)}.bg-\\[\\#EDEDED\\]{--tw-bg-opacity:1;background-color:rgb(237 237 237/var(--tw-bg-opacity,1))}.bg-\\[var\\(--bgmain-color\\)\\]{background-color:var(--bgmain-color)}.bg-\\[var\\(--box-color\\)\\]{background-color:var(--box-color)}.bg-\\[var\\(--mimoja-blue\\)\\]{background-color:var(--mimoja-blue)}.bg-\\[var\\(--profile-button-outline-color\\)\\]{background-color:var(--profile-button-outline-color)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.px-\\[14px\\]{padding-left:14px;padding-right:14px}.px-\\[16px\\]{padding-left:16px;padding-right:16px}.px-\\[20px\\]{padding-left:20px;padding-right:20px}.px-\\[30px\\]{padding-left:30px;padding-right:30px}.px-\\[37px\\]{padding-left:37px;padding-right:37px}.px-\\[38px\\]{padding-left:38px;padding-right:38px}.px-\\[40px\\]{padding-left:40px;padding-right:40px}.px-\\[48px\\]{padding-left:48px;padding-right:48px}.py-\\[1px\\]{padding-top:1px;padding-bottom:1px}.py-\\[27px\\]{padding-top:27px;padding-bottom:27px}.py-\\[28px\\]{padding-top:28px;padding-bottom:28px}.py-\\[32px\\]{padding-top:32px;padding-bottom:32px}.py-\\[36px\\]{padding-top:36px;padding-bottom:36px}.pb-\\[24px\\]{padding-bottom:24px}.pb-\\[28px\\]{padding-bottom:28px}.pb-\\[8px\\]{padding-bottom:8px}.pl-\\[37px\\]{padding-left:37px}.pr-\\[20px\\]{padding-right:20px}.pr-\\[30px\\]{padding-right:30px}.pt-\\[20px\\]{padding-top:20px}.pt-\\[23px\\]{padding-top:23px}.pt-\\[28px\\]{padding-top:28px}.pt-\\[30px\\]{padding-top:30px}.pt-\\[32px\\]{padding-top:32px}.text-center{text-align:center}.font-\\[\\'Inter\\'\\2c sans-serif\\]{font-family:Inter,sans-serif}.text-\\[18px\\]{font-size:18px}.text-\\[21px\\]{font-size:21px}.text-\\[22px\\]{font-size:22px}.text-\\[24px\\]{font-size:24px}.text-\\[26px\\]{font-size:26px}.text-\\[30px\\]{font-size:30px}.text-\\[36px\\]{font-size:36px}.text-\\[38px\\]{font-size:38px}.font-bold{font-weight:700}.font-normal{font-weight:400}.font-semibold{font-weight:600}.italic{font-style:italic}.leading-\\[1\\.2\\]{line-height:1.2}.text-\\[var\\(--mimoja-blue\\)\\]{color:var(--mimoja-blue)}.text-\\[var\\(--text-primary\\)\\]{color:var(--text-primary)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.underline{text-decoration-line:underline}.opacity-40{opacity:.4}.opacity-50{opacity:.5}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline{outline-style:solid}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}";
+	var tailwind_generated_default = "*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:\"\"}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.\\!container{width:100%!important}.container{width:100%}@media (min-width:640px){.\\!container{max-width:640px!important}.container{max-width:640px}}@media (min-width:768px){.\\!container{max-width:768px!important}.container{max-width:768px}}@media (min-width:1024px){.\\!container{max-width:1024px!important}.container{max-width:1024px}}@media (min-width:1280px){.\\!container{max-width:1280px!important}.container{max-width:1280px}}@media (min-width:1536px){.\\!container{max-width:1536px!important}.container{max-width:1536px}}.visible{visibility:visible}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.mb-8{margin-bottom:2rem}.mb-\\[14px\\]{margin-bottom:14px}.ml-auto{margin-left:auto}.mt-16{margin-top:4rem}.mt-8{margin-top:2rem}.mt-\\[4px\\]{margin-top:4px}.mt-\\[6px\\]{margin-top:6px}.mt-auto{margin-top:auto}.block{display:block}.inline{display:inline}.flex{display:flex}.\\!grid{display:grid!important}.grid{display:grid}.hidden{display:none}.h-\\[110px\\]{height:110px}.h-\\[124px\\]{height:124px}.h-\\[134px\\]{height:134px}.h-\\[150px\\]{height:150px}.h-\\[165px\\]{height:165px}.h-\\[2px\\]{height:2px}.h-\\[40px\\]{height:40px}.h-\\[54px\\]{height:54px}.h-\\[60px\\]{height:60px}.h-\\[62px\\]{height:62px}.h-\\[70px\\]{height:70px}.h-\\[72px\\]{height:72px}.h-\\[76px\\]{height:76px}.h-\\[82px\\]{height:82px}.h-\\[90px\\]{height:90px}.h-full{height:100%}.min-h-\\[330px\\]{min-height:330px}.w-1\\/2{width:50%}.w-\\[1200px\\]{width:1200px}.w-\\[150px\\]{width:150px}.w-\\[180px\\]{width:180px}.w-\\[1px\\]{width:1px}.w-\\[240px\\]{width:240px}.w-\\[2px\\]{width:2px}.w-\\[300px\\]{width:300px}.w-\\[310px\\]{width:310px}.w-\\[60px\\]{width:60px}.w-\\[69px\\]{width:69px}.w-\\[720px\\]{width:720px}.w-\\[72px\\]{width:72px}.w-\\[75px\\]{width:75px}.w-\\[960px\\]{width:960px}.w-full{width:100%}.min-w-0{min-width:0}.flex-1{flex:1 1 0%}.flex-shrink{flex-shrink:1}.flex-shrink-0{flex-shrink:0}.shrink{flex-shrink:1}.shrink-0{flex-shrink:0}.flex-grow,.grow{flex-grow:1}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.resize{resize:both}.auto-cols-\\[225px\\]{grid-auto-columns:225px}.grid-flow-col{grid-auto-flow:column}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-rows-\\[repeat\\(2\\2c 60px\\)\\]{grid-template-rows:repeat(2,60px)}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-\\[10px\\]{gap:10px}.gap-\\[12px\\]{gap:12px}.gap-\\[14px\\]{gap:14px}.gap-\\[15px\\]{gap:15px}.gap-\\[16px\\]{gap:16px}.gap-\\[18px\\]{gap:18px}.gap-\\[20px\\]{gap:20px}.gap-\\[22px\\]{gap:22px}.gap-\\[24px\\]{gap:24px}.gap-\\[27px\\]{gap:27px}.gap-\\[28px\\]{gap:28px}.gap-\\[30px\\]{gap:30px}.gap-\\[45px\\]{gap:45px}.gap-\\[48px\\]{gap:48px}.gap-\\[60px\\]{gap:60px}.gap-\\[68px\\]{gap:68px}.gap-\\[8px\\]{gap:8px}.gap-\\[90px\\]{gap:90px}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.rounded-\\[12px\\]{border-radius:12px}.rounded-\\[15px\\]{border-radius:15px}.rounded-\\[23px\\]{border-radius:23px}.rounded-\\[68px\\]{border-radius:68px}.rounded-\\[8px\\]{border-radius:8px}.rounded-\\[9999px\\]{border-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-\\[var\\(--mimoja-blue\\)\\]{border-color:var(--mimoja-blue)}.border-\\[var\\(--profile-button-outline-color\\)\\]{border-color:var(--profile-button-outline-color)}.bg-\\[\\#EDEDED\\]{--tw-bg-opacity:1;background-color:rgb(237 237 237/var(--tw-bg-opacity,1))}.bg-\\[var\\(--bgmain-color\\)\\]{background-color:var(--bgmain-color)}.bg-\\[var\\(--box-color\\)\\]{background-color:var(--box-color)}.bg-\\[var\\(--mimoja-blue\\)\\]{background-color:var(--mimoja-blue)}.bg-\\[var\\(--profile-button-outline-color\\)\\]{background-color:var(--profile-button-outline-color)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.px-\\[14px\\]{padding-left:14px;padding-right:14px}.px-\\[16px\\]{padding-left:16px;padding-right:16px}.px-\\[20px\\]{padding-left:20px;padding-right:20px}.px-\\[30px\\]{padding-left:30px;padding-right:30px}.px-\\[37px\\]{padding-left:37px;padding-right:37px}.px-\\[38px\\]{padding-left:38px;padding-right:38px}.px-\\[40px\\]{padding-left:40px;padding-right:40px}.px-\\[48px\\]{padding-left:48px;padding-right:48px}.py-\\[1px\\]{padding-top:1px;padding-bottom:1px}.py-\\[27px\\]{padding-top:27px;padding-bottom:27px}.py-\\[28px\\]{padding-top:28px;padding-bottom:28px}.py-\\[32px\\]{padding-top:32px;padding-bottom:32px}.py-\\[36px\\]{padding-top:36px;padding-bottom:36px}.pb-\\[28px\\]{padding-bottom:28px}.pb-\\[40px\\]{padding-bottom:40px}.pl-\\[37px\\]{padding-left:37px}.pr-\\[20px\\]{padding-right:20px}.pr-\\[30px\\]{padding-right:30px}.pt-\\[20px\\]{padding-top:20px}.pt-\\[23px\\]{padding-top:23px}.pt-\\[28px\\]{padding-top:28px}.pt-\\[30px\\]{padding-top:30px}.pt-\\[32px\\]{padding-top:32px}.text-center{text-align:center}.font-\\[\\'Inter\\'\\2c sans-serif\\]{font-family:Inter,sans-serif}.text-\\[18px\\]{font-size:18px}.text-\\[21px\\]{font-size:21px}.text-\\[22px\\]{font-size:22px}.text-\\[24px\\]{font-size:24px}.text-\\[26px\\]{font-size:26px}.text-\\[30px\\]{font-size:30px}.text-\\[36px\\]{font-size:36px}.text-\\[38px\\]{font-size:38px}.font-bold{font-weight:700}.font-normal{font-weight:400}.font-semibold{font-weight:600}.italic{font-style:italic}.leading-\\[1\\.2\\]{line-height:1.2}.text-\\[var\\(--mimoja-blue\\)\\]{color:var(--mimoja-blue)}.text-\\[var\\(--text-primary\\)\\]{color:var(--text-primary)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.underline{text-decoration-line:underline}.opacity-40{opacity:.4}.opacity-50{opacity:.5}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline{outline-style:solid}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}";
 	//#endregion
 	//#region \0@oxc-project+runtime@0.124.0/helpers/taggedTemplateLiteral.js
 	function _taggedTemplateLiteral(e, t) {
@@ -26,8 +26,7 @@ var createPlugin = (function() {
 (function () {
   var DESIGN_W = 1920, DESIGN_H = 1200;
   var MAX_STRETCH = 1.15;
-  function fit() {
-    var vw = window.innerWidth, vh = window.innerHeight;
+  function fit(vw, vh) {
     var sx = vw / DESIGN_W, sy = vh / DESIGN_H;
     var stretch = Math.max(sx, sy) / Math.min(sx, sy);
     if (stretch > MAX_STRETCH) {
@@ -46,27 +45,24 @@ var createPlugin = (function() {
     var root = document.body.firstElementChild;
     if (root) { root.style.width = '100%'; root.style.height = '100%'; }
   }
-  fit();
-
-  // Android's soft keyboard shrinks the viewport height (interactive-widget only lands
-  // on newer WebViews, so we can't rely on it). Refitting then recomputes sy against a
-  // keyboard-sized height and visibly squashes the page mid-edit, so hold the last fit
-  // while a field has focus and re-fit once it blurs. Width changes (rotation) still
-  // apply immediately — the keyboard never changes width.
-  function isEditing() {
-    var a = document.activeElement;
-    if (!a) return false;
-    var t = a.tagName;
-    return t === 'INPUT' || t === 'TEXTAREA' || t === 'SELECT' || a.isContentEditable;
+  // Android's soft keyboard shrinks the viewport height (interactive-widget=overlays-content
+  // only lands on newer WebViews, so we cannot rely on it). Refitting against that height
+  // recomputes sy and visibly squashes the page mid-edit.
+  //
+  // Deciding by document.activeElement does NOT work: the WebView fires resize as the
+  // keyboard animates in, often before focus has landed on the field, so the guard sees no
+  // editing and refits anyway. Instead key off the only thing that is always true — the
+  // keyboard can shrink the viewport but never widen or grow it. So: a width change is a
+  // real resize (rotation), a taller viewport means the keyboard went away, and a
+  // same-width-but-shorter viewport is the keyboard and gets ignored. No focus, no timers.
+  var fitW = 0, fitH = 0;
+  function apply() {
+    var vw = window.innerWidth, vh = window.innerHeight;
+    if (vw !== fitW || vh > fitH) { fitW = vw; fitH = vh; fit(vw, vh); }
   }
-  var lastW = window.innerWidth;
-  window.addEventListener('resize', function () {
-    if (window.innerWidth === lastW && isEditing()) return;
-    lastW = window.innerWidth;
-    fit();
-  });
-  // Blur fires before the keyboard finishes animating away; refit after it settles.
-  window.addEventListener('focusout', function () { setTimeout(fit, 250); });
+  apply();
+  window.addEventListener('resize', apply);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', apply);
 })();
 `;
 	/** CSS variable fallbacks for dev server (REA host injects real values in production) */
@@ -111,6 +107,17 @@ var createPlugin = (function() {
        silencing every bordered button (Add Note, Clear, Settings, Visualizer). */
     button { font-family: inherit; cursor: pointer; background: none; }
     input, textarea, select { font-family: inherit; }
+    /* This is a tablet app, not a document: a long press should trigger our own gestures
+       (e.g. long-press-to-edit on the favourites cards) rather than Android's text
+       selection handles and paste callout. Fields opt back in below so typing, caret
+       placement and clipboard still work where they matter. */
+    body {
+      user-select: none; -webkit-user-select: none;
+      -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent;
+    }
+    input, textarea, [contenteditable="true"] {
+      user-select: text; -webkit-user-select: text; -webkit-touch-callout: default;
+    }
     .no-select { user-select: none; -webkit-user-select: none; }
   `;
 	}
@@ -1063,7 +1070,7 @@ function renderBeanCards(grid, beans, confirmBtn) {
   const addCard = document.createElement('div');
   addCard.className = 'dye-card dye-card-add';
   addCard.innerHTML = '<span>ADD NEW BEANS +</span><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
-  addCard.addEventListener('click', () => { window.location.href = '/api/v1/plugins/dye2.reaplugin/add-bean'; });
+  addCard.addEventListener('click', () => { window.location.href = 'add-bean'; });
   grid.appendChild(addCard);
 
   beans.forEach(bean => {
@@ -1096,10 +1103,34 @@ function renderBeanCards(grid, beans, confirmBtn) {
 // the add-bean form, which is how you get stuck bouncing between the two. Navigate to
 // edit-shot by route instead; initEditShot rehydrates its draft from sessionStorage and
 // folds in the pick, so it does not care how it was reached.
-const EDIT_SHOT_ROUTE = '/api/v1/plugins/dye2.reaplugin/edit-shot';
+// Page-relative: resolves to .../dye2.reaplugin/<route> on the tablet and /<route> on the
+// dev server, so one string works under both runtimes.
+const EDIT_SHOT_ROUTE = 'edit-shot';
+const DASHBOARD_ROUTE = 'dashboard';
+
+// add-bean navigates back to a bare /bean-picker, dropping the ?return= the caller passed,
+// so remember it for the round trip. Without this a cancel after adding a bean has no idea
+// where it came from.
+function rememberReturn() {
+  const ret = new URLSearchParams(location.search).get('return');
+  if (ret) sessionStorage.setItem('dye_pickerReturn', ret);
+}
+function pickerReturn() {
+  return new URLSearchParams(location.search).get('return')
+      || sessionStorage.getItem('dye_pickerReturn');
+}
+
+// Every exit routes explicitly — never history.back(), which lands on the add-bean form
+// once "+ Add new bean" has pushed it onto the stack, stranding the user between the two
+// pages. edit-shot and recipe-edit both rehydrate their own drafts, so neither cares how
+// it was reached; anything else (e.g. the dashboard's Beans card) falls back to the
+// dashboard so there is always a way out.
 function leavePicker() {
+  const ret = pickerReturn();
+  sessionStorage.removeItem('dye_pickerReturn');
+  if (ret) { window.location.href = ret; return; }
   if (sessionStorage.getItem('dye_editShotReturn') === '1') { window.location.href = EDIT_SHOT_ROUTE; return; }
-  window.history.back();
+  window.location.href = DASHBOARD_ROUTE;
 }
 
 async function initializeDyeBeans() {
@@ -1111,7 +1142,8 @@ async function initializeDyeBeans() {
   selectedBeanId = sessionStorage.getItem('dye_selectedBeanId') || null;
   // ?return=<route> → caller (e.g. recipe-edit) wants the pick handed back via the
   // dye_selectedBean* keys, not written to the active workflow. Navigate there on confirm.
-  const returnTo = new URLSearchParams(location.search).get('return');
+  rememberReturn();
+  const returnTo = pickerReturn();
   let currentSort = 'recent';
 
   try {
@@ -1158,7 +1190,7 @@ async function initializeDyeBeans() {
     confirmBtn.addEventListener('click', async () => {
       if (!selectedBeanId) return;
       // Return-target flow (recipe-edit): leave the pick in sessionStorage, hand control back.
-      if (returnTo) { window.location.href = returnTo; return; }
+      if (returnTo) { sessionStorage.removeItem('dye_pickerReturn'); window.location.href = returnTo; return; }
       const roaster = sessionStorage.getItem('dye_selectedBeanRoaster') || '';
       // Edit-shot round-trips via its draft; hand control back and it folds in the selection.
       if (fromEditShot) { window.location.href = EDIT_SHOT_ROUTE; return; }
@@ -1173,7 +1205,7 @@ async function initializeDyeBeans() {
           .forEach(k => sessionStorage.removeItem(k));
         leavePicker();
       } else {
-        window.location.href = '/api/v1/plugins/dye2.reaplugin/roasters';
+        window.location.href = 'roasters';
       }
     });
   }
@@ -1891,6 +1923,15 @@ function setupNoteModal() {
   m?.addEventListener('click', (e) => { if (e.target === m) m.classList.remove('open'); });
 }
 
+// Page-relative routes work under both runtimes (.../dye2.reaplugin/<route> on the tablet,
+// /<route> on the dev server). Never history.back(): the dashboard opens this page directly,
+// and other callers may have pushed pages in between, so route explicitly and always leave a
+// way out via the dashboard.
+const DASHBOARD_ROUTE = 'dashboard';
+function leaveProfilePicker(returnTo) {
+  window.location.href = returnTo || DASHBOARD_ROUTE;
+}
+
 async function initializeDyeProfiles() {
   const grid = document.getElementById('dye-cards-grid');
   const cancelBtn = document.getElementById('dye-cancel-btn');
@@ -1927,7 +1968,7 @@ async function initializeDyeProfiles() {
   if (cancelBtn) {
     cancelBtn.addEventListener('click', () => {
       ['dye_selectedProfileId','dye_selectedProfileTitle'].forEach(k => sessionStorage.removeItem(k));
-      window.history.back();
+      leaveProfilePicker(returnTo);
     });
   }
 
@@ -1940,7 +1981,7 @@ async function initializeDyeProfiles() {
       try {
         await updateWorkflow({ profile: { id: selectedProfileId, title: p ? profileName(p) : '' } });
       } catch (e) { console.warn('workflow update failed:', e); }
-      window.history.back();
+      leaveProfilePicker(null);
     });
   }
 }
@@ -2125,6 +2166,19 @@ function renderCards(grid, items, nameField, selectedValue, onSelect, addLabel, 
   });
 }
 
+// Reached from bean-picker when the bean has no roaster, so add-bean may sit on the history
+// stack — history.back() would land on that form instead of the caller. Route explicitly,
+// same precedence as bean-picker, with the dashboard as the always-available way out.
+const EDIT_SHOT_ROUTE = 'edit-shot';
+const DASHBOARD_ROUTE = 'dashboard';
+function leaveRoasters() {
+  const ret = sessionStorage.getItem('dye_pickerReturn');
+  sessionStorage.removeItem('dye_pickerReturn');
+  if (ret) { window.location.href = ret; return; }
+  if (sessionStorage.getItem('dye_editShotReturn') === '1') { window.location.href = EDIT_SHOT_ROUTE; return; }
+  window.location.href = DASHBOARD_ROUTE;
+}
+
 async function initializeDyeRoasters() {
   const grid = document.getElementById('dye-cards-grid');
   const cancelBtn = document.getElementById('dye-cancel-btn');
@@ -2181,7 +2235,7 @@ async function initializeDyeRoasters() {
         updateConfirmButton();
       },
       'ADD NEW ROASTER +',
-      () => { window.location.href = '/api/v1/plugins/dye2.reaplugin/add-bean'; }
+      () => { window.location.href = 'add-bean'; }
     );
   }
 
@@ -2193,7 +2247,7 @@ async function initializeDyeRoasters() {
     cancelBtn.addEventListener('click', () => {
       ['dye_selectedBeanId','dye_selectedBeanName','dye_selectedBeanRoaster','dye_selectedRoaster']
         .forEach(k => sessionStorage.removeItem(k));
-      window.history.back();
+      leaveRoasters();
     });
   }
 
@@ -2210,7 +2264,7 @@ async function initializeDyeRoasters() {
       }
       ['dye_selectedBeanId','dye_selectedBeanName','dye_selectedBeanRoaster','dye_selectedRoaster','dye_selectedBatchId']
         .forEach(k => sessionStorage.removeItem(k));
-      window.history.back();
+      leaveRoasters();
     });
   }
 }
@@ -2608,7 +2662,7 @@ async function initializeDyeAddBean() {
   setupDropdown('dye-bean-roaster', 'dye-bean-roaster-dropdown', roasters);
 
   if (cancelBtn) {
-    cancelBtn.addEventListener('click', () => { window.location.href = '/api/v1/plugins/dye2.reaplugin/bean-picker'; });
+    cancelBtn.addEventListener('click', () => { window.location.href = 'bean-picker'; });
   }
 
   if (confirmBtn) {
@@ -2630,7 +2684,7 @@ async function initializeDyeAddBean() {
           await createBeanBatch(bean.id, { roastDate: new Date(roastDateInput.value).toISOString() });
         }
         beansCache = null;
-        window.location.href = '/api/v1/plugins/dye2.reaplugin/bean-picker';
+        window.location.href = 'bean-picker';
       } catch (e) {
         console.error('Failed to create bean:', e);
       }
@@ -3042,7 +3096,7 @@ function plotHistoricalShot(measurements, workflow) {
 
     <!-- LEFT PANEL: Last Shot Review -->
     <div class="flex flex-col w-1/2 shrink-0 bg-white border-r border-[var(--profile-button-outline-color)] overflow-hidden">
-      <div class="flex flex-col gap-[27px] px-[38px] pt-[32px] pb-[24px] flex-1 overflow-hidden">
+      <div class="flex flex-col gap-[27px] px-[38px] pt-[32px] pb-[40px] flex-1 overflow-hidden">
 
         <!-- Header row -->
         <div class="flex items-center justify-between shrink-0 h-[90px]">
@@ -3101,7 +3155,9 @@ function plotHistoricalShot(measurements, workflow) {
 
         <div class="h-[2px] bg-[var(--profile-button-outline-color)] shrink-0"></div>
 
-        <div class="flex items-center gap-[18px] shrink-0 pb-[8px]">
+        <!-- Figma 2345:633: bottom buttons share one horizon (centre 75px above the
+             canvas bottom), so both columns use the same 70px centred band. -->
+        <div class="flex items-center gap-[18px] shrink-0 h-[70px]">
           <div class="relative">
             <div id="dye-edit-shot-btn" class="flex items-center gap-0 bg-[var(--mimoja-blue)] text-white rounded-[23px] h-[54px] cursor-pointer overflow-hidden">
               <span id="dye-edit-shot-go" class="px-[20px] h-full flex items-center font-semibold text-[21px] whitespace-nowrap">Edit Shot</span>
@@ -3142,7 +3198,7 @@ function plotHistoricalShot(measurements, workflow) {
 
     <!-- RIGHT PANEL: Next Shot Planning -->
     <div class="flex flex-col flex-1 bg-[var(--bgmain-color)] overflow-hidden">
-      <div class="flex flex-col gap-[22px] px-[38px] pt-[32px] pb-[24px] flex-1 overflow-hidden">
+      <div class="flex flex-col gap-[22px] px-[38px] pt-[32px] pb-[40px] flex-1 overflow-hidden">
 
         <div class="flex items-center justify-between shrink-0 h-[90px]">
           <div class="flex flex-col gap-[8px]">
@@ -3174,7 +3230,7 @@ function plotHistoricalShot(measurements, workflow) {
         <div class="h-[2px] bg-[var(--profile-button-outline-color)] shrink-0"></div>
 
         <div class="flex flex-col gap-[18px] shrink-0">
-          <div id="dye-profile-name" class="text-[var(--mimoja-blue)] font-semibold text-[24px] leading-[1.2] text-center truncate">—</div>
+          <div id="dye-profile-name" class="text-[var(--mimoja-blue)] font-semibold text-[24px] leading-[1.2] text-center truncate cursor-pointer" title="Choose a profile">—</div>
           <div class="flex items-center gap-[18px]">
             <button id="dye-dose-drink-prev" class="flex items-center justify-center shrink-0 cursor-pointer">
               <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--mimoja-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -3267,7 +3323,7 @@ function plotHistoricalShot(measurements, workflow) {
 
         <!-- mt-auto: nothing in this column can grow, so pin the actions to the bottom
              rather than leaving the leftover height as a void beneath them. -->
-        <div class="flex items-center justify-between shrink-0 pb-[8px] mt-auto">
+        <div class="flex items-center justify-between shrink-0 h-[70px] mt-auto">
           <button id="dye-clear-btn" class="border-2 border-[var(--mimoja-blue)] text-[var(--mimoja-blue)] rounded-[23px] px-[30px] h-[54px] font-semibold text-[21px] cursor-pointer">Clear</button>
           <div class="flex items-center gap-[12px]">
             <button id="dye-cancel-btn" class="flex items-center justify-center w-[240px] h-[62px] rounded-[68px] font-bold text-[24px] text-[var(--text-primary)] cursor-pointer">CANCEL</button>
@@ -4048,7 +4104,16 @@ function setupDeleteShot() {
 function setupBeanCard() {
   const card = document.getElementById('dye-bean-card');
   if (!card) return;
-  card.addEventListener('click', () => { window.location.href = '/api/v1/plugins/dye2.reaplugin/bean-picker'; });
+  card.addEventListener('click', () => { window.location.href = 'bean-picker'; });
+}
+
+// Tapping the Next Shot profile name opens the full picker. No ?return= — the picker's
+// own confirm writes profile into the live workflow, which is exactly what Next Shot
+// reads, so renderNextShot shows the new title when we land back here.
+function setupProfileName() {
+  const el = document.getElementById('dye-profile-name');
+  if (!el) return;
+  el.addEventListener('click', () => { window.location.href = 'profile-picker'; });
 }
 
 function setupClipboardPaste() {
@@ -4211,6 +4276,7 @@ async function initializeDyeDashboard() {
   setupDeleteShot();
   setupDoseControls();
   setupBeanCard();
+  setupProfileName();
   setupClipboardPaste();
   setupBottomButtons();
   setupReadNote();
@@ -5421,10 +5487,27 @@ function renderCards(favs) {
         const confirmBtn = document.getElementById('dye-confirm-btn');
         if (confirmBtn) confirmBtn.classList.remove('opacity-50');
       });
-      card.addEventListener('dblclick', () => {
-        sessionStorage.setItem('dye_editAutoFavId', fav.id);
-        window.location.href = '/api/v1/plugins/dye2.reaplugin/auto-fav-edit';
+      // Long-press to edit this favourite; a plain tap still just selects it. Double-tap is
+      // a poor fit on the tablet — it competes with the WebView's own double-tap handling
+      // and gives no feedback that a second tap is expected. Same 500ms press and
+      // click-swallowing as the preset chips (attachPresetLongPress in shared-components).
+      let editTimer = null, longFired = false;
+      const clearEdit = () => { if (editTimer) { clearTimeout(editTimer); editTimer = null; } };
+      card.addEventListener('pointerdown', () => {
+        longFired = false;
+        clearEdit();
+        editTimer = setTimeout(() => {
+          editTimer = null;
+          longFired = true;
+          sessionStorage.setItem('dye_editAutoFavId', fav.id);
+          window.location.href = 'auto-fav-edit';
+        }, 500);
       });
+      ['pointerup','pointerleave','pointercancel'].forEach(ev => card.addEventListener(ev, clearEdit));
+      // Capture phase: stop the trailing click from also re-selecting the card.
+      card.addEventListener('click', (e) => {
+        if (longFired) { e.stopImmediatePropagation(); e.preventDefault(); longFired = false; }
+      }, true);
       grid.appendChild(card);
     });
   });
@@ -6759,7 +6842,7 @@ function setupTabs() {
 // Opening a See-All picker mid-edit pushes entries onto the history stack (picker, then
 // this page again on confirm), so history.back() lands on the picker the user just left
 // rather than the dashboard that opened this page. Leave by route instead.
-const DASHBOARD_ROUTE = '/api/v1/plugins/dye2.reaplugin/dashboard';
+const DASHBOARD_ROUTE = 'dashboard';
 function leaveRecipeEdit() {
   const ret = new URLSearchParams(location.search).get('return');
   window.location.href = ret || DASHBOARD_ROUTE;

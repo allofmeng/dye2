@@ -142,7 +142,7 @@ function buildContent(): string { return `
 
     <!-- LEFT PANEL: Last Shot Review -->
     <div class="flex flex-col w-1/2 shrink-0 bg-white border-r border-[var(--profile-button-outline-color)] overflow-hidden">
-      <div class="flex flex-col gap-[27px] px-[38px] pt-[32px] pb-[24px] flex-1 overflow-hidden">
+      <div class="flex flex-col gap-[27px] px-[38px] pt-[32px] pb-[40px] flex-1 overflow-hidden">
 
         <!-- Header row -->
         <div class="flex items-center justify-between shrink-0 h-[90px]">
@@ -201,7 +201,9 @@ function buildContent(): string { return `
 
         <div class="h-[2px] bg-[var(--profile-button-outline-color)] shrink-0"></div>
 
-        <div class="flex items-center gap-[18px] shrink-0 pb-[8px]">
+        <!-- Figma 2345:633: bottom buttons share one horizon (centre 75px above the
+             canvas bottom), so both columns use the same 70px centred band. -->
+        <div class="flex items-center gap-[18px] shrink-0 h-[70px]">
           <div class="relative">
             <div id="dye-edit-shot-btn" class="flex items-center gap-0 bg-[var(--mimoja-blue)] text-white rounded-[23px] h-[54px] cursor-pointer overflow-hidden">
               <span id="dye-edit-shot-go" class="px-[20px] h-full flex items-center font-semibold text-[21px] whitespace-nowrap">Edit Shot</span>
@@ -242,7 +244,7 @@ function buildContent(): string { return `
 
     <!-- RIGHT PANEL: Next Shot Planning -->
     <div class="flex flex-col flex-1 bg-[var(--bgmain-color)] overflow-hidden">
-      <div class="flex flex-col gap-[22px] px-[38px] pt-[32px] pb-[24px] flex-1 overflow-hidden">
+      <div class="flex flex-col gap-[22px] px-[38px] pt-[32px] pb-[40px] flex-1 overflow-hidden">
 
         <div class="flex items-center justify-between shrink-0 h-[90px]">
           <div class="flex flex-col gap-[8px]">
@@ -274,7 +276,7 @@ function buildContent(): string { return `
         <div class="h-[2px] bg-[var(--profile-button-outline-color)] shrink-0"></div>
 
         <div class="flex flex-col gap-[18px] shrink-0">
-          <div id="dye-profile-name" class="text-[var(--mimoja-blue)] font-semibold text-[24px] leading-[1.2] text-center truncate">—</div>
+          <div id="dye-profile-name" class="text-[var(--mimoja-blue)] font-semibold text-[24px] leading-[1.2] text-center truncate cursor-pointer" title="Choose a profile">—</div>
           <div class="flex items-center gap-[18px]">
             <button id="dye-dose-drink-prev" class="flex items-center justify-center shrink-0 cursor-pointer">
               <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--mimoja-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -367,7 +369,7 @@ function buildContent(): string { return `
 
         <!-- mt-auto: nothing in this column can grow, so pin the actions to the bottom
              rather than leaving the leftover height as a void beneath them. -->
-        <div class="flex items-center justify-between shrink-0 pb-[8px] mt-auto">
+        <div class="flex items-center justify-between shrink-0 h-[70px] mt-auto">
           <button id="dye-clear-btn" class="border-2 border-[var(--mimoja-blue)] text-[var(--mimoja-blue)] rounded-[23px] px-[30px] h-[54px] font-semibold text-[21px] cursor-pointer">Clear</button>
           <div class="flex items-center gap-[12px]">
             <button id="dye-cancel-btn" class="flex items-center justify-center w-[240px] h-[62px] rounded-[68px] font-bold text-[24px] text-[var(--text-primary)] cursor-pointer">CANCEL</button>
@@ -1148,7 +1150,16 @@ function setupDeleteShot() {
 function setupBeanCard() {
   const card = document.getElementById('dye-bean-card');
   if (!card) return;
-  card.addEventListener('click', () => { window.location.href = '/api/v1/plugins/dye2.reaplugin/bean-picker'; });
+  card.addEventListener('click', () => { window.location.href = 'bean-picker'; });
+}
+
+// Tapping the Next Shot profile name opens the full picker. No ?return= — the picker's
+// own confirm writes profile into the live workflow, which is exactly what Next Shot
+// reads, so renderNextShot shows the new title when we land back here.
+function setupProfileName() {
+  const el = document.getElementById('dye-profile-name');
+  if (!el) return;
+  el.addEventListener('click', () => { window.location.href = 'profile-picker'; });
 }
 
 function setupClipboardPaste() {
@@ -1311,6 +1322,7 @@ async function initializeDyeDashboard() {
   setupDeleteShot();
   setupDoseControls();
   setupBeanCard();
+  setupProfileName();
   setupClipboardPaste();
   setupBottomButtons();
   setupReadNote();

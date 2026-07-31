@@ -225,7 +225,7 @@ function renderBeanCards(grid, beans, confirmBtn) {
   const addCard = document.createElement('div');
   addCard.className = 'dye-card dye-card-add';
   addCard.innerHTML = '<span>ADD NEW BEANS +</span><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
-  addCard.addEventListener('click', () => { window.location.href = '/api/v1/plugins/dye2.reaplugin/add-bean'; });
+  addCard.addEventListener('click', () => { window.location.href = 'add-bean'; });
   grid.appendChild(addCard);
 
   beans.forEach(bean => {
@@ -258,10 +258,34 @@ function renderBeanCards(grid, beans, confirmBtn) {
 // the add-bean form, which is how you get stuck bouncing between the two. Navigate to
 // edit-shot by route instead; initEditShot rehydrates its draft from sessionStorage and
 // folds in the pick, so it does not care how it was reached.
-const EDIT_SHOT_ROUTE = '/api/v1/plugins/dye2.reaplugin/edit-shot';
+// Page-relative: resolves to .../dye2.reaplugin/<route> on the tablet and /<route> on the
+// dev server, so one string works under both runtimes.
+const EDIT_SHOT_ROUTE = 'edit-shot';
+const DASHBOARD_ROUTE = 'dashboard';
+
+// add-bean navigates back to a bare /bean-picker, dropping the ?return= the caller passed,
+// so remember it for the round trip. Without this a cancel after adding a bean has no idea
+// where it came from.
+function rememberReturn() {
+  const ret = new URLSearchParams(location.search).get('return');
+  if (ret) sessionStorage.setItem('dye_pickerReturn', ret);
+}
+function pickerReturn() {
+  return new URLSearchParams(location.search).get('return')
+      || sessionStorage.getItem('dye_pickerReturn');
+}
+
+// Every exit routes explicitly — never history.back(), which lands on the add-bean form
+// once "+ Add new bean" has pushed it onto the stack, stranding the user between the two
+// pages. edit-shot and recipe-edit both rehydrate their own drafts, so neither cares how
+// it was reached; anything else (e.g. the dashboard's Beans card) falls back to the
+// dashboard so there is always a way out.
 function leavePicker() {
+  const ret = pickerReturn();
+  sessionStorage.removeItem('dye_pickerReturn');
+  if (ret) { window.location.href = ret; return; }
   if (sessionStorage.getItem('dye_editShotReturn') === '1') { window.location.href = EDIT_SHOT_ROUTE; return; }
-  window.history.back();
+  window.location.href = DASHBOARD_ROUTE;
 }
 
 async function initializeDyeBeans() {
@@ -273,7 +297,8 @@ async function initializeDyeBeans() {
   selectedBeanId = sessionStorage.getItem('dye_selectedBeanId') || null;
   // ?return=<route> → caller (e.g. recipe-edit) wants the pick handed back via the
   // dye_selectedBean* keys, not written to the active workflow. Navigate there on confirm.
-  const returnTo = new URLSearchParams(location.search).get('return');
+  rememberReturn();
+  const returnTo = pickerReturn();
   let currentSort = 'recent';
 
   try {
@@ -320,7 +345,7 @@ async function initializeDyeBeans() {
     confirmBtn.addEventListener('click', async () => {
       if (!selectedBeanId) return;
       // Return-target flow (recipe-edit): leave the pick in sessionStorage, hand control back.
-      if (returnTo) { window.location.href = returnTo; return; }
+      if (returnTo) { sessionStorage.removeItem('dye_pickerReturn'); window.location.href = returnTo; return; }
       const roaster = sessionStorage.getItem('dye_selectedBeanRoaster') || '';
       // Edit-shot round-trips via its draft; hand control back and it folds in the selection.
       if (fromEditShot) { window.location.href = EDIT_SHOT_ROUTE; return; }
@@ -335,7 +360,7 @@ async function initializeDyeBeans() {
           .forEach(k => sessionStorage.removeItem(k));
         leavePicker();
       } else {
-        window.location.href = '/api/v1/plugins/dye2.reaplugin/roasters';
+        window.location.href = 'roasters';
       }
     });
   }

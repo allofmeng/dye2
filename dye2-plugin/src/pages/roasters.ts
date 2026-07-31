@@ -171,6 +171,19 @@ function renderCards(grid, items, nameField, selectedValue, onSelect, addLabel, 
   });
 }
 
+// Reached from bean-picker when the bean has no roaster, so add-bean may sit on the history
+// stack — history.back() would land on that form instead of the caller. Route explicitly,
+// same precedence as bean-picker, with the dashboard as the always-available way out.
+const EDIT_SHOT_ROUTE = 'edit-shot';
+const DASHBOARD_ROUTE = 'dashboard';
+function leaveRoasters() {
+  const ret = sessionStorage.getItem('dye_pickerReturn');
+  sessionStorage.removeItem('dye_pickerReturn');
+  if (ret) { window.location.href = ret; return; }
+  if (sessionStorage.getItem('dye_editShotReturn') === '1') { window.location.href = EDIT_SHOT_ROUTE; return; }
+  window.location.href = DASHBOARD_ROUTE;
+}
+
 async function initializeDyeRoasters() {
   const grid = document.getElementById('dye-cards-grid');
   const cancelBtn = document.getElementById('dye-cancel-btn');
@@ -227,7 +240,7 @@ async function initializeDyeRoasters() {
         updateConfirmButton();
       },
       'ADD NEW ROASTER +',
-      () => { window.location.href = '/api/v1/plugins/dye2.reaplugin/add-bean'; }
+      () => { window.location.href = 'add-bean'; }
     );
   }
 
@@ -239,7 +252,7 @@ async function initializeDyeRoasters() {
     cancelBtn.addEventListener('click', () => {
       ['dye_selectedBeanId','dye_selectedBeanName','dye_selectedBeanRoaster','dye_selectedRoaster']
         .forEach(k => sessionStorage.removeItem(k));
-      window.history.back();
+      leaveRoasters();
     });
   }
 
@@ -256,7 +269,7 @@ async function initializeDyeRoasters() {
       }
       ['dye_selectedBeanId','dye_selectedBeanName','dye_selectedBeanRoaster','dye_selectedRoaster','dye_selectedBatchId']
         .forEach(k => sessionStorage.removeItem(k));
-      window.history.back();
+      leaveRoasters();
     });
   }
 }

@@ -129,10 +129,27 @@ function renderCards(favs) {
         const confirmBtn = document.getElementById('dye-confirm-btn');
         if (confirmBtn) confirmBtn.classList.remove('opacity-50');
       });
-      card.addEventListener('dblclick', () => {
-        sessionStorage.setItem('dye_editAutoFavId', fav.id);
-        window.location.href = '/api/v1/plugins/dye2.reaplugin/auto-fav-edit';
+      // Long-press to edit this favourite; a plain tap still just selects it. Double-tap is
+      // a poor fit on the tablet — it competes with the WebView's own double-tap handling
+      // and gives no feedback that a second tap is expected. Same 500ms press and
+      // click-swallowing as the preset chips (attachPresetLongPress in shared-components).
+      let editTimer = null, longFired = false;
+      const clearEdit = () => { if (editTimer) { clearTimeout(editTimer); editTimer = null; } };
+      card.addEventListener('pointerdown', () => {
+        longFired = false;
+        clearEdit();
+        editTimer = setTimeout(() => {
+          editTimer = null;
+          longFired = true;
+          sessionStorage.setItem('dye_editAutoFavId', fav.id);
+          window.location.href = 'auto-fav-edit';
+        }, 500);
       });
+      ['pointerup','pointerleave','pointercancel'].forEach(ev => card.addEventListener(ev, clearEdit));
+      // Capture phase: stop the trailing click from also re-selecting the card.
+      card.addEventListener('click', (e) => {
+        if (longFired) { e.stopImmediatePropagation(); e.preventDefault(); longFired = false; }
+      }, true);
       grid.appendChild(card);
     });
   });

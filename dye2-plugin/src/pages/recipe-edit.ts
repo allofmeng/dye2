@@ -641,7 +641,7 @@ function setupTabs() {
 // Opening a See-All picker mid-edit pushes entries onto the history stack (picker, then
 // this page again on confirm), so history.back() lands on the picker the user just left
 // rather than the dashboard that opened this page. Leave by route instead.
-const DASHBOARD_ROUTE = '/api/v1/plugins/dye2.reaplugin/dashboard';
+const DASHBOARD_ROUTE = 'dashboard';
 function leaveRecipeEdit() {
   const ret = new URLSearchParams(location.search).get('return');
   window.location.href = ret || DASHBOARD_ROUTE;

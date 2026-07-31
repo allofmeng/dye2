@@ -217,6 +217,15 @@ function setupNoteModal() {
   m?.addEventListener('click', (e) => { if (e.target === m) m.classList.remove('open'); });
 }
 
+// Page-relative routes work under both runtimes (.../dye2.reaplugin/<route> on the tablet,
+// /<route> on the dev server). Never history.back(): the dashboard opens this page directly,
+// and other callers may have pushed pages in between, so route explicitly and always leave a
+// way out via the dashboard.
+const DASHBOARD_ROUTE = 'dashboard';
+function leaveProfilePicker(returnTo) {
+  window.location.href = returnTo || DASHBOARD_ROUTE;
+}
+
 async function initializeDyeProfiles() {
   const grid = document.getElementById('dye-cards-grid');
   const cancelBtn = document.getElementById('dye-cancel-btn');
@@ -253,7 +262,7 @@ async function initializeDyeProfiles() {
   if (cancelBtn) {
     cancelBtn.addEventListener('click', () => {
       ['dye_selectedProfileId','dye_selectedProfileTitle'].forEach(k => sessionStorage.removeItem(k));
-      window.history.back();
+      leaveProfilePicker(returnTo);
     });
   }
 
@@ -266,7 +275,7 @@ async function initializeDyeProfiles() {
       try {
         await updateWorkflow({ profile: { id: selectedProfileId, title: p ? profileName(p) : '' } });
       } catch (e) { console.warn('workflow update failed:', e); }
-      window.history.back();
+      leaveProfilePicker(null);
     });
   }
 }

@@ -229,7 +229,7 @@ async function initializeDyeAddBean() {
   setupDropdown('dye-bean-roaster', 'dye-bean-roaster-dropdown', roasters);
 
   if (cancelBtn) {
-    cancelBtn.addEventListener('click', () => { window.location.href = '/api/v1/plugins/dye2.reaplugin/bean-picker'; });
+    cancelBtn.addEventListener('click', () => { window.location.href = 'bean-picker'; });
   }
 
   if (confirmBtn) {
@@ -251,7 +251,7 @@ async function initializeDyeAddBean() {
           await createBeanBatch(bean.id, { roastDate: new Date(roastDateInput.value).toISOString() });
         }
         beansCache = null;
-        window.location.href = '/api/v1/plugins/dye2.reaplugin/bean-picker';
+        window.location.href = 'bean-picker';
       } catch (e) {
         console.error('Failed to create bean:', e);
       }

@@ -21,8 +21,7 @@ const fitScript = `
 (function () {
   var DESIGN_W = 1920, DESIGN_H = 1200;
   var MAX_STRETCH = 1.15;
-  function fit() {
-    var vw = window.innerWidth, vh = window.innerHeight;
+  function fit(vw, vh) {
     var sx = vw / DESIGN_W, sy = vh / DESIGN_H;
     var stretch = Math.max(sx, sy) / Math.min(sx, sy);
     if (stretch > MAX_STRETCH) {
@@ -41,27 +40,24 @@ const fitScript = `
     var root = document.body.firstElementChild;
     if (root) { root.style.width = '100%'; root.style.height = '100%'; }
   }
-  fit();
-
-  // Android's soft keyboard shrinks the viewport height (interactive-widget only lands
-  // on newer WebViews, so we can't rely on it). Refitting then recomputes sy against a
-  // keyboard-sized height and visibly squashes the page mid-edit, so hold the last fit
-  // while a field has focus and re-fit once it blurs. Width changes (rotation) still
-  // apply immediately — the keyboard never changes width.
-  function isEditing() {
-    var a = document.activeElement;
-    if (!a) return false;
-    var t = a.tagName;
-    return t === 'INPUT' || t === 'TEXTAREA' || t === 'SELECT' || a.isContentEditable;
+  // Android's soft keyboard shrinks the viewport height (interactive-widget=overlays-content
+  // only lands on newer WebViews, so we cannot rely on it). Refitting against that height
+  // recomputes sy and visibly squashes the page mid-edit.
+  //
+  // Deciding by document.activeElement does NOT work: the WebView fires resize as the
+  // keyboard animates in, often before focus has landed on the field, so the guard sees no
+  // editing and refits anyway. Instead key off the only thing that is always true — the
+  // keyboard can shrink the viewport but never widen or grow it. So: a width change is a
+  // real resize (rotation), a taller viewport means the keyboard went away, and a
+  // same-width-but-shorter viewport is the keyboard and gets ignored. No focus, no timers.
+  var fitW = 0, fitH = 0;
+  function apply() {
+    var vw = window.innerWidth, vh = window.innerHeight;
+    if (vw !== fitW || vh > fitH) { fitW = vw; fitH = vh; fit(vw, vh); }
   }
-  var lastW = window.innerWidth;
-  window.addEventListener('resize', function () {
-    if (window.innerWidth === lastW && isEditing()) return;
-    lastW = window.innerWidth;
-    fit();
-  });
-  // Blur fires before the keyboard finishes animating away; refit after it settles.
-  window.addEventListener('focusout', function () { setTimeout(fit, 250); });
+  apply();
+  window.addEventListener('resize', apply);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', apply);
 })();
 `;
 
@@ -107,6 +103,17 @@ function cssVarFallbacks(): string {
        silencing every bordered button (Add Note, Clear, Settings, Visualizer). */
     button { font-family: inherit; cursor: pointer; background: none; }
     input, textarea, select { font-family: inherit; }
+    /* This is a tablet app, not a document: a long press should trigger our own gestures
+       (e.g. long-press-to-edit on the favourites cards) rather than Android's text
+       selection handles and paste callout. Fields opt back in below so typing, caret
+       placement and clipboard still work where they matter. */
+    body {
+      user-select: none; -webkit-user-select: none;
+      -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent;
+    }
+    input, textarea, [contenteditable="true"] {
+      user-select: text; -webkit-user-select: text; -webkit-touch-callout: default;
+    }
     .no-select { user-select: none; -webkit-user-select: none; }
   `;
 }
