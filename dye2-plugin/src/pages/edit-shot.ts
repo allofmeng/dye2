@@ -410,6 +410,17 @@ function applyPendingSelections(shot) {
   }
 }
 
+// Opening a picker pushes pages onto the stack (picker, then this page again on its
+// return), so history.back() lands on the picker the user just left rather than the
+// dashboard that opened this page. Route explicitly and clear the round-trip keys, or a
+// later picker visit would still think it owes this page a selection.
+const DASHBOARD_ROUTE = 'dashboard';
+function leaveEditShot() {
+  const ret = new URLSearchParams(location.search).get('return');
+  clearReturnKeys();
+  window.location.href = ret || DASHBOARD_ROUTE;
+}
+
 function clearReturnKeys() {
   ['dye_editShotReturn','dye_editShotDraft','dye_editShotIdx',
    'dye_selectedGrinderId','dye_selectedGrinderModel',
@@ -649,14 +660,14 @@ function setupControls() {
   });
 
   // Footer buttons
-  document.getElementById('es-cancel-btn')?.addEventListener('click', () => window.history.back());
+  document.getElementById('es-cancel-btn')?.addEventListener('click', () => leaveEditShot());
 
   document.getElementById('es-save-btn')?.addEventListener('click', async () => {
     if (!currentShot) return;
     try {
       // PUT supports partial updates — send only the edited fields, not the heavy measurements array.
       await updateShot(currentShot.id, { annotations: currentShot.annotations || {}, workflow: currentShot.workflow });
-      window.history.back();
+      leaveEditShot();
     } catch (e) { console.error('Failed to save shot:', e); }
   });
 
@@ -665,7 +676,7 @@ function setupControls() {
     if (!confirm('Delete this shot? This cannot be undone.')) return;
     try {
       await deleteShot(currentShot.id);
-      window.history.back();
+      leaveEditShot();
     } catch (e) { console.error('Failed to delete shot:', e); }
   });
 

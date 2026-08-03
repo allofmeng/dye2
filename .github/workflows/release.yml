@@ -24,6 +24,8 @@ jobs:
       # On tag builds the tag is the single source of truth for the version.
       # vite.config.ts copies dye2-plugin/manifest.json into the output folder,
       # so patching it here is enough — the shipped manifest picks it up.
+      # package.json / package-lock.json get the same version, because the middleware
+      # reads it from there to show the plugin version on the dashboard.
       - name: Sync manifest version from tag
         if: startsWith(github.ref, 'refs/tags/v')
         run: |
@@ -31,7 +33,8 @@ jobs:
           version="${GITHUB_REF_NAME#v}"
           jq --arg v "$version" '.version = $v' dye2-plugin/manifest.json > manifest.tmp
           mv manifest.tmp dye2-plugin/manifest.json
-          echo "Synced manifest version to: $version"
+          (cd dye2-plugin && npm version --no-git-tag-version --allow-same-version "$version")
+          echo "Synced manifest + package version to: $version"
 
       - name: Build
         run: npm ci && npm run build

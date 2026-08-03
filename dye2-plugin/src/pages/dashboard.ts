@@ -33,6 +33,28 @@ const styles = `
   .dye-dash-dropdown-item-danger:hover { background: rgba(229,57,53,0.85); }
   /* No page designed for this yet — show it as unavailable rather than silently inert. */
   .dye-dash-dropdown-item-disabled { opacity: 0.4; cursor: default; pointer-events: none; }
+  /* Inline Barista / Drinker editors. Dropdown matches the auto-fav-edit combo style. */
+  .dye-name-combo { position: relative; }
+  .dye-name-input {
+    font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 400;
+    color: var(--text-primary); background: var(--box-color);
+    border: 2px solid var(--mimoja-blue); border-radius: 8px;
+    padding: 0 12px; height: 44px; width: 240px; outline: none;
+  }
+  .dye-name-drop {
+    display: none; position: absolute; top: calc(100% + 6px); left: 0; z-index: 60;
+    min-width: 260px; max-height: 320px; overflow-y: auto;
+    background: var(--box-color); border: 1px solid var(--profile-button-outline-color);
+    border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+  .dye-name-drop.open { display: block; }
+  .dye-name-opt {
+    padding: 14px 18px; font-size: 22px; color: var(--text-primary); cursor: pointer;
+    border-bottom: 1px solid var(--profile-button-outline-color);
+  }
+  .dye-name-opt:last-child { border-bottom: none; }
+  .dye-name-opt:hover { background: var(--bgmain-color); }
+  .dye-name-empty { padding: 14px 18px; font-size: 20px; color: var(--text-primary-disabled); }
 
   .dye-grinder-tab {
     font-family: 'Inter', sans-serif;
@@ -316,7 +338,10 @@ function buildContent(): string { return `
             <button id="dye-grind-rpm-prev" class="flex items-center justify-center shrink-0 cursor-pointer">
               <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--mimoja-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
             </button>
-            <div class="flex items-center gap-[68px] flex-1 justify-center">
+            <!-- Same 45px gap as the Dose/Drink row above: both rows hold identical
+                 label+stepper groups, so equal gaps make Grind line up under Dose and
+                 RPM under Drink. -->
+            <div class="flex items-center gap-[45px] flex-1 justify-center">
               <div class="flex items-center gap-[18px]">
                 <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">Grind</span>
                 <div class="flex items-center gap-[24px]">
@@ -351,13 +376,17 @@ function buildContent(): string { return `
             <div id="dye-bean-roast-info" class="text-[var(--text-primary)] font-normal text-[24px] leading-[1.2]"></div>
           </div>
           <div class="flex items-center gap-[30px]">
-            <div class="flex items-center gap-[12px]">
+            <div id="dye-barista-field" class="flex items-center gap-[12px] dye-name-combo cursor-pointer">
               <span class="font-bold text-[24px] text-[var(--mimoja-blue)]">Barista</span>
               <span id="dye-next-barista" class="font-normal text-[24px] text-[var(--text-primary)]">—</span>
+              <input id="dye-next-barista-input" class="dye-name-input" style="display:none" autocomplete="off" />
+              <div id="dye-next-barista-drop" class="dye-name-drop"></div>
             </div>
-            <div class="flex items-center gap-[12px]">
+            <div id="dye-drinker-field" class="flex items-center gap-[12px] dye-name-combo cursor-pointer">
               <span class="font-bold text-[24px] text-[var(--mimoja-blue)]">Drinker</span>
               <span id="dye-next-drinker" class="font-normal text-[24px] text-[var(--text-primary)]">—</span>
+              <input id="dye-next-drinker-input" class="dye-name-input" style="display:none" autocomplete="off" />
+              <div id="dye-next-drinker-drop" class="dye-name-drop"></div>
             </div>
             <button id="dye-add-note-btn" class="border-2 border-[var(--mimoja-blue)] text-[var(--mimoja-blue)] rounded-[8px] px-[16px] py-[1px] leading-[1.2] font-semibold text-[24px] cursor-pointer whitespace-nowrap ml-auto">
               Add Note
@@ -933,7 +962,12 @@ function renderRecipePills(workflow) {
   const container = document.getElementById('dye-recipe-pills');
   if (!container) return;
   // Prefer KV-store recipes (clickable/applicable); fall back to workflow strings (label-only).
-  const items = recipes.length ? recipes : (workflow.favorites || workflow.recipes || []);
+  // recipe-edit's "Show on Streamline Dashboard" toggle writes showOnStreamlineDashboard,
+  // so honour it here too — absent means shown. The workflow-string fallback carries no
+  // flag, so it is never filtered.
+  const items = recipes.length
+    ? recipes.filter(r => r && r.showOnStreamlineDashboard !== false)
+    : (workflow.favorites || workflow.recipes || []);
   container.innerHTML = '';
   if (items.length === 0) { container.innerHTML = '<span style="color:var(--low-contrast-white);font-size:21px;">No recipes yet</span>'; return; }
   const activeTitle = workflow.profile && workflow.profile.title;
@@ -1162,6 +1196,92 @@ function setupProfileName() {
   el.addEventListener('click', () => { window.location.href = 'profile-picker'; });
 }
 
+// Names previously used on shots, so Barista / Drinker can be picked instead of retyped.
+async function distinctNames(key) {
+  const res = await getShots({ limit: 200 }).catch(() => []);
+  const seen = new Set();
+  (Array.isArray(res) ? res : (res.items || [])).forEach(s => {
+    const ctx = (s.workflow && s.workflow.context) || {};
+    const name = ctx[key] || (s.metadata && s.metadata[key === 'baristaName' ? 'barista' : 'drinker']);
+    if (name) seen.add(name);
+  });
+  return [...seen];
+}
+
+// Tap Barista / Drinker on Next Shot to pick a previous name or type a new one. Swaps the
+// value for an input the way the auto-fav-edit rows do, then writes the whole workflow
+// back (not a partial context) so nothing else in it can be dropped by the round trip.
+function setupNameField(fieldId, valueId, ctxKey) {
+  const field = document.getElementById(fieldId);
+  const value = document.getElementById(valueId);
+  const input = document.getElementById(valueId + '-input');
+  const drop  = document.getElementById(valueId + '-drop');
+  if (!field || !value || !input || !drop) return;
+
+  let cache = null;
+  async function options() {
+    if (!cache) { try { cache = await distinctNames(ctxKey); } catch (e) { cache = []; } }
+    return cache;
+  }
+  // showAll on open: the input is pre-filled with the current name, so filtering by it
+  // would hide every other option exactly when the user wants to see the list.
+  async function openDrop(showAll) {
+    const q = showAll ? '' : (input.value || '').trim().toLowerCase();
+    const opts = (await options()).filter(o => !q || String(o).toLowerCase().includes(q));
+    drop.innerHTML = '';
+    if (!opts.length) {
+      const e = document.createElement('div');
+      e.className = 'dye-name-empty';
+      e.textContent = 'No previous entries';
+      drop.appendChild(e);
+    } else {
+      opts.slice(0, 50).forEach(o => {
+        const el = document.createElement('div');
+        el.className = 'dye-name-opt';
+        el.textContent = o;
+        // mousedown, not click: the pick has to land before the input's blur closes the drop.
+        el.addEventListener('mousedown', (ev) => { ev.preventDefault(); input.value = o; commit(); });
+        drop.appendChild(el);
+      });
+    }
+    drop.classList.add('open');
+  }
+  function close() {
+    drop.classList.remove('open');
+    input.style.display = 'none';
+    value.style.display = '';
+  }
+  function begin() {
+    if (input.style.display !== 'none') return;
+    input.value = value.textContent === '—' ? '' : value.textContent;
+    value.style.display = 'none';
+    input.style.display = '';
+    input.focus();
+    input.select();
+    openDrop(true);
+  }
+  async function commit() {
+    const v = input.value.trim();
+    close();
+    if (!currentWorkflow) return;
+    currentWorkflow.context = currentWorkflow.context || {};
+    currentWorkflow.context[ctxKey] = v || null;
+    renderNextShot();
+    cache = null;   // a name entered now should appear in the list next time
+    try { await updateWorkflow(currentWorkflow); }
+    catch (e) { console.warn('Failed to save ' + ctxKey + ':', e); }
+  }
+
+  field.addEventListener('click', (e) => { if (e.target !== input) begin(); });
+  input.addEventListener('input', () => openDrop(false));
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); commit(); }
+    else if (e.key === 'Escape') { close(); }
+  });
+  // Let a dropdown mousedown win the race before blur tears the editor down.
+  input.addEventListener('blur', () => setTimeout(() => { if (input.style.display !== 'none') commit(); }, 150));
+}
+
 function setupClipboardPaste() {
   const btn = document.getElementById('dye-clipboard-btn');
   if (!btn) return;
@@ -1196,16 +1316,18 @@ function setupClipboardPaste() {
   });
 }
 
-// Leave the dashboard back to whatever launched it. The dashboard is often the
-// entry page of the REA webview, so history.back() has nothing to pop — hence the
-// fallback chain: explicit ?return= URL (skin should pass its own), then real
-// history, then the REA Web UI. The Web UI runs on :3000 (this plugin is served
-// from :8080); ?_=Date.now() cache-busts, matching settings.reaplugin's back link.
-// Guarantees Cancel returns to REA, never a dead button.
+// Leave the dashboard for the REA Web UI, which runs on :3000 (this plugin is served
+// from :8080); ?_=Date.now() cache-busts, matching settings.reaplugin's back link. A
+// caller that wants somewhere else passes ?return=.
+//
+// Deliberately no history.back() step: visiting recipe-edit (or any sub-page) and
+// coming back leaves this page on the stack twice, so back() pops to the page the user
+// just finished with — press DONE after saving a recipe and you land in Edit Recipes
+// again. history.length is also >1 for almost any webview session, so that branch used
+// to win nearly always and the REA fallback below rarely ran.
 function leaveDashboard() {
   const ret = new URLSearchParams(location.search).get('return');
   if (ret) { window.location.href = ret; return; }
-  if (window.history.length > 1) { window.history.back(); return; }
   window.location.href = 'http://' + window.location.hostname + ':3000/?_=' + Date.now();
 }
 
@@ -1323,6 +1445,8 @@ async function initializeDyeDashboard() {
   setupDoseControls();
   setupBeanCard();
   setupProfileName();
+  setupNameField('dye-barista-field', 'dye-next-barista', 'baristaName');
+  setupNameField('dye-drinker-field', 'dye-next-drinker', 'drinkerName');
   setupClipboardPaste();
   setupBottomButtons();
   setupReadNote();
