@@ -13,7 +13,7 @@ var createPlugin = (function() {
 	}
 	//#endregion
 	//#region src/styles/tailwind.generated.css?inline
-	var tailwind_generated_default = "*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:\"\"}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.\\!container{width:100%!important}.container{width:100%}@media (min-width:640px){.\\!container{max-width:640px!important}.container{max-width:640px}}@media (min-width:768px){.\\!container{max-width:768px!important}.container{max-width:768px}}@media (min-width:1024px){.\\!container{max-width:1024px!important}.container{max-width:1024px}}@media (min-width:1280px){.\\!container{max-width:1280px!important}.container{max-width:1280px}}@media (min-width:1536px){.\\!container{max-width:1536px!important}.container{max-width:1536px}}.visible{visibility:visible}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.mb-8{margin-bottom:2rem}.mb-\\[14px\\]{margin-bottom:14px}.ml-auto{margin-left:auto}.mt-16{margin-top:4rem}.mt-8{margin-top:2rem}.mt-\\[4px\\]{margin-top:4px}.mt-\\[6px\\]{margin-top:6px}.mt-auto{margin-top:auto}.block{display:block}.inline{display:inline}.flex{display:flex}.\\!grid{display:grid!important}.grid{display:grid}.hidden{display:none}.h-\\[110px\\]{height:110px}.h-\\[124px\\]{height:124px}.h-\\[134px\\]{height:134px}.h-\\[150px\\]{height:150px}.h-\\[165px\\]{height:165px}.h-\\[2px\\]{height:2px}.h-\\[40px\\]{height:40px}.h-\\[54px\\]{height:54px}.h-\\[60px\\]{height:60px}.h-\\[62px\\]{height:62px}.h-\\[70px\\]{height:70px}.h-\\[72px\\]{height:72px}.h-\\[76px\\]{height:76px}.h-\\[82px\\]{height:82px}.h-\\[90px\\]{height:90px}.h-full{height:100%}.min-h-\\[330px\\]{min-height:330px}.w-1\\/2{width:50%}.w-\\[1200px\\]{width:1200px}.w-\\[150px\\]{width:150px}.w-\\[180px\\]{width:180px}.w-\\[1px\\]{width:1px}.w-\\[240px\\]{width:240px}.w-\\[2px\\]{width:2px}.w-\\[300px\\]{width:300px}.w-\\[310px\\]{width:310px}.w-\\[60px\\]{width:60px}.w-\\[69px\\]{width:69px}.w-\\[720px\\]{width:720px}.w-\\[72px\\]{width:72px}.w-\\[75px\\]{width:75px}.w-\\[960px\\]{width:960px}.w-full{width:100%}.min-w-0{min-width:0}.flex-1{flex:1 1 0%}.flex-shrink{flex-shrink:1}.flex-shrink-0{flex-shrink:0}.shrink{flex-shrink:1}.shrink-0{flex-shrink:0}.flex-grow,.grow{flex-grow:1}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.resize{resize:both}.auto-cols-\\[225px\\]{grid-auto-columns:225px}.grid-flow-col{grid-auto-flow:column}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-rows-\\[repeat\\(2\\2c 60px\\)\\]{grid-template-rows:repeat(2,60px)}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-\\[10px\\]{gap:10px}.gap-\\[12px\\]{gap:12px}.gap-\\[14px\\]{gap:14px}.gap-\\[15px\\]{gap:15px}.gap-\\[16px\\]{gap:16px}.gap-\\[18px\\]{gap:18px}.gap-\\[20px\\]{gap:20px}.gap-\\[22px\\]{gap:22px}.gap-\\[24px\\]{gap:24px}.gap-\\[27px\\]{gap:27px}.gap-\\[28px\\]{gap:28px}.gap-\\[30px\\]{gap:30px}.gap-\\[45px\\]{gap:45px}.gap-\\[48px\\]{gap:48px}.gap-\\[60px\\]{gap:60px}.gap-\\[68px\\]{gap:68px}.gap-\\[8px\\]{gap:8px}.gap-\\[90px\\]{gap:90px}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.rounded-\\[12px\\]{border-radius:12px}.rounded-\\[15px\\]{border-radius:15px}.rounded-\\[23px\\]{border-radius:23px}.rounded-\\[68px\\]{border-radius:68px}.rounded-\\[8px\\]{border-radius:8px}.rounded-\\[9999px\\]{border-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-\\[var\\(--mimoja-blue\\)\\]{border-color:var(--mimoja-blue)}.border-\\[var\\(--profile-button-outline-color\\)\\]{border-color:var(--profile-button-outline-color)}.bg-\\[\\#EDEDED\\]{--tw-bg-opacity:1;background-color:rgb(237 237 237/var(--tw-bg-opacity,1))}.bg-\\[var\\(--bgmain-color\\)\\]{background-color:var(--bgmain-color)}.bg-\\[var\\(--box-color\\)\\]{background-color:var(--box-color)}.bg-\\[var\\(--mimoja-blue\\)\\]{background-color:var(--mimoja-blue)}.bg-\\[var\\(--profile-button-outline-color\\)\\]{background-color:var(--profile-button-outline-color)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.px-\\[14px\\]{padding-left:14px;padding-right:14px}.px-\\[16px\\]{padding-left:16px;padding-right:16px}.px-\\[20px\\]{padding-left:20px;padding-right:20px}.px-\\[30px\\]{padding-left:30px;padding-right:30px}.px-\\[37px\\]{padding-left:37px;padding-right:37px}.px-\\[38px\\]{padding-left:38px;padding-right:38px}.px-\\[40px\\]{padding-left:40px;padding-right:40px}.px-\\[48px\\]{padding-left:48px;padding-right:48px}.py-\\[1px\\]{padding-top:1px;padding-bottom:1px}.py-\\[27px\\]{padding-top:27px;padding-bottom:27px}.py-\\[28px\\]{padding-top:28px;padding-bottom:28px}.py-\\[32px\\]{padding-top:32px;padding-bottom:32px}.py-\\[36px\\]{padding-top:36px;padding-bottom:36px}.pb-\\[28px\\]{padding-bottom:28px}.pb-\\[40px\\]{padding-bottom:40px}.pl-\\[37px\\]{padding-left:37px}.pr-\\[20px\\]{padding-right:20px}.pr-\\[30px\\]{padding-right:30px}.pt-\\[20px\\]{padding-top:20px}.pt-\\[23px\\]{padding-top:23px}.pt-\\[28px\\]{padding-top:28px}.pt-\\[30px\\]{padding-top:30px}.pt-\\[32px\\]{padding-top:32px}.text-center{text-align:center}.font-\\[\\'Inter\\'\\2c sans-serif\\]{font-family:Inter,sans-serif}.text-\\[18px\\]{font-size:18px}.text-\\[21px\\]{font-size:21px}.text-\\[22px\\]{font-size:22px}.text-\\[24px\\]{font-size:24px}.text-\\[26px\\]{font-size:26px}.text-\\[30px\\]{font-size:30px}.text-\\[36px\\]{font-size:36px}.text-\\[38px\\]{font-size:38px}.font-bold{font-weight:700}.font-normal{font-weight:400}.font-semibold{font-weight:600}.italic{font-style:italic}.leading-\\[1\\.2\\]{line-height:1.2}.text-\\[var\\(--mimoja-blue\\)\\]{color:var(--mimoja-blue)}.text-\\[var\\(--text-primary\\)\\]{color:var(--text-primary)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.underline{text-decoration-line:underline}.opacity-40{opacity:.4}.opacity-50{opacity:.5}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline{outline-style:solid}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}";
+	var tailwind_generated_default = "*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:\"\"}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.\\!container{width:100%!important}.container{width:100%}@media (min-width:640px){.\\!container{max-width:640px!important}.container{max-width:640px}}@media (min-width:768px){.\\!container{max-width:768px!important}.container{max-width:768px}}@media (min-width:1024px){.\\!container{max-width:1024px!important}.container{max-width:1024px}}@media (min-width:1280px){.\\!container{max-width:1280px!important}.container{max-width:1280px}}@media (min-width:1536px){.\\!container{max-width:1536px!important}.container{max-width:1536px}}.visible{visibility:visible}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.mb-8{margin-bottom:2rem}.mb-\\[14px\\]{margin-bottom:14px}.ml-auto{margin-left:auto}.mt-16{margin-top:4rem}.mt-8{margin-top:2rem}.mt-\\[4px\\]{margin-top:4px}.mt-\\[6px\\]{margin-top:6px}.mt-auto{margin-top:auto}.block{display:block}.inline{display:inline}.flex{display:flex}.\\!grid{display:grid!important}.grid{display:grid}.hidden{display:none}.h-\\[110px\\]{height:110px}.h-\\[124px\\]{height:124px}.h-\\[134px\\]{height:134px}.h-\\[150px\\]{height:150px}.h-\\[165px\\]{height:165px}.h-\\[2px\\]{height:2px}.h-\\[40px\\]{height:40px}.h-\\[54px\\]{height:54px}.h-\\[60px\\]{height:60px}.h-\\[62px\\]{height:62px}.h-\\[70px\\]{height:70px}.h-\\[72px\\]{height:72px}.h-\\[76px\\]{height:76px}.h-\\[82px\\]{height:82px}.h-\\[90px\\]{height:90px}.h-full{height:100%}.min-h-\\[330px\\]{min-height:330px}.w-1\\/2{width:50%}.w-\\[1200px\\]{width:1200px}.w-\\[150px\\]{width:150px}.w-\\[180px\\]{width:180px}.w-\\[1px\\]{width:1px}.w-\\[240px\\]{width:240px}.w-\\[2px\\]{width:2px}.w-\\[300px\\]{width:300px}.w-\\[310px\\]{width:310px}.w-\\[60px\\]{width:60px}.w-\\[69px\\]{width:69px}.w-\\[720px\\]{width:720px}.w-\\[72px\\]{width:72px}.w-\\[75px\\]{width:75px}.w-\\[960px\\]{width:960px}.w-full{width:100%}.min-w-0{min-width:0}.flex-1{flex:1 1 0%}.flex-shrink{flex-shrink:1}.flex-shrink-0{flex-shrink:0}.shrink{flex-shrink:1}.shrink-0{flex-shrink:0}.flex-grow,.grow{flex-grow:1}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.resize{resize:both}.auto-cols-\\[225px\\]{grid-auto-columns:225px}.grid-flow-col{grid-auto-flow:column}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-rows-\\[repeat\\(2\\2c 60px\\)\\]{grid-template-rows:repeat(2,60px)}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-\\[10px\\]{gap:10px}.gap-\\[12px\\]{gap:12px}.gap-\\[14px\\]{gap:14px}.gap-\\[15px\\]{gap:15px}.gap-\\[16px\\]{gap:16px}.gap-\\[18px\\]{gap:18px}.gap-\\[20px\\]{gap:20px}.gap-\\[22px\\]{gap:22px}.gap-\\[24px\\]{gap:24px}.gap-\\[27px\\]{gap:27px}.gap-\\[28px\\]{gap:28px}.gap-\\[30px\\]{gap:30px}.gap-\\[45px\\]{gap:45px}.gap-\\[48px\\]{gap:48px}.gap-\\[60px\\]{gap:60px}.gap-\\[68px\\]{gap:68px}.gap-\\[8px\\]{gap:8px}.gap-\\[90px\\]{gap:90px}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.rounded-\\[12px\\]{border-radius:12px}.rounded-\\[15px\\]{border-radius:15px}.rounded-\\[23px\\]{border-radius:23px}.rounded-\\[68px\\]{border-radius:68px}.rounded-\\[8px\\]{border-radius:8px}.rounded-\\[9999px\\]{border-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-\\[var\\(--mimoja-blue\\)\\]{border-color:var(--mimoja-blue)}.border-\\[var\\(--profile-button-outline-color\\)\\]{border-color:var(--profile-button-outline-color)}.bg-\\[\\#EDEDED\\]{--tw-bg-opacity:1;background-color:rgb(237 237 237/var(--tw-bg-opacity,1))}.bg-\\[var\\(--bgmain-color\\)\\]{background-color:var(--bgmain-color)}.bg-\\[var\\(--box-color\\)\\]{background-color:var(--box-color)}.bg-\\[var\\(--mimoja-blue\\)\\]{background-color:var(--mimoja-blue)}.bg-\\[var\\(--profile-button-outline-color\\)\\]{background-color:var(--profile-button-outline-color)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.px-\\[14px\\]{padding-left:14px;padding-right:14px}.px-\\[16px\\]{padding-left:16px;padding-right:16px}.px-\\[20px\\]{padding-left:20px;padding-right:20px}.px-\\[30px\\]{padding-left:30px;padding-right:30px}.px-\\[37px\\]{padding-left:37px;padding-right:37px}.px-\\[38px\\]{padding-left:38px;padding-right:38px}.px-\\[40px\\]{padding-left:40px;padding-right:40px}.px-\\[48px\\]{padding-left:48px;padding-right:48px}.py-\\[1px\\]{padding-top:1px;padding-bottom:1px}.py-\\[27px\\]{padding-top:27px;padding-bottom:27px}.py-\\[28px\\]{padding-top:28px;padding-bottom:28px}.py-\\[32px\\]{padding-top:32px;padding-bottom:32px}.py-\\[36px\\]{padding-top:36px;padding-bottom:36px}.py-\\[40px\\]{padding-top:40px;padding-bottom:40px}.pb-\\[28px\\]{padding-bottom:28px}.pb-\\[40px\\]{padding-bottom:40px}.pl-\\[37px\\]{padding-left:37px}.pr-\\[20px\\]{padding-right:20px}.pr-\\[30px\\]{padding-right:30px}.pt-\\[20px\\]{padding-top:20px}.pt-\\[23px\\]{padding-top:23px}.pt-\\[28px\\]{padding-top:28px}.pt-\\[30px\\]{padding-top:30px}.pt-\\[32px\\]{padding-top:32px}.text-center{text-align:center}.font-\\[\\'Inter\\'\\2c sans-serif\\]{font-family:Inter,sans-serif}.text-\\[18px\\]{font-size:18px}.text-\\[21px\\]{font-size:21px}.text-\\[22px\\]{font-size:22px}.text-\\[24px\\]{font-size:24px}.text-\\[26px\\]{font-size:26px}.text-\\[30px\\]{font-size:30px}.text-\\[36px\\]{font-size:36px}.text-\\[38px\\]{font-size:38px}.font-bold{font-weight:700}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-\\[1\\.2\\]{line-height:1.2}.text-\\[var\\(--mimoja-blue\\)\\]{color:var(--mimoja-blue)}.text-\\[var\\(--text-primary\\)\\]{color:var(--text-primary)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.underline{text-decoration-line:underline}.opacity-40{opacity:.4}.opacity-50{opacity:.5}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline{outline-style:solid}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}";
 	//#endregion
 	//#region \0@oxc-project+runtime@0.124.0/helpers/taggedTemplateLiteral.js
 	function _taggedTemplateLiteral(e, t) {
@@ -161,6 +161,12 @@ async function getBeanBatches(beanId) {
   return res.json();
 }
 
+async function getBean(id) {
+  const res = await fetch(API_BASE_URL + '/beans/' + id);
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
 async function createBean(data) {
   const res = await fetch(API_BASE_URL + '/beans', {
     method: 'POST',
@@ -171,9 +177,29 @@ async function createBean(data) {
   return res.json();
 }
 
+async function updateBean(id, data) {
+  const res = await fetch(API_BASE_URL + '/beans/' + id, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
 async function createBeanBatch(beanId, data) {
   const res = await fetch(API_BASE_URL + '/beans/' + beanId + '/batches', {
     method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
+async function updateBeanBatch(batchId, data) {
+  const res = await fetch(API_BASE_URL + '/bean-batches/' + batchId, {
+    method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
@@ -887,7 +913,26 @@ initializeDyeGrinders().catch(e => console.error('initializeDyeGrinders failed:'
     transition: background 0.15s, color 0.15s;
     user-select: none;
     gap: 8px;
+    position: relative;
   }
+
+  .dye-card-edit-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .dye-card-edit-btn:hover { background: rgba(0,0,0,0.08); }
+  .dye-card.dye-card-selected .dye-card-edit-btn:hover { background: rgba(255,255,255,0.2); }
+  .dye-card-edit-btn svg { stroke: var(--text-primary-disabled); }
+  .dye-card.dye-card-selected .dye-card-edit-btn svg { stroke: #fff; }
   .dye-card:hover { opacity: 0.85; }
   .dye-card.dye-card-selected {
     background: var(--mimoja-blue);
@@ -1069,7 +1114,7 @@ function renderBeanCards(grid, beans, confirmBtn) {
 
   const addCard = document.createElement('div');
   addCard.className = 'dye-card dye-card-add';
-  addCard.innerHTML = '<span>ADD NEW BEANS +</span><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
+  addCard.innerHTML = '<span>ADD NEW BEANS</span><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
   addCard.addEventListener('click', () => { window.location.href = 'add-bean'; });
   grid.appendChild(addCard);
 
@@ -1079,9 +1124,17 @@ function renderBeanCards(grid, beans, confirmBtn) {
     const batch = batchMap[bean.id];
     const line3 = beanLine3(batch);
     card.innerHTML =
+      '<div class="dye-card-edit-btn" title="Edit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></div>' +
       '<div class="dye-card-name">' + esc(beanLine1(bean, batch) || 'Unnamed') + '</div>' +
       (bean.roaster ? '<div class="dye-card-sub">' + esc(bean.roaster) + '</div>' : '') +
       (line3 ? '<div class="dye-card-date">' + esc(line3) + '</div>' : '');
+    const editBtn = card.querySelector('.dye-card-edit-btn');
+    if (editBtn) {
+      editBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        window.location.href = 'add-bean?id=' + encodeURIComponent(bean.id);
+      });
+    }
     if (bean.id === selectedBeanId) card.classList.add('dye-card-selected');
     card.addEventListener('click', () => {
       grid.querySelectorAll('.dye-card').forEach(c => c.classList.remove('dye-card-selected'));
@@ -2436,9 +2489,359 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 `;
 	}
 	//#endregion
+	//#region src/utils/lucide.ts
+	/** Inline Lucide SVG icons — only icons used in DYE2 redesign */
+	var PATHS = {
+		search: "<circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/>",
+		"chevron-left": "<path d=\"m15 18-6-6 6-6\"/>",
+		"chevron-right": "<path d=\"m9 18 6-6-6-6\"/>",
+		"chevron-down": "<path d=\"m6 9 6 6 6-6\"/>",
+		"chevron-up": "<path d=\"m18 15-6-6-6 6\"/>",
+		history: "<path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"/><path d=\"M3 3v5h5\"/><path d=\"M12 7v5l4 2\"/>",
+		"clipboard-paste": "<path d=\"M15 2H9a1 1 0 0 0-1 1v2c0 .6.4 1 1 1h6c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1Z\"/><path d=\"M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2\"/><path d=\"M16 12H8\"/><path d=\"M16 16H8\"/>",
+		star: "<polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\"/>",
+		"check-circle": "<path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"/><path d=\"m9 11 3 3L22 4\"/>",
+		pencil: "<path d=\"M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z\"/><path d=\"m15 5 4 4\"/>",
+		calendar: "<path d=\"M8 2v4\"/><path d=\"M16 2v4\"/><rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"2\"/><path d=\"M3 10h18\"/>",
+		"maximize-2": "<polyline points=\"15 3 21 3 21 9\"/><polyline points=\"9 21 3 21 3 15\"/><line x1=\"21\" y1=\"3\" x2=\"14\" y2=\"10\"/><line x1=\"3\" y1=\"21\" x2=\"10\" y2=\"14\"/>",
+		plus: "<path d=\"M5 12h14\"/><path d=\"M12 5v14\"/>",
+		minus: "<path d=\"M5 12h14\"/>",
+		x: "<path d=\"M18 6 6 18\"/><path d=\"m6 6 12 12\"/>",
+		check: "<path d=\"M20 6 9 17l-5-5\"/>",
+		trash: "<path d=\"M3 6h18\"/><path d=\"M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6\"/><path d=\"M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2\"/>",
+		"arrow-up": "<path d=\"m5 12 7-7 7 7\"/><path d=\"M12 19V5\"/>"
+	};
+	function lucideIcon(name, size = 36, color = "currentColor", strokeWidth = 2, fill = "none") {
+		return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="${fill}" stroke="${color}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round">${PATHS[name] ?? "<circle cx=\"12\" cy=\"12\" r=\"10\"/>"}</svg>`;
+	}
+	//#endregion
+	//#region src/utils/shared-components.ts
+	/** Shared CSS + HTML factories for DYE2 redesign pages (1920×1200 layout) */
+	function sortSidebarCss() {
+		return `
+  .dye-sort-btn {
+    width: 135px; padding: 14px 0;
+    border: 2px solid var(--mimoja-blue); border-radius: 23px;
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 21px;
+    text-align: center; color: var(--mimoja-blue); background: transparent;
+    cursor: pointer; white-space: nowrap;
+  }
+  .dye-sort-btn.dye-sort-active { background: var(--mimoja-blue); color: #fff; }
+  `;
+	}
+	function sortSidebarHtml() {
+		return `<div id="dye-sort-sidebar" class="flex flex-col gap-[30px] items-start pt-[30px] pl-[37px] pr-[30px] shrink-0">
+    ${[
+			["recent", "Recent"],
+			["oldest", "Oldest"],
+			["az", "A-Z"],
+			["za", "Z-A"],
+			["most-used", "Most Used"],
+			["least-used", "Least Used"]
+		].map(([key, label], i) => `<button class="dye-sort-btn${i === 0 ? " dye-sort-active" : ""}" data-sort="${key}">${label}</button>`).join("\n    ")}
+  </div>`;
+	}
+	function pickerCardCss() {
+		return `
+  .dye-card {
+    border-radius: 15px; display: flex; flex-direction: column;
+    align-items: flex-start; justify-content: center; padding: 16px 20px;
+    font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 400;
+    cursor: pointer; background: var(--box-color);
+    border: 1px solid var(--profile-button-outline-color);
+    color: var(--text-primary); transition: background 0.15s, color 0.15s;
+    user-select: none; min-height: 90px;
+  }
+  .dye-card:hover { opacity: 0.85; }
+  .dye-card.dye-card-selected { background: var(--mimoja-blue); border-color: var(--mimoja-blue); color: #fff; }
+  .dye-card-add {
+    border-color: var(--mimoja-blue); color: var(--mimoja-blue);
+    font-weight: 700; flex-direction: row; align-items: center;
+    justify-content: center; gap: 8px; background: var(--box-color);
+  }
+  .dye-card-add svg { stroke: var(--mimoja-blue); }
+  .dye-card-name { font-size: 24px; font-weight: 600; line-height: 1.3; }
+  .dye-card-sub  { font-size: 20px; font-weight: 400; opacity: 0.7; margin-top: 2px; }
+  .dye-card-divider { border: none; border-top: 1px solid var(--profile-button-outline-color); width: 100%; margin: 8px 0; }
+  .dye-card-date { font-size: 18px; font-weight: 400; opacity: 0.6; }
+  .dye-card.dye-card-selected .dye-card-divider { border-color: rgba(255,255,255,0.3); }
+  #dye-cards-container::-webkit-scrollbar { width: 45px; }
+  #dye-cards-container::-webkit-scrollbar-track { background: transparent; }
+  #dye-cards-container::-webkit-scrollbar-thumb {
+    background: var(--profile-button-outline-color);
+    border-radius: 53px; border: 14px solid transparent;
+    background-clip: padding-box;
+  }
+  `;
+	}
+	function pickerHeaderHtml(title, primaryLabel, primaryDisabled = true) {
+		return `<div class="flex justify-between items-center px-[37px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[165px] shrink-0">
+    <h1 class="text-[38px] font-bold text-[var(--text-primary)] no-select">${title}</h1>
+    <div class="flex items-center gap-[16px]">
+      <button id="dye-cancel-btn" class="flex justify-center items-center w-[240px] h-[82px] rounded-[68px] font-bold text-[24px] text-[var(--text-primary)]">CANCEL</button>
+      <button id="dye-confirm-btn" class="bg-[var(--mimoja-blue)] text-white flex items-center justify-center w-[240px] h-[82px] rounded-[68px] font-bold text-[24px]${primaryDisabled ? " opacity-50" : ""}">${primaryLabel}</button>
+    </div>
+  </div>`;
+	}
+	function stepperCss() {
+		return `
+  .dye-stepper-btn {
+    display: flex; align-items: center; justify-content: center;
+    width: 72px; height: 72px; background: #EDEDED;
+    border-radius: 15px; cursor: pointer; flex-shrink: 0;
+  }
+  .dye-stepper-val {
+    font-weight: 700; font-size: 26px; color: var(--text-primary);
+    text-align: center; min-width: 72px;
+  }
+  .dye-stepper-sub {
+    font-size: 18px; font-weight: 600; color: var(--text-primary); text-align: center;
+  }
+  .dye-stepper-label { font-weight: 700; font-size: 24px; color: var(--mimoja-blue); }
+  `;
+	}
+	function stepperHtml(idPrefix, label, labelWidth = "75px", showSub = false, subHtml = "") {
+		const minusSvg = lucideIcon("minus", 28, "var(--text-primary)", 2.5);
+		const plusSvg = lucideIcon("plus", 28, "var(--text-primary)", 2.5);
+		return `<div class="flex items-center gap-[18px]">
+    ${subHtml ? `<div class="flex flex-col" style="width:${labelWidth};flex-shrink:0">
+         <span class="dye-stepper-label">${label}</span>
+         ${subHtml}
+       </div>` : `<span class="dye-stepper-label" style="width:${labelWidth};flex-shrink:0">${label}</span>`}
+    <div class="flex items-center gap-[15px]">
+      <button id="${idPrefix}-minus" class="dye-stepper-btn">${minusSvg}</button>
+      <div class="flex flex-col items-center" style="min-width:72px">
+        <span id="${idPrefix}-value" class="dye-stepper-val">—</span>
+        ${showSub ? `<span id="${idPrefix}-sub" class="dye-stepper-sub"></span>` : ""}
+      </div>
+      <button id="${idPrefix}-plus" class="dye-stepper-btn">${plusSvg}</button>
+    </div>
+  </div>`;
+	}
+	function presetStripCss() {
+		return `
+  .dye-preset {
+    font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 400;
+    color: var(--text-primary-disabled); background: none; border: none;
+    cursor: pointer; padding: 0; white-space: nowrap;
+  }
+  .dye-preset.dye-preset-active { color: var(--mimoja-blue); font-weight: 700; }
+  `;
+	}
+	function presetStripHtml(idPrefix, presets, opts = {}) {
+		const attrs = (opts.kind ? ` data-kind="${opts.kind}"` : "") + (opts.basis ? ` data-basis="${opts.basis}"` : "");
+		return `<div id="${idPrefix}-presets" class="flex items-center gap-[30px] mt-[6px]">${presets.map((p) => `<button class="dye-preset" data-preset="${p}" data-for="${idPrefix}"${attrs}>${p}</button>`).join("")}</div>`;
+	}
+	function toggleCss() {
+		return `
+  .dye-toggle-track {
+    position: relative; width: 64px; height: 36px; border-radius: 9999px;
+    background: #D1D5DB; transition: background 0.2s; cursor: pointer;
+    flex-shrink: 0; display: flex; align-items: center; padding: 4px;
+  }
+  .dye-toggle-track.on { background: var(--mimoja-blue); justify-content: flex-end; }
+  .dye-toggle-thumb {
+    width: 28px; height: 28px; border-radius: 9999px; background: #fff;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .dye-toggle-icon-on  { display: none; }
+  .dye-toggle-icon-off { display: flex; }
+  .dye-toggle-track.on .dye-toggle-icon-on  { display: flex; }
+  .dye-toggle-track.on .dye-toggle-icon-off { display: none; }
+  .dye-toggle-row {
+    display: flex; align-items: center; gap: 20px;
+    padding: 20px 0; border-bottom: 1px solid var(--profile-button-outline-color);
+  }
+  .dye-toggle-row:last-child { border-bottom: none; }
+  .dye-toggle-label { font-size: 24px; font-weight: 400; color: var(--text-primary); width: 160px; flex-shrink: 0; }
+  .dye-toggle-value { font-size: 24px; font-weight: 700; color: var(--text-primary); flex: 1; }
+  .dye-toggle-value.off { color: var(--text-primary-disabled); font-weight: 400; }
+  .dye-toggle-edit { cursor: pointer; flex-shrink: 0; opacity: 0.55; }
+  .dye-toggle-edit:hover { opacity: 1; }
+  `;
+	}
+	function segmentControlHtml(id, options, initialIdx = 0) {
+		return `<div id="${id}" class="flex rounded-[15px] overflow-hidden border-2 border-[var(--mimoja-blue)]" style="height:72px">${options.map((opt, i) => `<button class="dye-seg-btn${i === initialIdx ? " active" : ""}" data-idx="${i}" data-for="${id}" style="flex:1;font-family:'Inter',sans-serif;font-size:24px;font-weight:600;cursor:pointer;${i === initialIdx ? "background:var(--mimoja-blue);color:#fff;" : "background:transparent;color:var(--text-primary);"}">${opt}</button>`).join("")}</div>`;
+	}
+	function starRatingHtml(id, count = 5, size = 36) {
+		return `<div id="${id}" class="flex items-center gap-[8px]">${Array.from({ length: count }, (_, i) => `<svg class="dye-star" data-index="${i + 1}" xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="var(--profile-button-outline-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor:pointer"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`).join("")}</div>`;
+	}
+	function expandFieldHtml(id, label, placeholder = "—") {
+		return `<div class="flex items-center gap-[18px]">
+    <span class="dye-stepper-label" style="width:120px;flex-shrink:0">${label}</span>
+    <div class="flex items-center flex-1 border border-[var(--profile-button-outline-color)] rounded-[12px] px-[20px] h-[72px] bg-[var(--box-color)] gap-[12px]">
+      <span id="${id}-text" class="flex-1 text-[24px] font-normal text-[var(--text-primary)]">${placeholder}</span>
+      <button id="${id}-expand" class="flex-shrink-0">${lucideIcon("maximize-2", 26, "var(--mimoja-blue)", 2)}</button>
+    </div>
+  </div>`;
+	}
+	var sortSidebarScript = `
+function setupSortButtons(onSort) {
+  const sidebar = document.getElementById('dye-sort-sidebar');
+  if (!sidebar) return;
+  sidebar.querySelectorAll('.dye-sort-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      sidebar.querySelectorAll('.dye-sort-btn').forEach(b => b.classList.remove('dye-sort-active'));
+      btn.classList.add('dye-sort-active');
+      onSort(btn.dataset.sort);
+    });
+  });
+}
+`;
+	var toggleRowScript = `
+function setupToggleRows(onChange) {
+  document.querySelectorAll('.dye-toggle-track').forEach(track => {
+    track.addEventListener('click', () => {
+      const id = track.dataset.toggle;
+      const isOn = track.classList.toggle('on');
+      const valEl = document.getElementById(id + '-value');
+      if (valEl) valEl.classList.toggle('off', !isOn);
+      if (onChange) onChange(id, isOn);
+    });
+  });
+}
+function isToggleOn(id) {
+  const t = document.getElementById(id + '-track');
+  return t ? t.classList.contains('on') : false;
+}
+`;
+	var segmentControlScript = `
+function setupSegmentControls() {
+  document.querySelectorAll('.dye-seg-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const parentId = btn.dataset.for;
+      const parent = document.getElementById(parentId);
+      if (!parent) return;
+      parent.querySelectorAll('.dye-seg-btn').forEach((b, i) => {
+        const active = i === parseInt(btn.dataset.idx);
+        b.classList.toggle('active', active);
+        b.style.background = active ? 'var(--mimoja-blue)' : 'transparent';
+        b.style.color = active ? '#fff' : 'var(--text-primary)';
+      });
+    });
+  });
+}
+`;
+	var presetStripScript = `
+// Apply a preset chip to its stepper value. Ratio chips ("1:R") compute grams from the basis dose.
+function applyPreset(btn) {
+  const idPrefix = btn.dataset.for;
+  const valueEl = document.getElementById(idPrefix + '-value');
+  if (btn.dataset.kind === 'ratio') {
+    const m = /^1:([0-9.]+)$/.exec(btn.dataset.preset || '');
+    const r = m ? parseFloat(m[1]) : NaN;
+    const basisEl = document.getElementById((btn.dataset.basis || '') + '-value');
+    const dose = basisEl ? parseFloat(basisEl.textContent) : NaN;
+    if (valueEl && !isNaN(r) && !isNaN(dose)) {
+      valueEl.textContent = (Math.round(dose * r * 10) / 10) + 'g';
+      valueEl.dataset.ratio = String(r);
+      const sub = document.getElementById(idPrefix + '-sub');
+      if (sub) sub.textContent = '(1:' + r + ')';
+    }
+  } else if (valueEl) {
+    valueEl.textContent = btn.dataset.preset;
+  }
+  const container = document.getElementById(idPrefix + '-presets');
+  if (container) container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b === btn));
+}
+// Long-press a preset to COPY the current stepper value into that preset chip.
+function attachPresetLongPress(btn) {
+  if (btn.dataset.kind === 'ratio') return;   // ratio chips represent a ratio, not a grams value
+  let longFired = false, timer = null;
+  const clear = () => { if (timer) { clearTimeout(timer); timer = null; } };
+  btn.addEventListener('pointerdown', () => {
+    longFired = false; clear();
+    timer = setTimeout(() => {
+      timer = null;
+      const valueEl = document.getElementById(btn.dataset.for + '-value');
+      const v = valueEl ? valueEl.textContent : '';
+      if (!v || v === '—') return;
+      longFired = true;
+      btn.dataset.preset = v;
+      btn.textContent = v;
+      const container = document.getElementById(btn.dataset.for + '-presets');
+      if (container) container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b === btn));
+    }, 500);
+  });
+  ['pointerup','pointerleave','pointercancel'].forEach(ev => btn.addEventListener(ev, clear));
+  // Swallow the click that follows a long-press so it doesn't also write the preset back onto the value.
+  btn.addEventListener('click', (e) => { if (longFired) { e.stopImmediatePropagation(); e.preventDefault(); longFired = false; } }, true);
+}
+function setupPresetStrips() {
+  document.querySelectorAll('.dye-preset').forEach(btn => {
+    btn.addEventListener('click', () => applyPreset(btn));
+    attachPresetLongPress(btn);
+  });
+}
+function syncPresetActive(idPrefix, currentVal) {
+  const container = document.getElementById(idPrefix + '-presets');
+  if (!container) return;
+  container.querySelectorAll('.dye-preset').forEach(b => {
+    b.classList.toggle('dye-preset-active', b.dataset.preset === String(currentVal));
+  });
+}
+`;
+	//#endregion
 	//#region src/pages/add-bean.ts
+	var CALENDAR_ICON = `<svg class="dye-form-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--profile-button-outline-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>`;
+	function sectionTitle(text) {
+		return `<div class="dye-form-section-title">${text}</div>`;
+	}
+	function textFieldRow(id, label, placeholder = "", rowAttrs = "") {
+		return `
+      <div class="flex gap-[30px] items-center"${rowAttrs}>
+        <label class="dye-form-label">${label}</label>
+        <div class="dye-form-input-wrap">
+          <input id="${id}" type="text" class="dye-form-input" placeholder="${placeholder}" autocomplete="off">
+        </div>
+      </div>`;
+	}
+	function splitFieldRow(label, fields) {
+		return `
+      <div class="flex gap-[30px] items-center">
+        <label class="dye-form-label">${label}</label>
+        <div class="flex gap-[16px] flex-1">${fields.map((f) => `
+          <div class="dye-form-input-wrap">
+            <input id="${f.id}" type="${f.type || "text"}" ${f.type === "number" ? "step=\"any\"" : ""} class="dye-form-input" placeholder="${f.placeholder || ""}" autocomplete="off">
+          </div>`).join("")}</div>
+      </div>`;
+	}
+	function dateFieldRow(id, label) {
+		return `
+      <div class="flex gap-[30px] items-center">
+        <label class="dye-form-label">${label}</label>
+        <div class="dye-form-input-wrap">
+          <input id="${id}" type="date" class="dye-form-input" readonly data-dye-datepicker>
+          ${CALENDAR_ICON}
+        </div>
+      </div>`;
+	}
+	function toggleFieldRow(id, label, rowId) {
+		const checkSvg = lucideIcon("check", 16, "#fff", 2.5);
+		const xSvg = lucideIcon("x", 16, "#9CA3AF", 2.5);
+		return `
+      <div class="flex gap-[30px] items-center"${rowId ? ` id="${rowId}"` : ""}>
+        <label class="dye-form-label">${label}</label>
+        <div id="${id}-track" class="dye-toggle-track" data-toggle="${id}">
+          <div class="dye-toggle-thumb">
+            <span class="dye-toggle-icon-on">${checkSvg}</span>
+            <span class="dye-toggle-icon-off">${xSvg}</span>
+          </div>
+        </div>
+      </div>`;
+	}
+	function textareaFieldRow(id, label, placeholder = "", small = false) {
+		return `
+      <div class="flex gap-[30px] items-start">
+        <label class="dye-form-label pt-[23px]">${label}</label>
+        <div class="dye-form-input-wrap dye-form-textarea-wrap">
+          <textarea id="${id}" class="dye-form-textarea${small ? " dye-form-textarea-sm" : ""}" placeholder="${placeholder}" rows="${small ? 5 : 12}"></textarea>
+        </div>
+      </div>`;
+	}
 	var styles$5 = `
   ${datePickerCss()}
+  ${toggleCss()}
   .dye-form-label {
     width: 135px;
     font-family: 'Inter', sans-serif;
@@ -2470,6 +2873,18 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
   }
   .dye-form-input::placeholder { color: var(--low-contrast-white); }
   .dye-form-icon { flex-shrink: 0; margin-left: 8px; }
+
+  .dye-form-section-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mimoja-blue);
+    padding-top: 20px;
+    margin-top: 4px;
+    border-top: 1px solid var(--profile-button-outline-color);
+  }
 
   .dye-dropdown-wrap { position: relative; }
   .dye-dropdown-toggle { cursor: pointer; transition: transform 0.2s; }
@@ -2523,12 +2938,13 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
     min-height: 479px;
     resize: vertical;
   }
+  .dye-form-textarea.dye-form-textarea-sm { min-height: 160px; }
   .dye-form-textarea::placeholder { color: var(--low-contrast-white); }
 `;
 	var content$1 = `
 <div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
   <div class="flex justify-between items-center px-[37px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[165px]">
-    <h1 class="text-[38px] font-bold text-[var(--text-primary)] no-select">Add New Beans</h1>
+    <h1 id="dye-add-bean-title" class="text-[38px] font-bold text-[var(--text-primary)] no-select">Add New Beans</h1>
     <div class="flex items-center gap-[16px]">
       <button id="dye-cancel-btn" class="flex justify-center items-center w-[240px] h-[82px] py-[27px] rounded-[68px] font-bold text-[24px] text-[var(--text-primary)]">
         CANCEL
@@ -2538,8 +2954,8 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
       </button>
     </div>
   </div>
-  <div class="flex-1 flex items-center justify-center overflow-y-auto">
-    <div id="dye-add-bean-form" class="flex flex-col gap-[30px] w-[1200px]">
+  <div class="flex-1 overflow-y-auto flex justify-center">
+    <div id="dye-add-bean-form" class="flex flex-col gap-[30px] w-[1200px] py-[40px]">
       <div class="flex gap-[30px] items-center">
         <label class="dye-form-label">Beans</label>
         <div class="dye-form-input-wrap dye-dropdown-wrap">
@@ -2556,19 +2972,65 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
           <div id="dye-bean-roaster-dropdown" class="dye-dropdown-menu"></div>
         </div>
       </div>
-      <div class="flex gap-[30px] items-center">
-        <label class="dye-form-label">Roast Date</label>
-        <div class="dye-form-input-wrap">
-          <input id="dye-bean-roast-date" type="date" class="dye-form-input" readonly data-dye-datepicker>
-          <svg class="dye-form-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--profile-button-outline-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
-        </div>
-      </div>
-      <div class="flex gap-[30px] items-start">
-        <label class="dye-form-label pt-[23px]">Bean Notes</label>
-        <div class="dye-form-input-wrap dye-form-textarea-wrap">
-          <textarea id="dye-bean-notes" class="dye-form-textarea" placeholder="Enter tasting notes, description..." rows="12"></textarea>
-        </div>
-      </div>
+      ${dateFieldRow("dye-bean-roast-date", "Roast Date")}
+
+      ${sectionTitle("Origin")}
+      ${textFieldRow("dye-bean-species", "Species", "arabica, robusta...")}
+      ${textFieldRow("dye-bean-processing", "Processing", "washed, natural, honey...")}
+      ${textFieldRow("dye-bean-country", "Country", "Ethiopia...")}
+      ${textFieldRow("dye-bean-region", "Region", "Yirgacheffe...")}
+      ${textFieldRow("dye-bean-producer", "Producer", "Farm or producer name...")}
+      ${textFieldRow("dye-bean-variety", "Variety", "Heirloom, 74110...")}
+      ${splitFieldRow("Altitude (m)", [{
+		id: "dye-bean-altitude-min",
+		type: "number",
+		placeholder: "Min"
+	}, {
+		id: "dye-bean-altitude-max",
+		type: "number",
+		placeholder: "Max"
+	}])}
+      ${toggleFieldRow("dye-bean-decaf", "Decaf")}
+      ${textFieldRow("dye-bean-decaf-process", "Decaf Process", "Swiss Water, CO2...", " id=\"dye-bean-decaf-process-row\" style=\"display:none\"")}
+
+      ${sectionTitle("Roast & Batch Details")}
+      ${textFieldRow("dye-batch-roast-level", "Roast Level", "light, medium, dark...")}
+      ${textFieldRow("dye-batch-harvest-date", "Harvest Date", "e.g. 2025 dry season...")}
+      ${splitFieldRow("Quality Score", [{
+		id: "dye-batch-quality-score",
+		type: "number",
+		placeholder: "e.g. 87.5"
+	}])}
+      ${toggleFieldRow("dye-batch-frozen", "Frozen")}
+
+      ${sectionTitle("Purchase & Storage")}
+      ${splitFieldRow("Price / Currency", [{
+		id: "dye-batch-price",
+		type: "number",
+		placeholder: "Price"
+	}, {
+		id: "dye-batch-currency",
+		type: "text",
+		placeholder: "EUR"
+	}])}
+      ${splitFieldRow("Weight (g)", [{
+		id: "dye-batch-weight",
+		type: "number",
+		placeholder: "Total weight"
+	}, {
+		id: "dye-batch-weight-remaining",
+		type: "number",
+		placeholder: "Remaining"
+	}])}
+      ${dateFieldRow("dye-batch-buy-date", "Buy Date")}
+      ${dateFieldRow("dye-batch-open-date", "Open Date")}
+      ${dateFieldRow("dye-batch-best-before-date", "Best Before")}
+      ${dateFieldRow("dye-batch-freeze-date", "Freeze Date")}
+      ${dateFieldRow("dye-batch-unfreeze-date", "Unfreeze Date")}
+
+      ${sectionTitle("Notes")}
+      ${textareaFieldRow("dye-bean-notes", "Bean Notes", "Enter tasting notes, description...")}
+      ${textareaFieldRow("dye-batch-notes", "Batch Notes", "Notes about this specific batch...", true)}
     </div>
   </div>
 </div>
@@ -2640,15 +3102,90 @@ function setupDropdown(inputId, dropdownId, items) {
   });
 }
 
+function latestBatch(batches) {
+  const arr = Array.isArray(batches) ? batches : (batches && batches.items ? batches.items : []);
+  if (!arr.length) return null;
+  return arr.slice().sort((a, b) => new Date(b.roastDate || 0) - new Date(a.roastDate || 0))[0];
+}
+
+function val(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+function textOrNull(id) { return val(id) || null; }
+function numOrNull(id) { const v = val(id); if (!v) return null; const n = parseFloat(v); return isNaN(n) ? null : n; }
+function isoDateOrNull(id) { const v = val(id); return v ? new Date(v).toISOString() : null; }
+function setVal(id, v) { const el = document.getElementById(id); if (el && v != null) el.value = v; }
+function setDateVal(id, v) { const el = document.getElementById(id); if (el) el.value = v ? new Date(v).toISOString().slice(0, 10) : ''; }
+function setToggle(id, on) {
+  const track = document.getElementById(id + '-track');
+  if (track) track.classList.toggle('on', !!on);
+}
+
+function buildBeanPayload() {
+  const varietyRaw = val('dye-bean-variety');
+  const variety = varietyRaw ? varietyRaw.split(',').map(s => s.trim()).filter(Boolean) : null;
+  const altMin = val('dye-bean-altitude-min');
+  const altMax = val('dye-bean-altitude-max');
+  const altitude = (altMin && altMax) ? [parseInt(altMin, 10), parseInt(altMax, 10)] : null;
+  return {
+    roaster: val('dye-bean-roaster'),
+    name: val('dye-bean-name'),
+    notes: textOrNull('dye-bean-notes'),
+    species: textOrNull('dye-bean-species'),
+    processing: textOrNull('dye-bean-processing'),
+    country: textOrNull('dye-bean-country'),
+    region: textOrNull('dye-bean-region'),
+    producer: textOrNull('dye-bean-producer'),
+    variety: variety,
+    altitude: altitude,
+    decaf: isToggleOn('dye-bean-decaf'),
+    decafProcess: textOrNull('dye-bean-decaf-process'),
+  };
+}
+
+function buildBatchPayload() {
+  const weight = numOrNull('dye-batch-weight');
+  // Mirrors the bridge's own create-time behaviour (weightRemaining defaults to weight)
+  // so leaving "Remaining" blank while setting a weight doesn't null out the remaining stock.
+  const weightRemaining = numOrNull('dye-batch-weight-remaining') ?? weight;
+  return {
+    roastDate: isoDateOrNull('dye-bean-roast-date'),
+    roastLevel: textOrNull('dye-batch-roast-level'),
+    harvestDate: textOrNull('dye-batch-harvest-date'),
+    qualityScore: numOrNull('dye-batch-quality-score'),
+    price: numOrNull('dye-batch-price'),
+    currency: textOrNull('dye-batch-currency'),
+    weight: weight,
+    weightRemaining: weightRemaining,
+    buyDate: isoDateOrNull('dye-batch-buy-date'),
+    openDate: isoDateOrNull('dye-batch-open-date'),
+    bestBeforeDate: isoDateOrNull('dye-batch-best-before-date'),
+    freezeDate: isoDateOrNull('dye-batch-freeze-date'),
+    unfreezeDate: isoDateOrNull('dye-batch-unfreeze-date'),
+    frozen: isToggleOn('dye-batch-frozen'),
+    notes: textOrNull('dye-batch-notes'),
+  };
+}
+
+function hasAnyBatchData(payload) {
+  return payload.frozen === true || Object.keys(payload).some(k => k !== 'frozen' && payload[k] != null);
+}
+
+function updateDecafProcessVisibility() {
+  const row = document.getElementById('dye-bean-decaf-process-row');
+  if (row) row.style.display = isToggleOn('dye-bean-decaf') ? '' : 'none';
+}
+
 async function initializeDyeAddBean() {
   const cancelBtn = document.getElementById('dye-cancel-btn');
   const confirmBtn = document.getElementById('dye-confirm-btn');
+  const titleEl = document.getElementById('dye-add-bean-title');
   const nameInput = document.getElementById('dye-bean-name');
   const roasterInput = document.getElementById('dye-bean-roaster');
   const roastDateInput = document.getElementById('dye-bean-roast-date');
-  const notesInput = document.getElementById('dye-bean-notes');
 
   if (!nameInput) return;
+
+  const editBeanId = new URLSearchParams(location.search).get('id');
+  let editBatch = null;
 
   if (!beansCache) {
     try { beansCache = await getBeans(); }
@@ -2660,6 +3197,52 @@ async function initializeDyeAddBean() {
 
   setupDropdown('dye-bean-name', 'dye-bean-name-dropdown', beanNames);
   setupDropdown('dye-bean-roaster', 'dye-bean-roaster-dropdown', roasters);
+  setupToggleRows((id) => { if (id === 'dye-bean-decaf') updateDecafProcessVisibility(); });
+
+  if (editBeanId) {
+    if (titleEl) titleEl.textContent = 'Edit Beans';
+    try {
+      const [bean, batches] = await Promise.all([getBean(editBeanId), getBeanBatches(editBeanId)]);
+      editBatch = latestBatch(batches);
+
+      nameInput.value = bean.name || '';
+      roasterInput.value = bean.roaster || '';
+      setVal('dye-bean-notes', bean.notes);
+      setVal('dye-bean-species', bean.species);
+      setVal('dye-bean-processing', bean.processing);
+      setVal('dye-bean-country', bean.country);
+      setVal('dye-bean-region', bean.region);
+      setVal('dye-bean-producer', bean.producer);
+      setVal('dye-bean-variety', Array.isArray(bean.variety) ? bean.variety.join(', ') : '');
+      if (Array.isArray(bean.altitude) && bean.altitude.length === 2) {
+        setVal('dye-bean-altitude-min', bean.altitude[0]);
+        setVal('dye-bean-altitude-max', bean.altitude[1]);
+      }
+      setToggle('dye-bean-decaf', !!bean.decaf);
+      setVal('dye-bean-decaf-process', bean.decafProcess);
+      updateDecafProcessVisibility();
+
+      if (editBatch) {
+        if (editBatch.roastDate) roastDateInput.value = new Date(editBatch.roastDate).toISOString().slice(0, 10);
+        setVal('dye-batch-roast-level', editBatch.roastLevel);
+        setVal('dye-batch-harvest-date', editBatch.harvestDate);
+        setVal('dye-batch-quality-score', editBatch.qualityScore);
+        setVal('dye-batch-price', editBatch.price);
+        setVal('dye-batch-currency', editBatch.currency);
+        setVal('dye-batch-weight', editBatch.weight);
+        setVal('dye-batch-weight-remaining', editBatch.weightRemaining);
+        setDateVal('dye-batch-buy-date', editBatch.buyDate);
+        setDateVal('dye-batch-open-date', editBatch.openDate);
+        setDateVal('dye-batch-best-before-date', editBatch.bestBeforeDate);
+        setDateVal('dye-batch-freeze-date', editBatch.freezeDate);
+        setDateVal('dye-batch-unfreeze-date', editBatch.unfreezeDate);
+        setToggle('dye-batch-frozen', !!editBatch.frozen);
+        setVal('dye-batch-notes', editBatch.notes);
+      }
+    } catch (e) {
+      console.error('Failed to load bean for editing:', e);
+    }
+  }
 
   if (cancelBtn) {
     cancelBtn.addEventListener('click', () => { window.location.href = 'bean-picker'; });
@@ -2667,26 +3250,31 @@ async function initializeDyeAddBean() {
 
   if (confirmBtn) {
     confirmBtn.addEventListener('click', async () => {
-      const name = nameInput.value.trim();
-      const roaster = roasterInput.value.trim();
+      const beanPayload = buildBeanPayload();
 
-      if (!name || !roaster) {
+      if (!beanPayload.name || !beanPayload.roaster) {
         const nameWrap = nameInput.closest('.dye-form-input-wrap');
         const roasterWrap = roasterInput.closest('.dye-form-input-wrap');
-        if (nameWrap) nameWrap.style.borderColor = name ? '' : '#DA515E';
-        if (roasterWrap) roasterWrap.style.borderColor = roaster ? '' : '#DA515E';
+        if (nameWrap) nameWrap.style.borderColor = beanPayload.name ? '' : '#DA515E';
+        if (roasterWrap) roasterWrap.style.borderColor = beanPayload.roaster ? '' : '#DA515E';
         return;
       }
 
+      const batchPayload = buildBatchPayload();
+
       try {
-        const bean = await createBean({ roaster, name, notes: notesInput.value.trim() || null });
-        if (roastDateInput.value && bean.id) {
-          await createBeanBatch(bean.id, { roastDate: new Date(roastDateInput.value).toISOString() });
+        if (editBeanId) {
+          await updateBean(editBeanId, beanPayload);
+          if (editBatch) await updateBeanBatch(editBatch.id, batchPayload);
+          else if (hasAnyBatchData(batchPayload)) await createBeanBatch(editBeanId, batchPayload);
+        } else {
+          const bean = await createBean(beanPayload);
+          if (bean.id && hasAnyBatchData(batchPayload)) await createBeanBatch(bean.id, batchPayload);
         }
         beansCache = null;
         window.location.href = 'bean-picker';
       } catch (e) {
-        console.error('Failed to create bean:', e);
+        console.error('Failed to save bean:', e);
       }
     });
   }
@@ -2702,6 +3290,7 @@ initializeDyeAddBean().catch(e => console.error('initializeDyeAddBean failed:', 
 			body: devPageShell("Add New Beans", content$1, styles$5, [
 				devApiScript,
 				datePickerScript(),
+				toggleRowScript,
 				pageScript$5
 			])
 		};
@@ -4460,299 +5049,6 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 			body: plotly_basic_min_default
 		};
 	}
-	//#endregion
-	//#region src/utils/lucide.ts
-	/** Inline Lucide SVG icons — only icons used in DYE2 redesign */
-	var PATHS = {
-		search: "<circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/>",
-		"chevron-left": "<path d=\"m15 18-6-6 6-6\"/>",
-		"chevron-right": "<path d=\"m9 18 6-6-6-6\"/>",
-		"chevron-down": "<path d=\"m6 9 6 6 6-6\"/>",
-		"chevron-up": "<path d=\"m18 15-6-6-6 6\"/>",
-		history: "<path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"/><path d=\"M3 3v5h5\"/><path d=\"M12 7v5l4 2\"/>",
-		"clipboard-paste": "<path d=\"M15 2H9a1 1 0 0 0-1 1v2c0 .6.4 1 1 1h6c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1Z\"/><path d=\"M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2\"/><path d=\"M16 12H8\"/><path d=\"M16 16H8\"/>",
-		star: "<polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\"/>",
-		"check-circle": "<path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"/><path d=\"m9 11 3 3L22 4\"/>",
-		pencil: "<path d=\"M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z\"/><path d=\"m15 5 4 4\"/>",
-		calendar: "<path d=\"M8 2v4\"/><path d=\"M16 2v4\"/><rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"2\"/><path d=\"M3 10h18\"/>",
-		"maximize-2": "<polyline points=\"15 3 21 3 21 9\"/><polyline points=\"9 21 3 21 3 15\"/><line x1=\"21\" y1=\"3\" x2=\"14\" y2=\"10\"/><line x1=\"3\" y1=\"21\" x2=\"10\" y2=\"14\"/>",
-		plus: "<path d=\"M5 12h14\"/><path d=\"M12 5v14\"/>",
-		minus: "<path d=\"M5 12h14\"/>",
-		x: "<path d=\"M18 6 6 18\"/><path d=\"m6 6 12 12\"/>",
-		check: "<path d=\"M20 6 9 17l-5-5\"/>",
-		trash: "<path d=\"M3 6h18\"/><path d=\"M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6\"/><path d=\"M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2\"/>",
-		"arrow-up": "<path d=\"m5 12 7-7 7 7\"/><path d=\"M12 19V5\"/>"
-	};
-	function lucideIcon(name, size = 36, color = "currentColor", strokeWidth = 2, fill = "none") {
-		return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="${fill}" stroke="${color}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round">${PATHS[name] ?? "<circle cx=\"12\" cy=\"12\" r=\"10\"/>"}</svg>`;
-	}
-	//#endregion
-	//#region src/utils/shared-components.ts
-	/** Shared CSS + HTML factories for DYE2 redesign pages (1920×1200 layout) */
-	function sortSidebarCss() {
-		return `
-  .dye-sort-btn {
-    width: 135px; padding: 14px 0;
-    border: 2px solid var(--mimoja-blue); border-radius: 23px;
-    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 21px;
-    text-align: center; color: var(--mimoja-blue); background: transparent;
-    cursor: pointer; white-space: nowrap;
-  }
-  .dye-sort-btn.dye-sort-active { background: var(--mimoja-blue); color: #fff; }
-  `;
-	}
-	function sortSidebarHtml() {
-		return `<div id="dye-sort-sidebar" class="flex flex-col gap-[30px] items-start pt-[30px] pl-[37px] pr-[30px] shrink-0">
-    ${[
-			["recent", "Recent"],
-			["oldest", "Oldest"],
-			["az", "A-Z"],
-			["za", "Z-A"],
-			["most-used", "Most Used"],
-			["least-used", "Least Used"]
-		].map(([key, label], i) => `<button class="dye-sort-btn${i === 0 ? " dye-sort-active" : ""}" data-sort="${key}">${label}</button>`).join("\n    ")}
-  </div>`;
-	}
-	function pickerCardCss() {
-		return `
-  .dye-card {
-    border-radius: 15px; display: flex; flex-direction: column;
-    align-items: flex-start; justify-content: center; padding: 16px 20px;
-    font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 400;
-    cursor: pointer; background: var(--box-color);
-    border: 1px solid var(--profile-button-outline-color);
-    color: var(--text-primary); transition: background 0.15s, color 0.15s;
-    user-select: none; min-height: 90px;
-  }
-  .dye-card:hover { opacity: 0.85; }
-  .dye-card.dye-card-selected { background: var(--mimoja-blue); border-color: var(--mimoja-blue); color: #fff; }
-  .dye-card-add {
-    border-color: var(--mimoja-blue); color: var(--mimoja-blue);
-    font-weight: 700; flex-direction: row; align-items: center;
-    justify-content: center; gap: 8px; background: var(--box-color);
-  }
-  .dye-card-add svg { stroke: var(--mimoja-blue); }
-  .dye-card-name { font-size: 24px; font-weight: 600; line-height: 1.3; }
-  .dye-card-sub  { font-size: 20px; font-weight: 400; opacity: 0.7; margin-top: 2px; }
-  .dye-card-divider { border: none; border-top: 1px solid var(--profile-button-outline-color); width: 100%; margin: 8px 0; }
-  .dye-card-date { font-size: 18px; font-weight: 400; opacity: 0.6; }
-  .dye-card.dye-card-selected .dye-card-divider { border-color: rgba(255,255,255,0.3); }
-  #dye-cards-container::-webkit-scrollbar { width: 45px; }
-  #dye-cards-container::-webkit-scrollbar-track { background: transparent; }
-  #dye-cards-container::-webkit-scrollbar-thumb {
-    background: var(--profile-button-outline-color);
-    border-radius: 53px; border: 14px solid transparent;
-    background-clip: padding-box;
-  }
-  `;
-	}
-	function pickerHeaderHtml(title, primaryLabel, primaryDisabled = true) {
-		return `<div class="flex justify-between items-center px-[37px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[165px] shrink-0">
-    <h1 class="text-[38px] font-bold text-[var(--text-primary)] no-select">${title}</h1>
-    <div class="flex items-center gap-[16px]">
-      <button id="dye-cancel-btn" class="flex justify-center items-center w-[240px] h-[82px] rounded-[68px] font-bold text-[24px] text-[var(--text-primary)]">CANCEL</button>
-      <button id="dye-confirm-btn" class="bg-[var(--mimoja-blue)] text-white flex items-center justify-center w-[240px] h-[82px] rounded-[68px] font-bold text-[24px]${primaryDisabled ? " opacity-50" : ""}">${primaryLabel}</button>
-    </div>
-  </div>`;
-	}
-	function stepperCss() {
-		return `
-  .dye-stepper-btn {
-    display: flex; align-items: center; justify-content: center;
-    width: 72px; height: 72px; background: #EDEDED;
-    border-radius: 15px; cursor: pointer; flex-shrink: 0;
-  }
-  .dye-stepper-val {
-    font-weight: 700; font-size: 26px; color: var(--text-primary);
-    text-align: center; min-width: 72px;
-  }
-  .dye-stepper-sub {
-    font-size: 18px; font-weight: 600; color: var(--text-primary); text-align: center;
-  }
-  .dye-stepper-label { font-weight: 700; font-size: 24px; color: var(--mimoja-blue); }
-  `;
-	}
-	function stepperHtml(idPrefix, label, labelWidth = "75px", showSub = false, subHtml = "") {
-		const minusSvg = lucideIcon("minus", 28, "var(--text-primary)", 2.5);
-		const plusSvg = lucideIcon("plus", 28, "var(--text-primary)", 2.5);
-		return `<div class="flex items-center gap-[18px]">
-    ${subHtml ? `<div class="flex flex-col" style="width:${labelWidth};flex-shrink:0">
-         <span class="dye-stepper-label">${label}</span>
-         ${subHtml}
-       </div>` : `<span class="dye-stepper-label" style="width:${labelWidth};flex-shrink:0">${label}</span>`}
-    <div class="flex items-center gap-[15px]">
-      <button id="${idPrefix}-minus" class="dye-stepper-btn">${minusSvg}</button>
-      <div class="flex flex-col items-center" style="min-width:72px">
-        <span id="${idPrefix}-value" class="dye-stepper-val">—</span>
-        ${showSub ? `<span id="${idPrefix}-sub" class="dye-stepper-sub"></span>` : ""}
-      </div>
-      <button id="${idPrefix}-plus" class="dye-stepper-btn">${plusSvg}</button>
-    </div>
-  </div>`;
-	}
-	function presetStripCss() {
-		return `
-  .dye-preset {
-    font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 400;
-    color: var(--text-primary-disabled); background: none; border: none;
-    cursor: pointer; padding: 0; white-space: nowrap;
-  }
-  .dye-preset.dye-preset-active { color: var(--mimoja-blue); font-weight: 700; }
-  `;
-	}
-	function presetStripHtml(idPrefix, presets, opts = {}) {
-		const attrs = (opts.kind ? ` data-kind="${opts.kind}"` : "") + (opts.basis ? ` data-basis="${opts.basis}"` : "");
-		return `<div id="${idPrefix}-presets" class="flex items-center gap-[30px] mt-[6px]">${presets.map((p) => `<button class="dye-preset" data-preset="${p}" data-for="${idPrefix}"${attrs}>${p}</button>`).join("")}</div>`;
-	}
-	function toggleCss() {
-		return `
-  .dye-toggle-track {
-    position: relative; width: 64px; height: 36px; border-radius: 9999px;
-    background: #D1D5DB; transition: background 0.2s; cursor: pointer;
-    flex-shrink: 0; display: flex; align-items: center; padding: 4px;
-  }
-  .dye-toggle-track.on { background: var(--mimoja-blue); justify-content: flex-end; }
-  .dye-toggle-thumb {
-    width: 28px; height: 28px; border-radius: 9999px; background: #fff;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .dye-toggle-icon-on  { display: none; }
-  .dye-toggle-icon-off { display: flex; }
-  .dye-toggle-track.on .dye-toggle-icon-on  { display: flex; }
-  .dye-toggle-track.on .dye-toggle-icon-off { display: none; }
-  .dye-toggle-row {
-    display: flex; align-items: center; gap: 20px;
-    padding: 20px 0; border-bottom: 1px solid var(--profile-button-outline-color);
-  }
-  .dye-toggle-row:last-child { border-bottom: none; }
-  .dye-toggle-label { font-size: 24px; font-weight: 400; color: var(--text-primary); width: 160px; flex-shrink: 0; }
-  .dye-toggle-value { font-size: 24px; font-weight: 700; color: var(--text-primary); flex: 1; }
-  .dye-toggle-value.off { color: var(--text-primary-disabled); font-weight: 400; }
-  .dye-toggle-edit { cursor: pointer; flex-shrink: 0; opacity: 0.55; }
-  .dye-toggle-edit:hover { opacity: 1; }
-  `;
-	}
-	function segmentControlHtml(id, options, initialIdx = 0) {
-		return `<div id="${id}" class="flex rounded-[15px] overflow-hidden border-2 border-[var(--mimoja-blue)]" style="height:72px">${options.map((opt, i) => `<button class="dye-seg-btn${i === initialIdx ? " active" : ""}" data-idx="${i}" data-for="${id}" style="flex:1;font-family:'Inter',sans-serif;font-size:24px;font-weight:600;cursor:pointer;${i === initialIdx ? "background:var(--mimoja-blue);color:#fff;" : "background:transparent;color:var(--text-primary);"}">${opt}</button>`).join("")}</div>`;
-	}
-	function starRatingHtml(id, count = 5, size = 36) {
-		return `<div id="${id}" class="flex items-center gap-[8px]">${Array.from({ length: count }, (_, i) => `<svg class="dye-star" data-index="${i + 1}" xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="var(--profile-button-outline-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor:pointer"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`).join("")}</div>`;
-	}
-	function expandFieldHtml(id, label, placeholder = "—") {
-		return `<div class="flex items-center gap-[18px]">
-    <span class="dye-stepper-label" style="width:120px;flex-shrink:0">${label}</span>
-    <div class="flex items-center flex-1 border border-[var(--profile-button-outline-color)] rounded-[12px] px-[20px] h-[72px] bg-[var(--box-color)] gap-[12px]">
-      <span id="${id}-text" class="flex-1 text-[24px] font-normal text-[var(--text-primary)]">${placeholder}</span>
-      <button id="${id}-expand" class="flex-shrink-0">${lucideIcon("maximize-2", 26, "var(--mimoja-blue)", 2)}</button>
-    </div>
-  </div>`;
-	}
-	var sortSidebarScript = `
-function setupSortButtons(onSort) {
-  const sidebar = document.getElementById('dye-sort-sidebar');
-  if (!sidebar) return;
-  sidebar.querySelectorAll('.dye-sort-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      sidebar.querySelectorAll('.dye-sort-btn').forEach(b => b.classList.remove('dye-sort-active'));
-      btn.classList.add('dye-sort-active');
-      onSort(btn.dataset.sort);
-    });
-  });
-}
-`;
-	var toggleRowScript = `
-function setupToggleRows(onChange) {
-  document.querySelectorAll('.dye-toggle-track').forEach(track => {
-    track.addEventListener('click', () => {
-      const id = track.dataset.toggle;
-      const isOn = track.classList.toggle('on');
-      const valEl = document.getElementById(id + '-value');
-      if (valEl) valEl.classList.toggle('off', !isOn);
-      if (onChange) onChange(id, isOn);
-    });
-  });
-}
-function isToggleOn(id) {
-  const t = document.getElementById(id + '-track');
-  return t ? t.classList.contains('on') : false;
-}
-`;
-	var segmentControlScript = `
-function setupSegmentControls() {
-  document.querySelectorAll('.dye-seg-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const parentId = btn.dataset.for;
-      const parent = document.getElementById(parentId);
-      if (!parent) return;
-      parent.querySelectorAll('.dye-seg-btn').forEach((b, i) => {
-        const active = i === parseInt(btn.dataset.idx);
-        b.classList.toggle('active', active);
-        b.style.background = active ? 'var(--mimoja-blue)' : 'transparent';
-        b.style.color = active ? '#fff' : 'var(--text-primary)';
-      });
-    });
-  });
-}
-`;
-	var presetStripScript = `
-// Apply a preset chip to its stepper value. Ratio chips ("1:R") compute grams from the basis dose.
-function applyPreset(btn) {
-  const idPrefix = btn.dataset.for;
-  const valueEl = document.getElementById(idPrefix + '-value');
-  if (btn.dataset.kind === 'ratio') {
-    const m = /^1:([0-9.]+)$/.exec(btn.dataset.preset || '');
-    const r = m ? parseFloat(m[1]) : NaN;
-    const basisEl = document.getElementById((btn.dataset.basis || '') + '-value');
-    const dose = basisEl ? parseFloat(basisEl.textContent) : NaN;
-    if (valueEl && !isNaN(r) && !isNaN(dose)) {
-      valueEl.textContent = (Math.round(dose * r * 10) / 10) + 'g';
-      valueEl.dataset.ratio = String(r);
-      const sub = document.getElementById(idPrefix + '-sub');
-      if (sub) sub.textContent = '(1:' + r + ')';
-    }
-  } else if (valueEl) {
-    valueEl.textContent = btn.dataset.preset;
-  }
-  const container = document.getElementById(idPrefix + '-presets');
-  if (container) container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b === btn));
-}
-// Long-press a preset to COPY the current stepper value into that preset chip.
-function attachPresetLongPress(btn) {
-  if (btn.dataset.kind === 'ratio') return;   // ratio chips represent a ratio, not a grams value
-  let longFired = false, timer = null;
-  const clear = () => { if (timer) { clearTimeout(timer); timer = null; } };
-  btn.addEventListener('pointerdown', () => {
-    longFired = false; clear();
-    timer = setTimeout(() => {
-      timer = null;
-      const valueEl = document.getElementById(btn.dataset.for + '-value');
-      const v = valueEl ? valueEl.textContent : '';
-      if (!v || v === '—') return;
-      longFired = true;
-      btn.dataset.preset = v;
-      btn.textContent = v;
-      const container = document.getElementById(btn.dataset.for + '-presets');
-      if (container) container.querySelectorAll('.dye-preset').forEach(b => b.classList.toggle('dye-preset-active', b === btn));
-    }, 500);
-  });
-  ['pointerup','pointerleave','pointercancel'].forEach(ev => btn.addEventListener(ev, clear));
-  // Swallow the click that follows a long-press so it doesn't also write the preset back onto the value.
-  btn.addEventListener('click', (e) => { if (longFired) { e.stopImmediatePropagation(); e.preventDefault(); longFired = false; } }, true);
-}
-function setupPresetStrips() {
-  document.querySelectorAll('.dye-preset').forEach(btn => {
-    btn.addEventListener('click', () => applyPreset(btn));
-    attachPresetLongPress(btn);
-  });
-}
-function syncPresetActive(idPrefix, currentVal) {
-  const container = document.getElementById(idPrefix + '-presets');
-  if (!container) return;
-  container.querySelectorAll('.dye-preset').forEach(b => {
-    b.classList.toggle('dye-preset-active', b.dataset.preset === String(currentVal));
-  });
-}
-`;
 	//#endregion
 	//#region src/pages/edit-shot.ts
 	var styles$3 = `

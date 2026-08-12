@@ -40,7 +40,26 @@ const styles = `
     transition: background 0.15s, color 0.15s;
     user-select: none;
     gap: 8px;
+    position: relative;
   }
+
+  .dye-card-edit-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .dye-card-edit-btn:hover { background: rgba(0,0,0,0.08); }
+  .dye-card.dye-card-selected .dye-card-edit-btn:hover { background: rgba(255,255,255,0.2); }
+  .dye-card-edit-btn svg { stroke: var(--text-primary-disabled); }
+  .dye-card.dye-card-selected .dye-card-edit-btn svg { stroke: #fff; }
   .dye-card:hover { opacity: 0.85; }
   .dye-card.dye-card-selected {
     background: var(--mimoja-blue);
@@ -224,7 +243,7 @@ function renderBeanCards(grid, beans, confirmBtn) {
 
   const addCard = document.createElement('div');
   addCard.className = 'dye-card dye-card-add';
-  addCard.innerHTML = '<span>ADD NEW BEANS +</span><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
+  addCard.innerHTML = '<span>ADD NEW BEANS</span><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
   addCard.addEventListener('click', () => { window.location.href = 'add-bean'; });
   grid.appendChild(addCard);
 
@@ -234,9 +253,17 @@ function renderBeanCards(grid, beans, confirmBtn) {
     const batch = batchMap[bean.id];
     const line3 = beanLine3(batch);
     card.innerHTML =
+      '<div class="dye-card-edit-btn" title="Edit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></div>' +
       '<div class="dye-card-name">' + esc(beanLine1(bean, batch) || 'Unnamed') + '</div>' +
       (bean.roaster ? '<div class="dye-card-sub">' + esc(bean.roaster) + '</div>' : '') +
       (line3 ? '<div class="dye-card-date">' + esc(line3) + '</div>' : '');
+    const editBtn = card.querySelector('.dye-card-edit-btn');
+    if (editBtn) {
+      editBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        window.location.href = 'add-bean?id=' + encodeURIComponent(bean.id);
+      });
+    }
     if (bean.id === selectedBeanId) card.classList.add('dye-card-selected');
     card.addEventListener('click', () => {
       grid.querySelectorAll('.dye-card').forEach(c => c.classList.remove('dye-card-selected'));

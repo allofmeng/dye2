@@ -19,6 +19,12 @@ async function getBeanBatches(beanId) {
   return res.json();
 }
 
+async function getBean(id) {
+  const res = await fetch(API_BASE_URL + '/beans/' + id);
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
 async function createBean(data) {
   const res = await fetch(API_BASE_URL + '/beans', {
     method: 'POST',
@@ -29,9 +35,29 @@ async function createBean(data) {
   return res.json();
 }
 
+async function updateBean(id, data) {
+  const res = await fetch(API_BASE_URL + '/beans/' + id, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
 async function createBeanBatch(beanId, data) {
   const res = await fetch(API_BASE_URL + '/beans/' + beanId + '/batches', {
     method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
+async function updateBeanBatch(batchId, data) {
+  const res = await fetch(API_BASE_URL + '/bean-batches/' + batchId, {
+    method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
