@@ -428,6 +428,19 @@ function clearReturnKeys() {
     .forEach(k => sessionStorage.removeItem(k));
 }
 
+
+// Roast date of the batch this shot points at. Async fetch, cached, re-renders once.
+let roastDateCache = {};
+function batchRoastDate(batchId, shot) {
+  if (!batchId) return '';
+  if (roastDateCache[batchId] !== undefined) return roastDateCache[batchId] || '';
+  roastDateCache[batchId] = null;
+  getBeanBatch(batchId)
+    .then(function (b) { roastDateCache[batchId] = (b && b.roastDate) || ''; renderShot(shot); })
+    .catch(function () { roastDateCache[batchId] = ''; });
+  return '';
+}
+
 function renderShot(shot) {
   if (!shot) return;
   currentShot = shot;
@@ -472,8 +485,11 @@ function renderShot(shot) {
   const roaster  = ctx.coffeeRoaster || '';
   set('es-bean-name', beanName || '—');
   set('es-bean-roaster', roaster);
-  if (ctx.roastDate) {
-    const rd = new Date(ctx.roastDate);
+  // WorkflowContext carries no roastDate (the bridge drops it), so fall back to the
+  // roast date of the linked batch — that is where an imported bean keeps it.
+  const roastDate = ctx.roastDate || batchRoastDate(ctx.beanBatchId, shot);
+  if (roastDate) {
+    const rd = new Date(roastDate);
     const diff = Math.floor((new Date() - rd) / 86400000);
     const ds = rd.toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' });
     set('es-bean-age', ds + ' (' + diff + ' days off-roast)');

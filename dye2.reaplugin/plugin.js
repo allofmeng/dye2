@@ -13,7 +13,7 @@ var createPlugin = (function() {
 	}
 	//#endregion
 	//#region src/styles/tailwind.generated.css?inline
-	var tailwind_generated_default = "*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:\"\"}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.\\!container{width:100%!important}.container{width:100%}@media (min-width:640px){.\\!container{max-width:640px!important}.container{max-width:640px}}@media (min-width:768px){.\\!container{max-width:768px!important}.container{max-width:768px}}@media (min-width:1024px){.\\!container{max-width:1024px!important}.container{max-width:1024px}}@media (min-width:1280px){.\\!container{max-width:1280px!important}.container{max-width:1280px}}@media (min-width:1536px){.\\!container{max-width:1536px!important}.container{max-width:1536px}}.visible{visibility:visible}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.mb-8{margin-bottom:2rem}.mb-\\[14px\\]{margin-bottom:14px}.ml-auto{margin-left:auto}.mt-16{margin-top:4rem}.mt-8{margin-top:2rem}.mt-\\[4px\\]{margin-top:4px}.mt-\\[6px\\]{margin-top:6px}.mt-auto{margin-top:auto}.block{display:block}.inline{display:inline}.flex{display:flex}.\\!grid{display:grid!important}.grid{display:grid}.hidden{display:none}.h-\\[110px\\]{height:110px}.h-\\[124px\\]{height:124px}.h-\\[134px\\]{height:134px}.h-\\[150px\\]{height:150px}.h-\\[165px\\]{height:165px}.h-\\[2px\\]{height:2px}.h-\\[40px\\]{height:40px}.h-\\[54px\\]{height:54px}.h-\\[60px\\]{height:60px}.h-\\[62px\\]{height:62px}.h-\\[70px\\]{height:70px}.h-\\[72px\\]{height:72px}.h-\\[76px\\]{height:76px}.h-\\[82px\\]{height:82px}.h-\\[90px\\]{height:90px}.h-full{height:100%}.min-h-\\[330px\\]{min-height:330px}.w-1\\/2{width:50%}.w-\\[1200px\\]{width:1200px}.w-\\[150px\\]{width:150px}.w-\\[180px\\]{width:180px}.w-\\[1px\\]{width:1px}.w-\\[240px\\]{width:240px}.w-\\[2px\\]{width:2px}.w-\\[300px\\]{width:300px}.w-\\[310px\\]{width:310px}.w-\\[60px\\]{width:60px}.w-\\[69px\\]{width:69px}.w-\\[720px\\]{width:720px}.w-\\[72px\\]{width:72px}.w-\\[75px\\]{width:75px}.w-\\[960px\\]{width:960px}.w-full{width:100%}.min-w-0{min-width:0}.flex-1{flex:1 1 0%}.flex-shrink{flex-shrink:1}.flex-shrink-0{flex-shrink:0}.shrink{flex-shrink:1}.shrink-0{flex-shrink:0}.flex-grow,.grow{flex-grow:1}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.resize{resize:both}.auto-cols-\\[225px\\]{grid-auto-columns:225px}.grid-flow-col{grid-auto-flow:column}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-rows-\\[repeat\\(2\\2c 60px\\)\\]{grid-template-rows:repeat(2,60px)}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-\\[10px\\]{gap:10px}.gap-\\[12px\\]{gap:12px}.gap-\\[14px\\]{gap:14px}.gap-\\[15px\\]{gap:15px}.gap-\\[16px\\]{gap:16px}.gap-\\[18px\\]{gap:18px}.gap-\\[20px\\]{gap:20px}.gap-\\[22px\\]{gap:22px}.gap-\\[24px\\]{gap:24px}.gap-\\[27px\\]{gap:27px}.gap-\\[28px\\]{gap:28px}.gap-\\[30px\\]{gap:30px}.gap-\\[45px\\]{gap:45px}.gap-\\[48px\\]{gap:48px}.gap-\\[60px\\]{gap:60px}.gap-\\[68px\\]{gap:68px}.gap-\\[8px\\]{gap:8px}.gap-\\[90px\\]{gap:90px}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.rounded-\\[12px\\]{border-radius:12px}.rounded-\\[15px\\]{border-radius:15px}.rounded-\\[23px\\]{border-radius:23px}.rounded-\\[68px\\]{border-radius:68px}.rounded-\\[8px\\]{border-radius:8px}.rounded-\\[9999px\\]{border-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-\\[var\\(--mimoja-blue\\)\\]{border-color:var(--mimoja-blue)}.border-\\[var\\(--profile-button-outline-color\\)\\]{border-color:var(--profile-button-outline-color)}.bg-\\[\\#EDEDED\\]{--tw-bg-opacity:1;background-color:rgb(237 237 237/var(--tw-bg-opacity,1))}.bg-\\[var\\(--bgmain-color\\)\\]{background-color:var(--bgmain-color)}.bg-\\[var\\(--box-color\\)\\]{background-color:var(--box-color)}.bg-\\[var\\(--mimoja-blue\\)\\]{background-color:var(--mimoja-blue)}.bg-\\[var\\(--profile-button-outline-color\\)\\]{background-color:var(--profile-button-outline-color)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.px-\\[14px\\]{padding-left:14px;padding-right:14px}.px-\\[16px\\]{padding-left:16px;padding-right:16px}.px-\\[20px\\]{padding-left:20px;padding-right:20px}.px-\\[30px\\]{padding-left:30px;padding-right:30px}.px-\\[37px\\]{padding-left:37px;padding-right:37px}.px-\\[38px\\]{padding-left:38px;padding-right:38px}.px-\\[40px\\]{padding-left:40px;padding-right:40px}.px-\\[48px\\]{padding-left:48px;padding-right:48px}.py-\\[1px\\]{padding-top:1px;padding-bottom:1px}.py-\\[27px\\]{padding-top:27px;padding-bottom:27px}.py-\\[28px\\]{padding-top:28px;padding-bottom:28px}.py-\\[32px\\]{padding-top:32px;padding-bottom:32px}.py-\\[36px\\]{padding-top:36px;padding-bottom:36px}.py-\\[40px\\]{padding-top:40px;padding-bottom:40px}.pb-\\[28px\\]{padding-bottom:28px}.pb-\\[40px\\]{padding-bottom:40px}.pl-\\[37px\\]{padding-left:37px}.pr-\\[20px\\]{padding-right:20px}.pr-\\[30px\\]{padding-right:30px}.pt-\\[20px\\]{padding-top:20px}.pt-\\[23px\\]{padding-top:23px}.pt-\\[28px\\]{padding-top:28px}.pt-\\[30px\\]{padding-top:30px}.pt-\\[32px\\]{padding-top:32px}.text-center{text-align:center}.font-\\[\\'Inter\\'\\2c sans-serif\\]{font-family:Inter,sans-serif}.text-\\[18px\\]{font-size:18px}.text-\\[21px\\]{font-size:21px}.text-\\[22px\\]{font-size:22px}.text-\\[24px\\]{font-size:24px}.text-\\[26px\\]{font-size:26px}.text-\\[30px\\]{font-size:30px}.text-\\[36px\\]{font-size:36px}.text-\\[38px\\]{font-size:38px}.font-bold{font-weight:700}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-\\[1\\.2\\]{line-height:1.2}.text-\\[var\\(--mimoja-blue\\)\\]{color:var(--mimoja-blue)}.text-\\[var\\(--text-primary\\)\\]{color:var(--text-primary)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.underline{text-decoration-line:underline}.opacity-40{opacity:.4}.opacity-50{opacity:.5}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline{outline-style:solid}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}";
+	var tailwind_generated_default = "*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:\"\"}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.\\!container{width:100%!important}.container{width:100%}@media (min-width:640px){.\\!container{max-width:640px!important}.container{max-width:640px}}@media (min-width:768px){.\\!container{max-width:768px!important}.container{max-width:768px}}@media (min-width:1024px){.\\!container{max-width:1024px!important}.container{max-width:1024px}}@media (min-width:1280px){.\\!container{max-width:1280px!important}.container{max-width:1280px}}@media (min-width:1536px){.\\!container{max-width:1536px!important}.container{max-width:1536px}}.visible{visibility:visible}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.mb-8{margin-bottom:2rem}.mb-\\[14px\\]{margin-bottom:14px}.ml-\\[16px\\]{margin-left:16px}.ml-auto{margin-left:auto}.mt-16{margin-top:4rem}.mt-8{margin-top:2rem}.mt-\\[4px\\]{margin-top:4px}.mt-\\[6px\\]{margin-top:6px}.mt-auto{margin-top:auto}.block{display:block}.inline{display:inline}.flex{display:flex}.table{display:table}.\\!grid{display:grid!important}.grid{display:grid}.hidden{display:none}.h-\\[110px\\]{height:110px}.h-\\[124px\\]{height:124px}.h-\\[134px\\]{height:134px}.h-\\[150px\\]{height:150px}.h-\\[165px\\]{height:165px}.h-\\[2px\\]{height:2px}.h-\\[40px\\]{height:40px}.h-\\[54px\\]{height:54px}.h-\\[60px\\]{height:60px}.h-\\[62px\\]{height:62px}.h-\\[70px\\]{height:70px}.h-\\[72px\\]{height:72px}.h-\\[76px\\]{height:76px}.h-\\[82px\\]{height:82px}.h-\\[90px\\]{height:90px}.h-full{height:100%}.min-h-0{min-height:0}.min-h-\\[330px\\]{min-height:330px}.w-1\\/2{width:50%}.w-\\[1200px\\]{width:1200px}.w-\\[150px\\]{width:150px}.w-\\[180px\\]{width:180px}.w-\\[1px\\]{width:1px}.w-\\[240px\\]{width:240px}.w-\\[2px\\]{width:2px}.w-\\[300px\\]{width:300px}.w-\\[310px\\]{width:310px}.w-\\[60px\\]{width:60px}.w-\\[69px\\]{width:69px}.w-\\[720px\\]{width:720px}.w-\\[72px\\]{width:72px}.w-\\[75px\\]{width:75px}.w-\\[820px\\]{width:820px}.w-\\[960px\\]{width:960px}.w-full{width:100%}.min-w-0{min-width:0}.flex-1{flex:1 1 0%}.flex-shrink{flex-shrink:1}.flex-shrink-0{flex-shrink:0}.shrink{flex-shrink:1}.shrink-0{flex-shrink:0}.flex-grow,.grow{flex-grow:1}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.resize{resize:both}.auto-cols-\\[225px\\]{grid-auto-columns:225px}.grid-flow-col{grid-auto-flow:column}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-rows-\\[repeat\\(2\\2c 60px\\)\\]{grid-template-rows:repeat(2,60px)}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-\\[10px\\]{gap:10px}.gap-\\[12px\\]{gap:12px}.gap-\\[14px\\]{gap:14px}.gap-\\[15px\\]{gap:15px}.gap-\\[16px\\]{gap:16px}.gap-\\[18px\\]{gap:18px}.gap-\\[20px\\]{gap:20px}.gap-\\[22px\\]{gap:22px}.gap-\\[24px\\]{gap:24px}.gap-\\[27px\\]{gap:27px}.gap-\\[28px\\]{gap:28px}.gap-\\[30px\\]{gap:30px}.gap-\\[45px\\]{gap:45px}.gap-\\[48px\\]{gap:48px}.gap-\\[60px\\]{gap:60px}.gap-\\[68px\\]{gap:68px}.gap-\\[8px\\]{gap:8px}.gap-\\[90px\\]{gap:90px}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.rounded-\\[12px\\]{border-radius:12px}.rounded-\\[15px\\]{border-radius:15px}.rounded-\\[23px\\]{border-radius:23px}.rounded-\\[68px\\]{border-radius:68px}.rounded-\\[8px\\]{border-radius:8px}.rounded-\\[9999px\\]{border-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-\\[var\\(--mimoja-blue\\)\\]{border-color:var(--mimoja-blue)}.border-\\[var\\(--profile-button-outline-color\\)\\]{border-color:var(--profile-button-outline-color)}.bg-\\[\\#EDEDED\\]{--tw-bg-opacity:1;background-color:rgb(237 237 237/var(--tw-bg-opacity,1))}.bg-\\[var\\(--bgmain-color\\)\\]{background-color:var(--bgmain-color)}.bg-\\[var\\(--box-color\\)\\]{background-color:var(--box-color)}.bg-\\[var\\(--mimoja-blue\\)\\]{background-color:var(--mimoja-blue)}.bg-\\[var\\(--profile-button-outline-color\\)\\]{background-color:var(--profile-button-outline-color)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.p-\\[30px\\]{padding:30px}.px-\\[14px\\]{padding-left:14px;padding-right:14px}.px-\\[16px\\]{padding-left:16px;padding-right:16px}.px-\\[20px\\]{padding-left:20px;padding-right:20px}.px-\\[30px\\]{padding-left:30px;padding-right:30px}.px-\\[37px\\]{padding-left:37px;padding-right:37px}.px-\\[38px\\]{padding-left:38px;padding-right:38px}.px-\\[40px\\]{padding-left:40px;padding-right:40px}.px-\\[48px\\]{padding-left:48px;padding-right:48px}.py-\\[1px\\]{padding-top:1px;padding-bottom:1px}.py-\\[27px\\]{padding-top:27px;padding-bottom:27px}.py-\\[28px\\]{padding-top:28px;padding-bottom:28px}.py-\\[32px\\]{padding-top:32px;padding-bottom:32px}.py-\\[36px\\]{padding-top:36px;padding-bottom:36px}.py-\\[40px\\]{padding-top:40px;padding-bottom:40px}.pb-\\[28px\\]{padding-bottom:28px}.pb-\\[40px\\]{padding-bottom:40px}.pl-\\[37px\\]{padding-left:37px}.pr-\\[20px\\]{padding-right:20px}.pr-\\[30px\\]{padding-right:30px}.pt-\\[20px\\]{padding-top:20px}.pt-\\[23px\\]{padding-top:23px}.pt-\\[28px\\]{padding-top:28px}.pt-\\[30px\\]{padding-top:30px}.pt-\\[32px\\]{padding-top:32px}.text-center{text-align:center}.font-\\[\\'Inter\\'\\2c sans-serif\\]{font-family:Inter,sans-serif}.text-\\[18px\\]{font-size:18px}.text-\\[21px\\]{font-size:21px}.text-\\[22px\\]{font-size:22px}.text-\\[24px\\]{font-size:24px}.text-\\[26px\\]{font-size:26px}.text-\\[30px\\]{font-size:30px}.text-\\[36px\\]{font-size:36px}.text-\\[38px\\]{font-size:38px}.font-bold{font-weight:700}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-\\[1\\.2\\]{line-height:1.2}.text-\\[var\\(--mimoja-blue\\)\\]{color:var(--mimoja-blue)}.text-\\[var\\(--text-primary\\)\\]{color:var(--text-primary)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.underline{text-decoration-line:underline}.opacity-40{opacity:.4}.opacity-50{opacity:.5}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline{outline-style:solid}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}";
 	//#endregion
 	//#region \0@oxc-project+runtime@0.124.0/helpers/taggedTemplateLiteral.js
 	function _taggedTemplateLiteral(e, t) {
@@ -119,6 +119,22 @@ var createPlugin = (function() {
       user-select: text; -webkit-user-select: text; -webkit-touch-callout: default;
     }
     .no-select { user-select: none; -webkit-user-select: none; }
+
+    /* Focus mode: the field being edited goes white so it stands out across the page.
+       Fields drawn transparent inside a bordered wrapper paint the wrapper instead. */
+    input:focus, textarea:focus, select:focus, [contenteditable="true"]:focus {
+      background: #fff;
+      color: #111;
+      caret-color: var(--mimoja-blue);
+    }
+    input:focus::placeholder, textarea:focus::placeholder { color: #9CA3AF; }
+    .dye-form-input-wrap:focus-within, .re-input-row:focus-within {
+      background: #fff;
+      border-color: var(--mimoja-blue);
+    }
+    .dye-form-input-wrap:focus-within .dye-form-input,
+    .dye-form-input-wrap:focus-within .dye-form-textarea,
+    .re-input-row:focus-within .re-input { color: #111; }
   `;
 	}
 	/**
@@ -155,8 +171,9 @@ async function getBeans(includeArchived = false) {
   return res.json();
 }
 
-async function getBeanBatches(beanId) {
-  const res = await fetch(API_BASE_URL + '/beans/' + beanId + '/batches');
+async function getBeanBatches(beanId, includeArchived = false) {
+  const params = includeArchived ? '?includeArchived=true' : '';
+  const res = await fetch(API_BASE_URL + '/beans/' + beanId + '/batches' + params);
   if (!res.ok) throw new Error('HTTP ' + res.status);
   return res.json();
 }
@@ -210,6 +227,26 @@ async function updateBeanBatch(batchId, data) {
 async function getGrinders(includeArchived = false) {
   const params = includeArchived ? '?includeArchived=true' : '';
   const res = await fetch(API_BASE_URL + '/grinders' + params);
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
+async function createGrinder(data) {
+  const res = await fetch(API_BASE_URL + '/grinders', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
+async function updateGrinder(id, data) {
+  const res = await fetch(API_BASE_URL + '/grinders/' + id, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
   if (!res.ok) throw new Error('HTTP ' + res.status);
   return res.json();
 }
@@ -470,7 +507,7 @@ async function uploadShotToVisualizer(shotId) {
 `;
 	//#endregion
 	//#region src/pages/grinders.ts
-	var styles$10 = `
+	var styles$11 = `
   .dye-sort-btn {
     width: 100%;
     padding: 12px 0;
@@ -581,7 +618,7 @@ async function uploadShotToVisualizer(shotId) {
   .dye-modal-error { color: #C0392B; font-size: 18px; margin-top: 12px; }
   .dye-hidden { display: none !important; }
 `;
-	var content$6 = `
+	var content$7 = `
 <div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
 
   <!-- Top bar -->
@@ -690,7 +727,7 @@ async function uploadShotToVisualizer(shotId) {
   </div>
 </div>
 `;
-	var pageScript$10 = `
+	var pageScript$11 = `
 let grindersCache = [];
 let searchQuery = '';
 let editingId = null;
@@ -869,12 +906,12 @@ initializeDyeGrinders().catch(e => console.error('initializeDyeGrinders failed:'
 			requestId: request.requestId,
 			status: 200,
 			headers: { "Content-Type": "text/html; charset=utf-8" },
-			body: devPageShell("Grinders", content$6, styles$10, [devApiScript, pageScript$10])
+			body: devPageShell("Grinders", content$7, styles$11, [devApiScript, pageScript$11])
 		};
 	}
 	//#endregion
 	//#region src/pages/bean-picker.ts
-	var styles$9 = `
+	var styles$10 = `
   .dye-sort-btn {
     width: 100%;
     padding: 12px 0;
@@ -953,7 +990,10 @@ initializeDyeGrinders().catch(e => console.error('initializeDyeGrinders failed:'
   }
   .dye-card-add svg { stroke: var(--mimoja-blue); }
 
-  .dye-card-name  { font-size: 22px; font-weight: 600; line-height: 1.3; }
+  /* Keep the centred name clear of the absolutely-positioned pencil (34px wide, 8px in):
+     the card's own 18px padding leaves 24px to make up, applied both sides so the text
+     stays centred. Long names now wrap instead of running under the icon. */
+  .dye-card-name  { font-size: 22px; font-weight: 600; line-height: 1.3; padding: 0 24px; }
   .dye-card-sub   { font-size: 20px; font-weight: 400; opacity: 0.7; }
   .dye-card-date  { font-size: 19px; font-weight: 400; opacity: 0.6; margin-top: 4px; }
   .dye-card.dye-card-selected .dye-card-sub,
@@ -989,7 +1029,7 @@ initializeDyeGrinders().catch(e => console.error('initializeDyeGrinders failed:'
     background-clip: padding-box;
   }
 `;
-	var content$5 = `
+	var content$6 = `
 <div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
 
   <!-- Top bar -->
@@ -1031,7 +1071,7 @@ initializeDyeGrinders().catch(e => console.error('initializeDyeGrinders failed:'
   </div>
 </div>
 `;
-	var pageScript$9 = `
+	var pageScript$10 = `
 let beansCache = [];
 let batchMap = {};
 let searchQuery = '';
@@ -1117,6 +1157,12 @@ function renderBeanCards(grid, beans, confirmBtn) {
   addCard.innerHTML = '<span>ADD NEW BEANS</span><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
   addCard.addEventListener('click', () => { window.location.href = 'add-bean'; });
   grid.appendChild(addCard);
+
+  const bcCard = document.createElement('div');
+  bcCard.className = 'dye-card dye-card-add';
+  bcCard.innerHTML = '<span>IMPORT FROM BEANCONQUEROR</span>';
+  bcCard.addEventListener('click', () => { window.location.href = 'bc-import'; });
+  grid.appendChild(bcCard);
 
   beans.forEach(bean => {
     const card = document.createElement('div');
@@ -1274,12 +1320,12 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 			requestId: request.requestId,
 			status: 200,
 			headers: { "Content-Type": "text/html; charset=utf-8" },
-			body: devPageShell("Select Beans", content$5, styles$9, [devApiScript, pageScript$9])
+			body: devPageShell("Select Beans", content$6, styles$10, [devApiScript, pageScript$10])
 		};
 	}
 	//#endregion
 	//#region src/pages/grinder-picker.ts
-	var styles$8 = `
+	var styles$9 = `
   .dye-sort-btn {
     width: 100%;
     padding: 12px 0;
@@ -1409,7 +1455,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
   .dye-modal-error { color: #C0392B; font-size: 18px; margin-top: 12px; }
   .dye-hidden { display: none !important; }
 `;
-	var content$4 = `
+	var content$5 = `
 <div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
 
   <!-- Top bar -->
@@ -1524,7 +1570,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
   </div>
 </div>
 `;
-	var pageScript$8 = `
+	var pageScript$9 = `
 let grindersCache = [];
 let searchQuery = '';
 let selectedGrinderId = null;
@@ -1760,12 +1806,12 @@ initializeDyeGrinders().catch(e => console.error('initializeDyeGrinders failed:'
 			requestId: request.requestId,
 			status: 200,
 			headers: { "Content-Type": "text/html; charset=utf-8" },
-			body: devPageShell("Select Grinder", content$4, styles$8, [devApiScript, pageScript$8])
+			body: devPageShell("Select Grinder", content$5, styles$9, [devApiScript, pageScript$9])
 		};
 	}
 	//#endregion
 	//#region src/pages/profile-picker.ts
-	var styles$7 = `
+	var styles$8 = `
   .dye-sort-btn {
     width: 100%; padding: 12px 0;
     border: 2px solid var(--mimoja-blue); border-radius: 9999px;
@@ -1828,7 +1874,7 @@ initializeDyeGrinders().catch(e => console.error('initializeDyeGrinders failed:'
     border: 12px solid transparent; background-clip: padding-box;
   }
 `;
-	var content$3 = `
+	var content$4 = `
 <div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
 
   <div class="flex justify-between items-center px-[38px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[134px] shrink-0">
@@ -1868,7 +1914,7 @@ initializeDyeGrinders().catch(e => console.error('initializeDyeGrinders failed:'
   </div>
 </div>
 `;
-	var pageScript$7 = `
+	var pageScript$8 = `
 let profilesCache = [];
 let searchQuery = '';
 let selectedProfileId = null;
@@ -2046,12 +2092,12 @@ initializeDyeProfiles().catch(e => console.error('initializeDyeProfiles failed:'
 			requestId: request.requestId,
 			status: 200,
 			headers: { "Content-Type": "text/html; charset=utf-8" },
-			body: devPageShell("Select Profile", content$3, styles$7, [devApiScript, pageScript$7])
+			body: devPageShell("Select Profile", content$4, styles$8, [devApiScript, pageScript$8])
 		};
 	}
 	//#endregion
 	//#region src/pages/roasters.ts
-	var styles$6 = `
+	var styles$7 = `
   .dye-sort-btn {
     width: 100%;
     padding: 12px 0;
@@ -2129,7 +2175,7 @@ initializeDyeProfiles().catch(e => console.error('initializeDyeProfiles failed:'
     background-clip: padding-box;
   }
 `;
-	var content$2 = `
+	var content$3 = `
 <div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
 
   <!-- Top bar -->
@@ -2167,7 +2213,7 @@ initializeDyeProfiles().catch(e => console.error('initializeDyeProfiles failed:'
   </div>
 </div>
 `;
-	var pageScript$6 = `
+	var pageScript$7 = `
 let beansCache = null;
 let selectedRoaster = null;
 
@@ -2332,7 +2378,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 			requestId: request.requestId,
 			status: 200,
 			headers: { "Content-Type": "text/html; charset=utf-8" },
-			body: devPageShell("Select Roaster", content$2, styles$6, [devApiScript, pageScript$6])
+			body: devPageShell("Select Roaster", content$3, styles$7, [devApiScript, pageScript$7])
 		};
 	}
 	//#endregion
@@ -2839,7 +2885,7 @@ function syncPresetActive(idPrefix, currentVal) {
         </div>
       </div>`;
 	}
-	var styles$5 = `
+	var styles$6 = `
   ${datePickerCss()}
   ${toggleCss()}
   .dye-form-label {
@@ -2935,13 +2981,21 @@ function syncPresetActive(idPrefix, currentVal) {
     outline: none;
     line-height: 1.2;
     width: 100%;
-    min-height: 479px;
+    height: 479px;
+    min-height: 120px;
     resize: vertical;
+    padding-bottom: 34px;
   }
-  .dye-form-textarea.dye-form-textarea-sm { min-height: 160px; }
+  /* ponytail: native resize grip is ~16px — too small for a finger. Enlarge + make it visible. */
+  .dye-form-textarea::-webkit-resizer {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, transparent 55%, var(--profile-button-outline-color) 55%, var(--profile-button-outline-color) 70%, transparent 70%, transparent 80%, var(--profile-button-outline-color) 80%);
+  }
+  .dye-form-textarea.dye-form-textarea-sm { height: 160px; min-height: 100px; }
   .dye-form-textarea::placeholder { color: var(--low-contrast-white); }
 `;
-	var content$1 = `
+	var content$2 = `
 <div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
   <div class="flex justify-between items-center px-[37px] border-b border-[var(--profile-button-outline-color)] bg-[var(--box-color)] h-[165px]">
     <h1 id="dye-add-bean-title" class="text-[38px] font-bold text-[var(--text-primary)] no-select">Add New Beans</h1>
@@ -3035,7 +3089,7 @@ function syncPresetActive(idPrefix, currentVal) {
   </div>
 </div>
 `;
-	var pageScript$5 = `
+	var pageScript$6 = `
 let beansCache = null;
 
 function setupDropdown(inputId, dropdownId, items) {
@@ -3287,11 +3341,11 @@ initializeDyeAddBean().catch(e => console.error('initializeDyeAddBean failed:', 
 			requestId: request.requestId,
 			status: 200,
 			headers: { "Content-Type": "text/html; charset=utf-8" },
-			body: devPageShell("Add New Beans", content$1, styles$5, [
+			body: devPageShell("Add New Beans", content$2, styles$6, [
 				devApiScript,
 				datePickerScript(),
 				toggleRowScript,
-				pageScript$5
+				pageScript$6
 			])
 		};
 	}
@@ -3546,7 +3600,7 @@ function plotHistoricalShot(measurements, workflow) {
 	var iconClipboard = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHIAAAByCAYAAACP3YV9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAABPhJREFUeAHt3btS20AUBuCDY4aYgvFwGSj1COEJYt6AlKkIXbokVSZVTJcO0qXDfgLyBjgdHbxBlI6Ci2IKZwBDzglLIsvyRR55z67yfzMeXxJj4Z9drXa1KyIAAAAAAAAAAAAAAAAAAAAAAADIbIY8sry8XLu/v//It2f8tEo5mZmZafFd8/z8vEGeekKeWFxclAAb/DDg21PKV8C3zUqlQp1O5xt5yIsSKSXx7u7ukCwolUobZ2dnLfJMiTwg1SlZYvOz8lQmD5h94l+8T3vB+7OvlINqtfqMS+HxoM/yhRdVK+8f7+PPLy4uct3uaf98G9RLZBAE1Xa7/YYfbtJDoyO31uikksEaEdcEJ3zfnJ2dbZ2enobkENW/PP7CJMA6ZQxv2iVyDCGHuuPS4YpaY0cOJ/hujxwogRMIeF+6b34HJ6gEab6AOvmvvrS0tEkOsF61rq2tBdfX19JKjJfEiG87fKzYiFjyPS40drh1G3DrVkKTP8L4tocLCwvrYRhGpMh6iby5ualR4ovgANf5y9tLC9EVvGmhbCNv60bin4Krqyv1UqlRtW7Fn0ijQb6kEe/pCXhlZSW3Yz2pIYZ9Vt+GRJG0XHfir/H+8jkps374kTzg7na7rVHvkWY/v68We88xV4eUB67m+z5r1Hu4im1xyYw3dGqkTKNE9rRSxyiNf0ot2dMc9R9ub29DcowXfa2mE9tGmE4dG2bhRZCCGxp1LpnbZuwwV/Iz5WfLZ5CnvOg0f2RKS4OgjzclEoZDkAWBIAsCQU4moljHATeUQlKGICcgXYnSyuWHJ9Li5Q6KbVJmvdO8CKPxLkKJLAgEWRAIMgUPFm/xLuCSb9/lMXkAQabgkZY6PXTuyykdDR/CRJDpekZoJEw5250chiBT8CHFu+RrPP54kOeAdt4QZArTOZ8Ms8rHi4euhokgB5Dzc6h/DNTZMBHkEGZ8Mi3Mg5RzfVQhyBEGhCmndB66FCaCHIMPYSLIMbkeJoLMwIT5OfGyE2EiyIw4zLd8nJk8ZVI9TK9OvhrGrPgh0/S0Znc9hrmhMXeyEEFWmfS8kP4UPQlTtmOdLCtK1Vold+ZZqnQWFCJImXaQst9SwduRyyIVmT+XLJvmqR6yQke5XLZSMrkq36X+0nci0+40pgcWprEjzJS3qePxyX3qD1Hmeb7QmuOJw4+MzFJqrxIvh6YkhqQEQWYwYO0D9RAFghyTyyEKBDkG10MUCHIEH0IUCHKIASFGroUoEOQAseXV4pwMUSDIFOY81r3Ey48hWjlWzQpBpjAnKPeQ2VeuhigQZLqebj4JMa+FfqcFQaYwJyiH9LBG67YPS7ZgfmRBoEQWRKFGP2ySJbzNqpCRC/tPlMgJtdvtY1lFmW8HvLuokzIEOQFZhJceFtJ/pD5/UiPInoFXqaLIM+VyOUi8pL5gsPUgk+uhchX1ljzD1elW4vkPUmY9SP6lkxcRe+PazKZhZEpd8gyBUqmk3tixfrW6ubk5WWToNf274tzTbre7OT8//3N1dTXkbrBf5CDZBXBg7znEL9R7tTxZ6/z/WzBJcCtPqtNdKgBXen5Urh/Z6XSOKpWK/BHVyG87ZmazOrULgXKYLY/DlFbqBw7xEzlC9YquEibvM5tcPUmgst9ZI3dJB/oR3zd5XPLl5eVliwAAAAAAAAAAAAAAAAAAAAAAAAAAAACK6DftkSw8YeTq4wAAAABJRU5ErkJggg==";
 	//#endregion
 	//#region src/pages/dashboard.ts
-	var styles$4 = `
+	var styles$5 = `
   /* Navy popup menu, matches Figma 2345:1613 */
   .dye-dash-dropdown {
     display: none;
@@ -3886,7 +3940,7 @@ function plotHistoricalShot(measurements, workflow) {
                  RPM under Drink. -->
             <div class="flex items-center gap-[45px] flex-1 justify-center">
               <div class="flex items-center gap-[18px]">
-                <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">Grind</span>
+                <span id="dye-grind-label" class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px] cursor-pointer">Grind</span>
                 <div class="flex items-center gap-[24px]">
                   <button id="dye-grind-minus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
                   <span id="dye-grind-value" class="font-bold text-[26px] text-[var(--text-primary)] w-[72px] text-center">—</span>
@@ -4020,7 +4074,7 @@ function plotHistoricalShot(measurements, workflow) {
 </div>
 `;
 	}
-	var pageScript$4 = `
+	var pageScript$5 = `
 let shots = [];
 let currentShotIndex = 0;
 let sameBeanFilter = false;
@@ -4433,6 +4487,19 @@ function setupDropdownToggle(btnId, dropdownId) {
   });
 }
 
+
+// Roast date of the batch the workflow points at. Async fetch, cached, re-renders once.
+let roastDateCache = {};
+function batchRoastDate(batchId) {
+  if (!batchId) return '';
+  if (roastDateCache[batchId] !== undefined) return roastDateCache[batchId] || '';
+  roastDateCache[batchId] = null;
+  getBeanBatch(batchId)
+    .then(function (b) { roastDateCache[batchId] = (b && b.roastDate) || ''; renderNextShot(); })
+    .catch(function () { roastDateCache[batchId] = ''; });
+  return '';
+}
+
 function renderNextShot() {
   if (!currentWorkflow) return;
   const dateEl = document.getElementById('dye-next-date');
@@ -4462,7 +4529,9 @@ function renderNextShot() {
   const roastInfoEl = document.getElementById('dye-bean-roast-info');
   const coffeeName = ctx.coffeeName || '';
   const coffeeRoaster = ctx.coffeeRoaster || '';
-  const roastDate = ctx.roastDate || '';
+  // WorkflowContext has no roastDate field — the bridge drops it — so the date comes from
+  // the linked batch instead. Cached per batch id; the fetch fills it in on the next render.
+  const roastDate = ctx.roastDate || batchRoastDate(ctx.beanBatchId);
   if (beanNameEl) beanNameEl.textContent = coffeeName || '— Select Beans';
   if (roastInfoEl) {
     if (coffeeRoaster || roastDate) {
@@ -4739,6 +4808,14 @@ function setupProfileName() {
   el.addEventListener('click', () => { window.location.href = 'profile-picker'; });
 }
 
+// The Grind label is the only way into the grinders page — nothing else links to it.
+// The page's own DONE does history.back(), so no ?return= is needed.
+function setupGrindLabel() {
+  const el = document.getElementById('dye-grind-label');
+  if (!el) return;
+  el.addEventListener('click', () => { window.location.href = 'grinders'; });
+}
+
 // Names previously used on shots, so Barista / Drinker can be picked instead of retyped.
 async function distinctNames(key) {
   const res = await getShots({ limit: 200 }).catch(() => []);
@@ -4988,6 +5065,7 @@ async function initializeDyeDashboard() {
   setupDoseControls();
   setupBeanCard();
   setupProfileName();
+  setupGrindLabel();
   setupNameField('dye-barista-field', 'dye-next-barista', 'baristaName');
   setupNameField('dye-drinker-field', 'dye-next-drinker', 'drinkerName');
   setupClipboardPaste();
@@ -5014,10 +5092,10 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 			requestId: request.requestId,
 			status: 200,
 			headers: { "Content-Type": "text/html; charset=utf-8" },
-			body: devPageShell("Dashboard", buildContent$3(), styles$4, [
+			body: devPageShell("Dashboard", buildContent$3(), styles$5, [
 				devApiScript,
 				chartScript,
-				pageScript$4
+				pageScript$5
 			], { plotly: true })
 		};
 	}
@@ -5051,7 +5129,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 	}
 	//#endregion
 	//#region src/pages/edit-shot.ts
-	var styles$3 = `
+	var styles$4 = `
   ${stepperCss()}
   .edit-divider { height: 2px; background: var(--profile-button-outline-color); flex-shrink: 0; }
   .edit-label { font-weight: 700; font-size: 24px; color: var(--mimoja-blue); }
@@ -5255,7 +5333,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 </div>
 `;
 	}
-	var pageScript$3 = `
+	var pageScript$4 = `
 let currentShot = null;
 let currentStarRating = 0;
 let allShots = [];
@@ -5469,6 +5547,19 @@ function clearReturnKeys() {
     .forEach(k => sessionStorage.removeItem(k));
 }
 
+
+// Roast date of the batch this shot points at. Async fetch, cached, re-renders once.
+let roastDateCache = {};
+function batchRoastDate(batchId, shot) {
+  if (!batchId) return '';
+  if (roastDateCache[batchId] !== undefined) return roastDateCache[batchId] || '';
+  roastDateCache[batchId] = null;
+  getBeanBatch(batchId)
+    .then(function (b) { roastDateCache[batchId] = (b && b.roastDate) || ''; renderShot(shot); })
+    .catch(function () { roastDateCache[batchId] = ''; });
+  return '';
+}
+
 function renderShot(shot) {
   if (!shot) return;
   currentShot = shot;
@@ -5513,8 +5604,11 @@ function renderShot(shot) {
   const roaster  = ctx.coffeeRoaster || '';
   set('es-bean-name', beanName || '—');
   set('es-bean-roaster', roaster);
-  if (ctx.roastDate) {
-    const rd = new Date(ctx.roastDate);
+  // WorkflowContext carries no roastDate (the bridge drops it), so fall back to the
+  // roast date of the linked batch — that is where an imported bean keeps it.
+  const roastDate = ctx.roastDate || batchRoastDate(ctx.beanBatchId, shot);
+  if (roastDate) {
+    const rd = new Date(roastDate);
     const diff = Math.floor((new Date() - rd) / 86400000);
     const ds = rd.toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' });
     set('es-bean-age', ds + ' (' + diff + ' days off-roast)');
@@ -5782,7 +5876,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 			requestId: request.requestId,
 			status: 200,
 			headers: { "Content-Type": "text/html; charset=utf-8" },
-			body: devPageShell("Edit Shot", buildContent$2(), styles$3, [devApiScript, pageScript$3])
+			body: devPageShell("Edit Shot", buildContent$2(), styles$4, [devApiScript, pageScript$4])
 		};
 	}
 	//#endregion
@@ -5799,7 +5893,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 		"Profile",
 		"Grinder"
 	];
-	var styles$2 = `
+	var styles$3 = `
   ${sortSidebarCss()}
   ${pickerCardCss()}
   .dye-tab-strip {
@@ -5825,7 +5919,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
     color: var(--mimoja-blue); padding: 10px 2px 0;
   }
 `;
-	var content = `
+	var content$1 = `
 <div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
   ${pickerHeaderHtml("DYE Auto Favourites", "CONFIRM")}
   <div class="flex flex-1 overflow-hidden">
@@ -5841,7 +5935,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
   </div>
 </div>
 `;
-	var pageScript$2 = `
+	var pageScript$3 = `
 ${sortSidebarScript}
 
 let favsCache = [];
@@ -6005,12 +6099,12 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 			requestId: request.requestId,
 			status: 200,
 			headers: { "Content-Type": "text/html; charset=utf-8" },
-			body: devPageShell("Auto Favourites", content, styles$2, [devApiScript, pageScript$2])
+			body: devPageShell("Auto Favourites", content$1, styles$3, [devApiScript, pageScript$3])
 		};
 	}
 	//#endregion
 	//#region src/pages/auto-fav-edit.ts
-	var styles$1 = `
+	var styles$2 = `
   ${datePickerCss()}
   ${stepperCss()}
   ${toggleCss()}
@@ -6237,7 +6331,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 </div>
 `;
 	}
-	var pageScript$1 = `
+	var pageScript$2 = `
 ${toggleRowScript}
 ${segmentControlScript}
 
@@ -6605,17 +6699,17 @@ initAutoFavEdit().catch(e => console.error('initAutoFavEdit failed:', e));
 			requestId: request.requestId,
 			status: 200,
 			headers: { "Content-Type": "text/html; charset=utf-8" },
-			body: devPageShell("Edit Auto Favourite", buildContent$1(), styles$1, [
+			body: devPageShell("Edit Auto Favourite", buildContent$1(), styles$2, [
 				devApiScript,
 				datePickerScript(),
-				pageScript$1
+				pageScript$2
 			])
 		};
 	}
 	//#endregion
 	//#region src/pages/recipe-edit.ts
 	var NUM_RECIPES = 5;
-	var styles = `
+	var styles$1 = `
   ${stepperCss()}
   ${presetStripCss()}
   /* Figma 2396:728: fixed 270x60 pills, stroke #C5CDDA, text #5F7BA8 */
@@ -6948,7 +7042,7 @@ initAutoFavEdit().catch(e => console.error('initAutoFavEdit failed:', e));
 </div>
 `;
 	}
-	var pageScript = `
+	var pageScript$1 = `
 ${presetStripScript}
 ${segmentControlScript}
 
@@ -7544,7 +7638,486 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 			requestId: request.requestId,
 			status: 200,
 			headers: { "Content-Type": "text/html; charset=utf-8" },
-			body: devPageShell("Edit Recipes", buildContent(), styles, [devApiScript, pageScript])
+			body: devPageShell("Edit Recipes", buildContent(), styles$1, [devApiScript, pageScript$1])
+		};
+	}
+	//#endregion
+	//#region src/utils/bc-map.ts
+	/**
+	* Beanconqueror → DYE2 mapping.
+	*
+	* Exported as a browser-side script string (same pattern as dev-api.ts): the import
+	* page inlines it as a <script> block, and test/bc-map.test.mjs evals it. One source,
+	* no duplicated mapping table.
+	*
+	* Input is the `Beanconqueror.json` from a Beanconqueror backup ZIP — top-level keys
+	* BEANS, BREWS, MILL, PREPARATION, SETTINGS (plus others we ignore). Beanconqueror has
+	* no server and no API, so a re-run of the file import IS the sync mechanism.
+	*
+	* Shape difference that drives all of this: one Beanconqueror "bean" is one physical
+	* bag, while DYE2 splits Bean (identity) from BeanBatch (bag). So BC beans are grouped
+	* by roaster+name into one Bean with N batches — which is also how repeat purchases and
+	* frozen splits (frozenGroupId) land in the right place for free.
+	*/
+	var bcMapScript = `
+function bcTxt(v) { if (v == null) return null; var s = String(v).trim(); return s ? s : null; }
+function bcNum(v) { var n = parseFloat(v); return isFinite(n) ? n : null; }
+function bcIso(v) { if (!v) return null; var d = new Date(v); return isNaN(d.getTime()) ? null : d.toISOString(); }
+function bcSplit(v) { return String(v == null ? '' : v).split(/[,/;]+/).map(function (s) { return s.trim(); }).filter(Boolean); }
+function bcUniq(arr) { return [...new Set(arr.filter(Boolean))]; }
+function bcJoin(arr) { return bcUniq(arr).join(', ') || null; }
+
+/** Beanconqueror stores elevation free-text ("1800", "1800-2000 m") — pull the numbers out. */
+function bcAltitude(infos) {
+  var nums = [];
+  infos.forEach(function (i) {
+    (String(i.elevation == null ? '' : i.elevation).match(/\\d+/g) || []).forEach(function (n) {
+      var v = parseInt(n, 10);
+      if (v > 0) nums.push(v);
+    });
+  });
+  if (!nums.length) return null;
+  return [Math.min.apply(null, nums), Math.max.apply(null, nums)];
+}
+
+function bcBeanKey(roaster, name) {
+  return (String(roaster == null ? '' : roaster).trim() + '||' + String(name == null ? '' : name).trim()).toLowerCase();
+}
+
+/** Bean identity fields — everything that is true of the coffee, not of one bag. */
+function bcBeanFields(b) {
+  var infos = Array.isArray(b.bean_information) ? b.bean_information : [];
+  var varieties = [];
+  infos.forEach(function (i) { varieties = varieties.concat(bcSplit(i.variety)); });
+  varieties = bcUniq(varieties);
+  return {
+    roaster: bcTxt(b.roaster) || 'Unknown',
+    name: bcTxt(b.name) || 'Unnamed',
+    decaf: !!b.decaffeinated,
+    country: bcJoin(infos.map(function (i) { return bcTxt(i.country); })),
+    region: bcJoin(infos.map(function (i) { return bcTxt(i.region); })),
+    producer: bcJoin(infos.map(function (i) { return bcTxt(i.farm) || bcTxt(i.farmer); })),
+    processing: bcJoin(infos.map(function (i) { return bcTxt(i.processing); })),
+    variety: varieties.length ? varieties : null,
+    altitude: bcAltitude(infos),
+    notes: bcTxt(b.aromatics),
+  };
+}
+
+/** Bag fields — one BC bean record becomes one DYE2 batch. */
+function bcBatchFields(b, usedGrams, currency) {
+  var infos = Array.isArray(b.bean_information) ? b.bean_information : [];
+  var roast = bcTxt(b.roast);
+  // Real exports store the enum key ('UNKNOWN'), the docs the value ('Unknown') — drop both.
+  var level = roast === 'Custom' ? bcTxt(b.roast_custom)
+    : (roast && roast.toLowerCase() === 'unknown' ? null : roast);
+  var weight = bcNum(b.weight);
+  var freeze = bcIso(b.frozenDate);
+  var unfreeze = bcIso(b.unfrozenDate);
+  var storage = bcTxt(b.frozenStorageType);
+  var notes = [
+    bcTxt(b.note),
+    bcTxt(b.frozenNote),
+    (storage && storage !== 'UNKNOWN') ? 'Frozen in: ' + storage.toLowerCase().replace(/_/g, ' ') : null,
+  ].filter(Boolean).join('\\n') || null;
+  var uuid = (b.config && b.config.uuid) || (bcBeanKey(b.roaster, b.name) + '@' + (b.roastingDate || ''));
+  var batch = {
+    roastDate: bcIso(b.roastingDate),
+    roastLevel: level,
+    harvestDate: bcJoin(infos.map(function (i) { return bcTxt(i.harvest_time); })),
+    qualityScore: bcNum(b.cupping_points),
+    price: bcNum(b.cost),
+    weight: weight,
+    // BC has no "remaining" field — it derives it from logged brews. Do the same sum here.
+    weightRemaining: weight == null ? null : Math.round(Math.max(0, weight - (usedGrams || 0)) * 10) / 10,
+    buyDate: bcIso(b.buyDate),
+    openDate: bcIso(b.openDate),
+    bestBeforeDate: bcIso(b.bestDate),
+    freezeDate: freeze,
+    unfreezeDate: unfreeze,
+    frozen: !!freeze && !unfreeze,
+    archived: !!b.finished,
+    notes: notes,
+    extras: {
+      bcUuid: uuid,
+      bcFrozenId: bcTxt(b.frozenId),
+      bcFrozenGroupId: bcTxt(b.frozenGroupId),
+      bcRating: bcNum(b.rating),
+      bcUrl: bcTxt(b.url),
+      bcEan: bcTxt(b.ean_article_number),
+    },
+  };
+  if (currency && batch.price != null) batch.currency = currency;
+  return batch;
+}
+
+/** BEANS + BREWS → [{ key, bean, batches }], newest roast first within each group. */
+function bcMapBeans(json) {
+  var beans = Array.isArray(json.BEANS) ? json.BEANS : [];
+  var brews = Array.isArray(json.BREWS) ? json.BREWS : [];
+  var settings = Array.isArray(json.SETTINGS) ? json.SETTINGS[0] : json.SETTINGS;
+  var currency = bcTxt(settings && settings.currency);
+
+  var used = {};
+  brews.forEach(function (br) {
+    var g = parseFloat(br.grind_weight);
+    if (br.bean && isFinite(g)) used[br.bean] = (used[br.bean] || 0) + g;
+  });
+
+  var groups = new Map();
+  beans.slice()
+    .sort(function (a, b) { return new Date(b.roastingDate || 0) - new Date(a.roastingDate || 0); })
+    .forEach(function (b) {
+      var fields = bcBeanFields(b);
+      var key = bcBeanKey(fields.roaster, fields.name);
+      var group = groups.get(key);
+      // Newest bag wins for identity fields (sorted above), older bags only add batches.
+      if (!group) { group = { key: key, bean: fields, batches: [] }; groups.set(key, group); }
+      group.batches.push(bcBatchFields(b, used[b.config && b.config.uuid], currency));
+    });
+  return [...groups.values()];
+}
+
+/** MILL → grinders. Beanconqueror mills carry no burr or step data, so those stay empty. */
+function bcMapMills(json) {
+  return (Array.isArray(json.MILL) ? json.MILL : []).map(function (m) {
+    return {
+      model: bcTxt(m.name) || 'Unnamed grinder',
+      notes: bcTxt(m.note),
+      archived: !!m.finished,
+      settingType: 'numeric',
+      extras: { bcUuid: (m.config && m.config.uuid) || null },
+    };
+  });
+}
+
+/** PREPARATION + tools (portafilters, baskets, drippers). The bridge has no equipment
+    resource, so this is parked in the DYE2 KV store as reference data. */
+function bcMapEquipment(json) {
+  return (Array.isArray(json.PREPARATION) ? json.PREPARATION : []).map(function (p) {
+    return {
+      name: bcTxt(p.name) || 'Unnamed',
+      style: bcTxt(p.style_type),
+      note: bcTxt(p.note),
+      archived: !!p.finished,
+      tools: (Array.isArray(p.tools) ? p.tools : [])
+        .filter(function (t) { return t && !t.finished; })
+        .map(function (t) { return bcTxt(t.name); })
+        .filter(Boolean),
+      bcUuid: (p.config && p.config.uuid) || null,
+    };
+  });
+}
+`;
+	//#endregion
+	//#region src/pages/bc-import.ts
+	var styles = `
+  .bc-panel {
+    border: 2px solid var(--profile-button-outline-color);
+    border-radius: 15px;
+    background: var(--box-color);
+    padding: 24px;
+  }
+  .bc-label {
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px;
+    color: var(--mimoja-blue); margin-bottom: 12px;
+  }
+  .bc-hint { font-size: 20px; line-height: 1.5; color: var(--low-contrast-white); }
+  .bc-textarea {
+    width: 100%; height: 300px; resize: none; padding: 16px;
+    border: 2px solid var(--profile-button-outline-color); border-radius: 15px;
+    font-family: monospace; font-size: 18px; color: var(--text-primary);
+    background: transparent; outline: none;
+  }
+  .bc-file-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 82px; padding: 0 40px; border-radius: 68px;
+    border: 2px solid var(--mimoja-blue); color: var(--mimoja-blue);
+    font-weight: 700; font-size: 24px; cursor: pointer;
+  }
+  .bc-report {
+    height: 100%; overflow-y: auto; font-size: 20px; line-height: 1.6;
+    color: var(--text-primary); white-space: pre-wrap; word-break: break-word;
+  }
+  .bc-report .bc-add  { color: #2E7D32; }
+  .bc-report .bc-upd  { color: var(--mimoja-blue); }
+  .bc-report .bc-skip { color: var(--low-contrast-white); }
+  .bc-report .bc-err  { color: #DA515E; }
+`;
+	var content = `
+<div class="bg-[var(--bgmain-color)] overflow-hidden flex-grow flex flex-col">
+  ${pickerHeaderHtml("Import from Beanconqueror", "IMPORT")}
+  <div class="flex flex-1 overflow-hidden gap-[30px] p-[30px]">
+    <div class="bc-panel flex flex-col gap-[20px] w-[820px] shrink-0">
+      <div>
+        <div class="bc-label">1. Get the file</div>
+        <div class="bc-hint">
+          In Beanconqueror: Settings &rarr; Export. Unzip the backup and take
+          <b>Beanconqueror.json</b> (plus <b>Beanconqueror_Beans_0.json</b> if your export
+          was split into chunks).
+        </div>
+      </div>
+      <div>
+        <div class="bc-label">2. Load it here</div>
+        <label class="bc-file-btn">
+          CHOOSE FILE
+          <input id="bc-file" type="file" accept=".json,application/json" class="hidden">
+        </label>
+        <span id="bc-file-name" class="bc-hint ml-[16px]"></span>
+      </div>
+      <div class="flex flex-col flex-1 min-h-0">
+        <div class="bc-label">…or paste the JSON</div>
+        <textarea id="bc-text" class="bc-textarea" placeholder="{ &quot;BEANS&quot;: [ … ] }" spellcheck="false"></textarea>
+      </div>
+    </div>
+    <div class="bc-panel flex-1 min-w-0">
+      <div id="bc-report" class="bc-report">Nothing loaded yet.</div>
+    </div>
+  </div>
+</div>
+`;
+	var pageScript = `
+${bcMapScript}
+
+let bcPlan = null;
+let bcImporting = false;
+
+function bcEsc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function bcLine(cls, text) { return '<div class="' + cls + '">' + bcEsc(text) + '</div>'; }
+
+function bcSetReport(html) { document.getElementById('bc-report').innerHTML = html; }
+
+function bcEnableImport(on) {
+  const btn = document.getElementById('dye-confirm-btn');
+  if (!btn) return;
+  btn.disabled = !on;
+  btn.classList.toggle('opacity-50', !on);
+}
+
+/** Only fill DYE2 fields that are still empty — a hand-edited bean never loses data
+    to Beanconqueror, which matters because this page gets re-run on every backup. */
+function bcFillEmptyPatch(existing, incoming) {
+  const patch = {};
+  Object.keys(incoming).forEach(function (k) {
+    if (k === 'decaf' || k === 'roaster' || k === 'name') return;
+    const cur = existing[k];
+    const empty = cur == null || cur === '' || (Array.isArray(cur) && cur.length === 0);
+    if (empty && incoming[k] != null) patch[k] = incoming[k];
+  });
+  return patch;
+}
+
+function bcBatchCreatePayload(batch) {
+  // POST /beans/:id/batches accepts neither archived nor weightRemaining — those go
+  // in a follow-up PUT (see bcRunImport).
+  const p = Object.assign({}, batch);
+  delete p.archived;
+  delete p.weightRemaining;
+  return p;
+}
+
+function bcBatchUpdatePayload(batch) {
+  // weightRemaining is left alone on update: the tablet decrements it per shot, and
+  // Beanconqueror's own idea of what is left is staler than that.
+  const p = Object.assign({}, batch);
+  delete p.weightRemaining;
+  return p;
+}
+
+async function bcBuildPlan(json) {
+  const groups = bcMapBeans(json);
+  const mills = bcMapMills(json);
+  const equipment = bcMapEquipment(json);
+
+  const existingBeans = await getBeans(true);
+  const beanByKey = {};
+  existingBeans.forEach(function (b) { beanByKey[bcBeanKey(b.roaster, b.name)] = b; });
+
+  // Batches are matched on the Beanconqueror uuid we stored in extras on a previous run.
+  const batchByUuid = {};
+  await Promise.all(existingBeans.map(async function (b) {
+    // includeArchived matters: a finished bag is archived, and if it is not listed here
+    // its bcUuid goes unmatched and the next import re-creates it as a duplicate.
+    const batches = await getBeanBatches(b.id, true).catch(function () { return []; });
+    (Array.isArray(batches) ? batches : []).forEach(function (bt) {
+      const uuid = bt.extras && bt.extras.bcUuid;
+      if (uuid) batchByUuid[uuid] = bt;
+    });
+  }));
+
+  const existingGrinders = await getGrinders(true);
+  const grinderModels = new Set(existingGrinders.map(function (g) { return String(g.model || '').trim().toLowerCase(); }));
+
+  const plan = { beans: [], grinders: [], equipment: equipment, counts: { beanNew: 0, beanUpd: 0, batchNew: 0, batchUpd: 0, grinderNew: 0 } };
+
+  groups.forEach(function (g) {
+    const existing = beanByKey[g.key] || null;
+    const patch = existing ? bcFillEmptyPatch(existing, g.bean) : {};
+    if (!existing) plan.counts.beanNew++;
+    else if (Object.keys(patch).length) plan.counts.beanUpd++;
+    const batches = g.batches.map(function (batch) {
+      const match = batchByUuid[batch.extras.bcUuid] || null;
+      if (match) plan.counts.batchUpd++; else plan.counts.batchNew++;
+      return { payload: batch, batchId: match ? match.id : null };
+    });
+    plan.beans.push({ key: g.key, bean: g.bean, beanId: existing ? existing.id : null, patch: patch, batches: batches });
+  });
+
+  mills.forEach(function (m) {
+    if (grinderModels.has(m.model.trim().toLowerCase())) return;
+    plan.counts.grinderNew++;
+    plan.grinders.push(m);
+  });
+
+  return plan;
+}
+
+function bcRenderPlan(plan) {
+  const c = plan.counts;
+  let out = '<div class="bc-label">Ready to import</div>';
+  out += bcLine('bc-add', '+ ' + c.beanNew + ' new beans, ' + c.batchNew + ' new batches');
+  out += bcLine('bc-upd', '~ ' + c.beanUpd + ' beans get missing fields filled, ' + c.batchUpd + ' batches refreshed');
+  out += bcLine('bc-add', '+ ' + c.grinderNew + ' new grinders');
+  out += bcLine('bc-skip', '· ' + plan.equipment.length + ' preparation setups (baskets, drippers) stored as reference data');
+  out += '<div style="height:16px"></div>';
+  plan.beans.forEach(function (g) {
+    const mark = g.beanId ? (Object.keys(g.patch).length ? '~' : '·') : '+';
+    const cls = mark === '+' ? 'bc-add' : (mark === '~' ? 'bc-upd' : 'bc-skip');
+    out += bcLine(cls, mark + ' ' + g.bean.roaster + ' — ' + g.bean.name + '  (' + g.batches.length + ' batch' + (g.batches.length === 1 ? '' : 'es') + ')');
+  });
+  plan.grinders.forEach(function (g) { out += bcLine('bc-add', '+ grinder: ' + g.model); });
+  return out;
+}
+
+async function bcAnalyse(text, sourceName) {
+  bcPlan = null;
+  bcEnableImport(false);
+  bcSetReport('Reading ' + bcEsc(sourceName) + ' …');
+  let json;
+  try {
+    json = JSON.parse(text);
+  } catch (e) {
+    bcSetReport(bcLine('bc-err', 'That is not valid JSON: ' + e.message));
+    return;
+  }
+  if (!json || (!json.BEANS && !json.MILL && !json.PREPARATION)) {
+    bcSetReport(bcLine('bc-err', 'No BEANS / MILL / PREPARATION in this file — is it a Beanconqueror export?'));
+    return;
+  }
+  try {
+    bcPlan = await bcBuildPlan(json);
+  } catch (e) {
+    bcSetReport(bcLine('bc-err', 'Could not read current DYE2 data: ' + e.message));
+    return;
+  }
+  bcSetReport(bcRenderPlan(bcPlan));
+  const c = bcPlan.counts;
+  bcEnableImport(c.beanNew + c.beanUpd + c.batchNew + c.batchUpd + c.grinderNew + bcPlan.equipment.length > 0);
+}
+
+async function bcRunImport() {
+  if (!bcPlan || bcImporting) return;
+  bcImporting = true;
+  bcEnableImport(false);
+  const done = { beans: 0, batches: 0, grinders: 0 };
+  const errors = [];
+  const total = bcPlan.beans.length;
+
+  for (let i = 0; i < bcPlan.beans.length; i++) {
+    const g = bcPlan.beans[i];
+    bcSetReport(bcLine('bc-upd', 'Importing ' + (i + 1) + ' / ' + total + ' — ' + g.bean.roaster + ' ' + g.bean.name));
+    try {
+      let beanId = g.beanId;
+      if (!beanId) {
+        const created = await createBean(g.bean);
+        beanId = created.id;
+      } else if (Object.keys(g.patch).length) {
+        await updateBean(beanId, g.patch);
+      }
+      done.beans++;
+      for (const b of g.batches) {
+        if (b.batchId) {
+          await updateBeanBatch(b.batchId, bcBatchUpdatePayload(b.payload));
+        } else {
+          const created = await createBeanBatch(beanId, bcBatchCreatePayload(b.payload));
+          const needsPut = b.payload.archived || (b.payload.weightRemaining != null && b.payload.weightRemaining !== b.payload.weight);
+          if (created && created.id && needsPut) {
+            await updateBeanBatch(created.id, { archived: !!b.payload.archived, weightRemaining: b.payload.weightRemaining });
+          }
+        }
+        done.batches++;
+      }
+    } catch (e) {
+      errors.push(g.bean.roaster + ' ' + g.bean.name + ': ' + e.message);
+    }
+  }
+
+  for (const gr of bcPlan.grinders) {
+    try {
+      // POST /grinders takes neither archived nor extras — same follow-up PUT as batches.
+      const payload = Object.assign({}, gr);
+      delete payload.archived;
+      delete payload.extras;
+      const created = await createGrinder(payload);
+      if (created && created.id && (gr.archived || gr.extras)) {
+        await updateGrinder(created.id, { archived: !!gr.archived, extras: gr.extras });
+      }
+      done.grinders++;
+    } catch (e) { errors.push('grinder ' + gr.model + ': ' + e.message); }
+  }
+
+  if (bcPlan.equipment.length) {
+    try { await kvSetArray('bcEquipment', bcPlan.equipment); }
+    catch (e) { errors.push('equipment: ' + e.message); }
+  }
+
+  let out = '<div class="bc-label">Import finished</div>';
+  out += bcLine('bc-add', done.beans + ' beans, ' + done.batches + ' batches, ' + done.grinders + ' grinders');
+  errors.forEach(function (e) { out += bcLine('bc-err', '! ' + e); });
+  out += '<div style="height:16px"></div>';
+  out += bcLine('bc-skip', 'Re-run this page after your next Beanconqueror export to pick up changes.');
+  bcSetReport(out);
+  bcImporting = false;
+}
+
+function bcInit() {
+  bcEnableImport(false);
+  const cancelBtn = document.getElementById('dye-cancel-btn');
+  if (cancelBtn) cancelBtn.addEventListener('click', function () { window.location.href = 'bean-picker'; });
+  const confirmBtn = document.getElementById('dye-confirm-btn');
+  if (confirmBtn) confirmBtn.addEventListener('click', function () { bcRunImport().catch(function (e) { bcSetReport(bcLine('bc-err', e.message)); }); });
+
+  const file = document.getElementById('bc-file');
+  file.addEventListener('change', async function () {
+    const f = file.files && file.files[0];
+    if (!f) return;
+    document.getElementById('bc-file-name').textContent = f.name;
+    bcAnalyse(await f.text(), f.name);
+  });
+
+  // Paste is the primary path: REA's WebView does not always wire up Android's file chooser.
+  const ta = document.getElementById('bc-text');
+  let timer = null;
+  ta.addEventListener('input', function () {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      if (ta.value.trim()) bcAnalyse(ta.value, 'pasted text');
+    }, 400);
+  });
+}
+
+bcInit();
+`;
+	function renderBcImportPage(request) {
+		return {
+			requestId: request.requestId,
+			status: 200,
+			headers: { "Content-Type": "text/html; charset=utf-8" },
+			body: devPageShell("Import from Beanconqueror", content, styles, [devApiScript, pageScript])
 		};
 	}
 	//#endregion
@@ -7577,6 +8150,7 @@ window.addEventListener('pageshow', function(e) { if (e.persisted) window.locati
 					case "auto-favs": return renderAutoFavsPage(request);
 					case "auto-fav-edit": return renderAutoFavEditPage(request);
 					case "recipe-edit": return renderRecipeEditPage(request);
+					case "bc-import": return renderBcImportPage(request);
 					case "plotly": return renderPlotlyAsset(request);
 					default: return {
 						requestId: request.requestId,

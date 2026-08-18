@@ -1,6 +1,6 @@
 {
   "name": "@streamline/dye2-plugin",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "private": true,
   "description": "Streamline/DYE2 plugin for bean and grinder management",
   "type": "module",
@@ -8,7 +8,8 @@
     "build:css": "tailwindcss -c tailwind.config.js -i src/styles/tailwind.css -o src/styles/tailwind.generated.css --minify",
     "build": "npm run build:css && vite build",
     "dev": "vite build --watch",
-    "serve": "node dev-server.mjs"
+    "serve": "node dev-server.mjs",
+    "test": "node --experimental-strip-types test/bc-map.test.mjs"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.19",

@@ -12,6 +12,7 @@ import { renderEditShotPage } from "./pages/edit-shot";
 import { renderAutoFavsPage } from "./pages/auto-favs";
 import { renderAutoFavEditPage } from "./pages/auto-fav-edit";
 import { renderRecipeEditPage } from "./pages/recipe-edit";
+import { renderBcImportPage } from "./pages/bc-import";
 
 export default function createPlugin(host: PluginHost): PluginInstance {
   function log(msg: string) {
@@ -70,6 +71,9 @@ export default function createPlugin(host: PluginHost): PluginInstance {
 
         case "recipe-edit":
           return renderRecipeEditPage(request);
+
+        case "bc-import":
+          return renderBcImportPage(request);
 
         // Not a page: the local Plotly bundle for the dashboard chart.
         case "plotly":

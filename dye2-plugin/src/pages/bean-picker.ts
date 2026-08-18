@@ -80,7 +80,10 @@ const styles = `
   }
   .dye-card-add svg { stroke: var(--mimoja-blue); }
 
-  .dye-card-name  { font-size: 22px; font-weight: 600; line-height: 1.3; }
+  /* Keep the centred name clear of the absolutely-positioned pencil (34px wide, 8px in):
+     the card's own 18px padding leaves 24px to make up, applied both sides so the text
+     stays centred. Long names now wrap instead of running under the icon. */
+  .dye-card-name  { font-size: 22px; font-weight: 600; line-height: 1.3; padding: 0 24px; }
   .dye-card-sub   { font-size: 20px; font-weight: 400; opacity: 0.7; }
   .dye-card-date  { font-size: 19px; font-weight: 400; opacity: 0.6; margin-top: 4px; }
   .dye-card.dye-card-selected .dye-card-sub,
@@ -246,6 +249,12 @@ function renderBeanCards(grid, beans, confirmBtn) {
   addCard.innerHTML = '<span>ADD NEW BEANS</span><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
   addCard.addEventListener('click', () => { window.location.href = 'add-bean'; });
   grid.appendChild(addCard);
+
+  const bcCard = document.createElement('div');
+  bcCard.className = 'dye-card dye-card-add';
+  bcCard.innerHTML = '<span>IMPORT FROM BEANCONQUEROR</span>';
+  bcCard.addEventListener('click', () => { window.location.href = 'bc-import'; });
+  grid.appendChild(bcCard);
 
   beans.forEach(bean => {
     const card = document.createElement('div');

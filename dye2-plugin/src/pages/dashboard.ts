@@ -343,7 +343,7 @@ function buildContent(): string { return `
                  RPM under Drink. -->
             <div class="flex items-center gap-[45px] flex-1 justify-center">
               <div class="flex items-center gap-[18px]">
-                <span class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px]">Grind</span>
+                <span id="dye-grind-label" class="font-bold text-[24px] text-[var(--mimoja-blue)] w-[75px] cursor-pointer">Grind</span>
                 <div class="flex items-center gap-[24px]">
                   <button id="dye-grind-minus" class="flex items-center justify-center w-[72px] h-[72px] bg-[#EDEDED] rounded-[15px] cursor-pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
                   <span id="dye-grind-value" class="font-bold text-[26px] text-[var(--text-primary)] w-[72px] text-center">—</span>
@@ -890,6 +890,19 @@ function setupDropdownToggle(btnId, dropdownId) {
   });
 }
 
+
+// Roast date of the batch the workflow points at. Async fetch, cached, re-renders once.
+let roastDateCache = {};
+function batchRoastDate(batchId) {
+  if (!batchId) return '';
+  if (roastDateCache[batchId] !== undefined) return roastDateCache[batchId] || '';
+  roastDateCache[batchId] = null;
+  getBeanBatch(batchId)
+    .then(function (b) { roastDateCache[batchId] = (b && b.roastDate) || ''; renderNextShot(); })
+    .catch(function () { roastDateCache[batchId] = ''; });
+  return '';
+}
+
 function renderNextShot() {
   if (!currentWorkflow) return;
   const dateEl = document.getElementById('dye-next-date');
@@ -919,7 +932,9 @@ function renderNextShot() {
   const roastInfoEl = document.getElementById('dye-bean-roast-info');
   const coffeeName = ctx.coffeeName || '';
   const coffeeRoaster = ctx.coffeeRoaster || '';
-  const roastDate = ctx.roastDate || '';
+  // WorkflowContext has no roastDate field — the bridge drops it — so the date comes from
+  // the linked batch instead. Cached per batch id; the fetch fills it in on the next render.
+  const roastDate = ctx.roastDate || batchRoastDate(ctx.beanBatchId);
   if (beanNameEl) beanNameEl.textContent = coffeeName || '— Select Beans';
   if (roastInfoEl) {
     if (coffeeRoaster || roastDate) {
@@ -1196,6 +1211,14 @@ function setupProfileName() {
   el.addEventListener('click', () => { window.location.href = 'profile-picker'; });
 }
 
+// The Grind label is the only way into the grinders page — nothing else links to it.
+// The page's own DONE does history.back(), so no ?return= is needed.
+function setupGrindLabel() {
+  const el = document.getElementById('dye-grind-label');
+  if (!el) return;
+  el.addEventListener('click', () => { window.location.href = 'grinders'; });
+}
+
 // Names previously used on shots, so Barista / Drinker can be picked instead of retyped.
 async function distinctNames(key) {
   const res = await getShots({ limit: 200 }).catch(() => []);
@@ -1445,6 +1468,7 @@ async function initializeDyeDashboard() {
   setupDoseControls();
   setupBeanCard();
   setupProfileName();
+  setupGrindLabel();
   setupNameField('dye-barista-field', 'dye-next-barista', 'baristaName');
   setupNameField('dye-drinker-field', 'dye-next-drinker', 'drinkerName');
   setupClipboardPaste();

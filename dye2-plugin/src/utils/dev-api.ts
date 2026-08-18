@@ -13,8 +13,9 @@ async function getBeans(includeArchived = false) {
   return res.json();
 }
 
-async function getBeanBatches(beanId) {
-  const res = await fetch(API_BASE_URL + '/beans/' + beanId + '/batches');
+async function getBeanBatches(beanId, includeArchived = false) {
+  const params = includeArchived ? '?includeArchived=true' : '';
+  const res = await fetch(API_BASE_URL + '/beans/' + beanId + '/batches' + params);
   if (!res.ok) throw new Error('HTTP ' + res.status);
   return res.json();
 }
@@ -68,6 +69,26 @@ async function updateBeanBatch(batchId, data) {
 async function getGrinders(includeArchived = false) {
   const params = includeArchived ? '?includeArchived=true' : '';
   const res = await fetch(API_BASE_URL + '/grinders' + params);
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
+async function createGrinder(data) {
+  const res = await fetch(API_BASE_URL + '/grinders', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
+async function updateGrinder(id, data) {
+  const res = await fetch(API_BASE_URL + '/grinders/' + id, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
   if (!res.ok) throw new Error('HTTP ' + res.status);
   return res.json();
 }
