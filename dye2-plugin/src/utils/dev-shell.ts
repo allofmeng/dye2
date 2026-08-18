@@ -115,6 +115,22 @@ function cssVarFallbacks(): string {
       user-select: text; -webkit-user-select: text; -webkit-touch-callout: default;
     }
     .no-select { user-select: none; -webkit-user-select: none; }
+
+    /* Focus mode: the field being edited goes white so it stands out across the page.
+       Fields drawn transparent inside a bordered wrapper paint the wrapper instead. */
+    input:focus, textarea:focus, select:focus, [contenteditable="true"]:focus {
+      background: #fff;
+      color: #111;
+      caret-color: var(--mimoja-blue);
+    }
+    input:focus::placeholder, textarea:focus::placeholder { color: #9CA3AF; }
+    .dye-form-input-wrap:focus-within, .re-input-row:focus-within {
+      background: #fff;
+      border-color: var(--mimoja-blue);
+    }
+    .dye-form-input-wrap:focus-within .dye-form-input,
+    .dye-form-input-wrap:focus-within .dye-form-textarea,
+    .re-input-row:focus-within .re-input { color: #111; }
   `;
 }
 

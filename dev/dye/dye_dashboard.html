@@ -442,6 +442,20 @@
     #dye-grinder-tabs::-webkit-scrollbar {
         display: none;
     }
+
+    /* focus mode: active field turns white */
+    input:focus, textarea:focus, select:focus {
+        background: #fff;
+        color: #111;
+        caret-color: var(--mimoja-blue);
+    }
+    input:focus::placeholder, textarea:focus::placeholder { color: #9CA3AF; }
+    .dye-form-input-wrap:focus-within {
+        background: #fff;
+        border-color: var(--mimoja-blue);
+    }
+    .dye-form-input-wrap:focus-within .dye-form-input,
+    .dye-form-input-wrap:focus-within .dye-form-textarea { color: #111; }
 </style>
 
 <script src="src/modules/dyeDashboard.js" type="module" defer></script>

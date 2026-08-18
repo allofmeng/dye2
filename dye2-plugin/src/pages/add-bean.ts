@@ -168,10 +168,18 @@ const styles = `
     outline: none;
     line-height: 1.2;
     width: 100%;
-    min-height: 479px;
+    height: 479px;
+    min-height: 120px;
     resize: vertical;
+    padding-bottom: 34px;
   }
-  .dye-form-textarea.dye-form-textarea-sm { min-height: 160px; }
+  /* ponytail: native resize grip is ~16px — too small for a finger. Enlarge + make it visible. */
+  .dye-form-textarea::-webkit-resizer {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, transparent 55%, var(--profile-button-outline-color) 55%, var(--profile-button-outline-color) 70%, transparent 70%, transparent 80%, var(--profile-button-outline-color) 80%);
+  }
+  .dye-form-textarea.dye-form-textarea-sm { height: 160px; min-height: 100px; }
   .dye-form-textarea::placeholder { color: var(--low-contrast-white); }
 `;
 
