@@ -39,7 +39,9 @@ const fitScript = `
     // auto-fill body's height on its own the way it auto-fills width — pin it explicitly.
     var root = document.body.firstElementChild;
     if (root) { root.style.width = '100%'; root.style.height = '100%'; }
+    lastSy = sy;
   }
+  var lastSy = 1;
   // Android's soft keyboard shrinks the viewport height (interactive-widget=overlays-content
   // only lands on newer WebViews, so we cannot rely on it). Refitting against that height
   // recomputes sy and visibly squashes the page mid-edit.
@@ -58,6 +60,47 @@ const fitScript = `
   apply();
   window.addEventListener('resize', apply);
   if (window.visualViewport) window.visualViewport.addEventListener('resize', apply);
+
+  // The page never moves for the keyboard (see above), so a field near the bottom of a
+  // modal ends up underneath it. Shift just that modal up by however much the keyboard
+  // covers the focused field. The overlay is a child of the scaled <body>, so its own
+  // translate is in design px -> divide the on-screen overlap by the current scale.
+  // ponytail: modal overlays only (nearest position:fixed ancestor). Inline page fields
+  // are not moved; wire the same shift to a wrapper if one ever sits under the keyboard.
+  var kbTarget = null;
+  function kbReset() {
+    if (kbTarget) { kbTarget.style.transform = kbTarget.__kbPrev || ''; kbTarget = null; }
+  }
+  function kbAdjust() {
+    var vv = window.visualViewport;
+    kbReset();
+    if (!vv) return;
+    var el = document.activeElement;
+    if (!el || !/^(INPUT|TEXTAREA)$/.test(el.tagName)) return;
+    // With interactive-widget=overlays-content the layout viewport keeps its full height
+    // and only the visual viewport shrinks; without it innerHeight shrinks too and this
+    // difference is 0 -- either way what is hidden is what sits past the visual viewport.
+    var box = el.getBoundingClientRect();
+    var overlap = box.bottom + 24 - (vv.offsetTop + vv.height);
+    if (overlap <= 0) return;
+    var node = el.parentElement;
+    while (node && node !== document.body) {
+      if (getComputedStyle(node).position === 'fixed') break;
+      node = node.parentElement;
+    }
+    if (!node || node === document.body) return;
+    kbTarget = node;
+    node.__kbPrev = node.style.transform;
+    node.style.transform = (node.__kbPrev ? node.__kbPrev + ' ' : '') +
+      'translateY(' + (-overlap / lastSy) + 'px)';
+  }
+  // The WebView fires the viewport resize while the keyboard animates in, often before
+  // focus has landed -- so re-check on focus changes too, one frame late so the field is
+  // laid out (and, on blur, so the next focus is already set).
+  function kbSoon() { setTimeout(kbAdjust, 50); }
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', kbSoon);
+  document.addEventListener('focusin', kbSoon);
+  document.addEventListener('focusout', kbSoon);
 })();
 `;
 

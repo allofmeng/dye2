@@ -29,3 +29,18 @@ assert(fits.join() === '1920x700,1920x1200', 'load-with-keyboard-open recovers o
 fits = []; fitW = 0; fitH = 0;
 set(1340, 800);                    // 8" tablet, no keyboard
 assert(fits.join() === '1340x800', '8-inch tablet fits normally');
+
+// --- keyboard shift (replica of kbAdjust's math in dev-shell.ts) ---------------
+// overlap = how far the focused field's bottom (+24px breathing room) sits past the
+// visual viewport; the modal translates by -overlap/scaleY because it lives inside
+// the scaled <body>.
+const kbShift = (boxBottom, vvOffsetTop, vvHeight, sy) => {
+  const overlap = boxBottom + 24 - (vvOffsetTop + vvHeight);
+  return overlap <= 0 ? 0 : -overlap / sy;
+};
+
+assert(kbShift(600, 0, 1200, 1) === 0, 'no keyboard: field visible, no shift');
+assert(kbShift(700, 0, 620, 1) === -104, 'keyboard covers field: shift by the overlap');
+assert(kbShift(596, 0, 620, 1) === 0, 'field ending just above the keyboard is left alone');
+assert(kbShift(700, 0, 620, 0.5) === -208, 'scaled page: shift is in design px, not screen px');
+assert(kbShift(700, 80, 540, 1) === -104, 'panned viewport (offsetTop) counts as covered');
