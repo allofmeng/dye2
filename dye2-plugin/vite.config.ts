@@ -27,8 +27,12 @@ export default defineConfig({
       closeBundle() {
         const outDir = resolve(__dirname, "../dye2.reaplugin");
         mkdirSync(outDir, { recursive: true });
+        // The source manifest is deliberately NOT named manifest.json: Decaid
+        // resolves a branch-source plugin root by looking for directories that
+        // contain a manifest.json, and refuses to install when it finds more
+        // than one. Only the build output may carry that name.
         copyFileSync(
-          resolve(__dirname, "manifest.json"),
+          resolve(__dirname, "manifest.src.json"),
           resolve(outDir, "manifest.json")
         );
       },

@@ -19,7 +19,7 @@ dye2/
 │   │   ├── api/          # Browser-side REST client (client.ts)
 │   │   └── utils/html.ts # html`` tagged template + escapeHtml()
 │   ├── dev-server.mjs    # Dev server: serves plugin pages, proxies /api/v1/* to bridge
-│   ├── manifest.json     # Plugin metadata and permissions
+│   ├── manifest.src.json # Plugin metadata and permissions (copied to the build output as manifest.json)
 │   └── vite.config.ts    # Builds to IIFE → ../../assets/plugins/dye2.reaplugin/plugin.js
 │
 ├── dev/                  # Plain JS/HTML for REA's native DYE workflow pages (no build step)
