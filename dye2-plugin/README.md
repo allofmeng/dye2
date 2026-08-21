@@ -62,7 +62,7 @@ Browser                          Decaid                     flutter_js
 
 ```
 packages/dye2-plugin/
-├── manifest.json             # Plugin metadata, permissions, HTTP endpoint declarations
+├── manifest.src.json         # Plugin metadata, permissions, HTTP endpoint declarations (built to manifest.json)
 ├── package.json              # @streamline/dye2-plugin, Vite + TypeScript
 ├── vite.config.ts            # Library mode build → single IIFE bundle
 ├── tsconfig.json
@@ -212,7 +212,7 @@ Management pages are standalone — open them directly or link to them from a sk
 1. Create a Web Component in `src/components/my-thing.ts` — export a string constant containing the component class definition (this runs in the browser, not flutter_js).
 2. Create a page generator in `src/pages/my-thing.ts` — import the component string and use `pageShell()` from `layout.ts` to wrap it in a full HTML document.
 3. Add a route in `src/plugin.ts` — add a `case` to the `__httpRequestHandler` switch.
-4. Declare the endpoint in `manifest.json` — add an entry to the `api` array with `"type": "http"`.
+4. Declare the endpoint in `manifest.src.json` — add an entry to the `api` array with `"type": "http"`.
 5. Build and test.
 
 ### Adding fields to an existing form

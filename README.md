@@ -213,7 +213,7 @@ dye2/
 │   │   ├── api/          # Browser-side REST client (client.ts)
 │   │   └── utils/        # html`` template, escaping, chart, date picker, etc.
 │   ├── dev-server.mjs    # Dev server: serves plugin pages, proxies /api/v1/* to bridge
-│   ├── manifest.json     # Plugin metadata and permissions
+│   ├── manifest.src.json # Plugin metadata and permissions (copied to the build output as manifest.json)
 │   └── vite.config.ts    # Builds to IIFE → ../dye2.reaplugin/plugin.js
 │
 ├── dev/                  # Plain JS/HTML for REA's native DYE workflow pages (no build step)
@@ -258,4 +258,8 @@ See `rea_restapi.yml` for the full Decaid OpenAPI spec (beans, batches, grinders
 
 ### Releasing
 
-Version is driven entirely by the git tag — push a `vX.Y.Z` tag and the release workflow (`.github/workflows/release.yml`) syncs `manifest.json` and `package.json` to match, builds, validates the output, and publishes `dye2.reaplugin-vX.Y.Z.zip` to Releases. Don't hand-bump the version in `manifest.json`.
+Version is driven entirely by the git tag — push a `vX.Y.Z` tag and the release workflow (`.github/workflows/release.yml`) syncs `dye2-plugin/manifest.src.json` and `package.json` to match, builds, validates the output, and publishes `dye2.reaplugin-vX.Y.Z.zip` to Releases.
+
+One exception to "never hand-bump": Decaid can also install this plugin straight from the `main` branch, and it rejects a branch install that would downgrade an existing install. So the committed `dye2-plugin/manifest.src.json` and `dye2.reaplugin/manifest.json` must never sit below the latest release tag — after tagging a release, bring the branch head up to that version and commit the rebuilt `dye2.reaplugin/`.
+
+The source manifest is named `manifest.src.json`, not `manifest.json`, on purpose: Decaid finds a branch-source plugin root by looking for directories containing a `manifest.json` and refuses to install when the archive has more than one. Only `dye2.reaplugin/manifest.json` may carry that name.
